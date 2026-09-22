@@ -51,3 +51,11 @@
 - Fixes made because of validation:
   - Absolute fullUrl on PUT entries (store.base).
   - UCUM {CFU}/dL for CFU/100 mL.
+
+## 2026-09-23 ~01:10 SGT — RemoteStore against the real OAH sandbox (read-only)
+- `npx tsx out/sandbox-read.ts` (scratch script) using src/core/store RemoteStore against `https://sandbox.hl7europe.eu/oneaquahealth/fhir`:
+  - Location search: 22 resources (first "Almyros"), paging followed.
+  - Observation search: 50 returned, e.g. code `aluminium-dissolved`, status final.
+  - `Library?description=Benevento`: 12.
+  - Single read round-trip: ~7.5 s including the searches.
+- So the same client code the app uses talks to the real HAPI server. **No writes yet**: the user has not authorized writing demo records to the shared sandbox.
