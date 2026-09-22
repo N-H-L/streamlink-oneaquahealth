@@ -238,7 +238,14 @@ export function buildPillars(site: Site, checks: CheckSummary[], labResults: Res
     people.items.push({ label: "How visitors feel here", value: `Positive ${p.toFixed(1)} / negative ${n.toFixed(1)} (0–10, ${wb.length} visit${wb.length === 1 ? "" : "s"})`, tone: p >= n ? "ok" : "warn", source: "Self-reported by volunteers", when: wb[0].effectiveDateTime });
   }
   if (site.baseline) {
-    people.items.push({ label: "Map-context risk", value: `${Math.round(site.baseline.score * 100)} / 100${site.baseline.percentile != null ? ` (higher than ${Math.round(site.baseline.percentile)}% of sites in this city)` : ""}`, tone: site.baseline.score >= 0.66 ? "bad" : site.baseline.score >= 0.33 ? "warn" : "ok", source: site.baseline.model });
+    const pct = site.baseline.percentile;
+    const d = site.baseline.features.distWastewaterM;
+    people.items.push({
+      label: "Map context (where to look first)",
+      value: pct != null ? `Ranks above ${Math.round(pct)}% of this city's streams${d != null ? `, ${d >= 1000 ? `${(d / 1000).toFixed(1)} km` : `${Math.round(d)} m`} from a wastewater plant` : ""}` : `Score ${site.baseline.score.toFixed(2)}`,
+      tone: (pct ?? 50) >= 75 ? "warn" : "info",
+      source: `${site.baseline.model} · ranking within this city only, not a measurement`,
+    });
   }
 
   for (const p of [env, animals, people]) {

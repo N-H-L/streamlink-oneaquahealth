@@ -94,8 +94,10 @@ export function prioritise(site: Site, checks: CheckSummary[], openReferral: boo
     lastLab,
     {
       key: "baseline", label: "Map context",
-      value: site.baseline?.score ?? 0.5,
-      reason: site.baseline ? baselineReason(site) : "No map features yet: treated as unknown (0.5)",
+      // Supported use is ranking WITHIN one city, so the factor is the site's city percentile,
+      // never the raw score (which must not be compared between cities). See data/baseline/model-v1.json.
+      value: baselineFactor(site),
+      reason: site.baseline ? baselineReason(site) : "No map features for this site: treated as unknown (0.5)",
     },
     {
       key: "labAge", label: "Age of lab picture",
@@ -109,13 +111,18 @@ export function prioritise(site: Site, checks: CheckSummary[], openReferral: boo
   return { site, score, factors, openReferral, topReason: top.reason };
 }
 
+export function baselineFactor(site: Site): number {
+  const b = site.baseline;
+  if (!b) return 0.5;
+  return b.percentile != null ? b.percentile / 100 : b.score;
+}
+
 function baselineReason(site: Site): string {
-  const f = site.baseline!.features;
-  const parts: string[] = [];
-  if (f.distWastewaterM != null) parts.push(`${fmtDist(f.distWastewaterM)} from a wastewater plant`);
-  if (f.distFarmlandM != null) parts.push(`${fmtDist(f.distFarmlandM)} from farmland`);
-  if (f.urbanFraction2km != null) parts.push(`${Math.round(f.urbanFraction2km)}% built-up within 2 km`);
-  return parts.length ? parts.join(", ") : "Map-context score";
+  const b = site.baseline!;
+  const f = b.features;
+  const where = f.distWastewaterM != null ? `${fmtDist(f.distWastewaterM)} from the nearest wastewater plant` : "map context";
+  const rank = b.percentile != null ? `, closer than ${Math.round(b.percentile)}% of this city's sites` : "";
+  return `${where}${rank}`;
 }
 
 export function fmtDist(m: number): string {

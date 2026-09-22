@@ -70,3 +70,15 @@
 - `npm test`: **20 passing** in 2 files.
   - core.test.ts (10): catalogue, 8 trust rules, FHIR extraction shape, the full lifecycle on the demo store, triage ordering and decay.
   - store.test.ts (10): urn:uuid resolution, ifNoneExist, PUT versioning, search by identifier/tag/status/reference incl. comma-OR, persistence and reset; RemoteStore transaction-response mapping, paging, error messages and unreachable-server handling (mocked fetch).
+
+## 2026-09-23 ~02:30 SGT — map-context baseline, honestly evaluated (analysis/REPORT.md, data/baseline/model-v1.json v1.1)
+- Features rebuilt from OpenStreetMap so they work in any city, then checked against OAH's own map features on the 96 lab sites: distance-to-wastewater-plant agrees at Spearman +0.83 pooled, built-up fraction +0.90.
+- **Data-quality finding to report back to the project:** 13 of 17 Ghent lab sites have `urbanPct2000m = 0` in the Resilience Map, and their farmland distances disagree with OSM (0.9–14.9 km vs 10–460 m). Ghent is the city where the model behaves worst.
+- **Evaluation, leave-one-city-out, pre-specified target (top tercile of healthRiskScore):**
+  - Shipped rule (distance to nearest wastewater plant, one fixed feature): within-city Spearman **+0.22 (permutation p = 0.025)**, within-city AUROC 0.63 (p = 0.030). Per city: Benevento +0.51, Coimbra +0.28, Oslo +0.23, Toulouse +0.08, Ghent −0.01.
+  - Across-city comparison: **not supported** (AUROC 0.55).
+  - The 3-feature logistic of v1.0: pooled held-out AUROC **0.33, worse than chance** — kept in the model card as a documented negative result, not shipped.
+  - A "best single feature chosen in-fold" variant initially looked strong (AUROC 0.72) but that was **an artifact** of pooling incomparable raw feature values across folds; scored correctly it is 0.32. Caught and corrected by the analysis specialist before shipping.
+- Consequence in the product: the map-context factor uses the site's **percentile within its own city**, never the raw score, and the UI never compares baselines between cities.
+- Headline shown in the app: "This score ranks the streams of one city by how close they are to a wastewater treatment plant, the one map signal that still held up when it was tested on cities the model had never seen (within-city"
+- Lead caveat: "What is supported: ordering sites WITHIN one city. What is not: comparing scores between cities, or reading a score as a risk level."

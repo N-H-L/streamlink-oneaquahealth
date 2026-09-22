@@ -180,7 +180,7 @@ export function Board({ cityId }: { cityId: string }) {
 const LABELS: Record<keyof Weights, { title: string; help: string }> = {
   events: { title: "Fresh volunteer reports", help: "Sewage, polluted pipes, foam, colour. Halves every 14 days; unverified reports count 70%, scaled by trust." },
   lastLab: { title: "Last lab result", help: "OneAquaHealth lab health-risk score (pathogens, fecal indicators, antibiotic resistance)." },
-  baseline: { title: "Map context", help: "Nearness to wastewater plants and farmland, and how built-up the area is. Calibrated on OAH lab data (see About the model)." },
+  baseline: { title: "Map context", help: "How close the stream is to a wastewater plant, as a rank within this city. It is the one map signal that held up when tested on cities the model had never seen; it never compares one city with another. See About." },
   labAge: { title: "Age of lab picture", help: "Two years or more without a lab visit counts fully." },
 };
 
