@@ -23,7 +23,7 @@ The record carries all three pillars for each stream and shows how old each one 
 ## Technical
 - **Standards.** A proposed extension to the OneAquaHealth IG (`fhir/`): Questionnaire, 9 profiles, 2 extensions, code systems, value sets, a ConceptMap onto OAH indicator codes, 19 examples and 5 negative tests. The OAH indicator profile fixes `status = final`, which is exactly why citizen data needs the preliminary→verified promotion we added.
 - **Proof.** The official HL7 validator runs in the build against the OAH IG plus ours: **0 errors** on the IG artefacts, on the 12 transactions the app's own code produces, and on every resource stored after a full lifecycle; 5/5 deliberately broken records are rejected. Verified offline and against tx.fhir.org.
-- **Architecture.** A static web app with no back end of ours: the FHIR server *is* the database. It ships with an in-browser demo store and can be pointed at the official OneAquaHealth sandbox, so a city can run it against their own server. Operating cost is effectively zero.
+- **Architecture.** A static web app with no back end of ours: the FHIR server *is* the database. We ran the complete lifecycle on the **official OneAquaHealth sandbox** — 28 records, all tagged `demo`, written and read back — so a city could point it at their own server. Operating cost is effectively zero.
 - **Evidence.** 25 tests including the whole lifecycle and both stores; an automated browser walkthrough; axe accessibility audit with 0 violations on six screens; an offline test that loads the installed app and takes a check with the network off. [SUS score]
 - **Calibration, with its limits measured.** We rebuilt OneAquaHealth's map context from OpenStreetMap so it works in any city, and tested it against their lab data with a pre-specified design, leaving one city out at a time. One signal survived: within a city, streams closer to a wastewater plant do rank higher for lab-measured risk (Spearman 0.22, permutation p = 0.03). Comparing cities is not supported, and the three-feature model we started with did worse than chance on a held-out city, so we did not ship it. The score says where to look first; citizens and the lab do the rest. We also found a data-quality problem worth reporting back: 13 of 17 Ghent lab sites have `urbanPct2000m = 0` in the Resilience Map.
 
@@ -32,6 +32,12 @@ The record carries all three pillars for each stream and shows how old each one 
 - Lab *results* in the demo are simulated and tagged `simulated` in FHIR; the demo scenario's volunteer checks are synthetic.
 - No biological indicator (macroinvertebrates, diatoms), because the OneAquaHealth citizen form has none.
 - We do not claim the trust rules or the baseline predict contamination beyond the evaluation shown.
+
+## What we found that may help the project
+1. **Resilience Map data:** 13 of 17 Ghent lab sites have `urbanPct2000m = 0`, and their farmland distances disagree with OpenStreetMap by kilometres. Ghent is also the city where our map baseline behaves worst, which is consistent with the data rather than the method.
+2. **FHIR sandbox CORS:** preflight responses carry two conflicting `Access-Control-Allow-Origin` headers, so browser-based entries cannot use the sandbox at all from another origin. Server-side clients are unaffected.
+3. **FHIR sandbox search caching:** a search issued immediately after a write can return the pre-write result; `Cache-Control: no-cache` avoids it.
+4. **A gap in the IG:** there is no model for citizen checks, and `observation-indicators-oah` fixes `status = final`, so citizen data cannot conform until an expert verifies it. Our proposed extension in `fhir/` handles exactly that, and is offered back to the project.
 
 ## Links
 - Repository: [URL]
