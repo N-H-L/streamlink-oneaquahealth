@@ -70,6 +70,8 @@ export function Board({ cityId }: { cityId: string }) {
         ))}
       </div>
 
+      <h1 className="board-title">{city.name}: which streams need a lab visit?</h1>
+
       <section className="stats" aria-label="Summary">
         <div className="stat">
           <div className="stat-value">{medianAge !== null ? `${medianAge} days` : "No lab data"}</div>

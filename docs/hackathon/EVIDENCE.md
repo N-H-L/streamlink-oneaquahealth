@@ -59,3 +59,9 @@
   - `Library?description=Benevento`: 12.
   - Single read round-trip: ~7.5 s including the searches.
 - So the same client code the app uses talks to the real HAPI server. **No writes yet**: the user has not authorized writing demo records to the shared sandbox.
+
+## 2026-09-23 ~01:30 SGT — accessibility audit (axe-core, real browser)
+- `npm run a11y` runs axe-core 4 (WCAG 2.1 A/AA rules) over the six main screens in headless Edge.
+- First run: 3 violations (board had no level-1 heading; two serious colour-contrast failures on small grey text).
+- After fixes (darker muted colour, a board heading): **0 violations on all six screens** (board, check-in, record, messages, about, settings).
+- Not covered by an automated audit: screen-reader flow, keyboard traps in the map, and real assistive-technology testing.

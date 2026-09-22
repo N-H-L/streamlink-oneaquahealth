@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit",
     "bundles": "tsx scripts/gen-bundles.ts",
     "validate": "tsx scripts/gen-bundles.ts && bash scripts/validate.sh && node scripts/publish-validation.mjs",
-    "e2e": "node scripts/e2e.mjs"
+    "e2e": "node scripts/e2e.mjs",
+    "a11y": "node scripts/a11y.mjs"
   },
   "dependencies": {
     "leaflet": "1.9",
@@ -26,6 +27,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^5.2.0",
+    "axe-core": "^4.13.0",
     "jsdom": "^26.1.0",
     "playwright-core": "^1.63.0",
     "tsx": "^4.23.15",
