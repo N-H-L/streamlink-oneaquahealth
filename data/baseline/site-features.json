@@ -1,0 +1,2712 @@
+{
+ "model": "streamlink-baseline-v1",
+ "note": "baselineScore is in-sample for lab sites (final model fitted on all 96); see model-v1.json evaluation for held-out performance.",
+ "sites": [
+  {
+   "code": "C1",
+   "city": "Coimbra",
+   "lat": 40.19787,
+   "lon": -8.42865,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3265.3,
+    "distFarmlandM": 374.2,
+    "urbanFrac2km": 0.2293,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "oah": {
+    "distanceToSewageStations": 4297.1,
+    "distChampCulture": 374.62,
+    "urbanPct2000m": 19.85
+   },
+   "lab": {
+    "healthRiskScore": 0.2199,
+    "scaledPathogenRisk": 0.0746,
+    "scaledFecalRisk": 0.2477,
+    "scaledArgRisk": 0.3374
+   },
+   "baselineScore": 0.3207,
+   "cityPercentile": 0.45
+  },
+  {
+   "code": "C2",
+   "city": "Coimbra",
+   "lat": 40.22483,
+   "lon": -8.44135,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 581.5,
+    "distFarmlandM": 339.2,
+    "urbanFrac2km": 0.1465,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "oah": {
+    "distanceToSewageStations": 761.69,
+    "distChampCulture": 780.94,
+    "urbanPct2000m": 14.36
+   },
+   "lab": {
+    "healthRiskScore": 0.4221,
+    "scaledPathogenRisk": 0.507,
+    "scaledFecalRisk": 0.5072,
+    "scaledArgRisk": 0.2522
+   },
+   "baselineScore": 0.4269,
+   "cityPercentile": 1.0
+  },
+  {
+   "code": "C3",
+   "city": "Coimbra",
+   "lat": 40.19307,
+   "lon": -8.41945,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 2508.2,
+    "distFarmlandM": 189.5,
+    "urbanFrac2km": 0.1576,
+    "nearestWwtpName": "ETAR de Torres do Mondego"
+   },
+   "oah": {
+    "distanceToSewageStations": 3283.61,
+    "distChampCulture": 189.88,
+    "urbanPct2000m": 13.33
+   },
+   "lab": {
+    "healthRiskScore": 0.2436,
+    "scaledPathogenRisk": 0.2973,
+    "scaledFecalRisk": 0.2051,
+    "scaledArgRisk": 0.2283
+   },
+   "baselineScore": 0.3115,
+   "cityPercentile": 0.3
+  },
+  {
+   "code": "C4",
+   "city": "Coimbra",
+   "lat": 40.25289,
+   "lon": -8.43659,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3197.5,
+    "distFarmlandM": 1423.5,
+    "urbanFrac2km": 0.1509,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "oah": {
+    "distanceToSewageStations": 4211.41,
+    "distChampCulture": 1424.49,
+    "urbanPct2000m": 19.61
+   },
+   "lab": {
+    "healthRiskScore": 0.0748,
+    "scaledPathogenRisk": 0.0496,
+    "scaledFecalRisk": 0.1409,
+    "scaledArgRisk": 0.0339
+   },
+   "baselineScore": 0.3698,
+   "cityPercentile": 0.7
+  },
+  {
+   "code": "C5",
+   "city": "Coimbra",
+   "lat": 40.2186,
+   "lon": -8.42733,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1830.9,
+    "distFarmlandM": 293.1,
+    "urbanFrac2km": 0.2293,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "oah": {
+    "distanceToSewageStations": 2398.28,
+    "distChampCulture": 294.16,
+    "urbanPct2000m": 26.86
+   },
+   "lab": {
+    "healthRiskScore": 0.7822,
+    "scaledPathogenRisk": 1.0,
+    "scaledFecalRisk": 1.0,
+    "scaledArgRisk": 0.3465
+   },
+   "baselineScore": 0.3475,
+   "cityPercentile": 0.55
+  },
+  {
+   "code": "C6",
+   "city": "Coimbra",
+   "lat": 40.21942,
+   "lon": -8.43772,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 974.0,
+    "distFarmlandM": 630.8,
+    "urbanFrac2km": 0.163,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "oah": {
+    "distanceToSewageStations": 1276.96,
+    "distChampCulture": 631.56,
+    "urbanPct2000m": 20.1
+   },
+   "lab": {
+    "healthRiskScore": 0.5952,
+    "scaledPathogenRisk": 0.7351,
+    "scaledFecalRisk": 0.6664,
+    "scaledArgRisk": 0.3841
+   },
+   "baselineScore": 0.4169,
+   "cityPercentile": 0.9
+  },
+  {
+   "code": "C7",
+   "city": "Coimbra",
+   "lat": 40.22243,
+   "lon": -8.40165,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3452.6,
+    "distFarmlandM": 251.3,
+    "urbanFrac2km": 0.2069,
+    "nearestWwtpName": "ETAR de Torres do Mondego"
+   },
+   "oah": {
+    "distanceToSewageStations": 4548.51,
+    "distChampCulture": 252.24,
+    "urbanPct2000m": 20.55
+   },
+   "lab": {
+    "healthRiskScore": 0.2504,
+    "scaledPathogenRisk": 0.1783,
+    "scaledFecalRisk": 0.5702,
+    "scaledArgRisk": 0.0027
+   },
+   "baselineScore": 0.3032,
+   "cityPercentile": 0.25
+  },
+  {
+   "code": "C8",
+   "city": "Coimbra",
+   "lat": 40.19133,
+   "lon": -8.46002,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3170.9,
+    "distFarmlandM": 1172.9,
+    "urbanFrac2km": 0.1696,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais de Ribeira de Frades"
+   },
+   "oah": {
+    "distanceToSewageStations": 4162.64,
+    "distChampCulture": 1210.98,
+    "urbanPct2000m": 13.55
+   },
+   "lab": {
+    "healthRiskScore": 0.4279,
+    "scaledPathogenRisk": 0.406,
+    "scaledFecalRisk": 0.4457,
+    "scaledArgRisk": 0.432
+   },
+   "baselineScore": 0.3633,
+   "cityPercentile": 0.6
+  },
+  {
+   "code": "C9",
+   "city": "Coimbra",
+   "lat": 40.27702,
+   "lon": -8.4272,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 5752.6,
+    "distFarmlandM": 433.7,
+    "urbanFrac2km": 0.1045,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 7577.9,
+    "distChampCulture": 1330.08,
+    "urbanPct2000m": 9.46
+   },
+   "lab": {
+    "healthRiskScore": 0.1964,
+    "scaledPathogenRisk": 0.1265,
+    "scaledFecalRisk": 0.1443,
+    "scaledArgRisk": 0.3186
+   },
+   "baselineScore": 0.2906,
+   "cityPercentile": 0.2
+  },
+  {
+   "code": "C10",
+   "city": "Coimbra",
+   "lat": 40.19776,
+   "lon": -8.41773,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 2432.9,
+    "distFarmlandM": 65.9,
+    "urbanFrac2km": 0.2444,
+    "nearestWwtpName": "ETAR de Torres do Mondego"
+   },
+   "oah": {
+    "distanceToSewageStations": 3186.25,
+    "distChampCulture": 66.09,
+    "urbanPct2000m": 17.16
+   },
+   "lab": {
+    "healthRiskScore": 0.1851,
+    "scaledPathogenRisk": 0.05,
+    "scaledFecalRisk": 0.4146,
+    "scaledArgRisk": 0.0906
+   },
+   "baselineScore": 0.2788,
+   "cityPercentile": 0.15
+  },
+  {
+   "code": "C11",
+   "city": "Coimbra",
+   "lat": 40.22752,
+   "lon": -8.43757,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 986.9,
+    "distFarmlandM": 357.7,
+    "urbanFrac2km": 0.1479,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "oah": {
+    "distanceToSewageStations": 1293.19,
+    "distChampCulture": 645.21,
+    "urbanPct2000m": 16.33
+   },
+   "lab": {
+    "healthRiskScore": 0.1278,
+    "scaledPathogenRisk": 0.0509,
+    "scaledFecalRisk": 0.187,
+    "scaledArgRisk": 0.1456
+   },
+   "baselineScore": 0.3936,
+   "cityPercentile": 0.85
+  },
+  {
+   "code": "C12",
+   "city": "Coimbra",
+   "lat": 40.20386,
+   "lon": -8.45302,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 2165.0,
+    "distFarmlandM": 6.9,
+    "urbanFrac2km": 0.1297,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "oah": {
+    "distanceToSewageStations": 2815.42,
+    "distChampCulture": 242.6,
+    "urbanPct2000m": 15.08
+   },
+   "lab": {
+    "healthRiskScore": 0.5324,
+    "scaledPathogenRisk": 0.4217,
+    "scaledFecalRisk": 0.8051,
+    "scaledArgRisk": 0.3704
+   },
+   "baselineScore": 0.2747,
+   "cityPercentile": 0.1
+  },
+  {
+   "code": "C13",
+   "city": "Coimbra",
+   "lat": 40.11106,
+   "lon": -8.49052,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1230.9,
+    "distFarmlandM": 258.3,
+    "urbanFrac2km": 0.0362,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 1620.21,
+    "distChampCulture": 7796.3,
+    "urbanPct2000m": 0.43
+   },
+   "lab": {
+    "healthRiskScore": 0.2165,
+    "scaledPathogenRisk": 0.1499,
+    "scaledFecalRisk": 0.2287,
+    "scaledArgRisk": 0.2708
+   },
+   "baselineScore": 0.3648,
+   "cityPercentile": 0.65
+  },
+  {
+   "code": "C14",
+   "city": "Coimbra",
+   "lat": 40.16719,
+   "lon": -8.47817,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 4529.8,
+    "distFarmlandM": 3123.5,
+    "urbanFrac2km": 0.1266,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 5954.39,
+    "distChampCulture": 3128.16,
+    "urbanPct2000m": 13.06
+   },
+   "lab": {
+    "healthRiskScore": 0.2243,
+    "scaledPathogenRisk": 0.2241,
+    "scaledFecalRisk": 0.1143,
+    "scaledArgRisk": 0.3343
+   },
+   "baselineScore": 0.3767,
+   "cityPercentile": 0.75
+  },
+  {
+   "code": "C15",
+   "city": "Coimbra",
+   "lat": 40.17943,
+   "lon": -8.42117,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3013.7,
+    "distFarmlandM": 30.0,
+    "urbanFrac2km": 0.0814,
+    "nearestWwtpName": "ETAR de Torres do Mondego"
+   },
+   "oah": {
+    "distanceToSewageStations": 3951.15,
+    "distChampCulture": 30.06,
+    "urbanPct2000m": 4.69
+   },
+   "lab": {
+    "healthRiskScore": 0.3449,
+    "scaledPathogenRisk": 0.3791,
+    "scaledFecalRisk": 0.3851,
+    "scaledArgRisk": 0.2706
+   },
+   "baselineScore": 0.2561,
+   "cityPercentile": 0.05
+  },
+  {
+   "code": "C16",
+   "city": "Coimbra",
+   "lat": 40.22461,
+   "lon": -8.44304,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 436.9,
+    "distFarmlandM": 200.7,
+    "urbanFrac2km": 0.14,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "oah": {
+    "distanceToSewageStations": 572.3,
+    "distChampCulture": 794.04,
+    "urbanPct2000m": 13.01
+   },
+   "lab": {
+    "healthRiskScore": 0.3534,
+    "scaledPathogenRisk": 0.5063,
+    "scaledFecalRisk": 0.2531,
+    "scaledArgRisk": 0.3008
+   },
+   "baselineScore": 0.4253,
+   "cityPercentile": 0.95
+  },
+  {
+   "code": "C17",
+   "city": "Coimbra",
+   "lat": 40.17422,
+   "lon": -8.39363,
+   "hasLabData": false,
+   "osm": {
+    "distWwtpM": 1982.9,
+    "distFarmlandM": 142.8,
+    "urbanFrac2km": 0.0899,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": null,
+    "distChampCulture": null,
+    "urbanPct2000m": null
+   },
+   "lab": null,
+   "baselineScore": 0.3145,
+   "cityPercentile": 0.35
+  },
+  {
+   "code": "C18",
+   "city": "Coimbra",
+   "lat": 40.25621,
+   "lon": -8.45312,
+   "hasLabData": false,
+   "osm": {
+    "distWwtpM": 3256.0,
+    "distFarmlandM": 742.2,
+    "urbanFrac2km": 0.0896,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "oah": {
+    "distanceToSewageStations": null,
+    "distChampCulture": null,
+    "urbanPct2000m": null
+   },
+   "lab": null,
+   "baselineScore": 0.3433,
+   "cityPercentile": 0.5
+  },
+  {
+   "code": "C19",
+   "city": "Coimbra",
+   "lat": 40.24812,
+   "lon": -8.41159,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 4050.5,
+    "distFarmlandM": 2880.0,
+    "urbanFrac2km": 0.1347,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "oah": {
+    "distanceToSewageStations": 5317.67,
+    "distChampCulture": 2889.97,
+    "urbanPct2000m": 13.7
+   },
+   "lab": {
+    "healthRiskScore": 0.4367,
+    "scaledPathogenRisk": 0.3044,
+    "scaledFecalRisk": 0.4625,
+    "scaledArgRisk": 0.5433
+   },
+   "baselineScore": 0.381,
+   "cityPercentile": 0.8
+  },
+  {
+   "code": "C20",
+   "city": "Coimbra",
+   "lat": 40.21085,
+   "lon": -8.47667,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1026.1,
+    "distFarmlandM": 16.5,
+    "urbanFrac2km": 0.045,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais de Ribeira de Frades"
+   },
+   "oah": {
+    "distanceToSewageStations": 1343.43,
+    "distChampCulture": 16.51,
+    "urbanPct2000m": 6.78
+   },
+   "lab": {
+    "healthRiskScore": 0.3304,
+    "scaledPathogenRisk": 0.2243,
+    "scaledFecalRisk": 0.2044,
+    "scaledArgRisk": 0.5623
+   },
+   "baselineScore": 0.3164,
+   "cityPercentile": 0.4
+  },
+  {
+   "code": "G2",
+   "city": "Ghent",
+   "lat": 50.85943,
+   "lon": 3.79794,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3294.9,
+    "distFarmlandM": 118.4,
+    "urbanFrac2km": 0.2471,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 14149.11,
+    "distChampCulture": 14862.73,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.2861,
+    "scaledPathogenRisk": 0.1242,
+    "scaledFecalRisk": 0.2672,
+    "scaledArgRisk": 0.4669
+   },
+   "baselineScore": 0.2812,
+   "cityPercentile": 0.3636
+  },
+  {
+   "code": "G6",
+   "city": "Ghent",
+   "lat": 50.87579,
+   "lon": 3.75151,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 90.8,
+    "distFarmlandM": 58.9,
+    "urbanFrac2km": 0.1297,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 11388.61,
+    "distChampCulture": 11967.51,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.2201,
+    "scaledPathogenRisk": 0.1738,
+    "scaledFecalRisk": 0.3113,
+    "scaledArgRisk": 0.175
+   },
+   "baselineScore": 0.4835,
+   "cityPercentile": 0.9091
+  },
+  {
+   "code": "G8",
+   "city": "Ghent",
+   "lat": 50.87971,
+   "lon": 3.73771,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 945.3,
+    "distFarmlandM": 198.6,
+    "urbanFrac2km": 0.1225,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 11210.37,
+    "distChampCulture": 11305.96,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.2161,
+    "scaledPathogenRisk": 0.0993,
+    "scaledFecalRisk": 0.2305,
+    "scaledArgRisk": 0.3183
+   },
+   "baselineScore": 0.3733,
+   "cityPercentile": 0.6364
+  },
+  {
+   "code": "G9",
+   "city": "Ghent",
+   "lat": 50.87366,
+   "lon": 3.73125,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1238.6,
+    "distFarmlandM": 26.0,
+    "urbanFrac2km": 0.1121,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 12474.01,
+    "distChampCulture": 11882.2,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.3553,
+    "scaledPathogenRisk": 0.1492,
+    "scaledFecalRisk": 0.3966,
+    "scaledArgRisk": 0.5202
+   },
+   "baselineScore": 0.3063,
+   "cityPercentile": 0.4545
+  },
+  {
+   "code": "G10",
+   "city": "Ghent",
+   "lat": 50.88344,
+   "lon": 3.71431,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 2600.7,
+    "distFarmlandM": 10.2,
+    "urbanFrac2km": 0.1279,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 10957.77,
+    "distChampCulture": 10662.19,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.1677,
+    "scaledPathogenRisk": 0.0248,
+    "scaledFecalRisk": 0.1193,
+    "scaledArgRisk": 0.3591
+   },
+   "baselineScore": 0.2646,
+   "cityPercentile": 0.2273
+  },
+  {
+   "code": "G22",
+   "city": "Ghent",
+   "lat": 50.88527,
+   "lon": 3.692821,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 4092.3,
+    "distFarmlandM": 22.0,
+    "urbanFrac2km": 0.0934,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 9351.09,
+    "distChampCulture": 10453.12,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.1858,
+    "scaledPathogenRisk": 0.1501,
+    "scaledFecalRisk": 0.2921,
+    "scaledArgRisk": 0.1152
+   },
+   "baselineScore": 0.2405,
+   "cityPercentile": 0.0909
+  },
+  {
+   "code": "G11",
+   "city": "Ghent",
+   "lat": 50.88437,
+   "lon": 3.68791,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 4398.6,
+    "distFarmlandM": 49.3,
+    "urbanFrac2km": 0.0877,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 9244.24,
+    "distChampCulture": 10581.36,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.2251,
+    "scaledPathogenRisk": 0.1253,
+    "scaledFecalRisk": 0.2544,
+    "scaledArgRisk": 0.2956
+   },
+   "baselineScore": 0.2368,
+   "cityPercentile": 0.0455
+  },
+  {
+   "code": "G12",
+   "city": "Ghent",
+   "lat": 50.88541,
+   "lon": 3.68606,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 4552.8,
+    "distFarmlandM": 83.3,
+    "urbanFrac2km": 0.0855,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 8990.99,
+    "distChampCulture": 10480.01,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.225,
+    "scaledPathogenRisk": 0.0995,
+    "scaledFecalRisk": 0.2129,
+    "scaledArgRisk": 0.3624
+   },
+   "baselineScore": 0.2502,
+   "cityPercentile": 0.1364
+  },
+  {
+   "code": "G13",
+   "city": "Ghent",
+   "lat": 50.97958,
+   "lon": 3.72241,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1602.0,
+    "distFarmlandM": 284.2,
+    "urbanFrac2km": 0.2806,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 2544.36,
+    "distChampCulture": 912.85,
+    "urbanPct2000m": 29.35
+   },
+   "lab": {
+    "healthRiskScore": 0.2102,
+    "scaledPathogenRisk": 0.0752,
+    "scaledFecalRisk": 0.2104,
+    "scaledArgRisk": 0.345
+   },
+   "baselineScore": 0.3557,
+   "cityPercentile": 0.5455
+  },
+  {
+   "code": "G14",
+   "city": "Ghent",
+   "lat": 50.99821,
+   "lon": 3.73925,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 898.3,
+    "distFarmlandM": 224.0,
+    "urbanFrac2km": 0.4346,
+    "nearestWwtpName": "RWZI Merelbeke"
+   },
+   "oah": {
+    "distanceToSewageStations": 1431.57,
+    "distChampCulture": 1210.26,
+    "urbanPct2000m": 43.92
+   },
+   "lab": {
+    "healthRiskScore": 0.1563,
+    "scaledPathogenRisk": 0.0,
+    "scaledFecalRisk": 0.1323,
+    "scaledArgRisk": 0.3366
+   },
+   "baselineScore": 0.3867,
+   "cityPercentile": 0.7273
+  },
+  {
+   "code": "G15",
+   "city": "Ghent",
+   "lat": 50.98975,
+   "lon": 3.80615,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 619.0,
+    "distFarmlandM": 94.7,
+    "urbanFrac2km": 0.2144,
+    "nearestWwtpName": "RWZI Melle"
+   },
+   "oah": {
+    "distanceToSewageStations": 986.25,
+    "distChampCulture": 5228.22,
+    "urbanPct2000m": 23.07
+   },
+   "lab": {
+    "healthRiskScore": 0.2244,
+    "scaledPathogenRisk": 0.0513,
+    "scaledFecalRisk": 0.1673,
+    "scaledArgRisk": 0.4544
+   },
+   "baselineScore": 0.3742,
+   "cityPercentile": 0.6818
+  },
+  {
+   "code": "G16",
+   "city": "Ghent",
+   "lat": 50.99491,
+   "lon": 3.80568,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 484.4,
+    "distFarmlandM": 462.7,
+    "urbanFrac2km": 0.2534,
+    "nearestWwtpName": "RWZI Melle"
+   },
+   "oah": {
+    "distanceToSewageStations": 769.32,
+    "distChampCulture": 4687.17,
+    "urbanPct2000m": 31.1
+   },
+   "lab": {
+    "healthRiskScore": 0.3117,
+    "scaledPathogenRisk": 0.2484,
+    "scaledFecalRisk": 0.2897,
+    "scaledArgRisk": 0.3971
+   },
+   "baselineScore": 0.4537,
+   "cityPercentile": 0.8182
+  },
+  {
+   "code": "G17",
+   "city": "Ghent",
+   "lat": 51.02678,
+   "lon": 3.77389,
+   "hasLabData": false,
+   "osm": {
+    "distWwtpM": 2623.4,
+    "distFarmlandM": 790.7,
+    "urbanFrac2km": 0.4513,
+    "nearestWwtpName": "RWZI Destelbergen"
+   },
+   "oah": {
+    "distanceToSewageStations": null,
+    "distChampCulture": null,
+    "urbanPct2000m": null
+   },
+   "lab": null,
+   "baselineScore": 0.3654,
+   "cityPercentile": 0.5909
+  },
+  {
+   "code": "G18",
+   "city": "Ghent",
+   "lat": 51.05458,
+   "lon": 3.68126,
+   "hasLabData": false,
+   "osm": {
+    "distWwtpM": 10.2,
+    "distFarmlandM": 672.3,
+    "urbanFrac2km": 0.3177,
+    "nearestWwtpName": "RWZI Gent"
+   },
+   "oah": {
+    "distanceToSewageStations": null,
+    "distChampCulture": null,
+    "urbanPct2000m": null
+   },
+   "lab": null,
+   "baselineScore": 0.6246,
+   "cityPercentile": 1.0
+  },
+  {
+   "code": "G1",
+   "city": "Ghent",
+   "lat": 50.94744,
+   "lon": 3.8168,
+   "hasLabData": false,
+   "osm": {
+    "distWwtpM": 2920.5,
+    "distFarmlandM": 86.5,
+    "urbanFrac2km": 0.1483,
+    "nearestWwtpName": "RWZI Oosterzele"
+   },
+   "oah": {
+    "distanceToSewageStations": null,
+    "distChampCulture": null,
+    "urbanPct2000m": null
+   },
+   "lab": null,
+   "baselineScore": 0.2762,
+   "cityPercentile": 0.2727
+  },
+  {
+   "code": "G4",
+   "city": "Ghent",
+   "lat": 50.87507,
+   "lon": 3.80222,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3572.2,
+    "distFarmlandM": 116.9,
+    "urbanFrac2km": 0.3232,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 11551.6,
+    "distChampCulture": 13479.55,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.2363,
+    "scaledPathogenRisk": 0.0503,
+    "scaledFecalRisk": 0.1824,
+    "scaledArgRisk": 0.4763
+   },
+   "baselineScore": 0.2773,
+   "cityPercentile": 0.3182
+  },
+  {
+   "code": "G21",
+   "city": "Ghent",
+   "lat": 50.89162,
+   "lon": 3.81558,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3447.8,
+    "distFarmlandM": 28.8,
+    "urbanFrac2km": 0.2402,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 9354.99,
+    "distChampCulture": 12504.6,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.2896,
+    "scaledPathogenRisk": 0.0499,
+    "scaledFecalRisk": 0.3255,
+    "scaledArgRisk": 0.4933
+   },
+   "baselineScore": 0.2513,
+   "cityPercentile": 0.1818
+  },
+  {
+   "code": "G5",
+   "city": "Ghent",
+   "lat": 50.87539,
+   "lon": 3.74917,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 32.2,
+    "distFarmlandM": 217.5,
+    "urbanFrac2km": 0.1274,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 11522.22,
+    "distChampCulture": 11965.29,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.2392,
+    "scaledPathogenRisk": 0.0496,
+    "scaledFecalRisk": 0.3549,
+    "scaledArgRisk": 0.313
+   },
+   "baselineScore": 0.5773,
+   "cityPercentile": 0.9545
+  },
+  {
+   "code": "G19",
+   "city": "Ghent",
+   "lat": 51.02843,
+   "lon": 3.786,
+   "hasLabData": false,
+   "osm": {
+    "distWwtpM": 2534.3,
+    "distFarmlandM": 350.0,
+    "urbanFrac2km": 0.3914,
+    "nearestWwtpName": "RWZI Destelbergen"
+   },
+   "oah": {
+    "distanceToSewageStations": null,
+    "distChampCulture": null,
+    "urbanPct2000m": null
+   },
+   "lab": null,
+   "baselineScore": 0.3364,
+   "cityPercentile": 0.5
+  },
+  {
+   "code": "G20",
+   "city": "Ghent",
+   "lat": 51.0939,
+   "lon": 3.71687,
+   "hasLabData": false,
+   "osm": {
+    "distWwtpM": 1292.7,
+    "distFarmlandM": 419.0,
+    "urbanFrac2km": 0.6566,
+    "nearestWwtpName": "RWZI Evergem"
+   },
+   "oah": {
+    "distanceToSewageStations": null,
+    "distChampCulture": null,
+    "urbanPct2000m": null
+   },
+   "lab": null,
+   "baselineScore": 0.3907,
+   "cityPercentile": 0.7727
+  },
+  {
+   "code": "G3",
+   "city": "Ghent",
+   "lat": 50.87604,
+   "lon": 3.75174,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 122.6,
+    "distFarmlandM": 44.6,
+    "urbanFrac2km": 0.1313,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 11339.64,
+    "distChampCulture": 11945.38,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.1971,
+    "scaledPathogenRisk": 0.1004,
+    "scaledFecalRisk": 0.3096,
+    "scaledArgRisk": 0.1812
+   },
+   "baselineScore": 0.4562,
+   "cityPercentile": 0.8636
+  },
+  {
+   "code": "G7",
+   "city": "Ghent",
+   "lat": 50.86216,
+   "lon": 3.76577,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1739.8,
+    "distFarmlandM": 90.0,
+    "urbanFrac2km": 0.0899,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 13507.31,
+    "distChampCulture": 13714.22,
+    "urbanPct2000m": 0.0
+   },
+   "lab": {
+    "healthRiskScore": 0.1936,
+    "scaledPathogenRisk": 0.0746,
+    "scaledFecalRisk": 0.2452,
+    "scaledArgRisk": 0.261
+   },
+   "baselineScore": 0.3062,
+   "cityPercentile": 0.4091
+  },
+  {
+   "code": "T21",
+   "city": "Toulouse",
+   "lat": 43.59278,
+   "lon": 1.34767,
+   "hasLabData": false,
+   "osm": {
+    "distWwtpM": 2029.6,
+    "distFarmlandM": 1075.7,
+    "urbanFrac2km": 0.7669,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "oah": {
+    "distanceToSewageStations": null,
+    "distChampCulture": null,
+    "urbanPct2000m": null
+   },
+   "lab": null,
+   "baselineScore": 0.3994,
+   "cityPercentile": 0.875
+  },
+  {
+   "code": "T24",
+   "city": "Toulouse",
+   "lat": 43.59604,
+   "lon": 1.36671,
+   "hasLabData": false,
+   "osm": {
+    "distWwtpM": 3146.1,
+    "distFarmlandM": 1423.6,
+    "urbanFrac2km": 0.7234,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "oah": {
+    "distanceToSewageStations": null,
+    "distChampCulture": null,
+    "urbanPct2000m": null
+   },
+   "lab": null,
+   "baselineScore": 0.3806,
+   "cityPercentile": 0.625
+  },
+  {
+   "code": "T1",
+   "city": "Toulouse",
+   "lat": 43.55267,
+   "lon": 1.49147,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1576.7,
+    "distFarmlandM": 8.5,
+    "urbanFrac2km": 0.5072,
+    "nearestWwtpName": "Station d'épuration"
+   },
+   "oah": {
+    "distanceToSewageStations": 2189.89,
+    "distChampCulture": 1335.6,
+    "urbanPct2000m": 53.64
+   },
+   "lab": {
+    "healthRiskScore": 0.4039,
+    "scaledPathogenRisk": 0.4012,
+    "scaledFecalRisk": 0.532,
+    "scaledArgRisk": 0.2785
+   },
+   "baselineScore": 0.2982,
+   "cityPercentile": 0.2917
+  },
+  {
+   "code": "T3",
+   "city": "Toulouse",
+   "lat": 43.52756,
+   "lon": 1.47439,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1857.6,
+    "distFarmlandM": 0.0,
+    "urbanFrac2km": 0.4541,
+    "nearestWwtpName": "Station d'épuration"
+   },
+   "oah": {
+    "distanceToSewageStations": 2570.42,
+    "distChampCulture": 793.42,
+    "urbanPct2000m": 43.82
+   },
+   "lab": {
+    "healthRiskScore": 0.3922,
+    "scaledPathogenRisk": 0.3248,
+    "scaledFecalRisk": 0.3904,
+    "scaledArgRisk": 0.4614
+   },
+   "baselineScore": 0.288,
+   "cityPercentile": 0.25
+  },
+  {
+   "code": "T2",
+   "city": "Toulouse",
+   "lat": 43.53219,
+   "lon": 1.46332,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1303.8,
+    "distFarmlandM": 47.5,
+    "urbanFrac2km": 0.4724,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 1810.44,
+    "distChampCulture": 47.72,
+    "urbanPct2000m": 33.19
+   },
+   "lab": {
+    "healthRiskScore": 0.2132,
+    "scaledPathogenRisk": 0.0997,
+    "scaledFecalRisk": 0.126,
+    "scaledArgRisk": 0.414
+   },
+   "baselineScore": 0.3088,
+   "cityPercentile": 0.3333
+  },
+  {
+   "code": "T5",
+   "city": "Toulouse",
+   "lat": 43.5678,
+   "lon": 1.50937,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3517.7,
+    "distFarmlandM": 83.5,
+    "urbanFrac2km": 0.4936,
+    "nearestWwtpName": "Station d'épuration"
+   },
+   "oah": {
+    "distanceToSewageStations": 4882.01,
+    "distChampCulture": 83.87,
+    "urbanPct2000m": 47.45
+   },
+   "lab": {
+    "healthRiskScore": 0.426,
+    "scaledPathogenRisk": 0.154,
+    "scaledFecalRisk": 0.8464,
+    "scaledArgRisk": 0.2778
+   },
+   "baselineScore": 0.2698,
+   "cityPercentile": 0.125
+  },
+  {
+   "code": "T6",
+   "city": "Toulouse",
+   "lat": 43.56755,
+   "lon": 1.51974,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3879.1,
+    "distFarmlandM": 130.6,
+    "urbanFrac2km": 0.4814,
+    "nearestWwtpName": "Station d'épuration"
+   },
+   "oah": {
+    "distanceToSewageStations": 5378.51,
+    "distChampCulture": 434.96,
+    "urbanPct2000m": 46.19
+   },
+   "lab": {
+    "healthRiskScore": 0.3573,
+    "scaledPathogenRisk": 0.1502,
+    "scaledFecalRisk": 0.5056,
+    "scaledArgRisk": 0.4162
+   },
+   "baselineScore": 0.2787,
+   "cityPercentile": 0.1667
+  },
+  {
+   "code": "T7",
+   "city": "Toulouse",
+   "lat": 43.57873,
+   "lon": 1.53609,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3032.4,
+    "distFarmlandM": 17.9,
+    "urbanFrac2km": 0.2723,
+    "nearestWwtpName": "Station d'épuration de Flourens"
+   },
+   "oah": {
+    "distanceToSewageStations": 4199.21,
+    "distChampCulture": 1929.66,
+    "urbanPct2000m": 29.4
+   },
+   "lab": {
+    "healthRiskScore": 0.1687,
+    "scaledPathogenRisk": 0.0758,
+    "scaledFecalRisk": 0.2074,
+    "scaledArgRisk": 0.2231
+   },
+   "baselineScore": 0.2584,
+   "cityPercentile": 0.0833
+  },
+  {
+   "code": "T8",
+   "city": "Toulouse",
+   "lat": 43.58553,
+   "lon": 1.52861,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3100.7,
+    "distFarmlandM": 299.4,
+    "urbanFrac2km": 0.2849,
+    "nearestWwtpName": "Station d'épuration de Flourens"
+   },
+   "oah": {
+    "distanceToSewageStations": 4286.25,
+    "distChampCulture": 1876.54,
+    "urbanPct2000m": 35.33
+   },
+   "lab": {
+    "healthRiskScore": 0.1554,
+    "scaledPathogenRisk": 0.025,
+    "scaledFecalRisk": 0.1995,
+    "scaledArgRisk": 0.2415
+   },
+   "baselineScore": 0.3168,
+   "cityPercentile": 0.4167
+  },
+  {
+   "code": "T9",
+   "city": "Toulouse",
+   "lat": 43.52152,
+   "lon": 1.34273,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 2263.3,
+    "distFarmlandM": 972.7,
+    "urbanFrac2km": 0.6951,
+    "nearestWwtpName": "Station d'épuration de Cugnaux"
+   },
+   "oah": {
+    "distanceToSewageStations": 3130.14,
+    "distChampCulture": 488.02,
+    "urbanPct2000m": 77.49
+   },
+   "lab": {
+    "healthRiskScore": 0.1283,
+    "scaledPathogenRisk": 0.025,
+    "scaledFecalRisk": 0.1039,
+    "scaledArgRisk": 0.2561
+   },
+   "baselineScore": 0.3871,
+   "cityPercentile": 0.7917
+  },
+  {
+   "code": "T15",
+   "city": "Toulouse",
+   "lat": 43.5713,
+   "lon": 1.38535,
+   "hasLabData": false,
+   "osm": {
+    "distWwtpM": 3505.2,
+    "distFarmlandM": 1837.8,
+    "urbanFrac2km": 0.7633,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "oah": {
+    "distanceToSewageStations": null,
+    "distChampCulture": null,
+    "urbanPct2000m": null
+   },
+   "lab": null,
+   "baselineScore": 0.384,
+   "cityPercentile": 0.7083
+  },
+  {
+   "code": "T10",
+   "city": "Toulouse",
+   "lat": 43.5322,
+   "lon": 1.32265,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3503.3,
+    "distFarmlandM": 11.0,
+    "urbanFrac2km": 0.5482,
+    "nearestWwtpName": "Station d'épuration de Cugnaux"
+   },
+   "oah": {
+    "distanceToSewageStations": 4836.49,
+    "distChampCulture": 11.04,
+    "urbanPct2000m": 47.85
+   },
+   "lab": {
+    "healthRiskScore": 0.2348,
+    "scaledPathogenRisk": 0.0497,
+    "scaledFecalRisk": 0.0193,
+    "scaledArgRisk": 0.6355
+   },
+   "baselineScore": 0.2547,
+   "cityPercentile": 0.0417
+  },
+  {
+   "code": "T12",
+   "city": "Toulouse",
+   "lat": 43.54003,
+   "lon": 1.34077,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 2189.5,
+    "distFarmlandM": 785.2,
+    "urbanFrac2km": 0.6509,
+    "nearestWwtpName": "Station d'épuration de Cugnaux"
+   },
+   "oah": {
+    "distanceToSewageStations": 3025.1,
+    "distChampCulture": 3264.09,
+    "urbanPct2000m": 81.11
+   },
+   "lab": {
+    "healthRiskScore": 0.2646,
+    "scaledPathogenRisk": 0.0495,
+    "scaledFecalRisk": 0.0918,
+    "scaledArgRisk": 0.6525
+   },
+   "baselineScore": 0.3802,
+   "cityPercentile": 0.5833
+  },
+  {
+   "code": "T13",
+   "city": "Toulouse",
+   "lat": 43.5353,
+   "lon": 1.37785,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 584.3,
+    "distFarmlandM": 294.9,
+    "urbanFrac2km": 0.444,
+    "nearestWwtpName": "Station d'épuration de Cugnaux"
+   },
+   "oah": {
+    "distanceToSewageStations": 807.03,
+    "distChampCulture": 511.66,
+    "urbanPct2000m": 35.95
+   },
+   "lab": {
+    "healthRiskScore": 0.3443,
+    "scaledPathogenRisk": 0.1243,
+    "scaledFecalRisk": 0.3044,
+    "scaledArgRisk": 0.6042
+   },
+   "baselineScore": 0.4263,
+   "cityPercentile": 0.9583
+  },
+  {
+   "code": "T14",
+   "city": "Toulouse",
+   "lat": 43.53855,
+   "lon": 1.42074,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 820.7,
+    "distFarmlandM": 5.8,
+    "urbanFrac2km": 0.4895,
+    "nearestWwtpName": "Usine Municipale des Eaux de Clairfont"
+   },
+   "oah": {
+    "distanceToSewageStations": 1136.04,
+    "distChampCulture": 483.73,
+    "urbanPct2000m": 37.0
+   },
+   "lab": {
+    "healthRiskScore": 0.46,
+    "scaledPathogenRisk": 0.2763,
+    "scaledFecalRisk": 0.5787,
+    "scaledArgRisk": 0.525
+   },
+   "baselineScore": 0.3371,
+   "cityPercentile": 0.4583
+  },
+  {
+   "code": "T17",
+   "city": "Toulouse",
+   "lat": 43.5786,
+   "lon": 1.35861,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1456.4,
+    "distFarmlandM": 128.8,
+    "urbanFrac2km": 0.6334,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "oah": {
+    "distanceToSewageStations": 2012.68,
+    "distChampCulture": 1426.96,
+    "urbanPct2000m": 54.45
+   },
+   "lab": {
+    "healthRiskScore": 0.5282,
+    "scaledPathogenRisk": 0.2525,
+    "scaledFecalRisk": 0.9979,
+    "scaledArgRisk": 0.3341
+   },
+   "baselineScore": 0.3383,
+   "cityPercentile": 0.5
+  },
+  {
+   "code": "T18",
+   "city": "Toulouse",
+   "lat": 43.57882,
+   "lon": 1.35262,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1042.8,
+    "distFarmlandM": 449.6,
+    "urbanFrac2km": 0.6398,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "oah": {
+    "distanceToSewageStations": 1442.7,
+    "distChampCulture": 1635.29,
+    "urbanPct2000m": 55.1
+   },
+   "lab": {
+    "healthRiskScore": 0.3372,
+    "scaledPathogenRisk": 0.2995,
+    "scaledFecalRisk": 0.3628,
+    "scaledArgRisk": 0.3494
+   },
+   "baselineScore": 0.4075,
+   "cityPercentile": 0.9167
+  },
+  {
+   "code": "T19",
+   "city": "Toulouse",
+   "lat": 43.58253,
+   "lon": 1.35047,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1162.7,
+    "distFarmlandM": 309.0,
+    "urbanFrac2km": 0.6701,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "oah": {
+    "distanceToSewageStations": 1610.21,
+    "distChampCulture": 2079.33,
+    "urbanPct2000m": 68.02
+   },
+   "lab": {
+    "healthRiskScore": 0.1453,
+    "scaledPathogenRisk": 0.0248,
+    "scaledFecalRisk": 0.1091,
+    "scaledArgRisk": 0.3021
+   },
+   "baselineScore": 0.3862,
+   "cityPercentile": 0.75
+  },
+  {
+   "code": "T20",
+   "city": "Toulouse",
+   "lat": 43.5828,
+   "lon": 1.3493,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1118.1,
+    "distFarmlandM": 382.6,
+    "urbanFrac2km": 0.6767,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "oah": {
+    "distanceToSewageStations": 1549.26,
+    "distChampCulture": 2152.31,
+    "urbanPct2000m": 69.79
+   },
+   "lab": {
+    "healthRiskScore": 0.44,
+    "scaledPathogenRisk": 0.3798,
+    "scaledFecalRisk": 0.431,
+    "scaledArgRisk": 0.5091
+   },
+   "baselineScore": 0.3972,
+   "cityPercentile": 0.8333
+  },
+  {
+   "code": "T4",
+   "city": "Toulouse",
+   "lat": 43.56499,
+   "lon": 1.49464,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 2941.0,
+    "distFarmlandM": 959.2,
+    "urbanFrac2km": 0.4936,
+    "nearestWwtpName": "Station d'épuration"
+   },
+   "oah": {
+    "distanceToSewageStations": 4085.24,
+    "distChampCulture": 961.25,
+    "urbanPct2000m": 50.22
+   },
+   "lab": {
+    "healthRiskScore": 0.256,
+    "scaledPathogenRisk": 0.1242,
+    "scaledFecalRisk": 0.5135,
+    "scaledArgRisk": 0.1303
+   },
+   "baselineScore": 0.366,
+   "cityPercentile": 0.5417
+  },
+  {
+   "code": "T11",
+   "city": "Toulouse",
+   "lat": 43.52992,
+   "lon": 1.32597,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3251.3,
+    "distFarmlandM": 92.1,
+    "urbanFrac2km": 0.6413,
+    "nearestWwtpName": "Station d'épuration de Cugnaux"
+   },
+   "oah": {
+    "distanceToSewageStations": 4488.74,
+    "distChampCulture": 92.41,
+    "urbanPct2000m": 60.24
+   },
+   "lab": {
+    "healthRiskScore": 0.4367,
+    "scaledPathogenRisk": 0.4285,
+    "scaledFecalRisk": 0.5475,
+    "scaledArgRisk": 0.334
+   },
+   "baselineScore": 0.2795,
+   "cityPercentile": 0.2083
+  },
+  {
+   "code": "T25",
+   "city": "Toulouse",
+   "lat": 43.64862,
+   "lon": 1.51501,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 387.2,
+    "distFarmlandM": 225.4,
+    "urbanFrac2km": 0.5067,
+    "nearestWwtpName": "Station d'Épuration de Saint-Jean"
+   },
+   "oah": {
+    "distanceToSewageStations": 534.58,
+    "distChampCulture": 1482.06,
+    "urbanPct2000m": 57.8
+   },
+   "lab": {
+    "healthRiskScore": 0.3463,
+    "scaledPathogenRisk": 0.1266,
+    "scaledFecalRisk": 0.4027,
+    "scaledArgRisk": 0.5096
+   },
+   "baselineScore": 0.4447,
+   "cityPercentile": 1.0
+  },
+  {
+   "code": "T16",
+   "city": "Toulouse",
+   "lat": 43.57895,
+   "lon": 1.35929,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1522.1,
+    "distFarmlandM": 63.5,
+    "urbanFrac2km": 0.637,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "oah": {
+    "distanceToSewageStations": 2103.5,
+    "distChampCulture": 1452.67,
+    "urbanPct2000m": 55.25
+   },
+   "lab": {
+    "healthRiskScore": 0.2146,
+    "scaledPathogenRisk": 0.0248,
+    "scaledFecalRisk": 0.3325,
+    "scaledArgRisk": 0.2866
+   },
+   "baselineScore": 0.3105,
+   "cityPercentile": 0.375
+  },
+  {
+   "code": "T22",
+   "city": "Toulouse",
+   "lat": 43.59608,
+   "lon": 1.36657,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3141.6,
+    "distFarmlandM": 1423.5,
+    "urbanFrac2km": 0.7234,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "oah": {
+    "distanceToSewageStations": 4352.86,
+    "distChampCulture": 1815.48,
+    "urbanPct2000m": 65.9
+   },
+   "lab": {
+    "healthRiskScore": 0.3556,
+    "scaledPathogenRisk": 0.1988,
+    "scaledFecalRisk": 0.3252,
+    "scaledArgRisk": 0.5428
+   },
+   "baselineScore": 0.3807,
+   "cityPercentile": 0.6667
+  },
+  {
+   "code": "BN1",
+   "city": "Benevento",
+   "lat": 41.13231,
+   "lon": 14.80039,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 2693.5,
+    "distFarmlandM": 1523.0,
+    "urbanFrac2km": 0.24,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "oah": {
+    "distanceToSewageStations": 3583.11,
+    "distChampCulture": 1525.81,
+    "urbanPct2000m": 28.67
+   },
+   "lab": {
+    "healthRiskScore": 0.3091,
+    "scaledPathogenRisk": 0.2054,
+    "scaledFecalRisk": 0.2427,
+    "scaledArgRisk": 0.4792
+   },
+   "baselineScore": 0.385,
+   "cityPercentile": 0.85
+  },
+  {
+   "code": "BN2",
+   "city": "Benevento",
+   "lat": 41.12679,
+   "lon": 14.80333,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 2858.7,
+    "distFarmlandM": 1580.0,
+    "urbanFrac2km": 0.2063,
+    "nearestWwtpName": "Impianto di depurazione Sanav"
+   },
+   "oah": {
+    "distanceToSewageStations": 3804.69,
+    "distChampCulture": 1581.99,
+    "urbanPct2000m": 27.6
+   },
+   "lab": {
+    "healthRiskScore": 0.7266,
+    "scaledPathogenRisk": 0.6456,
+    "scaledFecalRisk": 0.5343,
+    "scaledArgRisk": 1.0
+   },
+   "baselineScore": 0.382,
+   "cityPercentile": 0.8
+  },
+  {
+   "code": "BN3",
+   "city": "Benevento",
+   "lat": 41.13348,
+   "lon": 14.78614,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3714.6,
+    "distFarmlandM": 538.8,
+    "urbanFrac2km": 0.3842,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "oah": {
+    "distanceToSewageStations": 4936.2,
+    "distChampCulture": 539.55,
+    "urbanPct2000m": 48.19
+   },
+   "lab": {
+    "healthRiskScore": 0.3553,
+    "scaledPathogenRisk": 0.3554,
+    "scaledFecalRisk": 0.7104,
+    "scaledArgRisk": 0.0
+   },
+   "baselineScore": 0.3283,
+   "cityPercentile": 0.4
+  },
+  {
+   "code": "BN4",
+   "city": "Benevento",
+   "lat": 41.12414,
+   "lon": 14.74864,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 5040.1,
+    "distFarmlandM": 1136.8,
+    "urbanFrac2km": 0.0797,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "oah": {
+    "distanceToSewageStations": 6706.94,
+    "distChampCulture": 1138.37,
+    "urbanPct2000m": 5.08
+   },
+   "lab": {
+    "healthRiskScore": 0.3817,
+    "scaledPathogenRisk": 0.3065,
+    "scaledFecalRisk": 0.4667,
+    "scaledArgRisk": 0.3717
+   },
+   "baselineScore": 0.3316,
+   "cityPercentile": 0.5
+  },
+  {
+   "code": "BN5",
+   "city": "Benevento",
+   "lat": 41.10429,
+   "lon": 14.74295,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 6245.7,
+    "distFarmlandM": 2460.1,
+    "urbanFrac2km": 0.0219,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "oah": {
+    "distanceToSewageStations": 8663.14,
+    "distChampCulture": 2651.28,
+    "urbanPct2000m": 3.0
+   },
+   "lab": {
+    "healthRiskScore": 0.2269,
+    "scaledPathogenRisk": 0.0758,
+    "scaledFecalRisk": 0.2193,
+    "scaledArgRisk": 0.3856
+   },
+   "baselineScore": 0.3454,
+   "cityPercentile": 0.6
+  },
+  {
+   "code": "BN6",
+   "city": "Benevento",
+   "lat": 41.14775,
+   "lon": 14.78437,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3642.4,
+    "distFarmlandM": 619.7,
+    "urbanFrac2km": 0.1383,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "oah": {
+    "distanceToSewageStations": 4836.43,
+    "distChampCulture": 620.44,
+    "urbanPct2000m": 9.73
+   },
+   "lab": {
+    "healthRiskScore": 0.342,
+    "scaledPathogenRisk": 0.2056,
+    "scaledFecalRisk": 0.4619,
+    "scaledArgRisk": 0.3583
+   },
+   "baselineScore": 0.3306,
+   "cityPercentile": 0.45
+  },
+  {
+   "code": "BN7",
+   "city": "Benevento",
+   "lat": 41.14905,
+   "lon": 14.81407,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1216.3,
+    "distFarmlandM": 690.6,
+    "urbanFrac2km": 0.0936,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "oah": {
+    "distanceToSewageStations": 1615.9,
+    "distChampCulture": 691.77,
+    "urbanPct2000m": 9.97
+   },
+   "lab": {
+    "healthRiskScore": 0.4343,
+    "scaledPathogenRisk": 0.4126,
+    "scaledFecalRisk": 0.5393,
+    "scaledArgRisk": 0.3509
+   },
+   "baselineScore": 0.4044,
+   "cityPercentile": 0.9
+  },
+  {
+   "code": "BN8",
+   "city": "Benevento",
+   "lat": 41.15405,
+   "lon": 14.8345,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 1026.3,
+    "distFarmlandM": 2089.9,
+    "urbanFrac2km": 0.106,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "oah": {
+    "distanceToSewageStations": 1369.75,
+    "distChampCulture": 2314.67,
+    "urbanPct2000m": 15.35
+   },
+   "lab": {
+    "healthRiskScore": 0.4056,
+    "scaledPathogenRisk": 0.3383,
+    "scaledFecalRisk": 0.477,
+    "scaledArgRisk": 0.4015
+   },
+   "baselineScore": 0.4603,
+   "cityPercentile": 0.95
+  },
+  {
+   "code": "BN9",
+   "city": "Benevento",
+   "lat": 41.11089,
+   "lon": 14.8325,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3464.9,
+    "distFarmlandM": 2297.5,
+    "urbanFrac2km": 0.0298,
+    "nearestWwtpName": "Impianto di depurazione Sanav"
+   },
+   "oah": {
+    "distanceToSewageStations": 4630.9,
+    "distChampCulture": 2315.71,
+    "urbanPct2000m": 3.55
+   },
+   "lab": {
+    "healthRiskScore": 0.3491,
+    "scaledPathogenRisk": 0.2515,
+    "scaledFecalRisk": 0.4117,
+    "scaledArgRisk": 0.384
+   },
+   "baselineScore": 0.3807,
+   "cityPercentile": 0.75
+  },
+  {
+   "code": "BN10",
+   "city": "Benevento",
+   "lat": 41.14607,
+   "lon": 14.76353,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 5379.3,
+    "distFarmlandM": 269.4,
+    "urbanFrac2km": 0.1183,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "oah": {
+    "distanceToSewageStations": 7142.45,
+    "distChampCulture": 269.81,
+    "urbanPct2000m": 13.08
+   },
+   "lab": {
+    "healthRiskScore": 0.6243,
+    "scaledPathogenRisk": 0.762,
+    "scaledFecalRisk": 0.8423,
+    "scaledArgRisk": 0.2686
+   },
+   "baselineScore": 0.2788,
+   "cityPercentile": 0.2
+  },
+  {
+   "code": "BN11",
+   "city": "Benevento",
+   "lat": 41.16124,
+   "lon": 14.75972,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 5206.9,
+    "distFarmlandM": 850.1,
+    "urbanFrac2km": 0.0264,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "oah": {
+    "distanceToSewageStations": 6916.2,
+    "distChampCulture": 851.02,
+    "urbanPct2000m": 1.25
+   },
+   "lab": {
+    "healthRiskScore": 0.108,
+    "scaledPathogenRisk": 0.0754,
+    "scaledFecalRisk": 0.2158,
+    "scaledArgRisk": 0.0329
+   },
+   "baselineScore": 0.3184,
+   "cityPercentile": 0.3
+  },
+  {
+   "code": "BN12",
+   "city": "Benevento",
+   "lat": 41.13628,
+   "lon": 14.73193,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3137.4,
+    "distFarmlandM": 1189.7,
+    "urbanFrac2km": 0.0155,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "oah": {
+    "distanceToSewageStations": 4172.6,
+    "distChampCulture": 1194.41,
+    "urbanPct2000m": 1.29
+   },
+   "lab": {
+    "healthRiskScore": 0.0895,
+    "scaledPathogenRisk": 0.0748,
+    "scaledFecalRisk": 0.1445,
+    "scaledArgRisk": 0.0491
+   },
+   "baselineScore": 0.3619,
+   "cityPercentile": 0.7
+  },
+  {
+   "code": "BN13",
+   "city": "Benevento",
+   "lat": 41.11727,
+   "lon": 14.73683,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 4803.1,
+    "distFarmlandM": 1403.4,
+    "urbanFrac2km": 0.0203,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "oah": {
+    "distanceToSewageStations": 6401.57,
+    "distChampCulture": 1405.36,
+    "urbanPct2000m": 0.67
+   },
+   "lab": {
+    "healthRiskScore": 0.234,
+    "scaledPathogenRisk": 0.1003,
+    "scaledFecalRisk": 0.3295,
+    "scaledArgRisk": 0.2723
+   },
+   "baselineScore": 0.3412,
+   "cityPercentile": 0.55
+  },
+  {
+   "code": "BN14",
+   "city": "Benevento",
+   "lat": 41.06014,
+   "lon": 14.70843,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 9675.9,
+    "distFarmlandM": 13.1,
+    "urbanFrac2km": 0.0493,
+    "nearestWwtpName": "Depuratore comunale"
+   },
+   "oah": {
+    "distanceToSewageStations": 12918.15,
+    "distChampCulture": 13.18,
+    "urbanPct2000m": 7.1
+   },
+   "lab": {
+    "healthRiskScore": 0.1676,
+    "scaledPathogenRisk": 0.1101,
+    "scaledFecalRisk": 0.2119,
+    "scaledArgRisk": 0.181
+   },
+   "baselineScore": 0.1991,
+   "cityPercentile": 0.05
+  },
+  {
+   "code": "BN15",
+   "city": "Benevento",
+   "lat": 41.06921,
+   "lon": 14.70959,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 8773.8,
+    "distFarmlandM": 569.1,
+    "urbanFrac2km": 0.0349,
+    "nearestWwtpName": "Depuratore comunale"
+   },
+   "oah": {
+    "distanceToSewageStations": 11712.06,
+    "distChampCulture": 571.35,
+    "urbanPct2000m": 3.68
+   },
+   "lab": {
+    "healthRiskScore": 0.3715,
+    "scaledPathogenRisk": 0.3487,
+    "scaledFecalRisk": 0.3778,
+    "scaledArgRisk": 0.3881
+   },
+   "baselineScore": 0.2748,
+   "cityPercentile": 0.1
+  },
+  {
+   "code": "BN16",
+   "city": "Benevento",
+   "lat": 41.06923,
+   "lon": 14.70876,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 8745.5,
+    "distFarmlandM": 583.7,
+    "urbanFrac2km": 0.035,
+    "nearestWwtpName": "Depuratore comunale"
+   },
+   "oah": {
+    "distanceToSewageStations": 11674.7,
+    "distChampCulture": 585.91,
+    "urbanPct2000m": 3.72
+   },
+   "lab": {
+    "healthRiskScore": 0.2203,
+    "scaledPathogenRisk": 0.1258,
+    "scaledFecalRisk": 0.4229,
+    "scaledArgRisk": 0.1122
+   },
+   "baselineScore": 0.2758,
+   "cityPercentile": 0.15
+  },
+  {
+   "code": "BN17",
+   "city": "Benevento",
+   "lat": 41.13221,
+   "lon": 14.7127,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 2268.7,
+    "distFarmlandM": 467.8,
+    "urbanFrac2km": 0.0297,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "oah": {
+    "distanceToSewageStations": 3027.62,
+    "distChampCulture": 469.52,
+    "urbanPct2000m": 3.44
+   },
+   "lab": {
+    "healthRiskScore": 0.3801,
+    "scaledPathogenRisk": 0.4909,
+    "scaledFecalRisk": 0.6187,
+    "scaledArgRisk": 0.0307
+   },
+   "baselineScore": 0.348,
+   "cityPercentile": 0.65
+  },
+  {
+   "code": "BN18",
+   "city": "Benevento",
+   "lat": 41.15126,
+   "lon": 14.70936,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 848.0,
+    "distFarmlandM": 25.6,
+    "urbanFrac2km": 0.0399,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "oah": {
+    "distanceToSewageStations": 1126.08,
+    "distChampCulture": 25.66,
+    "urbanPct2000m": 4.85
+   },
+   "lab": {
+    "healthRiskScore": 0.4021,
+    "scaledPathogenRisk": 0.3149,
+    "scaledFecalRisk": 0.4429,
+    "scaledArgRisk": 0.4485
+   },
+   "baselineScore": 0.3278,
+   "cityPercentile": 0.35
+  },
+  {
+   "code": "BN19",
+   "city": "Benevento",
+   "lat": 41.185791,
+   "lon": 14.719005,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 3915.1,
+    "distFarmlandM": 373.0,
+    "urbanFrac2km": 0.0535,
+    "nearestWwtpName": "Depuratore Acque Reflue"
+   },
+   "oah": {
+    "distanceToSewageStations": 5223.65,
+    "distChampCulture": 373.79,
+    "urbanPct2000m": 0.35
+   },
+   "lab": {
+    "healthRiskScore": 0.2408,
+    "scaledPathogenRisk": 0.2572,
+    "scaledFecalRisk": 0.3391,
+    "scaledArgRisk": 0.1262
+   },
+   "baselineScore": 0.307,
+   "cityPercentile": 0.25
+  },
+  {
+   "code": "BN20",
+   "city": "Benevento",
+   "lat": 41.213825,
+   "lon": 14.68999,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 37.7,
+    "distFarmlandM": 303.7,
+    "urbanFrac2km": 0.0446,
+    "nearestWwtpName": "Depuratore Acque Reflue"
+   },
+   "oah": {
+    "distanceToSewageStations": 50.12,
+    "distChampCulture": 303.93,
+    "urbanPct2000m": 8.22
+   },
+   "lab": {
+    "healthRiskScore": 0.4207,
+    "scaledPathogenRisk": 0.3881,
+    "scaledFecalRisk": 0.5078,
+    "scaledArgRisk": 0.3661
+   },
+   "baselineScore": 0.589,
+   "cityPercentile": 1.0
+  },
+  {
+   "code": "O17",
+   "city": "Oslo",
+   "lat": 59.9078,
+   "lon": 10.8128,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 14563.1,
+    "distFarmlandM": 1653.5,
+    "urbanFrac2km": 0.4922,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 29112.26,
+    "distChampCulture": 1663.79,
+    "urbanPct2000m": 48.8
+   },
+   "lab": {
+    "healthRiskScore": 0.4198,
+    "scaledPathogenRisk": 0.3364,
+    "scaledFecalRisk": 0.4261,
+    "scaledArgRisk": 0.497
+   },
+   "baselineScore": 0.2882,
+   "cityPercentile": 0.35
+  },
+  {
+   "code": "O1",
+   "city": "Oslo",
+   "lat": 59.9561,
+   "lon": 10.7153,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 13811.5,
+    "distFarmlandM": 77.4,
+    "urbanFrac2km": 0.5047,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 27576.93,
+    "distChampCulture": 77.92,
+    "urbanPct2000m": 38.74
+   },
+   "lab": {
+    "healthRiskScore": 0.2579,
+    "scaledPathogenRisk": 0.0993,
+    "scaledFecalRisk": 0.2919,
+    "scaledArgRisk": 0.3826
+   },
+   "baselineScore": 0.2,
+   "cityPercentile": 0.05
+  },
+  {
+   "code": "O2",
+   "city": "Oslo",
+   "lat": 59.9514,
+   "lon": 10.6806,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 11840.6,
+    "distFarmlandM": 1862.2,
+    "urbanFrac2km": 0.6626,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 23645.55,
+    "distChampCulture": 1864.45,
+    "urbanPct2000m": 86.17
+   },
+   "lab": {
+    "healthRiskScore": 0.2414,
+    "scaledPathogenRisk": 0.0495,
+    "scaledFecalRisk": 0.2932,
+    "scaledArgRisk": 0.3814
+   },
+   "baselineScore": 0.3068,
+   "cityPercentile": 0.8
+  },
+  {
+   "code": "O3",
+   "city": "Oslo",
+   "lat": 59.9475,
+   "lon": 10.7111,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 13220.3,
+    "distFarmlandM": 1002.5,
+    "urbanFrac2km": 0.613,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 26387.52,
+    "distChampCulture": 1009.79,
+    "urbanPct2000m": 56.09
+   },
+   "lab": {
+    "healthRiskScore": 0.2473,
+    "scaledPathogenRisk": 0.1248,
+    "scaledFecalRisk": 0.3136,
+    "scaledArgRisk": 0.3035
+   },
+   "baselineScore": 0.2789,
+   "cityPercentile": 0.2
+  },
+  {
+   "code": "O5",
+   "city": "Oslo",
+   "lat": 59.9308,
+   "lon": 10.6769,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 10812.8,
+    "distFarmlandM": 1555.1,
+    "urbanFrac2km": 0.5825,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 21572.4,
+    "distChampCulture": 1566.38,
+    "urbanPct2000m": 65.16
+   },
+   "lab": {
+    "healthRiskScore": 0.2321,
+    "scaledPathogenRisk": 0.0248,
+    "scaledFecalRisk": 0.385,
+    "scaledArgRisk": 0.2865
+   },
+   "baselineScore": 0.3047,
+   "cityPercentile": 0.7
+  },
+  {
+   "code": "O4",
+   "city": "Oslo",
+   "lat": 59.9308,
+   "lon": 10.6778,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 10861.0,
+    "distFarmlandM": 1551.5,
+    "urbanFrac2km": 0.5855,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 21668.56,
+    "distChampCulture": 1562.79,
+    "urbanPct2000m": 65.06
+   },
+   "lab": {
+    "healthRiskScore": 0.2665,
+    "scaledPathogenRisk": 0.0248,
+    "scaledFecalRisk": 0.2344,
+    "scaledArgRisk": 0.5403
+   },
+   "baselineScore": 0.3044,
+   "cityPercentile": 0.65
+  },
+  {
+   "code": "O6",
+   "city": "Oslo",
+   "lat": 59.8628,
+   "lon": 10.8458,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 13512.0,
+    "distFarmlandM": 1966.2,
+    "urbanFrac2km": 0.2376,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 26959.25,
+    "distChampCulture": 1979.52,
+    "urbanPct2000m": 18.4
+   },
+   "lab": {
+    "healthRiskScore": 0.18,
+    "scaledPathogenRisk": 0.0752,
+    "scaledFecalRisk": 0.1625,
+    "scaledArgRisk": 0.3025
+   },
+   "baselineScore": 0.2945,
+   "cityPercentile": 0.5
+  },
+  {
+   "code": "O7",
+   "city": "Oslo",
+   "lat": 59.8511,
+   "lon": 10.8164,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 11534.5,
+    "distFarmlandM": 1056.3,
+    "urbanFrac2km": 0.4859,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 23009.42,
+    "distChampCulture": 1061.26,
+    "urbanPct2000m": 49.85
+   },
+   "lab": {
+    "healthRiskScore": 0.278,
+    "scaledPathogenRisk": 0.0993,
+    "scaledFecalRisk": 0.2728,
+    "scaledArgRisk": 0.462
+   },
+   "baselineScore": 0.2864,
+   "cityPercentile": 0.3
+  },
+  {
+   "code": "O8",
+   "city": "Oslo",
+   "lat": 59.8433,
+   "lon": 10.7847,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 9590.1,
+    "distFarmlandM": 1578.8,
+    "urbanFrac2km": 0.3393,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 19129.08,
+    "distChampCulture": 1589.94,
+    "urbanPct2000m": 39.31
+   },
+   "lab": {
+    "healthRiskScore": 0.3041,
+    "scaledPathogenRisk": 0.149,
+    "scaledFecalRisk": 0.3018,
+    "scaledArgRisk": 0.4616
+   },
+   "baselineScore": 0.3085,
+   "cityPercentile": 0.85
+  },
+  {
+   "code": "O9",
+   "city": "Oslo",
+   "lat": 59.9425,
+   "lon": 10.7181,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 13396.2,
+    "distFarmlandM": 1582.8,
+    "urbanFrac2km": 0.608,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 26732.06,
+    "distChampCulture": 1593.92,
+    "urbanPct2000m": 51.16
+   },
+   "lab": {
+    "healthRiskScore": 0.1324,
+    "scaledPathogenRisk": 0.0,
+    "scaledFecalRisk": 0.0,
+    "scaledArgRisk": 0.3972
+   },
+   "baselineScore": 0.2933,
+   "cityPercentile": 0.45
+  },
+  {
+   "code": "O10",
+   "city": "Oslo",
+   "lat": 59.9414,
+   "lon": 10.7097,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 12913.1,
+    "distFarmlandM": 1681.3,
+    "urbanFrac2km": 0.6335,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 25768.33,
+    "distChampCulture": 1693.45,
+    "urbanPct2000m": 62.84
+   },
+   "lab": {
+    "healthRiskScore": 0.2114,
+    "scaledPathogenRisk": 0.0249,
+    "scaledFecalRisk": 0.3387,
+    "scaledArgRisk": 0.2706
+   },
+   "baselineScore": 0.2978,
+   "cityPercentile": 0.55
+  },
+  {
+   "code": "O11",
+   "city": "Oslo",
+   "lat": 59.9297,
+   "lon": 10.6594,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 9841.9,
+    "distFarmlandM": 1790.7,
+    "urbanFrac2km": 0.5874,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 19636.73,
+    "distChampCulture": 1800.34,
+    "urbanPct2000m": 69.71
+   },
+   "lab": {
+    "healthRiskScore": 0.3696,
+    "scaledPathogenRisk": 0.1734,
+    "scaledFecalRisk": 0.3317,
+    "scaledArgRisk": 0.6038
+   },
+   "baselineScore": 0.3153,
+   "cityPercentile": 0.9
+  },
+  {
+   "code": "O12",
+   "city": "Oslo",
+   "lat": 59.9356,
+   "lon": 10.6736,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 10798.8,
+    "distFarmlandM": 2104.5,
+    "urbanFrac2km": 0.6584,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 21549.35,
+    "distChampCulture": 2119.51,
+    "urbanPct2000m": 69.37
+   },
+   "lab": {
+    "healthRiskScore": 0.3675,
+    "scaledPathogenRisk": 0.0997,
+    "scaledFecalRisk": 0.3184,
+    "scaledArgRisk": 0.6845
+   },
+   "baselineScore": 0.3165,
+   "cityPercentile": 0.95
+  },
+  {
+   "code": "O13",
+   "city": "Oslo",
+   "lat": 59.945,
+   "lon": 10.6503,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 10011.9,
+    "distFarmlandM": 1328.2,
+    "urbanFrac2km": 0.6563,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 19994.8,
+    "distChampCulture": 3162.29,
+    "urbanPct2000m": 65.42
+   },
+   "lab": {
+    "healthRiskScore": 0.32,
+    "scaledPathogenRisk": 0.1242,
+    "scaledFecalRisk": 0.295,
+    "scaledArgRisk": 0.5408
+   },
+   "baselineScore": 0.305,
+   "cityPercentile": 0.75
+  },
+  {
+   "code": "O14",
+   "city": "Oslo",
+   "lat": 59.9392,
+   "lon": 10.8214,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 17397.9,
+    "distFarmlandM": 1734.6,
+    "urbanFrac2km": 0.4266,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 34814.1,
+    "distChampCulture": 1747.01,
+    "urbanPct2000m": 48.2
+   },
+   "lab": {
+    "healthRiskScore": 0.2469,
+    "scaledPathogenRisk": 0.0249,
+    "scaledFecalRisk": 0.112,
+    "scaledArgRisk": 0.6038
+   },
+   "baselineScore": 0.2788,
+   "cityPercentile": 0.15
+  },
+  {
+   "code": "O15",
+   "city": "Oslo",
+   "lat": 59.9206,
+   "lon": 10.8006,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 15085.2,
+    "distFarmlandM": 1384.8,
+    "urbanFrac2km": 0.5031,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 30176.28,
+    "distChampCulture": 1387.31,
+    "urbanPct2000m": 48.72
+   },
+   "lab": {
+    "healthRiskScore": 0.2028,
+    "scaledPathogenRisk": 0.0495,
+    "scaledFecalRisk": 0.1143,
+    "scaledArgRisk": 0.4447
+   },
+   "baselineScore": 0.2805,
+   "cityPercentile": 0.25
+  },
+  {
+   "code": "O16",
+   "city": "Oslo",
+   "lat": 59.9044,
+   "lon": 10.7944,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 13556.0,
+    "distFarmlandM": 2070.8,
+    "urbanFrac2km": 0.4403,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 27103.02,
+    "distChampCulture": 2078.69,
+    "urbanPct2000m": 46.56
+   },
+   "lab": {
+    "healthRiskScore": 0.4085,
+    "scaledPathogenRisk": 0.251,
+    "scaledFecalRisk": 0.4781,
+    "scaledArgRisk": 0.4964
+   },
+   "baselineScore": 0.2991,
+   "cityPercentile": 0.6
+  },
+  {
+   "code": "O18",
+   "city": "Oslo",
+   "lat": 59.9219,
+   "lon": 10.8369,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 16609.1,
+    "distFarmlandM": 607.2,
+    "urbanFrac2km": 0.4792,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 33208.44,
+    "distChampCulture": 608.43,
+    "urbanPct2000m": 51.15
+   },
+   "lab": {
+    "healthRiskScore": 0.329,
+    "scaledPathogenRisk": 0.1488,
+    "scaledFecalRisk": 0.4071,
+    "scaledArgRisk": 0.4311
+   },
+   "baselineScore": 0.249,
+   "cityPercentile": 0.1
+  },
+  {
+   "code": "O19",
+   "city": "Oslo",
+   "lat": 59.9525,
+   "lon": 10.9017,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 19209.5,
+    "distFarmlandM": 3027.1,
+    "urbanFrac2km": 0.417,
+    "nearestWwtpName": "Flateby Renseanlegg"
+   },
+   "oah": {
+    "distanceToSewageStations": 43121.69,
+    "distChampCulture": 3659.25,
+    "urbanPct2000m": 40.78
+   },
+   "lab": {
+    "healthRiskScore": 0.2569,
+    "scaledPathogenRisk": 0.1739,
+    "scaledFecalRisk": 0.3078,
+    "scaledArgRisk": 0.289
+   },
+   "baselineScore": 0.2915,
+   "cityPercentile": 0.4
+  },
+  {
+   "code": "O20",
+   "city": "Oslo",
+   "lat": 59.9432,
+   "lon": 10.6736,
+   "hasLabData": true,
+   "osm": {
+    "distWwtpM": 11103.6,
+    "distFarmlandM": 2543.9,
+    "urbanFrac2km": 0.7392,
+    "nearestWwtpName": null
+   },
+   "oah": {
+    "distanceToSewageStations": 22165.9,
+    "distChampCulture": 2628.47,
+    "urbanPct2000m": 70.95
+   },
+   "lab": {
+    "healthRiskScore": 0.2978,
+    "scaledPathogenRisk": 0.1253,
+    "scaledFecalRisk": 0.3354,
+    "scaledArgRisk": 0.4327
+   },
+   "baselineScore": 0.3228,
+   "cityPercentile": 1.0
+  }
+ ]
+}

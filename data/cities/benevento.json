@@ -1,0 +1,455 @@
+{
+ "schema": "streamlink-city/1",
+ "id": "benevento",
+ "name": "Benevento",
+ "country": null,
+ "oahCityId": "BE",
+ "centre": {
+  "lat": 41.1291,
+  "lon": 14.7868
+ },
+ "bbox": {
+  "south": 41.06014,
+  "west": 14.68999,
+  "north": 41.213825,
+  "east": 14.8345
+ },
+ "labData": {
+  "available": true,
+  "sitesWithLab": 20,
+  "note": "One OAH lab campaign per site (2023-2024). Lab sites were used to train the baseline, so their baselineScore is in-sample."
+ },
+ "baseline": {
+  "model": "streamlink-baseline-v1",
+  "modelVersion": "1.0.0",
+  "outOfDistribution": false
+ },
+ "sites": [
+  {
+   "code": "BN1",
+   "name": "Capodimonte",
+   "lat": 41.13231,
+   "lon": 14.80039,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 2693.5,
+    "distFarmlandM": 1523.0,
+    "urbanFrac2km": 0.24,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "lab": {
+    "healthRiskScore": 0.3091,
+    "scaledPathogenRisk": 0.2054,
+    "scaledFecalRisk": 0.2427,
+    "scaledArgRisk": 0.4792
+   },
+   "baselineScore": 0.385,
+   "cityPercentile": 0.85
+  },
+  {
+   "code": "BN2",
+   "name": "Cretarossa",
+   "lat": 41.12679,
+   "lon": 14.80333,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 2858.7,
+    "distFarmlandM": 1580.0,
+    "urbanFrac2km": 0.2063,
+    "nearestWwtpName": "Impianto di depurazione Sanav"
+   },
+   "lab": {
+    "healthRiskScore": 0.7266,
+    "scaledPathogenRisk": 0.6456,
+    "scaledFecalRisk": 0.5343,
+    "scaledArgRisk": 1.0
+   },
+   "baselineScore": 0.382,
+   "cityPercentile": 0.8
+  },
+  {
+   "code": "BN3",
+   "name": "Ponticelli",
+   "lat": 41.13348,
+   "lon": 14.78614,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3714.6,
+    "distFarmlandM": 538.8,
+    "urbanFrac2km": 0.3842,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "lab": {
+    "healthRiskScore": 0.3553,
+    "scaledPathogenRisk": 0.3554,
+    "scaledFecalRisk": 0.7104,
+    "scaledArgRisk": 0.0
+   },
+   "baselineScore": 0.3283,
+   "cityPercentile": 0.4
+  },
+  {
+   "code": "BN4",
+   "name": "Serretelle 4",
+   "lat": 41.12414,
+   "lon": 14.74864,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 5040.1,
+    "distFarmlandM": 1136.8,
+    "urbanFrac2km": 0.0797,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "lab": {
+    "healthRiskScore": 0.3817,
+    "scaledPathogenRisk": 0.3065,
+    "scaledFecalRisk": 0.4667,
+    "scaledArgRisk": 0.3717
+   },
+   "baselineScore": 0.3316,
+   "cityPercentile": 0.5
+  },
+  {
+   "code": "BN5",
+   "name": "Serretelle 5",
+   "lat": 41.10429,
+   "lon": 14.74295,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 6245.7,
+    "distFarmlandM": 2460.1,
+    "urbanFrac2km": 0.0219,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "lab": {
+    "healthRiskScore": 0.2269,
+    "scaledPathogenRisk": 0.0758,
+    "scaledFecalRisk": 0.2193,
+    "scaledArgRisk": 0.3856
+   },
+   "baselineScore": 0.3454,
+   "cityPercentile": 0.6
+  },
+  {
+   "code": "BN6",
+   "name": "Pezzapiano",
+   "lat": 41.14775,
+   "lon": 14.78437,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3642.4,
+    "distFarmlandM": 619.7,
+    "urbanFrac2km": 0.1383,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "lab": {
+    "healthRiskScore": 0.342,
+    "scaledPathogenRisk": 0.2056,
+    "scaledFecalRisk": 0.4619,
+    "scaledArgRisk": 0.3583
+   },
+   "baselineScore": 0.3306,
+   "cityPercentile": 0.45
+  },
+  {
+   "code": "BN7",
+   "name": "Margiacca",
+   "lat": 41.14905,
+   "lon": 14.81407,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1216.3,
+    "distFarmlandM": 690.6,
+    "urbanFrac2km": 0.0936,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "lab": {
+    "healthRiskScore": 0.4343,
+    "scaledPathogenRisk": 0.4126,
+    "scaledFecalRisk": 0.5393,
+    "scaledArgRisk": 0.3509
+   },
+   "baselineScore": 0.4044,
+   "cityPercentile": 0.9
+  },
+  {
+   "code": "BN8",
+   "name": "Paduli",
+   "lat": 41.15405,
+   "lon": 14.8345,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1026.3,
+    "distFarmlandM": 2089.9,
+    "urbanFrac2km": 0.106,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "lab": {
+    "healthRiskScore": 0.4056,
+    "scaledPathogenRisk": 0.3383,
+    "scaledFecalRisk": 0.477,
+    "scaledArgRisk": 0.4015
+   },
+   "baselineScore": 0.4603,
+   "cityPercentile": 0.95
+  },
+  {
+   "code": "BN9",
+   "name": "Vallone Cornacchie",
+   "lat": 41.11089,
+   "lon": 14.8325,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3464.9,
+    "distFarmlandM": 2297.5,
+    "urbanFrac2km": 0.0298,
+    "nearestWwtpName": "Impianto di depurazione Sanav"
+   },
+   "lab": {
+    "healthRiskScore": 0.3491,
+    "scaledPathogenRisk": 0.2515,
+    "scaledFecalRisk": 0.4117,
+    "scaledArgRisk": 0.384
+   },
+   "baselineScore": 0.3807,
+   "cityPercentile": 0.75
+  },
+  {
+   "code": "BN10",
+   "name": "Malacagna",
+   "lat": 41.14607,
+   "lon": 14.76353,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 5379.3,
+    "distFarmlandM": 269.4,
+    "urbanFrac2km": 0.1183,
+    "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
+   },
+   "lab": {
+    "healthRiskScore": 0.6243,
+    "scaledPathogenRisk": 0.762,
+    "scaledFecalRisk": 0.8423,
+    "scaledArgRisk": 0.2686
+   },
+   "baselineScore": 0.2788,
+   "cityPercentile": 0.2
+  },
+  {
+   "code": "BN11",
+   "name": "Masseria Roseto",
+   "lat": 41.16124,
+   "lon": 14.75972,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 5206.9,
+    "distFarmlandM": 850.1,
+    "urbanFrac2km": 0.0264,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "lab": {
+    "healthRiskScore": 0.108,
+    "scaledPathogenRisk": 0.0754,
+    "scaledFecalRisk": 0.2158,
+    "scaledArgRisk": 0.0329
+   },
+   "baselineScore": 0.3184,
+   "cityPercentile": 0.3
+  },
+  {
+   "code": "BN12",
+   "name": "Vallone S. Vitale",
+   "lat": 41.13628,
+   "lon": 14.73193,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3137.4,
+    "distFarmlandM": 1189.7,
+    "urbanFrac2km": 0.0155,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "lab": {
+    "healthRiskScore": 0.0895,
+    "scaledPathogenRisk": 0.0748,
+    "scaledFecalRisk": 0.1445,
+    "scaledArgRisk": 0.0491
+   },
+   "baselineScore": 0.3619,
+   "cityPercentile": 0.7
+  },
+  {
+   "code": "BN13",
+   "name": "Vallone la Ripa",
+   "lat": 41.11727,
+   "lon": 14.73683,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 4803.1,
+    "distFarmlandM": 1403.4,
+    "urbanFrac2km": 0.0203,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "lab": {
+    "healthRiskScore": 0.234,
+    "scaledPathogenRisk": 0.1003,
+    "scaledFecalRisk": 0.3295,
+    "scaledArgRisk": 0.2723
+   },
+   "baselineScore": 0.3412,
+   "cityPercentile": 0.55
+  },
+  {
+   "code": "BN14",
+   "name": "Rocca - Tufara",
+   "lat": 41.06014,
+   "lon": 14.70843,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 9675.9,
+    "distFarmlandM": 13.1,
+    "urbanFrac2km": 0.0493,
+    "nearestWwtpName": "Depuratore comunale"
+   },
+   "lab": {
+    "healthRiskScore": 0.1676,
+    "scaledPathogenRisk": 0.1101,
+    "scaledFecalRisk": 0.2119,
+    "scaledArgRisk": 0.181
+   },
+   "baselineScore": 0.1991,
+   "cityPercentile": 0.05
+  },
+  {
+   "code": "BN15",
+   "name": "Corvo Tressanti",
+   "lat": 41.06921,
+   "lon": 14.70959,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 8773.8,
+    "distFarmlandM": 569.1,
+    "urbanFrac2km": 0.0349,
+    "nearestWwtpName": "Depuratore comunale"
+   },
+   "lab": {
+    "healthRiskScore": 0.3715,
+    "scaledPathogenRisk": 0.3487,
+    "scaledFecalRisk": 0.3778,
+    "scaledArgRisk": 0.3881
+   },
+   "baselineScore": 0.2748,
+   "cityPercentile": 0.1
+  },
+  {
+   "code": "BN16",
+   "name": "Ranno",
+   "lat": 41.06923,
+   "lon": 14.70876,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 8745.5,
+    "distFarmlandM": 583.7,
+    "urbanFrac2km": 0.035,
+    "nearestWwtpName": "Depuratore comunale"
+   },
+   "lab": {
+    "healthRiskScore": 0.2203,
+    "scaledPathogenRisk": 0.1258,
+    "scaledFecalRisk": 0.4229,
+    "scaledArgRisk": 0.1122
+   },
+   "baselineScore": 0.2758,
+   "cityPercentile": 0.15
+  },
+  {
+   "code": "BN17",
+   "name": "Lossauro",
+   "lat": 41.13221,
+   "lon": 14.7127,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 2268.7,
+    "distFarmlandM": 467.8,
+    "urbanFrac2km": 0.0297,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "lab": {
+    "healthRiskScore": 0.3801,
+    "scaledPathogenRisk": 0.4909,
+    "scaledFecalRisk": 0.6187,
+    "scaledArgRisk": 0.0307
+   },
+   "baselineScore": 0.348,
+   "cityPercentile": 0.65
+  },
+  {
+   "code": "BN18",
+   "name": "Jenga",
+   "lat": 41.15126,
+   "lon": 14.70936,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 848.0,
+    "distFarmlandM": 25.6,
+    "urbanFrac2km": 0.0399,
+    "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
+   },
+   "lab": {
+    "healthRiskScore": 0.4021,
+    "scaledPathogenRisk": 0.3149,
+    "scaledFecalRisk": 0.4429,
+    "scaledArgRisk": 0.4485
+   },
+   "baselineScore": 0.3278,
+   "cityPercentile": 0.35
+  },
+  {
+   "code": "BN19",
+   "name": "Foeniculum",
+   "lat": 41.185791,
+   "lon": 14.719005,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3915.1,
+    "distFarmlandM": 373.0,
+    "urbanFrac2km": 0.0535,
+    "nearestWwtpName": "Depuratore Acque Reflue"
+   },
+   "lab": {
+    "healthRiskScore": 0.2408,
+    "scaledPathogenRisk": 0.2572,
+    "scaledFecalRisk": 0.3391,
+    "scaledArgRisk": 0.1262
+   },
+   "baselineScore": 0.307,
+   "cityPercentile": 0.25
+  },
+  {
+   "code": "BN20",
+   "name": "Lenta",
+   "lat": 41.213825,
+   "lon": 14.68999,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 37.7,
+    "distFarmlandM": 303.7,
+    "urbanFrac2km": 0.0446,
+    "nearestWwtpName": "Depuratore Acque Reflue"
+   },
+   "lab": {
+    "healthRiskScore": 0.4207,
+    "scaledPathogenRisk": 0.3881,
+    "scaledFecalRisk": 0.5078,
+    "scaledArgRisk": 0.3661
+   },
+   "baselineScore": 0.589,
+   "cityPercentile": 1.0
+  }
+ ],
+ "provenance": {
+  "sites": "OAH Resilience Map snapshot (data/oah/)",
+  "osm": "OpenStreetMap contributors (ODbL)",
+  "generator": "analysis/add_city.py --oah",
+  "generated": "2026-09-23"
+ }
+}

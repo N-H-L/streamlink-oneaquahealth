@@ -1,0 +1,472 @@
+{
+ "schema": "streamlink-city/1",
+ "id": "ghent",
+ "name": "Ghent",
+ "country": null,
+ "oahCityId": "GH",
+ "centre": {
+  "lat": 51.0543,
+  "lon": 3.7174
+ },
+ "bbox": {
+  "south": 50.85943,
+  "west": 3.68126,
+  "north": 51.0939,
+  "east": 3.8168
+ },
+ "labData": {
+  "available": true,
+  "sitesWithLab": 17,
+  "note": "One OAH lab campaign per site (2023-2024). Lab sites were used to train the baseline, so their baselineScore is in-sample."
+ },
+ "baseline": {
+  "model": "streamlink-baseline-v1",
+  "modelVersion": "1.0.0",
+  "outOfDistribution": false
+ },
+ "sites": [
+  {
+   "code": "G2",
+   "name": "Zottegem1 (Zo1)",
+   "lat": 50.85943,
+   "lon": 3.79794,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3294.9,
+    "distFarmlandM": 118.4,
+    "urbanFrac2km": 0.2471,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2861,
+    "scaledPathogenRisk": 0.1242,
+    "scaledFecalRisk": 0.2672,
+    "scaledArgRisk": 0.4669
+   },
+   "baselineScore": 0.2812,
+   "cityPercentile": 0.3636
+  },
+  {
+   "code": "G6",
+   "name": "Zwalm2 (Zw2)",
+   "lat": 50.87579,
+   "lon": 3.75151,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 90.8,
+    "distFarmlandM": 58.9,
+    "urbanFrac2km": 0.1297,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2201,
+    "scaledPathogenRisk": 0.1738,
+    "scaledFecalRisk": 0.3113,
+    "scaledArgRisk": 0.175
+   },
+   "baselineScore": 0.4835,
+   "cityPercentile": 0.9091
+  },
+  {
+   "code": "G8",
+   "name": "Zwalm4 (Zw4)",
+   "lat": 50.87971,
+   "lon": 3.73771,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 945.3,
+    "distFarmlandM": 198.6,
+    "urbanFrac2km": 0.1225,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2161,
+    "scaledPathogenRisk": 0.0993,
+    "scaledFecalRisk": 0.2305,
+    "scaledArgRisk": 0.3183
+   },
+   "baselineScore": 0.3733,
+   "cityPercentile": 0.6364
+  },
+  {
+   "code": "G9",
+   "name": "Zwalm5 (Zw5)",
+   "lat": 50.87366,
+   "lon": 3.73125,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1238.6,
+    "distFarmlandM": 26.0,
+    "urbanFrac2km": 0.1121,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.3553,
+    "scaledPathogenRisk": 0.1492,
+    "scaledFecalRisk": 0.3966,
+    "scaledArgRisk": 0.5202
+   },
+   "baselineScore": 0.3063,
+   "cityPercentile": 0.4545
+  },
+  {
+   "code": "G10",
+   "name": "Zwalm6 (Zw6)",
+   "lat": 50.88344,
+   "lon": 3.71431,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 2600.7,
+    "distFarmlandM": 10.2,
+    "urbanFrac2km": 0.1279,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.1677,
+    "scaledPathogenRisk": 0.0248,
+    "scaledFecalRisk": 0.1193,
+    "scaledArgRisk": 0.3591
+   },
+   "baselineScore": 0.2646,
+   "cityPercentile": 0.2273
+  },
+  {
+   "code": "G22",
+   "name": "Zwalm7 (Zw7)",
+   "lat": 50.88527,
+   "lon": 3.692821,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 4092.3,
+    "distFarmlandM": 22.0,
+    "urbanFrac2km": 0.0934,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.1858,
+    "scaledPathogenRisk": 0.1501,
+    "scaledFecalRisk": 0.2921,
+    "scaledArgRisk": 0.1152
+   },
+   "baselineScore": 0.2405,
+   "cityPercentile": 0.0909
+  },
+  {
+   "code": "G11",
+   "name": "Zwalm8 (Zw8)",
+   "lat": 50.88437,
+   "lon": 3.68791,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 4398.6,
+    "distFarmlandM": 49.3,
+    "urbanFrac2km": 0.0877,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2251,
+    "scaledPathogenRisk": 0.1253,
+    "scaledFecalRisk": 0.2544,
+    "scaledArgRisk": 0.2956
+   },
+   "baselineScore": 0.2368,
+   "cityPercentile": 0.0455
+  },
+  {
+   "code": "G12",
+   "name": "Zwalm9 (Zw9)",
+   "lat": 50.88541,
+   "lon": 3.68606,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 4552.8,
+    "distFarmlandM": 83.3,
+    "urbanFrac2km": 0.0855,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.225,
+    "scaledPathogenRisk": 0.0995,
+    "scaledFecalRisk": 0.2129,
+    "scaledArgRisk": 0.3624
+   },
+   "baselineScore": 0.2502,
+   "cityPercentile": 0.1364
+  },
+  {
+   "code": "G13",
+   "name": "Merelbeke1 (Mr1)",
+   "lat": 50.97958,
+   "lon": 3.72241,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1602.0,
+    "distFarmlandM": 284.2,
+    "urbanFrac2km": 0.2806,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2102,
+    "scaledPathogenRisk": 0.0752,
+    "scaledFecalRisk": 0.2104,
+    "scaledArgRisk": 0.345
+   },
+   "baselineScore": 0.3557,
+   "cityPercentile": 0.5455
+  },
+  {
+   "code": "G14",
+   "name": "Merelbeke2 (Mr2)",
+   "lat": 50.99821,
+   "lon": 3.73925,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 898.3,
+    "distFarmlandM": 224.0,
+    "urbanFrac2km": 0.4346,
+    "nearestWwtpName": "RWZI Merelbeke"
+   },
+   "lab": {
+    "healthRiskScore": 0.1563,
+    "scaledPathogenRisk": 0.0,
+    "scaledFecalRisk": 0.1323,
+    "scaledArgRisk": 0.3366
+   },
+   "baselineScore": 0.3867,
+   "cityPercentile": 0.7273
+  },
+  {
+   "code": "G15",
+   "name": "Melle1 (Ml1)",
+   "lat": 50.98975,
+   "lon": 3.80615,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 619.0,
+    "distFarmlandM": 94.7,
+    "urbanFrac2km": 0.2144,
+    "nearestWwtpName": "RWZI Melle"
+   },
+   "lab": {
+    "healthRiskScore": 0.2244,
+    "scaledPathogenRisk": 0.0513,
+    "scaledFecalRisk": 0.1673,
+    "scaledArgRisk": 0.4544
+   },
+   "baselineScore": 0.3742,
+   "cityPercentile": 0.6818
+  },
+  {
+   "code": "G16",
+   "name": "Melle2 (Ml2)",
+   "lat": 50.99491,
+   "lon": 3.80568,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 484.4,
+    "distFarmlandM": 462.7,
+    "urbanFrac2km": 0.2534,
+    "nearestWwtpName": "RWZI Melle"
+   },
+   "lab": {
+    "healthRiskScore": 0.3117,
+    "scaledPathogenRisk": 0.2484,
+    "scaledFecalRisk": 0.2897,
+    "scaledArgRisk": 0.3971
+   },
+   "baselineScore": 0.4537,
+   "cityPercentile": 0.8182
+  },
+  {
+   "code": "G17",
+   "name": "Gent1 (G1)",
+   "lat": 51.02678,
+   "lon": 3.77389,
+   "hasLabData": false,
+   "features": {
+    "distWwtpM": 2623.4,
+    "distFarmlandM": 790.7,
+    "urbanFrac2km": 0.4513,
+    "nearestWwtpName": "RWZI Destelbergen"
+   },
+   "lab": null,
+   "baselineScore": 0.3654,
+   "cityPercentile": 0.5909
+  },
+  {
+   "code": "G18",
+   "name": "Gent2 (G2)",
+   "lat": 51.05458,
+   "lon": 3.68126,
+   "hasLabData": false,
+   "features": {
+    "distWwtpM": 10.2,
+    "distFarmlandM": 672.3,
+    "urbanFrac2km": 0.3177,
+    "nearestWwtpName": "RWZI Gent"
+   },
+   "lab": null,
+   "baselineScore": 0.6246,
+   "cityPercentile": 1.0
+  },
+  {
+   "code": "G1",
+   "name": "Oosterzele1 (O1)",
+   "lat": 50.94744,
+   "lon": 3.8168,
+   "hasLabData": false,
+   "features": {
+    "distWwtpM": 2920.5,
+    "distFarmlandM": 86.5,
+    "urbanFrac2km": 0.1483,
+    "nearestWwtpName": "RWZI Oosterzele"
+   },
+   "lab": null,
+   "baselineScore": 0.2762,
+   "cityPercentile": 0.2727
+  },
+  {
+   "code": "G4",
+   "name": "Zottegem3 (Zo3)",
+   "lat": 50.87507,
+   "lon": 3.80222,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3572.2,
+    "distFarmlandM": 116.9,
+    "urbanFrac2km": 0.3232,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2363,
+    "scaledPathogenRisk": 0.0503,
+    "scaledFecalRisk": 0.1824,
+    "scaledArgRisk": 0.4763
+   },
+   "baselineScore": 0.2773,
+   "cityPercentile": 0.3182
+  },
+  {
+   "code": "G21",
+   "name": "Zottegem4 (Zo4)",
+   "lat": 50.89162,
+   "lon": 3.81558,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3447.8,
+    "distFarmlandM": 28.8,
+    "urbanFrac2km": 0.2402,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2896,
+    "scaledPathogenRisk": 0.0499,
+    "scaledFecalRisk": 0.3255,
+    "scaledArgRisk": 0.4933
+   },
+   "baselineScore": 0.2513,
+   "cityPercentile": 0.1818
+  },
+  {
+   "code": "G5",
+   "name": "Zwalm1 (Zw1)",
+   "lat": 50.87539,
+   "lon": 3.74917,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 32.2,
+    "distFarmlandM": 217.5,
+    "urbanFrac2km": 0.1274,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2392,
+    "scaledPathogenRisk": 0.0496,
+    "scaledFecalRisk": 0.3549,
+    "scaledArgRisk": 0.313
+   },
+   "baselineScore": 0.5773,
+   "cityPercentile": 0.9545
+  },
+  {
+   "code": "G19",
+   "name": "Gent3 (G3)",
+   "lat": 51.02843,
+   "lon": 3.786,
+   "hasLabData": false,
+   "features": {
+    "distWwtpM": 2534.3,
+    "distFarmlandM": 350.0,
+    "urbanFrac2km": 0.3914,
+    "nearestWwtpName": "RWZI Destelbergen"
+   },
+   "lab": null,
+   "baselineScore": 0.3364,
+   "cityPercentile": 0.5
+  },
+  {
+   "code": "G20",
+   "name": "Gent4 (G4)",
+   "lat": 51.0939,
+   "lon": 3.71687,
+   "hasLabData": false,
+   "features": {
+    "distWwtpM": 1292.7,
+    "distFarmlandM": 419.0,
+    "urbanFrac2km": 0.6566,
+    "nearestWwtpName": "RWZI Evergem"
+   },
+   "lab": null,
+   "baselineScore": 0.3907,
+   "cityPercentile": 0.7727
+  },
+  {
+   "code": "G3",
+   "name": "Zottegem2 (Zo2)",
+   "lat": 50.87604,
+   "lon": 3.75174,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 122.6,
+    "distFarmlandM": 44.6,
+    "urbanFrac2km": 0.1313,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.1971,
+    "scaledPathogenRisk": 0.1004,
+    "scaledFecalRisk": 0.3096,
+    "scaledArgRisk": 0.1812
+   },
+   "baselineScore": 0.4562,
+   "cityPercentile": 0.8636
+  },
+  {
+   "code": "G7",
+   "name": "Zwalm3 (Zw3)",
+   "lat": 50.86216,
+   "lon": 3.76577,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1739.8,
+    "distFarmlandM": 90.0,
+    "urbanFrac2km": 0.0899,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.1936,
+    "scaledPathogenRisk": 0.0746,
+    "scaledFecalRisk": 0.2452,
+    "scaledArgRisk": 0.261
+   },
+   "baselineScore": 0.3062,
+   "cityPercentile": 0.4091
+  }
+ ],
+ "provenance": {
+  "sites": "OAH Resilience Map snapshot (data/oah/)",
+  "osm": "OpenStreetMap contributors (ODbL)",
+  "generator": "analysis/add_city.py --oah",
+  "generated": "2026-09-23"
+ }
+}

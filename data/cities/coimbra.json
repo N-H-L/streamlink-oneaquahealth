@@ -1,0 +1,445 @@
+{
+ "schema": "streamlink-city/1",
+ "id": "coimbra",
+ "name": "Coimbra",
+ "country": null,
+ "oahCityId": "CO",
+ "centre": {
+  "lat": 40.2033,
+  "lon": -8.4103
+ },
+ "bbox": {
+  "south": 40.11106,
+  "west": -8.49052,
+  "north": 40.27702,
+  "east": -8.39363
+ },
+ "labData": {
+  "available": true,
+  "sitesWithLab": 18,
+  "note": "One OAH lab campaign per site (2023-2024). Lab sites were used to train the baseline, so their baselineScore is in-sample."
+ },
+ "baseline": {
+  "model": "streamlink-baseline-v1",
+  "modelVersion": "1.0.0",
+  "outOfDistribution": false
+ },
+ "sites": [
+  {
+   "code": "C1",
+   "name": "Exploratório",
+   "lat": 40.19787,
+   "lon": -8.42865,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3265.3,
+    "distFarmlandM": 374.2,
+    "urbanFrac2km": 0.2293,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "lab": {
+    "healthRiskScore": 0.2199,
+    "scaledPathogenRisk": 0.0746,
+    "scaledFecalRisk": 0.2477,
+    "scaledArgRisk": 0.3374
+   },
+   "baselineScore": 0.3207,
+   "cityPercentile": 0.45
+  },
+  {
+   "code": "C2",
+   "name": "Estação Cbr-B",
+   "lat": 40.22483,
+   "lon": -8.44135,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 581.5,
+    "distFarmlandM": 339.2,
+    "urbanFrac2km": 0.1465,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "lab": {
+    "healthRiskScore": 0.4221,
+    "scaledPathogenRisk": 0.507,
+    "scaledFecalRisk": 0.5072,
+    "scaledArgRisk": 0.2522
+   },
+   "baselineScore": 0.4269,
+   "cityPercentile": 1.0
+  },
+  {
+   "code": "C3",
+   "name": "Vale das Flores",
+   "lat": 40.19307,
+   "lon": -8.41945,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 2508.2,
+    "distFarmlandM": 189.5,
+    "urbanFrac2km": 0.1576,
+    "nearestWwtpName": "ETAR de Torres do Mondego"
+   },
+   "lab": {
+    "healthRiskScore": 0.2436,
+    "scaledPathogenRisk": 0.2973,
+    "scaledFecalRisk": 0.2051,
+    "scaledArgRisk": 0.2283
+   },
+   "baselineScore": 0.3115,
+   "cityPercentile": 0.3
+  },
+  {
+   "code": "C4",
+   "name": "Eiras",
+   "lat": 40.25289,
+   "lon": -8.43659,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3197.5,
+    "distFarmlandM": 1423.5,
+    "urbanFrac2km": 0.1509,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "lab": {
+    "healthRiskScore": 0.0748,
+    "scaledPathogenRisk": 0.0496,
+    "scaledFecalRisk": 0.1409,
+    "scaledArgRisk": 0.0339
+   },
+   "baselineScore": 0.3698,
+   "cityPercentile": 0.7
+  },
+  {
+   "code": "C5",
+   "name": "Mina Hospital",
+   "lat": 40.2186,
+   "lon": -8.42733,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1830.9,
+    "distFarmlandM": 293.1,
+    "urbanFrac2km": 0.2293,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "lab": {
+    "healthRiskScore": 0.7822,
+    "scaledPathogenRisk": 1.0,
+    "scaledFecalRisk": 1.0,
+    "scaledArgRisk": 0.3465
+   },
+   "baselineScore": 0.3475,
+   "cityPercentile": 0.55
+  },
+  {
+   "code": "C6",
+   "name": "Casa do Sal",
+   "lat": 40.21942,
+   "lon": -8.43772,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 974.0,
+    "distFarmlandM": 630.8,
+    "urbanFrac2km": 0.163,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "lab": {
+    "healthRiskScore": 0.5952,
+    "scaledPathogenRisk": 0.7351,
+    "scaledFecalRisk": 0.6664,
+    "scaledArgRisk": 0.3841
+   },
+   "baselineScore": 0.4169,
+   "cityPercentile": 0.9
+  },
+  {
+   "code": "C7",
+   "name": "São Romão",
+   "lat": 40.22243,
+   "lon": -8.40165,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3452.6,
+    "distFarmlandM": 251.3,
+    "urbanFrac2km": 0.2069,
+    "nearestWwtpName": "ETAR de Torres do Mondego"
+   },
+   "lab": {
+    "healthRiskScore": 0.2504,
+    "scaledPathogenRisk": 0.1783,
+    "scaledFecalRisk": 0.5702,
+    "scaledArgRisk": 0.0027
+   },
+   "baselineScore": 0.3032,
+   "cityPercentile": 0.25
+  },
+  {
+   "code": "C8",
+   "name": "Covões",
+   "lat": 40.19133,
+   "lon": -8.46002,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3170.9,
+    "distFarmlandM": 1172.9,
+    "urbanFrac2km": 0.1696,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais de Ribeira de Frades"
+   },
+   "lab": {
+    "healthRiskScore": 0.4279,
+    "scaledPathogenRisk": 0.406,
+    "scaledFecalRisk": 0.4457,
+    "scaledArgRisk": 0.432
+   },
+   "baselineScore": 0.3633,
+   "cityPercentile": 0.6
+  },
+  {
+   "code": "C9",
+   "name": "Fornos",
+   "lat": 40.27702,
+   "lon": -8.4272,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 5752.6,
+    "distFarmlandM": 433.7,
+    "urbanFrac2km": 0.1045,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.1964,
+    "scaledPathogenRisk": 0.1265,
+    "scaledFecalRisk": 0.1443,
+    "scaledArgRisk": 0.3186
+   },
+   "baselineScore": 0.2906,
+   "cityPercentile": 0.2
+  },
+  {
+   "code": "C10",
+   "name": "Arregaça",
+   "lat": 40.19776,
+   "lon": -8.41773,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 2432.9,
+    "distFarmlandM": 65.9,
+    "urbanFrac2km": 0.2444,
+    "nearestWwtpName": "ETAR de Torres do Mondego"
+   },
+   "lab": {
+    "healthRiskScore": 0.1851,
+    "scaledPathogenRisk": 0.05,
+    "scaledFecalRisk": 0.4146,
+    "scaledArgRisk": 0.0906
+   },
+   "baselineScore": 0.2788,
+   "cityPercentile": 0.15
+  },
+  {
+   "code": "C11",
+   "name": "Bairro São Miguel",
+   "lat": 40.22752,
+   "lon": -8.43757,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 986.9,
+    "distFarmlandM": 357.7,
+    "urbanFrac2km": 0.1479,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "lab": {
+    "healthRiskScore": 0.1278,
+    "scaledPathogenRisk": 0.0509,
+    "scaledFecalRisk": 0.187,
+    "scaledArgRisk": 0.1456
+   },
+   "baselineScore": 0.3936,
+   "cityPercentile": 0.85
+  },
+  {
+   "code": "C12",
+   "name": "Escola Agrária",
+   "lat": 40.20386,
+   "lon": -8.45302,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 2165.0,
+    "distFarmlandM": 6.9,
+    "urbanFrac2km": 0.1297,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "lab": {
+    "healthRiskScore": 0.5324,
+    "scaledPathogenRisk": 0.4217,
+    "scaledFecalRisk": 0.8051,
+    "scaledArgRisk": 0.3704
+   },
+   "baselineScore": 0.2747,
+   "cityPercentile": 0.1
+  },
+  {
+   "code": "C13",
+   "name": "Condeixa",
+   "lat": 40.11106,
+   "lon": -8.49052,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1230.9,
+    "distFarmlandM": 258.3,
+    "urbanFrac2km": 0.0362,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2165,
+    "scaledPathogenRisk": 0.1499,
+    "scaledFecalRisk": 0.2287,
+    "scaledArgRisk": 0.2708
+   },
+   "baselineScore": 0.3648,
+   "cityPercentile": 0.65
+  },
+  {
+   "code": "C14",
+   "name": "Antanhol",
+   "lat": 40.16719,
+   "lon": -8.47817,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 4529.8,
+    "distFarmlandM": 3123.5,
+    "urbanFrac2km": 0.1266,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2243,
+    "scaledPathogenRisk": 0.2241,
+    "scaledFecalRisk": 0.1143,
+    "scaledArgRisk": 0.3343
+   },
+   "baselineScore": 0.3767,
+   "cityPercentile": 0.75
+  },
+  {
+   "code": "C15",
+   "name": "Copeira",
+   "lat": 40.17943,
+   "lon": -8.42117,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3013.7,
+    "distFarmlandM": 30.0,
+    "urbanFrac2km": 0.0814,
+    "nearestWwtpName": "ETAR de Torres do Mondego"
+   },
+   "lab": {
+    "healthRiskScore": 0.3449,
+    "scaledPathogenRisk": 0.3791,
+    "scaledFecalRisk": 0.3851,
+    "scaledArgRisk": 0.2706
+   },
+   "baselineScore": 0.2561,
+   "cityPercentile": 0.05
+  },
+  {
+   "code": "C16",
+   "name": "Rio Velho",
+   "lat": 40.22461,
+   "lon": -8.44304,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 436.9,
+    "distFarmlandM": 200.7,
+    "urbanFrac2km": 0.14,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "lab": {
+    "healthRiskScore": 0.3534,
+    "scaledPathogenRisk": 0.5063,
+    "scaledFecalRisk": 0.2531,
+    "scaledArgRisk": 0.3008
+   },
+   "baselineScore": 0.4253,
+   "cityPercentile": 0.95
+  },
+  {
+   "code": "C17",
+   "name": "Conraria",
+   "lat": 40.17422,
+   "lon": -8.39363,
+   "hasLabData": false,
+   "features": {
+    "distWwtpM": 1982.9,
+    "distFarmlandM": 142.8,
+    "urbanFrac2km": 0.0899,
+    "nearestWwtpName": null
+   },
+   "lab": null,
+   "baselineScore": 0.3145,
+   "cityPercentile": 0.35
+  },
+  {
+   "code": "C18",
+   "name": "Ponte da Espertina",
+   "lat": 40.25621,
+   "lon": -8.45312,
+   "hasLabData": false,
+   "features": {
+    "distWwtpM": 3256.0,
+    "distFarmlandM": 742.2,
+    "urbanFrac2km": 0.0896,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "lab": null,
+   "baselineScore": 0.3433,
+   "cityPercentile": 0.5
+  },
+  {
+   "code": "C19",
+   "name": "Escravote",
+   "lat": 40.24812,
+   "lon": -8.41159,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 4050.5,
+    "distFarmlandM": 2880.0,
+    "urbanFrac2km": 0.1347,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
+   },
+   "lab": {
+    "healthRiskScore": 0.4367,
+    "scaledPathogenRisk": 0.3044,
+    "scaledFecalRisk": 0.4625,
+    "scaledArgRisk": 0.5433
+   },
+   "baselineScore": 0.381,
+   "cityPercentile": 0.8
+  },
+  {
+   "code": "C20",
+   "name": "Corujeira",
+   "lat": 40.21085,
+   "lon": -8.47667,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1026.1,
+    "distFarmlandM": 16.5,
+    "urbanFrac2km": 0.045,
+    "nearestWwtpName": "Estação de Tratamento de Águas Residuais de Ribeira de Frades"
+   },
+   "lab": {
+    "healthRiskScore": 0.3304,
+    "scaledPathogenRisk": 0.2243,
+    "scaledFecalRisk": 0.2044,
+    "scaledArgRisk": 0.5623
+   },
+   "baselineScore": 0.3164,
+   "cityPercentile": 0.4
+  }
+ ],
+ "provenance": {
+  "sites": "OAH Resilience Map snapshot (data/oah/)",
+  "osm": "OpenStreetMap contributors (ODbL)",
+  "generator": "analysis/add_city.py --oah",
+  "generated": "2026-09-23"
+ }
+}

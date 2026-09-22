@@ -1,0 +1,124 @@
+{
+ "id": "singapore",
+ "name": "Singapore",
+ "country": "SG",
+ "codePrefix": "SG",
+ "bbox": [
+  1.2,
+  103.6,
+  1.48,
+  104.05
+ ],
+ "climate": "tropical rainforest (Af)",
+ "notes": "Hint coordinates are rough; each site is snapped to the nearest point on the named OSM waterway line within 3 km of the hint.",
+ "sites": [
+  {
+   "waterway": [
+    "Sungei Ulu Pandan"
+   ],
+   "label": "Sungei Ulu Pandan (Clementi / Ulu Pandan park connector)",
+   "near": [
+    1.318,
+    103.77
+   ]
+  },
+  {
+   "waterway": [
+    "Kallang River",
+    "Sungei Kallang"
+   ],
+   "label": "Kallang River at Bishan-Ang Mo Kio Park",
+   "near": [
+    1.3625,
+    103.8435
+   ]
+  },
+  {
+   "waterway": [
+    "Sungei Pang Sua"
+   ],
+   "label": "Sungei Pang Sua (Choa Chu Kang / Kranji)",
+   "near": [
+    1.386,
+    103.768
+   ]
+  },
+  {
+   "waterway": [
+    "Sungei Api Api"
+   ],
+   "label": "Sungei Api Api (Pasir Ris)",
+   "near": [
+    1.378,
+    103.933
+   ]
+  },
+  {
+   "waterway": [
+    "Sungei Tampines"
+   ],
+   "label": "Sungei Tampines (Pasir Ris / Tampines)",
+   "near": [
+    1.37,
+    103.952
+   ]
+  },
+  {
+   "waterway": [
+    "Sungei Punggol"
+   ],
+   "label": "Sungei Punggol (Sengkang / Punggol)",
+   "near": [
+    1.395,
+    103.895
+   ]
+  },
+  {
+   "waterway": [
+    "Whampoa River"
+   ],
+   "label": "Whampoa River (Balestier / Whampoa)",
+   "near": [
+    1.324,
+    103.859
+   ]
+  },
+  {
+   "waterway": [
+    "Bukit Timah Canal"
+   ],
+   "label": "Bukit Timah Canal (Bukit Timah / Dunearn)",
+   "near": [
+    1.329,
+    103.79
+   ]
+  },
+  {
+   "waterway": [
+    "Sungei Bedok"
+   ],
+   "label": "Sungei Bedok (Bedok / Tampines)",
+   "near": [
+    1.332,
+    103.938
+   ]
+  },
+  {
+   "waterway": [
+    "Sungei Geylang",
+    "Geylang River"
+   ],
+   "label": "Sungei Geylang (Geylang / Eunos)",
+   "near": [
+    1.314,
+    103.885
+   ]
+  }
+ ],
+ "dataQualityNotes": [
+  "OSM tagging check (2026-09-23): way 1229453929 'PUB Bukit Timah Waterworks' is tagged man_made=wastewater_plant although it is a drinking-water facility. It is the nearest 'plant' for SG2, SG7 and SG10, so their distance-to-wastewater-plant feature is too small. Left uncorrected on purpose: the pipeline uses OSM as it stands, and this shows how much the score depends on map quality.",
+  "Singapore has very little farmland, so 6 of 10 sites sit at the 5 km search cap for distance to farmland; that feature carries almost no information here.",
+  "The 25 km wastewater-plant search buffer reaches Johor (Malaysia) and the Riau Islands (Indonesia); plants there are included when they are the nearest.",
+  "Singapore's water reclamation plants are sealed facilities that discharge treated effluent to sea through deep tunnels, not into these canals, so the feature's assumed mechanism (a nearby plant discharging to the stream) may not hold at all."
+ ]
+}

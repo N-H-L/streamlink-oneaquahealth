@@ -1,0 +1,455 @@
+{
+ "schema": "streamlink-city/1",
+ "id": "oslo",
+ "name": "Oslo",
+ "country": null,
+ "oahCityId": "OS",
+ "centre": {
+  "lat": 59.9139,
+  "lon": 10.7522
+ },
+ "bbox": {
+  "south": 59.8433,
+  "west": 10.6503,
+  "north": 59.9561,
+  "east": 10.9017
+ },
+ "labData": {
+  "available": true,
+  "sitesWithLab": 20,
+  "note": "One OAH lab campaign per site (2023-2024). Lab sites were used to train the baseline, so their baselineScore is in-sample."
+ },
+ "baseline": {
+  "model": "streamlink-baseline-v1",
+  "modelVersion": "1.0.0",
+  "outOfDistribution": false
+ },
+ "sites": [
+  {
+   "code": "O17",
+   "name": "Alna – Bryn stasjon",
+   "lat": 59.9078,
+   "lon": 10.8128,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 14563.1,
+    "distFarmlandM": 1653.5,
+    "urbanFrac2km": 0.4922,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.4198,
+    "scaledPathogenRisk": 0.3364,
+    "scaledFecalRisk": 0.4261,
+    "scaledArgRisk": 0.497
+   },
+   "baselineScore": 0.2882,
+   "cityPercentile": 0.35
+  },
+  {
+   "code": "O1",
+   "name": "Gaustadbekken-Skådalen",
+   "lat": 59.9561,
+   "lon": 10.7153,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 13811.5,
+    "distFarmlandM": 77.4,
+    "urbanFrac2km": 0.5047,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2579,
+    "scaledPathogenRisk": 0.0993,
+    "scaledFecalRisk": 0.2919,
+    "scaledArgRisk": 0.3826
+   },
+   "baselineScore": 0.2,
+   "cityPercentile": 0.05
+  },
+  {
+   "code": "O2",
+   "name": "Hoffsbekken",
+   "lat": 59.9514,
+   "lon": 10.6806,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 11840.6,
+    "distFarmlandM": 1862.2,
+    "urbanFrac2km": 0.6626,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2414,
+    "scaledPathogenRisk": 0.0495,
+    "scaledFecalRisk": 0.2932,
+    "scaledArgRisk": 0.3814
+   },
+   "baselineScore": 0.3068,
+   "cityPercentile": 0.8
+  },
+  {
+   "code": "O3",
+   "name": "Gaustadbekken-Slemdalsveien/RH",
+   "lat": 59.9475,
+   "lon": 10.7111,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 13220.3,
+    "distFarmlandM": 1002.5,
+    "urbanFrac2km": 0.613,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2473,
+    "scaledPathogenRisk": 0.1248,
+    "scaledFecalRisk": 0.3136,
+    "scaledArgRisk": 0.3035
+   },
+   "baselineScore": 0.2789,
+   "cityPercentile": 0.2
+  },
+  {
+   "code": "O5",
+   "name": "Hoffselva - Møllhausen",
+   "lat": 59.9308,
+   "lon": 10.6769,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 10812.8,
+    "distFarmlandM": 1555.1,
+    "urbanFrac2km": 0.5825,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2321,
+    "scaledPathogenRisk": 0.0248,
+    "scaledFecalRisk": 0.385,
+    "scaledArgRisk": 0.2865
+   },
+   "baselineScore": 0.3047,
+   "cityPercentile": 0.7
+  },
+  {
+   "code": "O4",
+   "name": "Makrellbekken - Dronningfossen",
+   "lat": 59.9308,
+   "lon": 10.6778,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 10861.0,
+    "distFarmlandM": 1551.5,
+    "urbanFrac2km": 0.5855,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2665,
+    "scaledPathogenRisk": 0.0248,
+    "scaledFecalRisk": 0.2344,
+    "scaledArgRisk": 0.5403
+   },
+   "baselineScore": 0.3044,
+   "cityPercentile": 0.65
+  },
+  {
+   "code": "O6",
+   "name": "Ljanselva- Skullerud -",
+   "lat": 59.8628,
+   "lon": 10.8458,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 13512.0,
+    "distFarmlandM": 1966.2,
+    "urbanFrac2km": 0.2376,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.18,
+    "scaledPathogenRisk": 0.0752,
+    "scaledFecalRisk": 0.1625,
+    "scaledArgRisk": 0.3025
+   },
+   "baselineScore": 0.2945,
+   "cityPercentile": 0.5
+  },
+  {
+   "code": "O7",
+   "name": "Ljanselvas mljøpark",
+   "lat": 59.8511,
+   "lon": 10.8164,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 11534.5,
+    "distFarmlandM": 1056.3,
+    "urbanFrac2km": 0.4859,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.278,
+    "scaledPathogenRisk": 0.0993,
+    "scaledFecalRisk": 0.2728,
+    "scaledArgRisk": 0.462
+   },
+   "baselineScore": 0.2864,
+   "cityPercentile": 0.3
+  },
+  {
+   "code": "O8",
+   "name": "Ljanselva – Nedre Ljan Nordstrand",
+   "lat": 59.8433,
+   "lon": 10.7847,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 9590.1,
+    "distFarmlandM": 1578.8,
+    "urbanFrac2km": 0.3393,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.3041,
+    "scaledPathogenRisk": 0.149,
+    "scaledFecalRisk": 0.3018,
+    "scaledArgRisk": 0.4616
+   },
+   "baselineScore": 0.3085,
+   "cityPercentile": 0.85
+  },
+  {
+   "code": "O9",
+   "name": "Gaustadbekken -Forskningsparketn",
+   "lat": 59.9425,
+   "lon": 10.7181,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 13396.2,
+    "distFarmlandM": 1582.8,
+    "urbanFrac2km": 0.608,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.1324,
+    "scaledPathogenRisk": 0.0,
+    "scaledFecalRisk": 0.0,
+    "scaledArgRisk": 0.3972
+   },
+   "baselineScore": 0.2933,
+   "cityPercentile": 0.45
+  },
+  {
+   "code": "O10",
+   "name": "Frognerelva - VInderen",
+   "lat": 59.9414,
+   "lon": 10.7097,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 12913.1,
+    "distFarmlandM": 1681.3,
+    "urbanFrac2km": 0.6335,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2114,
+    "scaledPathogenRisk": 0.0249,
+    "scaledFecalRisk": 0.3387,
+    "scaledArgRisk": 0.2706
+   },
+   "baselineScore": 0.2978,
+   "cityPercentile": 0.55
+  },
+  {
+   "code": "O11",
+   "name": "Mærradalsbekken - Radiumhospital",
+   "lat": 59.9297,
+   "lon": 10.6594,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 9841.9,
+    "distFarmlandM": 1790.7,
+    "urbanFrac2km": 0.5874,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.3696,
+    "scaledPathogenRisk": 0.1734,
+    "scaledFecalRisk": 0.3317,
+    "scaledArgRisk": 0.6038
+   },
+   "baselineScore": 0.3153,
+   "cityPercentile": 0.9
+  },
+  {
+   "code": "O12",
+   "name": "Makrellbekken – ring3",
+   "lat": 59.9356,
+   "lon": 10.6736,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 10798.8,
+    "distFarmlandM": 2104.5,
+    "urbanFrac2km": 0.6584,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.3675,
+    "scaledPathogenRisk": 0.0997,
+    "scaledFecalRisk": 0.3184,
+    "scaledArgRisk": 0.6845
+   },
+   "baselineScore": 0.3165,
+   "cityPercentile": 0.95
+  },
+  {
+   "code": "O13",
+   "name": "Mærradalsbekken – Huseby skole",
+   "lat": 59.945,
+   "lon": 10.6503,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 10011.9,
+    "distFarmlandM": 1328.2,
+    "urbanFrac2km": 0.6563,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.32,
+    "scaledPathogenRisk": 0.1242,
+    "scaledFecalRisk": 0.295,
+    "scaledArgRisk": 0.5408
+   },
+   "baselineScore": 0.305,
+   "cityPercentile": 0.75
+  },
+  {
+   "code": "O14",
+   "name": "Hovinbekken - Krokliveien",
+   "lat": 59.9392,
+   "lon": 10.8214,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 17397.9,
+    "distFarmlandM": 1734.6,
+    "urbanFrac2km": 0.4266,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2469,
+    "scaledPathogenRisk": 0.0249,
+    "scaledFecalRisk": 0.112,
+    "scaledArgRisk": 0.6038
+   },
+   "baselineScore": 0.2788,
+   "cityPercentile": 0.15
+  },
+  {
+   "code": "O15",
+   "name": "Hovinbekken - Hovin",
+   "lat": 59.9206,
+   "lon": 10.8006,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 15085.2,
+    "distFarmlandM": 1384.8,
+    "urbanFrac2km": 0.5031,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2028,
+    "scaledPathogenRisk": 0.0495,
+    "scaledFecalRisk": 0.1143,
+    "scaledArgRisk": 0.4447
+   },
+   "baselineScore": 0.2805,
+   "cityPercentile": 0.25
+  },
+  {
+   "code": "O16",
+   "name": "Alna - Kværnerfossene",
+   "lat": 59.9044,
+   "lon": 10.7944,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 13556.0,
+    "distFarmlandM": 2070.8,
+    "urbanFrac2km": 0.4403,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.4085,
+    "scaledPathogenRisk": 0.251,
+    "scaledFecalRisk": 0.4781,
+    "scaledArgRisk": 0.4964
+   },
+   "baselineScore": 0.2991,
+   "cityPercentile": 0.6
+  },
+  {
+   "code": "O18",
+   "name": "Alna – v Tveita / plantasjen-",
+   "lat": 59.9219,
+   "lon": 10.8369,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 16609.1,
+    "distFarmlandM": 607.2,
+    "urbanFrac2km": 0.4792,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.329,
+    "scaledPathogenRisk": 0.1488,
+    "scaledFecalRisk": 0.4071,
+    "scaledArgRisk": 0.4311
+   },
+   "baselineScore": 0.249,
+   "cityPercentile": 0.1
+  },
+  {
+   "code": "O19",
+   "name": "Alna - Grorud",
+   "lat": 59.9525,
+   "lon": 10.9017,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 19209.5,
+    "distFarmlandM": 3027.1,
+    "urbanFrac2km": 0.417,
+    "nearestWwtpName": "Flateby Renseanlegg"
+   },
+   "lab": {
+    "healthRiskScore": 0.2569,
+    "scaledPathogenRisk": 0.1739,
+    "scaledFecalRisk": 0.3078,
+    "scaledArgRisk": 0.289
+   },
+   "baselineScore": 0.2915,
+   "cityPercentile": 0.4
+  },
+  {
+   "code": "O20",
+   "name": "Makrellbekken - Njård",
+   "lat": 59.9432,
+   "lon": 10.6736,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 11103.6,
+    "distFarmlandM": 2543.9,
+    "urbanFrac2km": 0.7392,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2978,
+    "scaledPathogenRisk": 0.1253,
+    "scaledFecalRisk": 0.3354,
+    "scaledArgRisk": 0.4327
+   },
+   "baselineScore": 0.3228,
+   "cityPercentile": 1.0
+  }
+ ],
+ "provenance": {
+  "sites": "OAH Resilience Map snapshot (data/oah/)",
+  "osm": "OpenStreetMap contributors (ODbL)",
+  "generator": "analysis/add_city.py --oah",
+  "generated": "2026-09-23"
+ }
+}

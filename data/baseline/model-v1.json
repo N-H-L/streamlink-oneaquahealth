@@ -1,0 +1,593 @@
+{
+ "id": "streamlink-baseline-v1",
+ "version": "1.0.0",
+ "created": "2026-09-23",
+ "status": "experimental",
+ "description": "Map-context baseline: estimated probability that a stream site is in the top third of OAH lab healthRiskScore, from three OpenStreetMap features. A prior to prioritise lab visits, not a measurement.",
+ "target": {
+  "name": "healthRiskTopTercile",
+  "definition": "healthRiskScore >= 2/3 quantile of the 96 OAH lab sites",
+  "threshold": 0.3472,
+  "source": "OAH Resilience Map health-risks (one lab campaign per site, 2023-2024)"
+ },
+ "features": [
+  {
+   "id": "osm_dist_wwtp_m",
+   "label": "Distance to nearest wastewater treatment plant",
+   "unit": "m",
+   "osm": "nwr[\"man_made\"=\"wastewater_plant\"]",
+   "compute": "Planar distance from the site point to the nearest WWTP node/way/relation geometry (0 if inside). Searched within city bbox + 25 km; capped at 25 000 m.",
+   "transform": "log10(clip(value, 50, 25000))",
+   "expectedDirection": "closer = higher risk"
+  },
+  {
+   "id": "osm_dist_farmland_m",
+   "label": "Distance to nearest farmland/orchard/vineyard",
+   "unit": "m",
+   "osm": "nwr[\"landuse\"~\"^(farmland|orchard|vineyard)$\"]",
+   "compute": "Planar distance to the nearest farmland polygon (0 if inside). Searched within bbox + 8 km; capped at 8 000 m.",
+   "transform": "log10(clip(value, 50, 8000))",
+   "expectedDirection": "closer = higher risk"
+  },
+  {
+   "id": "osm_urban_frac_2km",
+   "label": "Built-up land fraction within 2 km",
+   "unit": "fraction 0-1",
+   "osm": "nwr[\"landuse\"~\"^(residential|commercial|industrial|retail)$\"]",
+   "compute": "Area of the union of built-up landuse polygons inside a 2 km-radius disc, divided by the disc area.",
+   "transform": "identity",
+   "expectedDirection": "more built-up = higher ARG risk (exploratory)"
+  }
+ ],
+ "standardize": {
+  "mean": [
+   3.443184,
+   2.553374,
+   0.30812
+  ],
+  "sd": [
+   0.531672,
+   0.590532,
+   0.225023
+  ]
+ },
+ "logistic": {
+  "intercept": -0.707024,
+  "weights": [
+   -0.339153,
+   0.221021,
+   0.016428
+  ],
+  "l2": 1.0
+ },
+ "scoring": "x_i = transform_i(raw_i); z_i = (x_i - mean_i)/sd_i; score = 1/(1+exp(-(intercept + sum_i weights_i*z_i))). cityPercentile = fraction of the city's sites with score <= this site's score.",
+ "validated": false,
+ "headline": "Not validated. Leave-one-city-out on 96 OAH lab sites: the OSM model did NOT beat chance on a held-out city (pooled AUROC 0.33), and a post-hoc within-city analysis was also not significant (mean within-city Spearman 0.19, permutation p=0.0659). The single feature 'distance to the nearest wastewater plant' does reproduce OAH's own reported association at the correlation level. Treat the score as a transparent prior for where to look first, never as evidence of contamination.",
+ "recommendedUse": "Order sites within one city (cityPercentile) as a starting prior; citizen event reports and lab results must outweigh it in any referral ranking.",
+ "evaluation": {
+  "design": "leave-one-city-out (Coimbra, Ghent, Toulouse, Benevento, Oslo); transforms, threshold and weights refit inside each fold; permutation null = target shuffled across sites, whole pipeline refit, 1000 times",
+  "n": 96,
+  "osmFeatures": {
+   "pooled": {
+    "model": {
+     "auroc": {
+      "observed": 0.331,
+      "null_mean": 0.495,
+      "null_95pct": 0.64,
+      "p_perm_one_sided": 0.965
+     },
+     "spearman": {
+      "observed": -0.139,
+      "null_mean": -0.012,
+      "null_95pct": 0.188,
+      "p_perm_one_sided": 0.833
+     },
+     "meanWithinCitySpearman": {
+      "observed": 0.123,
+      "null_mean": -0.002,
+      "null_95pct": 0.194,
+      "p_perm_one_sided": 0.152
+     }
+    },
+    "bestSingle": {
+     "auroc": {
+      "observed": 0.723,
+      "null_mean": 0.523,
+      "null_95pct": 0.657,
+      "p_perm_one_sided": 0.002
+     },
+     "spearman": {
+      "observed": 0.206,
+      "null_mean": 0.039,
+      "null_95pct": 0.234,
+      "p_perm_one_sided": 0.098
+     },
+     "meanWithinCitySpearman": {
+      "observed": 0.12,
+      "null_mean": -0.001,
+      "null_95pct": 0.206,
+      "p_perm_one_sided": 0.177
+     }
+    },
+    "random": {
+     "auroc": {
+      "observed": 0.5,
+      "null_95pct": 0.64
+     },
+     "spearman": {
+      "observed": 0.0
+     }
+    }
+   },
+   "folds": [
+    {
+     "heldOutCity": "Coimbra",
+     "n": 18,
+     "nHighRisk": 7,
+     "trainThreshold": 0.345,
+     "model": {
+      "spearman": 0.22,
+      "auroc": 0.792,
+      "weights": [
+       -0.322,
+       0.131,
+       0.078
+      ]
+     },
+     "bestSingle": {
+      "feature": 2,
+      "sign": 1.0,
+      "spearman": 0.057,
+      "auroc": 0.591
+     }
+    },
+    {
+     "heldOutCity": "Ghent",
+     "n": 17,
+     "nHighRisk": 0,
+     "trainThreshold": 0.357,
+     "model": {
+      "spearman": -0.012,
+      "auroc": null,
+      "weights": [
+       -0.468,
+       -0.061,
+       -0.083
+      ]
+     },
+     "bestSingle": {
+      "feature": 0,
+      "sign": -1.0,
+      "spearman": -0.012,
+      "auroc": null
+     }
+    },
+    {
+     "heldOutCity": "Toulouse",
+     "n": 21,
+     "nHighRisk": 12,
+     "trainThreshold": 0.334,
+     "model": {
+      "spearman": -0.274,
+      "auroc": 0.454,
+      "weights": [
+       -0.337,
+       0.536,
+       -0.422
+      ]
+     },
+     "bestSingle": {
+      "feature": 1,
+      "sign": 1.0,
+      "spearman": -0.213,
+      "auroc": 0.458
+     }
+    },
+    {
+     "heldOutCity": "Benevento",
+     "n": 20,
+     "nHighRisk": 12,
+     "trainThreshold": 0.33,
+     "model": {
+      "spearman": 0.618,
+      "auroc": 0.823,
+      "weights": [
+       -0.423,
+       -0.08,
+       0.363
+      ]
+     },
+     "bestSingle": {
+      "feature": 2,
+      "sign": 1.0,
+      "spearman": 0.537,
+      "auroc": 0.75
+     }
+    },
+    {
+     "heldOutCity": "Oslo",
+     "n": 20,
+     "nHighRisk": 4,
+     "trainThreshold": 0.355,
+     "model": {
+      "spearman": 0.065,
+      "auroc": 0.641,
+      "weights": [
+       -0.05,
+       0.187,
+       0.238
+      ]
+     },
+     "bestSingle": {
+      "feature": 0,
+      "sign": -1.0,
+      "spearman": 0.235,
+      "auroc": 0.594
+     }
+    }
+   ],
+   "featureNames": [
+    "osm_dist_wwtp_m",
+    "osm_dist_farmland_m",
+    "osm_urban_frac_2km"
+   ],
+   "withinCityPostHoc": {
+    "meanWithinCitySpearman": 0.191,
+    "meanWithinCityAUROC": 0.572,
+    "perCity": {
+     "Coimbra": {
+      "spearman": 0.226,
+      "auroc": 0.542
+     },
+     "Ghent": {
+      "spearman": -0.022,
+      "auroc": 0.545
+     },
+     "Toulouse": {
+      "spearman": 0.143,
+      "auroc": 0.531
+     },
+     "Benevento": {
+      "spearman": 0.594,
+      "auroc": 0.813
+     },
+     "Oslo": {
+      "spearman": 0.012,
+      "auroc": 0.429
+     }
+    },
+    "null": {
+     "spearman_mean": -0.001,
+     "spearman_95pct": 0.204,
+     "spearman_p": 0.0659,
+     "auroc_mean": 0.5,
+     "auroc_95pct": 0.617,
+     "auroc_p": 0.1658
+    }
+   }
+  },
+  "oahFeaturesComparison": {
+   "pooled": {
+    "model": {
+     "auroc": {
+      "observed": 0.703,
+      "null_mean": 0.491,
+      "null_95pct": 0.637,
+      "p_perm_one_sided": 0.01
+     },
+     "spearman": {
+      "observed": 0.28,
+      "null_mean": -0.015,
+      "null_95pct": 0.177,
+      "p_perm_one_sided": 0.005
+     },
+     "meanWithinCitySpearman": {
+      "observed": 0.183,
+      "null_mean": -0.003,
+      "null_95pct": 0.191,
+      "p_perm_one_sided": 0.061
+     }
+    },
+    "bestSingle": {
+     "auroc": {
+      "observed": 0.685,
+      "null_mean": 0.521,
+      "null_95pct": 0.659,
+      "p_perm_one_sided": 0.022
+     },
+     "spearman": {
+      "observed": 0.205,
+      "null_mean": 0.035,
+      "null_95pct": 0.237,
+      "p_perm_one_sided": 0.093
+     },
+     "meanWithinCitySpearman": {
+      "observed": 0.107,
+      "null_mean": -0.002,
+      "null_95pct": 0.21,
+      "p_perm_one_sided": 0.182
+     }
+    },
+    "random": {
+     "auroc": {
+      "observed": 0.5,
+      "null_95pct": 0.637
+     },
+     "spearman": {
+      "observed": 0.0
+     }
+    }
+   },
+   "folds": [
+    {
+     "heldOutCity": "Coimbra",
+     "n": 18,
+     "nHighRisk": 7,
+     "trainThreshold": 0.345,
+     "model": {
+      "spearman": 0.243,
+      "auroc": 0.597,
+      "weights": [
+       -0.566,
+       -0.425,
+       0.127
+      ]
+     },
+     "bestSingle": {
+      "feature": 1,
+      "sign": -1.0,
+      "spearman": 0.169,
+      "auroc": 0.416
+     }
+    },
+    {
+     "heldOutCity": "Ghent",
+     "n": 17,
+     "nHighRisk": 0,
+     "trainThreshold": 0.357,
+     "model": {
+      "spearman": -0.181,
+      "auroc": null,
+      "weights": [
+       -0.508,
+       -0.052,
+       -0.002
+      ]
+     },
+     "bestSingle": {
+      "feature": 0,
+      "sign": -1.0,
+      "spearman": -0.181,
+      "auroc": null
+     }
+    },
+    {
+     "heldOutCity": "Toulouse",
+     "n": 21,
+     "nHighRisk": 12,
+     "trainThreshold": 0.334,
+     "model": {
+      "spearman": 0.177,
+      "auroc": 0.639,
+      "weights": [
+       -0.66,
+       -0.385,
+       0.121
+      ]
+     },
+     "bestSingle": {
+      "feature": 1,
+      "sign": -1.0,
+      "spearman": 0.179,
+      "auroc": 0.583
+     }
+    },
+    {
+     "heldOutCity": "Benevento",
+     "n": 20,
+     "nHighRisk": 12,
+     "trainThreshold": 0.33,
+     "model": {
+      "spearman": 0.567,
+      "auroc": 0.781,
+      "weights": [
+       -0.716,
+       -0.422,
+       0.298
+      ]
+     },
+     "bestSingle": {
+      "feature": 1,
+      "sign": -1.0,
+      "spearman": 0.131,
+      "auroc": 0.589
+     }
+    },
+    {
+     "heldOutCity": "Oslo",
+     "n": 20,
+     "nHighRisk": 4,
+     "trainThreshold": 0.355,
+     "model": {
+      "spearman": 0.108,
+      "auroc": 0.484,
+      "weights": [
+       -0.276,
+       -0.388,
+       0.221
+      ]
+     },
+     "bestSingle": {
+      "feature": 0,
+      "sign": -1.0,
+      "spearman": 0.235,
+      "auroc": 0.594
+     }
+    }
+   ],
+   "featureNames": [
+    "distanceToSewageStations",
+    "distChampCulture",
+    "urbanPct2000m"
+   ],
+   "withinCityPostHoc": {
+    "meanWithinCitySpearman": 0.094,
+    "meanWithinCityAUROC": 0.533,
+    "perCity": {
+     "Coimbra": {
+      "spearman": 0.238,
+      "auroc": 0.667
+     },
+     "Ghent": {
+      "spearman": -0.201,
+      "auroc": 0.288
+     },
+     "Toulouse": {
+      "spearman": 0.09,
+      "auroc": 0.48
+     },
+     "Benevento": {
+      "spearman": 0.182,
+      "auroc": 0.692
+     },
+     "Oslo": {
+      "spearman": 0.162,
+      "auroc": 0.538
+     }
+    },
+    "null": {
+     "spearman_mean": -0.004,
+     "spearman_95pct": 0.209,
+     "spearman_p": 0.2088,
+     "auroc_mean": 0.496,
+     "auroc_95pct": 0.613,
+     "auroc_p": 0.3157
+    }
+   }
+  },
+  "secondaryTargetPathogen": {
+   "osmFeatures": {
+    "model": {
+     "auroc": {
+      "observed": 0.539,
+      "null_mean": 0.493,
+      "null_95pct": 0.627,
+      "p_perm_one_sided": 0.32
+     },
+     "spearman": {
+      "observed": 0.094,
+      "null_mean": -0.01,
+      "null_95pct": 0.184,
+      "p_perm_one_sided": 0.21
+     },
+     "meanWithinCitySpearman": {
+      "observed": 0.096,
+      "null_mean": -0.002,
+      "null_95pct": 0.189,
+      "p_perm_one_sided": 0.231
+     }
+    },
+    "bestSingle": {
+     "auroc": {
+      "observed": 0.549,
+      "null_mean": 0.522,
+      "null_95pct": 0.658,
+      "p_perm_one_sided": 0.403
+     },
+     "spearman": {
+      "observed": 0.081,
+      "null_mean": 0.037,
+      "null_95pct": 0.24,
+      "p_perm_one_sided": 0.388
+     },
+     "meanWithinCitySpearman": {
+      "observed": 0.122,
+      "null_mean": 0.002,
+      "null_95pct": 0.205,
+      "p_perm_one_sided": 0.17
+     }
+    },
+    "random": {
+     "auroc": {
+      "observed": 0.5,
+      "null_95pct": 0.627
+     },
+     "spearman": {
+      "observed": 0.0
+     }
+    }
+   },
+   "oahFeatures": {
+    "model": {
+     "auroc": {
+      "observed": 0.785,
+      "null_mean": 0.492,
+      "null_95pct": 0.628,
+      "p_perm_one_sided": 0.001
+     },
+     "spearman": {
+      "observed": 0.405,
+      "null_mean": -0.012,
+      "null_95pct": 0.181,
+      "p_perm_one_sided": 0.001
+     },
+     "meanWithinCitySpearman": {
+      "observed": 0.178,
+      "null_mean": -0.001,
+      "null_95pct": 0.187,
+      "p_perm_one_sided": 0.06
+     }
+    },
+    "bestSingle": {
+     "auroc": {
+      "observed": 0.648,
+      "null_mean": 0.521,
+      "null_95pct": 0.655,
+      "p_perm_one_sided": 0.067
+     },
+     "spearman": {
+      "observed": 0.153,
+      "null_mean": 0.033,
+      "null_95pct": 0.231,
+      "p_perm_one_sided": 0.192
+     },
+     "meanWithinCitySpearman": {
+      "observed": 0.064,
+      "null_mean": -0.001,
+      "null_95pct": 0.187,
+      "p_perm_one_sided": 0.297
+     }
+    },
+    "random": {
+     "auroc": {
+      "observed": 0.5,
+      "null_95pct": 0.628
+     },
+     "spearman": {
+      "observed": 0.0
+     }
+    }
+   }
+  }
+ },
+ "caveats": [
+  "NOT VALIDATED: on a held-out city the OSM model did not beat chance; do not present it as a tested predictor.",
+  "Trained on 96 sites in 5 European cities with a single lab campaign each (2023-2024); weak-to-moderate signal at best.",
+  "Between-city differences run the wrong way in this sample (Ghent has the closest wastewater plants and the lowest lab risk), which is why pooled ranking across cities fails. Scores are only meaningful within one city.",
+  "OAH's own map features for Ghent look unreliable (13 of 17 Ghent lab sites have urbanPct2000m = 0, and farmland distances of 0.9-14.9 km although OSM shows farmland 10-460 m away), so comparisons with the OAH-feature model are confounded.",
+  "Scores are relative priorities for where to sample, not a risk measurement or a safety statement.",
+  "OpenStreetMap completeness varies by city (landuse and wastewater plants may be missing), which directly changes the score.",
+  "Out of distribution for tropical cities such as Singapore (different climate, drainage and sewerage: WWTPs there are sealed water reclamation plants discharging to sea). No lab data exists there to check it.",
+  "Features and signs were motivated by an exploratory analysis on the same 96 sites (212 uncorrected tests); leave-one-city-out reduces but does not remove this optimism."
+ ],
+ "provenance": {
+  "labData": {
+   "sites": "data/oah/sites.snapshot.json",
+   "healthRisks": "data/oah/health-risks.snapshot.json",
+   "urbanParameters": "data/oah/urban-parameters.snapshot.json"
+  },
+  "osm": "OpenStreetMap contributors (ODbL), via Overpass API; raw responses cached in analysis/.cache/overpass/",
+  "code": "analysis/osm_features.py, analysis/baseline_v1.py",
+  "oahAttribution": "OneAquaHealth project (EU Horizon Europe), Resilience Map data; used non-commercially with attribution"
+ }
+}

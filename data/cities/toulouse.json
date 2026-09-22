@@ -1,0 +1,524 @@
+{
+ "schema": "streamlink-city/1",
+ "id": "toulouse",
+ "name": "Toulouse",
+ "country": null,
+ "oahCityId": "TO",
+ "centre": {
+  "lat": 43.6047,
+  "lon": 1.4442
+ },
+ "bbox": {
+  "south": 43.52152,
+  "west": 1.32265,
+  "north": 43.64862,
+  "east": 1.53609
+ },
+ "labData": {
+  "available": true,
+  "sitesWithLab": 21,
+  "note": "One OAH lab campaign per site (2023-2024). Lab sites were used to train the baseline, so their baselineScore is in-sample."
+ },
+ "baseline": {
+  "model": "streamlink-baseline-v1",
+  "modelVersion": "1.0.0",
+  "outOfDistribution": false
+ },
+ "sites": [
+  {
+   "code": "T21",
+   "name": "",
+   "lat": 43.59278,
+   "lon": 1.34767,
+   "hasLabData": false,
+   "features": {
+    "distWwtpM": 2029.6,
+    "distFarmlandM": 1075.7,
+    "urbanFrac2km": 0.7669,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "lab": null,
+   "baselineScore": 0.3994,
+   "cityPercentile": 0.875
+  },
+  {
+   "code": "T24",
+   "name": "",
+   "lat": 43.59604,
+   "lon": 1.36671,
+   "hasLabData": false,
+   "features": {
+    "distWwtpM": 3146.1,
+    "distFarmlandM": 1423.6,
+    "urbanFrac2km": 0.7234,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "lab": null,
+   "baselineScore": 0.3806,
+   "cityPercentile": 0.625
+  },
+  {
+   "code": "T1",
+   "name": "Ruisseau du Palays",
+   "lat": 43.55267,
+   "lon": 1.49147,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1576.7,
+    "distFarmlandM": 8.5,
+    "urbanFrac2km": 0.5072,
+    "nearestWwtpName": "Station d'épuration"
+   },
+   "lab": {
+    "healthRiskScore": 0.4039,
+    "scaledPathogenRisk": 0.4012,
+    "scaledFecalRisk": 0.532,
+    "scaledArgRisk": 0.2785
+   },
+   "baselineScore": 0.2982,
+   "cityPercentile": 0.2917
+  },
+  {
+   "code": "T3",
+   "name": "Ruisseau de Bonneval amont",
+   "lat": 43.52756,
+   "lon": 1.47439,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1857.6,
+    "distFarmlandM": 0.0,
+    "urbanFrac2km": 0.4541,
+    "nearestWwtpName": "Station d'épuration"
+   },
+   "lab": {
+    "healthRiskScore": 0.3922,
+    "scaledPathogenRisk": 0.3248,
+    "scaledFecalRisk": 0.3904,
+    "scaledArgRisk": 0.4614
+   },
+   "baselineScore": 0.288,
+   "cityPercentile": 0.25
+  },
+  {
+   "code": "T2",
+   "name": "Ruisseau de Bonneval aval",
+   "lat": 43.53219,
+   "lon": 1.46332,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1303.8,
+    "distFarmlandM": 47.5,
+    "urbanFrac2km": 0.4724,
+    "nearestWwtpName": null
+   },
+   "lab": {
+    "healthRiskScore": 0.2132,
+    "scaledPathogenRisk": 0.0997,
+    "scaledFecalRisk": 0.126,
+    "scaledArgRisk": 0.414
+   },
+   "baselineScore": 0.3088,
+   "cityPercentile": 0.3333
+  },
+  {
+   "code": "T5",
+   "name": "Marcaissonne aval",
+   "lat": 43.5678,
+   "lon": 1.50937,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3517.7,
+    "distFarmlandM": 83.5,
+    "urbanFrac2km": 0.4936,
+    "nearestWwtpName": "Station d'épuration"
+   },
+   "lab": {
+    "healthRiskScore": 0.426,
+    "scaledPathogenRisk": 0.154,
+    "scaledFecalRisk": 0.8464,
+    "scaledArgRisk": 0.2778
+   },
+   "baselineScore": 0.2698,
+   "cityPercentile": 0.125
+  },
+  {
+   "code": "T6",
+   "name": "Marcaissonne amont",
+   "lat": 43.56755,
+   "lon": 1.51974,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3879.1,
+    "distFarmlandM": 130.6,
+    "urbanFrac2km": 0.4814,
+    "nearestWwtpName": "Station d'épuration"
+   },
+   "lab": {
+    "healthRiskScore": 0.3573,
+    "scaledPathogenRisk": 0.1502,
+    "scaledFecalRisk": 0.5056,
+    "scaledArgRisk": 0.4162
+   },
+   "baselineScore": 0.2787,
+   "cityPercentile": 0.1667
+  },
+  {
+   "code": "T7",
+   "name": "Saune",
+   "lat": 43.57873,
+   "lon": 1.53609,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3032.4,
+    "distFarmlandM": 17.9,
+    "urbanFrac2km": 0.2723,
+    "nearestWwtpName": "Station d'épuration de Flourens"
+   },
+   "lab": {
+    "healthRiskScore": 0.1687,
+    "scaledPathogenRisk": 0.0758,
+    "scaledFecalRisk": 0.2074,
+    "scaledArgRisk": 0.2231
+   },
+   "baselineScore": 0.2584,
+   "cityPercentile": 0.0833
+  },
+  {
+   "code": "T8",
+   "name": "Ruisseau du Grand Port de Mer",
+   "lat": 43.58553,
+   "lon": 1.52861,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3100.7,
+    "distFarmlandM": 299.4,
+    "urbanFrac2km": 0.2849,
+    "nearestWwtpName": "Station d'épuration de Flourens"
+   },
+   "lab": {
+    "healthRiskScore": 0.1554,
+    "scaledPathogenRisk": 0.025,
+    "scaledFecalRisk": 0.1995,
+    "scaledArgRisk": 0.2415
+   },
+   "baselineScore": 0.3168,
+   "cityPercentile": 0.4167
+  },
+  {
+   "code": "T9",
+   "name": "Ruisseau du Roussimort amont",
+   "lat": 43.52152,
+   "lon": 1.34273,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 2263.3,
+    "distFarmlandM": 972.7,
+    "urbanFrac2km": 0.6951,
+    "nearestWwtpName": "Station d'épuration de Cugnaux"
+   },
+   "lab": {
+    "healthRiskScore": 0.1283,
+    "scaledPathogenRisk": 0.025,
+    "scaledFecalRisk": 0.1039,
+    "scaledArgRisk": 0.2561
+   },
+   "baselineScore": 0.3871,
+   "cityPercentile": 0.7917
+  },
+  {
+   "code": "T15",
+   "name": "Fossé Mère (ou Ruisseau Le Négogousses)",
+   "lat": 43.5713,
+   "lon": 1.38535,
+   "hasLabData": false,
+   "features": {
+    "distWwtpM": 3505.2,
+    "distFarmlandM": 1837.8,
+    "urbanFrac2km": 0.7633,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "lab": null,
+   "baselineScore": 0.384,
+   "cityPercentile": 0.7083
+  },
+  {
+   "code": "T10",
+   "name": "Canal de Saint Martory",
+   "lat": 43.5322,
+   "lon": 1.32265,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3503.3,
+    "distFarmlandM": 11.0,
+    "urbanFrac2km": 0.5482,
+    "nearestWwtpName": "Station d'épuration de Cugnaux"
+   },
+   "lab": {
+    "healthRiskScore": 0.2348,
+    "scaledPathogenRisk": 0.0497,
+    "scaledFecalRisk": 0.0193,
+    "scaledArgRisk": 0.6355
+   },
+   "baselineScore": 0.2547,
+   "cityPercentile": 0.0417
+  },
+  {
+   "code": "T12",
+   "name": "Fossé de Larramet médian",
+   "lat": 43.54003,
+   "lon": 1.34077,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 2189.5,
+    "distFarmlandM": 785.2,
+    "urbanFrac2km": 0.6509,
+    "nearestWwtpName": "Station d'épuration de Cugnaux"
+   },
+   "lab": {
+    "healthRiskScore": 0.2646,
+    "scaledPathogenRisk": 0.0495,
+    "scaledFecalRisk": 0.0918,
+    "scaledArgRisk": 0.6525
+   },
+   "baselineScore": 0.3802,
+   "cityPercentile": 0.5833
+  },
+  {
+   "code": "T13",
+   "name": "Ruisseau du Roussimort aval",
+   "lat": 43.5353,
+   "lon": 1.37785,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 584.3,
+    "distFarmlandM": 294.9,
+    "urbanFrac2km": 0.444,
+    "nearestWwtpName": "Station d'épuration de Cugnaux"
+   },
+   "lab": {
+    "healthRiskScore": 0.3443,
+    "scaledPathogenRisk": 0.1243,
+    "scaledFecalRisk": 0.3044,
+    "scaledArgRisk": 0.6042
+   },
+   "baselineScore": 0.4263,
+   "cityPercentile": 0.9583
+  },
+  {
+   "code": "T14",
+   "name": "Canal agricole (depuis la Saudrune)",
+   "lat": 43.53855,
+   "lon": 1.42074,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 820.7,
+    "distFarmlandM": 5.8,
+    "urbanFrac2km": 0.4895,
+    "nearestWwtpName": "Usine Municipale des Eaux de Clairfont"
+   },
+   "lab": {
+    "healthRiskScore": 0.46,
+    "scaledPathogenRisk": 0.2763,
+    "scaledFecalRisk": 0.5787,
+    "scaledArgRisk": 0.525
+   },
+   "baselineScore": 0.3371,
+   "cityPercentile": 0.4583
+  },
+  {
+   "code": "T17",
+   "name": "Fossé de pluvial avant rejet dans fossé de Larramet",
+   "lat": 43.5786,
+   "lon": 1.35861,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1456.4,
+    "distFarmlandM": 128.8,
+    "urbanFrac2km": 0.6334,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "lab": {
+    "healthRiskScore": 0.5282,
+    "scaledPathogenRisk": 0.2525,
+    "scaledFecalRisk": 0.9979,
+    "scaledArgRisk": 0.3341
+   },
+   "baselineScore": 0.3383,
+   "cityPercentile": 0.5
+  },
+  {
+   "code": "T18",
+   "name": "Ousseau",
+   "lat": 43.57882,
+   "lon": 1.35262,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1042.8,
+    "distFarmlandM": 449.6,
+    "urbanFrac2km": 0.6398,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "lab": {
+    "healthRiskScore": 0.3372,
+    "scaledPathogenRisk": 0.2995,
+    "scaledFecalRisk": 0.3628,
+    "scaledArgRisk": 0.3494
+   },
+   "baselineScore": 0.4075,
+   "cityPercentile": 0.9167
+  },
+  {
+   "code": "T19",
+   "name": "Touch",
+   "lat": 43.58253,
+   "lon": 1.35047,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1162.7,
+    "distFarmlandM": 309.0,
+    "urbanFrac2km": 0.6701,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "lab": {
+    "healthRiskScore": 0.1453,
+    "scaledPathogenRisk": 0.0248,
+    "scaledFecalRisk": 0.1091,
+    "scaledArgRisk": 0.3021
+   },
+   "baselineScore": 0.3862,
+   "cityPercentile": 0.75
+  },
+  {
+   "code": "T20",
+   "name": "Canal de Moulin",
+   "lat": 43.5828,
+   "lon": 1.3493,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1118.1,
+    "distFarmlandM": 382.6,
+    "urbanFrac2km": 0.6767,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "lab": {
+    "healthRiskScore": 0.44,
+    "scaledPathogenRisk": 0.3798,
+    "scaledFecalRisk": 0.431,
+    "scaledArgRisk": 0.5091
+   },
+   "baselineScore": 0.3972,
+   "cityPercentile": 0.8333
+  },
+  {
+   "code": "T4",
+   "name": "Hers",
+   "lat": 43.56499,
+   "lon": 1.49464,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 2941.0,
+    "distFarmlandM": 959.2,
+    "urbanFrac2km": 0.4936,
+    "nearestWwtpName": "Station d'épuration"
+   },
+   "lab": {
+    "healthRiskScore": 0.256,
+    "scaledPathogenRisk": 0.1242,
+    "scaledFecalRisk": 0.5135,
+    "scaledArgRisk": 0.1303
+   },
+   "baselineScore": 0.366,
+   "cityPercentile": 0.5417
+  },
+  {
+   "code": "T11",
+   "name": "Fossé de Larramet amont",
+   "lat": 43.52992,
+   "lon": 1.32597,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3251.3,
+    "distFarmlandM": 92.1,
+    "urbanFrac2km": 0.6413,
+    "nearestWwtpName": "Station d'épuration de Cugnaux"
+   },
+   "lab": {
+    "healthRiskScore": 0.4367,
+    "scaledPathogenRisk": 0.4285,
+    "scaledFecalRisk": 0.5475,
+    "scaledArgRisk": 0.334
+   },
+   "baselineScore": 0.2795,
+   "cityPercentile": 0.2083
+  },
+  {
+   "code": "T25",
+   "name": "Ruisseau de l’Armurié",
+   "lat": 43.64862,
+   "lon": 1.51501,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 387.2,
+    "distFarmlandM": 225.4,
+    "urbanFrac2km": 0.5067,
+    "nearestWwtpName": "Station d'Épuration de Saint-Jean"
+   },
+   "lab": {
+    "healthRiskScore": 0.3463,
+    "scaledPathogenRisk": 0.1266,
+    "scaledFecalRisk": 0.4027,
+    "scaledArgRisk": 0.5096
+   },
+   "baselineScore": 0.4447,
+   "cityPercentile": 1.0
+  },
+  {
+   "code": "T16",
+   "name": "Fossé de Larramet aval",
+   "lat": 43.57895,
+   "lon": 1.35929,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 1522.1,
+    "distFarmlandM": 63.5,
+    "urbanFrac2km": 0.637,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "lab": {
+    "healthRiskScore": 0.2146,
+    "scaledPathogenRisk": 0.0248,
+    "scaledFecalRisk": 0.3325,
+    "scaledArgRisk": 0.2866
+   },
+   "baselineScore": 0.3105,
+   "cityPercentile": 0.375
+  },
+  {
+   "code": "T22",
+   "name": "Ruisseau de l’Armurié",
+   "lat": 43.59608,
+   "lon": 1.36657,
+   "hasLabData": true,
+   "features": {
+    "distWwtpM": 3141.6,
+    "distFarmlandM": 1423.5,
+    "urbanFrac2km": 0.7234,
+    "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
+   },
+   "lab": {
+    "healthRiskScore": 0.3556,
+    "scaledPathogenRisk": 0.1988,
+    "scaledFecalRisk": 0.3252,
+    "scaledArgRisk": 0.5428
+   },
+   "baselineScore": 0.3807,
+   "cityPercentile": 0.6667
+  }
+ ],
+ "provenance": {
+  "sites": "OAH Resilience Map snapshot (data/oah/)",
+  "osm": "OpenStreetMap contributors (ODbL)",
+  "generator": "analysis/add_city.py --oah",
+  "generated": "2026-09-23"
+ }
+}
