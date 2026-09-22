@@ -108,7 +108,7 @@ export function About() {
           {model.caveats && <p className="muted small">{Array.isArray(model.caveats) ? model.caveats.join(" ") : model.caveats}</p>}
         </>
       ) : (
-        <p className="muted">Model card not available in this build.</p>
+        <p className="notice">The map-context baseline is still being computed for this build, so the ranking treats "map context" as unknown (0.5) and says so on every stream. Method, features and evaluation plan: <span className="code">analysis/</span> in the repository.</p>
       )}
 
       <h2>What is real and what is simulated</h2>
@@ -116,6 +116,7 @@ export function About() {
         <li>Real: OneAquaHealth site list and lab health-risk scores (Resilience Map snapshot), map features, FHIR resources and their validation, the workflow.</li>
         <li>Synthetic: the demo scenario's volunteer checks, and every lab <i>result</i> recorded in the app (tagged <span className="code">simulated</span>).</li>
         <li>Not claimed: that trust rules or the baseline predict contamination on new data beyond the evaluation shown.</li>
+        <li>No biological indicator (macroinvertebrates, diatoms): the OneAquaHealth citizen form has none. Those come from the professional protocol and the lab, which is what a lab visit request asks for.</li>
       </ul>
 
       <h2>Data sources</h2>

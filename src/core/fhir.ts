@@ -119,7 +119,9 @@ export function buildCheckBundle(input: CheckInput, site: SiteRef, flags: TrustF
     });
   }
   items.push({ linkId: "photos", text: "Photos taken", answer: [{ valueInteger: input.photos }] });
-  if (input.gps) items.push({ linkId: "gps", text: "Location when submitted", answer: [{ valueString: `${input.gps.lat.toFixed(5)},${input.gps.lon.toFixed(5)}` }] });
+  // Coarse on purpose (~100 m): a pseudonym plus an exact position and time can identify a person.
+  // The precise position is used only on the device, for the distance-to-site check.
+  if (input.gps) items.push({ linkId: "gps", text: "Location when submitted (rounded to about 100 m)", answer: [{ valueString: `${input.gps.lat.toFixed(3)},${input.gps.lon.toFixed(3)}` }] });
 
   entries.push(create({
     resourceType: "QuestionnaireResponse",

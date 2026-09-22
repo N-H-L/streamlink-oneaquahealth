@@ -161,7 +161,7 @@ Description: "A citizen's answers, including 'not sure'."
 * item[=].text = "Photos taken"
 * item[=].answer[0].valueInteger = 0
 * item[+].linkId = "gps"
-* item[=].text = "Location when submitted"
+* item[=].text = "Location when submitted (rounded to about 100 m)"
 * item[=].answer[0].valueString = "40.19801,-8.42850"
 
 Instance: obs-c1-channel-form

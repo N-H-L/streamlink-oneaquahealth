@@ -140,5 +140,5 @@ Description: "A 3-minute citizen check of an urban stream site, mirroring the On
 * item[=].text = "Photos taken"
 * item[=].type = #integer
 * item[+].linkId = "gps"
-* item[=].text = "Location when submitted"
+* item[=].text = "Location when submitted (rounded to about 100 m)"
 * item[=].type = #string

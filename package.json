@@ -7,14 +7,15 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build && node scripts/inject-sw-assets.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "bundles": "tsx scripts/gen-bundles.ts",
     "validate": "tsx scripts/gen-bundles.ts && bash scripts/validate.sh && node scripts/publish-validation.mjs",
     "e2e": "node scripts/e2e.mjs",
-    "a11y": "node scripts/a11y.mjs"
+    "a11y": "node scripts/a11y.mjs",
+    "offline": "node scripts/offline-check.mjs"
   },
   "dependencies": {
     "leaflet": "1.9",

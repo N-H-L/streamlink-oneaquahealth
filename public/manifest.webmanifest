@@ -1,0 +1,13 @@
+{
+  "name": "StreamLink — One Health record for urban streams",
+  "short_name": "StreamLink",
+  "description": "Check a stream in 3 minutes. Your report becomes standards-based One Health data and can trigger a lab visit.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f8f9",
+  "theme_color": "#0f5c6e",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

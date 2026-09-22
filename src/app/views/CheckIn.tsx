@@ -278,7 +278,7 @@ function Review({ flags, setFlags, answered, onFix, onBack, onSubmit, saving, ta
           ))}
         </ul>
       )}
-      <p className="muted small">{answered} answers. Your report is stored under a pseudonym; no name or contact details. Destination: {target}.</p>
+      <p className="muted small">{answered} answers. Your report is stored under a pseudonym: no name or contact details, and your location is rounded to about 100 m in the stored record. Destination: {target}.</p>
       <div className="nav">
         <button className="btn ghost" onClick={onBack}>Back</button>
         <button className="btn" onClick={onSubmit} disabled={saving}>{saving ? "Sending…" : open.length ? "Send anyway" : "Send check"}</button>
