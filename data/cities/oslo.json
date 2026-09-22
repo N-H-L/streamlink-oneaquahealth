@@ -1,9 +1,9 @@
 {
  "schema": "streamlink-city/1",
- "id": "oslo",
+ "id": "OS",
+ "slug": "oslo",
  "name": "Oslo",
  "country": null,
- "oahCityId": "OS",
  "centre": {
   "lat": 59.9139,
   "lon": 10.7522
@@ -32,8 +32,9 @@
    "lon": 10.8128,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 14563.1,
+    "distWastewaterM": 14563.1,
     "distFarmlandM": 1653.5,
+    "urbanFraction2km": 49.22,
     "urbanFrac2km": 0.4922,
     "nearestWwtpName": null
    },
@@ -44,7 +45,7 @@
     "scaledArgRisk": 0.497
    },
    "baselineScore": 0.2882,
-   "cityPercentile": 0.35
+   "percentile": 35.0
   },
   {
    "code": "O1",
@@ -53,8 +54,9 @@
    "lon": 10.7153,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 13811.5,
+    "distWastewaterM": 13811.5,
     "distFarmlandM": 77.4,
+    "urbanFraction2km": 50.47,
     "urbanFrac2km": 0.5047,
     "nearestWwtpName": null
    },
@@ -65,7 +67,7 @@
     "scaledArgRisk": 0.3826
    },
    "baselineScore": 0.2,
-   "cityPercentile": 0.05
+   "percentile": 5.0
   },
   {
    "code": "O2",
@@ -74,8 +76,9 @@
    "lon": 10.6806,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 11840.6,
+    "distWastewaterM": 11840.6,
     "distFarmlandM": 1862.2,
+    "urbanFraction2km": 66.26,
     "urbanFrac2km": 0.6626,
     "nearestWwtpName": null
    },
@@ -86,7 +89,7 @@
     "scaledArgRisk": 0.3814
    },
    "baselineScore": 0.3068,
-   "cityPercentile": 0.8
+   "percentile": 80.0
   },
   {
    "code": "O3",
@@ -95,8 +98,9 @@
    "lon": 10.7111,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 13220.3,
+    "distWastewaterM": 13220.3,
     "distFarmlandM": 1002.5,
+    "urbanFraction2km": 61.3,
     "urbanFrac2km": 0.613,
     "nearestWwtpName": null
    },
@@ -107,7 +111,7 @@
     "scaledArgRisk": 0.3035
    },
    "baselineScore": 0.2789,
-   "cityPercentile": 0.2
+   "percentile": 20.0
   },
   {
    "code": "O5",
@@ -116,8 +120,9 @@
    "lon": 10.6769,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 10812.8,
+    "distWastewaterM": 10812.8,
     "distFarmlandM": 1555.1,
+    "urbanFraction2km": 58.25,
     "urbanFrac2km": 0.5825,
     "nearestWwtpName": null
    },
@@ -128,7 +133,7 @@
     "scaledArgRisk": 0.2865
    },
    "baselineScore": 0.3047,
-   "cityPercentile": 0.7
+   "percentile": 70.0
   },
   {
    "code": "O4",
@@ -137,8 +142,9 @@
    "lon": 10.6778,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 10861.0,
+    "distWastewaterM": 10861.0,
     "distFarmlandM": 1551.5,
+    "urbanFraction2km": 58.55,
     "urbanFrac2km": 0.5855,
     "nearestWwtpName": null
    },
@@ -149,7 +155,7 @@
     "scaledArgRisk": 0.5403
    },
    "baselineScore": 0.3044,
-   "cityPercentile": 0.65
+   "percentile": 65.0
   },
   {
    "code": "O6",
@@ -158,8 +164,9 @@
    "lon": 10.8458,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 13512.0,
+    "distWastewaterM": 13512.0,
     "distFarmlandM": 1966.2,
+    "urbanFraction2km": 23.76,
     "urbanFrac2km": 0.2376,
     "nearestWwtpName": null
    },
@@ -170,7 +177,7 @@
     "scaledArgRisk": 0.3025
    },
    "baselineScore": 0.2945,
-   "cityPercentile": 0.5
+   "percentile": 50.0
   },
   {
    "code": "O7",
@@ -179,8 +186,9 @@
    "lon": 10.8164,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 11534.5,
+    "distWastewaterM": 11534.5,
     "distFarmlandM": 1056.3,
+    "urbanFraction2km": 48.59,
     "urbanFrac2km": 0.4859,
     "nearestWwtpName": null
    },
@@ -191,7 +199,7 @@
     "scaledArgRisk": 0.462
    },
    "baselineScore": 0.2864,
-   "cityPercentile": 0.3
+   "percentile": 30.0
   },
   {
    "code": "O8",
@@ -200,8 +208,9 @@
    "lon": 10.7847,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 9590.1,
+    "distWastewaterM": 9590.1,
     "distFarmlandM": 1578.8,
+    "urbanFraction2km": 33.93,
     "urbanFrac2km": 0.3393,
     "nearestWwtpName": null
    },
@@ -212,7 +221,7 @@
     "scaledArgRisk": 0.4616
    },
    "baselineScore": 0.3085,
-   "cityPercentile": 0.85
+   "percentile": 85.0
   },
   {
    "code": "O9",
@@ -221,8 +230,9 @@
    "lon": 10.7181,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 13396.2,
+    "distWastewaterM": 13396.2,
     "distFarmlandM": 1582.8,
+    "urbanFraction2km": 60.8,
     "urbanFrac2km": 0.608,
     "nearestWwtpName": null
    },
@@ -233,7 +243,7 @@
     "scaledArgRisk": 0.3972
    },
    "baselineScore": 0.2933,
-   "cityPercentile": 0.45
+   "percentile": 45.0
   },
   {
    "code": "O10",
@@ -242,8 +252,9 @@
    "lon": 10.7097,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 12913.1,
+    "distWastewaterM": 12913.1,
     "distFarmlandM": 1681.3,
+    "urbanFraction2km": 63.35,
     "urbanFrac2km": 0.6335,
     "nearestWwtpName": null
    },
@@ -254,7 +265,7 @@
     "scaledArgRisk": 0.2706
    },
    "baselineScore": 0.2978,
-   "cityPercentile": 0.55
+   "percentile": 55.0
   },
   {
    "code": "O11",
@@ -263,8 +274,9 @@
    "lon": 10.6594,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 9841.9,
+    "distWastewaterM": 9841.9,
     "distFarmlandM": 1790.7,
+    "urbanFraction2km": 58.74,
     "urbanFrac2km": 0.5874,
     "nearestWwtpName": null
    },
@@ -275,7 +287,7 @@
     "scaledArgRisk": 0.6038
    },
    "baselineScore": 0.3153,
-   "cityPercentile": 0.9
+   "percentile": 90.0
   },
   {
    "code": "O12",
@@ -284,8 +296,9 @@
    "lon": 10.6736,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 10798.8,
+    "distWastewaterM": 10798.8,
     "distFarmlandM": 2104.5,
+    "urbanFraction2km": 65.84,
     "urbanFrac2km": 0.6584,
     "nearestWwtpName": null
    },
@@ -296,7 +309,7 @@
     "scaledArgRisk": 0.6845
    },
    "baselineScore": 0.3165,
-   "cityPercentile": 0.95
+   "percentile": 95.0
   },
   {
    "code": "O13",
@@ -305,8 +318,9 @@
    "lon": 10.6503,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 10011.9,
+    "distWastewaterM": 10011.9,
     "distFarmlandM": 1328.2,
+    "urbanFraction2km": 65.63,
     "urbanFrac2km": 0.6563,
     "nearestWwtpName": null
    },
@@ -317,7 +331,7 @@
     "scaledArgRisk": 0.5408
    },
    "baselineScore": 0.305,
-   "cityPercentile": 0.75
+   "percentile": 75.0
   },
   {
    "code": "O14",
@@ -326,8 +340,9 @@
    "lon": 10.8214,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 17397.9,
+    "distWastewaterM": 17397.9,
     "distFarmlandM": 1734.6,
+    "urbanFraction2km": 42.66,
     "urbanFrac2km": 0.4266,
     "nearestWwtpName": null
    },
@@ -338,7 +353,7 @@
     "scaledArgRisk": 0.6038
    },
    "baselineScore": 0.2788,
-   "cityPercentile": 0.15
+   "percentile": 15.0
   },
   {
    "code": "O15",
@@ -347,8 +362,9 @@
    "lon": 10.8006,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 15085.2,
+    "distWastewaterM": 15085.2,
     "distFarmlandM": 1384.8,
+    "urbanFraction2km": 50.31,
     "urbanFrac2km": 0.5031,
     "nearestWwtpName": null
    },
@@ -359,7 +375,7 @@
     "scaledArgRisk": 0.4447
    },
    "baselineScore": 0.2805,
-   "cityPercentile": 0.25
+   "percentile": 25.0
   },
   {
    "code": "O16",
@@ -368,8 +384,9 @@
    "lon": 10.7944,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 13556.0,
+    "distWastewaterM": 13556.0,
     "distFarmlandM": 2070.8,
+    "urbanFraction2km": 44.03,
     "urbanFrac2km": 0.4403,
     "nearestWwtpName": null
    },
@@ -380,7 +397,7 @@
     "scaledArgRisk": 0.4964
    },
    "baselineScore": 0.2991,
-   "cityPercentile": 0.6
+   "percentile": 60.0
   },
   {
    "code": "O18",
@@ -389,8 +406,9 @@
    "lon": 10.8369,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 16609.1,
+    "distWastewaterM": 16609.1,
     "distFarmlandM": 607.2,
+    "urbanFraction2km": 47.92,
     "urbanFrac2km": 0.4792,
     "nearestWwtpName": null
    },
@@ -401,7 +419,7 @@
     "scaledArgRisk": 0.4311
    },
    "baselineScore": 0.249,
-   "cityPercentile": 0.1
+   "percentile": 10.0
   },
   {
    "code": "O19",
@@ -410,8 +428,9 @@
    "lon": 10.9017,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 19209.5,
+    "distWastewaterM": 19209.5,
     "distFarmlandM": 3027.1,
+    "urbanFraction2km": 41.7,
     "urbanFrac2km": 0.417,
     "nearestWwtpName": "Flateby Renseanlegg"
    },
@@ -422,7 +441,7 @@
     "scaledArgRisk": 0.289
    },
    "baselineScore": 0.2915,
-   "cityPercentile": 0.4
+   "percentile": 40.0
   },
   {
    "code": "O20",
@@ -431,8 +450,9 @@
    "lon": 10.6736,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 11103.6,
+    "distWastewaterM": 11103.6,
     "distFarmlandM": 2543.9,
+    "urbanFraction2km": 73.92,
     "urbanFrac2km": 0.7392,
     "nearestWwtpName": null
    },
@@ -443,7 +463,7 @@
     "scaledArgRisk": 0.4327
    },
    "baselineScore": 0.3228,
-   "cityPercentile": 1.0
+   "percentile": 100.0
   }
  ],
  "provenance": {

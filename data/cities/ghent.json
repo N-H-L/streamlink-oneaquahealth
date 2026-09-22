@@ -1,9 +1,9 @@
 {
  "schema": "streamlink-city/1",
- "id": "ghent",
+ "id": "GH",
+ "slug": "ghent",
  "name": "Ghent",
  "country": null,
- "oahCityId": "GH",
  "centre": {
   "lat": 51.0543,
   "lon": 3.7174
@@ -32,8 +32,9 @@
    "lon": 3.79794,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3294.9,
+    "distWastewaterM": 3294.9,
     "distFarmlandM": 118.4,
+    "urbanFraction2km": 24.71,
     "urbanFrac2km": 0.2471,
     "nearestWwtpName": null
    },
@@ -44,7 +45,7 @@
     "scaledArgRisk": 0.4669
    },
    "baselineScore": 0.2812,
-   "cityPercentile": 0.3636
+   "percentile": 36.4
   },
   {
    "code": "G6",
@@ -53,8 +54,9 @@
    "lon": 3.75151,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 90.8,
+    "distWastewaterM": 90.8,
     "distFarmlandM": 58.9,
+    "urbanFraction2km": 12.97,
     "urbanFrac2km": 0.1297,
     "nearestWwtpName": null
    },
@@ -65,7 +67,7 @@
     "scaledArgRisk": 0.175
    },
    "baselineScore": 0.4835,
-   "cityPercentile": 0.9091
+   "percentile": 90.9
   },
   {
    "code": "G8",
@@ -74,8 +76,9 @@
    "lon": 3.73771,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 945.3,
+    "distWastewaterM": 945.3,
     "distFarmlandM": 198.6,
+    "urbanFraction2km": 12.25,
     "urbanFrac2km": 0.1225,
     "nearestWwtpName": null
    },
@@ -86,7 +89,7 @@
     "scaledArgRisk": 0.3183
    },
    "baselineScore": 0.3733,
-   "cityPercentile": 0.6364
+   "percentile": 63.6
   },
   {
    "code": "G9",
@@ -95,8 +98,9 @@
    "lon": 3.73125,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1238.6,
+    "distWastewaterM": 1238.6,
     "distFarmlandM": 26.0,
+    "urbanFraction2km": 11.21,
     "urbanFrac2km": 0.1121,
     "nearestWwtpName": null
    },
@@ -107,7 +111,7 @@
     "scaledArgRisk": 0.5202
    },
    "baselineScore": 0.3063,
-   "cityPercentile": 0.4545
+   "percentile": 45.5
   },
   {
    "code": "G10",
@@ -116,8 +120,9 @@
    "lon": 3.71431,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 2600.7,
+    "distWastewaterM": 2600.7,
     "distFarmlandM": 10.2,
+    "urbanFraction2km": 12.79,
     "urbanFrac2km": 0.1279,
     "nearestWwtpName": null
    },
@@ -128,7 +133,7 @@
     "scaledArgRisk": 0.3591
    },
    "baselineScore": 0.2646,
-   "cityPercentile": 0.2273
+   "percentile": 22.7
   },
   {
    "code": "G22",
@@ -137,8 +142,9 @@
    "lon": 3.692821,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 4092.3,
+    "distWastewaterM": 4092.3,
     "distFarmlandM": 22.0,
+    "urbanFraction2km": 9.34,
     "urbanFrac2km": 0.0934,
     "nearestWwtpName": null
    },
@@ -149,7 +155,7 @@
     "scaledArgRisk": 0.1152
    },
    "baselineScore": 0.2405,
-   "cityPercentile": 0.0909
+   "percentile": 9.1
   },
   {
    "code": "G11",
@@ -158,8 +164,9 @@
    "lon": 3.68791,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 4398.6,
+    "distWastewaterM": 4398.6,
     "distFarmlandM": 49.3,
+    "urbanFraction2km": 8.77,
     "urbanFrac2km": 0.0877,
     "nearestWwtpName": null
    },
@@ -170,7 +177,7 @@
     "scaledArgRisk": 0.2956
    },
    "baselineScore": 0.2368,
-   "cityPercentile": 0.0455
+   "percentile": 4.5
   },
   {
    "code": "G12",
@@ -179,8 +186,9 @@
    "lon": 3.68606,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 4552.8,
+    "distWastewaterM": 4552.8,
     "distFarmlandM": 83.3,
+    "urbanFraction2km": 8.55,
     "urbanFrac2km": 0.0855,
     "nearestWwtpName": null
    },
@@ -191,7 +199,7 @@
     "scaledArgRisk": 0.3624
    },
    "baselineScore": 0.2502,
-   "cityPercentile": 0.1364
+   "percentile": 13.6
   },
   {
    "code": "G13",
@@ -200,8 +208,9 @@
    "lon": 3.72241,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1602.0,
+    "distWastewaterM": 1602.0,
     "distFarmlandM": 284.2,
+    "urbanFraction2km": 28.06,
     "urbanFrac2km": 0.2806,
     "nearestWwtpName": null
    },
@@ -212,7 +221,7 @@
     "scaledArgRisk": 0.345
    },
    "baselineScore": 0.3557,
-   "cityPercentile": 0.5455
+   "percentile": 54.5
   },
   {
    "code": "G14",
@@ -221,8 +230,9 @@
    "lon": 3.73925,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 898.3,
+    "distWastewaterM": 898.3,
     "distFarmlandM": 224.0,
+    "urbanFraction2km": 43.46,
     "urbanFrac2km": 0.4346,
     "nearestWwtpName": "RWZI Merelbeke"
    },
@@ -233,7 +243,7 @@
     "scaledArgRisk": 0.3366
    },
    "baselineScore": 0.3867,
-   "cityPercentile": 0.7273
+   "percentile": 72.7
   },
   {
    "code": "G15",
@@ -242,8 +252,9 @@
    "lon": 3.80615,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 619.0,
+    "distWastewaterM": 619.0,
     "distFarmlandM": 94.7,
+    "urbanFraction2km": 21.44,
     "urbanFrac2km": 0.2144,
     "nearestWwtpName": "RWZI Melle"
    },
@@ -254,7 +265,7 @@
     "scaledArgRisk": 0.4544
    },
    "baselineScore": 0.3742,
-   "cityPercentile": 0.6818
+   "percentile": 68.2
   },
   {
    "code": "G16",
@@ -263,8 +274,9 @@
    "lon": 3.80568,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 484.4,
+    "distWastewaterM": 484.4,
     "distFarmlandM": 462.7,
+    "urbanFraction2km": 25.34,
     "urbanFrac2km": 0.2534,
     "nearestWwtpName": "RWZI Melle"
    },
@@ -275,7 +287,7 @@
     "scaledArgRisk": 0.3971
    },
    "baselineScore": 0.4537,
-   "cityPercentile": 0.8182
+   "percentile": 81.8
   },
   {
    "code": "G17",
@@ -284,14 +296,15 @@
    "lon": 3.77389,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 2623.4,
+    "distWastewaterM": 2623.4,
     "distFarmlandM": 790.7,
+    "urbanFraction2km": 45.13,
     "urbanFrac2km": 0.4513,
     "nearestWwtpName": "RWZI Destelbergen"
    },
    "lab": null,
    "baselineScore": 0.3654,
-   "cityPercentile": 0.5909
+   "percentile": 59.1
   },
   {
    "code": "G18",
@@ -300,14 +313,15 @@
    "lon": 3.68126,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 10.2,
+    "distWastewaterM": 10.2,
     "distFarmlandM": 672.3,
+    "urbanFraction2km": 31.77,
     "urbanFrac2km": 0.3177,
     "nearestWwtpName": "RWZI Gent"
    },
    "lab": null,
    "baselineScore": 0.6246,
-   "cityPercentile": 1.0
+   "percentile": 100.0
   },
   {
    "code": "G1",
@@ -316,14 +330,15 @@
    "lon": 3.8168,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 2920.5,
+    "distWastewaterM": 2920.5,
     "distFarmlandM": 86.5,
+    "urbanFraction2km": 14.83,
     "urbanFrac2km": 0.1483,
     "nearestWwtpName": "RWZI Oosterzele"
    },
    "lab": null,
    "baselineScore": 0.2762,
-   "cityPercentile": 0.2727
+   "percentile": 27.3
   },
   {
    "code": "G4",
@@ -332,8 +347,9 @@
    "lon": 3.80222,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3572.2,
+    "distWastewaterM": 3572.2,
     "distFarmlandM": 116.9,
+    "urbanFraction2km": 32.32,
     "urbanFrac2km": 0.3232,
     "nearestWwtpName": null
    },
@@ -344,7 +360,7 @@
     "scaledArgRisk": 0.4763
    },
    "baselineScore": 0.2773,
-   "cityPercentile": 0.3182
+   "percentile": 31.8
   },
   {
    "code": "G21",
@@ -353,8 +369,9 @@
    "lon": 3.81558,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3447.8,
+    "distWastewaterM": 3447.8,
     "distFarmlandM": 28.8,
+    "urbanFraction2km": 24.02,
     "urbanFrac2km": 0.2402,
     "nearestWwtpName": null
    },
@@ -365,7 +382,7 @@
     "scaledArgRisk": 0.4933
    },
    "baselineScore": 0.2513,
-   "cityPercentile": 0.1818
+   "percentile": 18.2
   },
   {
    "code": "G5",
@@ -374,8 +391,9 @@
    "lon": 3.74917,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 32.2,
+    "distWastewaterM": 32.2,
     "distFarmlandM": 217.5,
+    "urbanFraction2km": 12.74,
     "urbanFrac2km": 0.1274,
     "nearestWwtpName": null
    },
@@ -386,7 +404,7 @@
     "scaledArgRisk": 0.313
    },
    "baselineScore": 0.5773,
-   "cityPercentile": 0.9545
+   "percentile": 95.5
   },
   {
    "code": "G19",
@@ -395,14 +413,15 @@
    "lon": 3.786,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 2534.3,
+    "distWastewaterM": 2534.3,
     "distFarmlandM": 350.0,
+    "urbanFraction2km": 39.14,
     "urbanFrac2km": 0.3914,
     "nearestWwtpName": "RWZI Destelbergen"
    },
    "lab": null,
    "baselineScore": 0.3364,
-   "cityPercentile": 0.5
+   "percentile": 50.0
   },
   {
    "code": "G20",
@@ -411,14 +430,15 @@
    "lon": 3.71687,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 1292.7,
+    "distWastewaterM": 1292.7,
     "distFarmlandM": 419.0,
+    "urbanFraction2km": 65.66,
     "urbanFrac2km": 0.6566,
     "nearestWwtpName": "RWZI Evergem"
    },
    "lab": null,
    "baselineScore": 0.3907,
-   "cityPercentile": 0.7727
+   "percentile": 77.3
   },
   {
    "code": "G3",
@@ -427,8 +447,9 @@
    "lon": 3.75174,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 122.6,
+    "distWastewaterM": 122.6,
     "distFarmlandM": 44.6,
+    "urbanFraction2km": 13.13,
     "urbanFrac2km": 0.1313,
     "nearestWwtpName": null
    },
@@ -439,7 +460,7 @@
     "scaledArgRisk": 0.1812
    },
    "baselineScore": 0.4562,
-   "cityPercentile": 0.8636
+   "percentile": 86.4
   },
   {
    "code": "G7",
@@ -448,8 +469,9 @@
    "lon": 3.76577,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1739.8,
+    "distWastewaterM": 1739.8,
     "distFarmlandM": 90.0,
+    "urbanFraction2km": 8.99,
     "urbanFrac2km": 0.0899,
     "nearestWwtpName": null
    },
@@ -460,7 +482,7 @@
     "scaledArgRisk": 0.261
    },
    "baselineScore": 0.3062,
-   "cityPercentile": 0.4091
+   "percentile": 40.9
   }
  ],
  "provenance": {

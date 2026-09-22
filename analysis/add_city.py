@@ -110,19 +110,23 @@ def build_city(spec, offline=False):
     for i, x in enumerate(sites, 1):
         x["code"] = f"{prefix}{i}"
         f = fc.features(x["lat"], x["lon"])
-        x["features"] = {"distWwtpM": f["osm_dist_wwtp_m"], "distFarmlandM": f["osm_dist_farmland_m"],
+        # field names follow the app contract (src/core/sites.ts Baseline)
+        x["features"] = {"distWastewaterM": f["osm_dist_wwtp_m"], "distFarmlandM": f["osm_dist_farmland_m"],
+                         "urbanFraction2km": round(f["osm_urban_frac_2km"] * 100, 2),
                          "urbanFrac2km": f["osm_urban_frac_2km"], "nearestWwtpName": f["osm_nearest_wwtp_name"]}
         x["baselineScore"] = round(score(model, f), 4)
     for x, p in zip(sites, percentiles([x["baselineScore"] for x in sites])):
-        x["cityPercentile"] = round(p, 4)
+        x["percentile"] = round(p * 100, 1)  # within this city, 0-100
         x["hasLabData"] = False
     sites = [{k: x[k] for k in ("code", "name", "waterway", "waterwayType", "osmWayId", "lat", "lon", "snapDistanceM",
-                                "hasLabData", "features", "baselineScore", "cityPercentile")} for x in sites]
+                                "hasLabData", "features", "baselineScore", "percentile")} for x in sites]
     return {
         "schema": SCHEMA,
         "id": spec["id"], "name": spec["name"], "country": spec["country"],
         "centre": {"lat": round((s + n) / 2, 5), "lon": round((w + e) / 2, 5)},
         "bbox": {"south": s, "west": w, "north": n, "east": e},
+        "note": ("No OneAquaHealth lab campaign here: every score is the map-context baseline only, from a model "
+                 "trained on 5 European cities and not validated on a held-out city. Out of distribution for this city."),
         "labData": {"available": False,
                     "note": "No OneAquaHealth lab campaign in this city. Scores are the map-context baseline only; lab confirmation is required."},
         "baseline": {
@@ -143,15 +147,14 @@ def build_city(spec, offline=False):
 def build_oah_cities():
     """Same shape for the 5 OAH pilot cities, from data/baseline/site-features.json (lab data available)."""
     model = load_model()
-    sf = json.loads((ROOT / "data" / "baseline" / "site-features.json").read_text(encoding="utf-8"))["sites"]
+    sf = list(json.loads((ROOT / "data" / "baseline" / "site-features.json").read_text(encoding="utf-8"))["sites"].values())
     names = {x["code"]: x for x in json.loads((ROOT / "data" / "oah" / "sites.snapshot.json").read_text(encoding="utf-8"))}
     for city in sorted({x["city"] for x in sf}):
         ss = [x for x in sf if x["city"] == city]
         lats, lons = [x["lat"] for x in ss], [x["lon"] for x in ss]
         c0 = names[ss[0]["code"]]["city"]
         doc = {
-            "schema": SCHEMA, "id": city.lower(), "name": city, "country": None,
-            "oahCityId": c0["id"],
+            "schema": SCHEMA, "id": c0["id"], "slug": city.lower(), "name": city, "country": None,
             "centre": {"lat": c0["latitude"], "lon": c0["longitude"]},
             "bbox": {"south": min(lats), "west": min(lons), "north": max(lats), "east": max(lons)},
             "labData": {"available": True, "sitesWithLab": sum(x["hasLabData"] for x in ss),
@@ -159,9 +162,8 @@ def build_oah_cities():
             "baseline": {"model": model["id"], "modelVersion": model["version"], "outOfDistribution": False},
             "sites": [{"code": x["code"], "name": names[x["code"]]["name"], "lat": x["lat"], "lon": x["lon"],
                        "hasLabData": x["hasLabData"],
-                       "features": {"distWwtpM": x["osm"]["distWwtpM"], "distFarmlandM": x["osm"]["distFarmlandM"],
-                                    "urbanFrac2km": x["osm"]["urbanFrac2km"], "nearestWwtpName": x["osm"]["nearestWwtpName"]},
-                       "lab": x["lab"], "baselineScore": x["baselineScore"], "cityPercentile": x["cityPercentile"]} for x in ss],
+                       "features": x["osm"],
+                       "lab": x["lab"], "baselineScore": x["baselineScore"], "percentile": x["percentile"]} for x in ss],
             "provenance": {"sites": "OAH Resilience Map snapshot (data/oah/)", "osm": "OpenStreetMap contributors (ODbL)",
                            "generator": "analysis/add_city.py --oah", "generated": time.strftime("%Y-%m-%d")},
         }
@@ -170,7 +172,7 @@ def build_oah_cities():
 
 def write(doc):
     OUTDIR.mkdir(parents=True, exist_ok=True)
-    p = OUTDIR / f"{doc['id']}.json"
+    p = OUTDIR / f"{doc.get('slug', doc['id'])}.json"
     p.write_text(json.dumps(doc, indent=1, ensure_ascii=False), encoding="utf-8")
     print(f"  wrote {p.relative_to(ROOT)} ({len(doc['sites'])} sites)")
 

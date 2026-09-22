@@ -243,13 +243,13 @@ def main():
 FEATURE_DEFS = [
     {"id": "osm_dist_wwtp_m", "label": "Distance to nearest wastewater treatment plant", "unit": "m",
      "osm": 'nwr["man_made"="wastewater_plant"]', "compute": "Planar distance from the site point to the nearest WWTP node/way/relation geometry (0 if inside). Searched within city bbox + 25 km; capped at 25 000 m.",
-     "transform": "log10(clip(value, 50, 25000))", "expectedDirection": "closer = higher risk"},
+     "transform": "log10(clip(value, 50, 25000))", "expectedDirection": "closer = higher risk", "jsonField": "osm.distWastewaterM"},
     {"id": "osm_dist_farmland_m", "label": "Distance to nearest farmland/orchard/vineyard", "unit": "m",
-     "osm": 'nwr["landuse"~"^(farmland|orchard|vineyard)$"]', "compute": "Planar distance to the nearest farmland polygon (0 if inside). Searched within bbox + 8 km; capped at 8 000 m.",
-     "transform": "log10(clip(value, 50, 8000))", "expectedDirection": "closer = higher risk"},
+     "osm": 'nwr["landuse"~"^(farmland|orchard|vineyard)$"]', "compute": "Planar distance to the nearest farmland polygon (0 if inside). Searched within bbox + 5 km; capped at 5 000 m.",
+     "transform": "log10(clip(value, 50, 5000))", "expectedDirection": "closer = higher risk", "jsonField": "osm.distFarmlandM"},
     {"id": "osm_urban_frac_2km", "label": "Built-up land fraction within 2 km", "unit": "fraction 0-1",
      "osm": 'nwr["landuse"~"^(residential|commercial|industrial|retail)$"]', "compute": "Area of the union of built-up landuse polygons inside a 2 km-radius disc, divided by the disc area.",
-     "transform": "identity", "expectedDirection": "more built-up = higher ARG risk (exploratory)"},
+     "transform": "identity (0-1 fraction; the JSON also carries urbanFraction2km as a 0-100 percentage for display)", "expectedDirection": "more built-up = higher ARG risk (exploratory)", "jsonField": "osm.urbanFrac2km"},
 ]
 
 
@@ -267,7 +267,7 @@ def write_model(m, results, prov, n):
         "features": FEATURE_DEFS,
         "standardize": {"mean": [round(float(v), 6) for v in m["mu"]], "sd": [round(float(v), 6) for v in m["sd"]]},
         "logistic": {"intercept": round(float(m["b0"]), 6), "weights": [round(float(v), 6) for v in m["w"]], "l2": L2},
-        "scoring": "x_i = transform_i(raw_i); z_i = (x_i - mean_i)/sd_i; score = 1/(1+exp(-(intercept + sum_i weights_i*z_i))). cityPercentile = fraction of the city's sites with score <= this site's score.",
+        "scoring": "x_i = transform_i(raw_i); z_i = (x_i - mean_i)/sd_i; score = 1/(1+exp(-(intercept + sum_i weights_i*z_i))). percentile = percentage of the city's sites with score <= this site's score (0-100).",
         "validated": False,
         "headline": ("Not validated. Leave-one-city-out on 96 OAH lab sites: the OSM model did NOT beat "
                      "chance on a held-out city (pooled AUROC %.2f), and a post-hoc within-city analysis was "
@@ -277,7 +277,7 @@ def write_model(m, results, prov, n):
                      "to look first, never as evidence of contamination.") % (
             osm["pooled"]["model"]["auroc"]["observed"], osm["withinCityPostHoc"]["meanWithinCitySpearman"],
             osm["withinCityPostHoc"]["null"]["spearman_p"]),
-        "recommendedUse": ("Order sites within one city (cityPercentile) as a starting prior; citizen event "
+        "recommendedUse": ("Order sites within one city (percentile) as a starting prior; citizen event "
                            "reports and lab results must outweigh it in any referral ranking."),
         "evaluation": {
             "design": "leave-one-city-out (Coimbra, Ghent, Toulouse, Benevento, Oslo); transforms, threshold and weights refit inside each fold; permutation null = target shuffled across sites, whole pipeline refit, %d times" % N_PERM,
@@ -324,25 +324,31 @@ def city_percentiles(scores, cities):
 
 
 def write_site_features(rows, m):
+    """Field names follow the app's contract (src/core/sites.ts Baseline): distWastewaterM,
+    distFarmlandM, urbanFraction2km (PERCENT 0-100) and percentile (0-100). urbanFrac2km keeps the
+    raw 0-1 fraction that the model actually consumes."""
     sc = score_sites(rows, m)
     pct = city_percentiles(sc, [r["city"] for r in rows])
-    out = []
+    out = {}
     for r, s, p in zip(rows, sc, pct):
         def num(k):
             return None if r.get(k) in (None, "") else float(r[k])
-        out.append({
+        out[r["code"]] = {
             "code": r["code"], "city": r["city"], "lat": float(r["lat"]), "lon": float(r["lon"]),
             "hasLabData": r["hasLab"] == "True",
-            "osm": {"distWwtpM": num("osm_dist_wwtp_m"), "distFarmlandM": num("osm_dist_farmland_m"),
-                    "urbanFrac2km": num("osm_urban_frac_2km"), "nearestWwtpName": r.get("osm_nearest_wwtp_name") or None},
+            "osm": {"distWastewaterM": num("osm_dist_wwtp_m"), "distFarmlandM": num("osm_dist_farmland_m"),
+                    "urbanFraction2km": round(num("osm_urban_frac_2km") * 100, 2),
+                    "urbanFrac2km": num("osm_urban_frac_2km"),
+                    "nearestWwtpName": r.get("osm_nearest_wwtp_name") or None},
             "oah": {"distanceToSewageStations": num("distanceToSewageStations"), "distChampCulture": num("distChampCulture"),
                     "urbanPct2000m": num("urbanPct2000m")},
             "lab": {"healthRiskScore": num("healthRiskScore"), "scaledPathogenRisk": num("scaledPathogenRisk"),
                     "scaledFecalRisk": num("scaledFecalRisk"), "scaledArgRisk": num("scaledArgRisk")} if r["hasLab"] == "True" else None,
             "baselineScore": round(float(s), 4),
-            "cityPercentile": round(float(p), 4),
-        })
-    doc = {"model": "streamlink-baseline-v1", "note": "baselineScore is in-sample for lab sites (final model fitted on all 96); see model-v1.json evaluation for held-out performance.",
+            "percentile": round(float(p) * 100, 1),
+        }
+    doc = {"model": "streamlink-baseline-v1",
+           "note": "baselineScore is in-sample for lab sites (the final model is fitted on all 96); see model-v1.json evaluation for held-out performance. percentile is within the site's own city, 0-100.",
            "sites": out}
     (ROOT / "data" / "baseline" / "site-features.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False), encoding="utf-8")
     print(f"wrote data/baseline/site-features.json ({len(out)} sites)")

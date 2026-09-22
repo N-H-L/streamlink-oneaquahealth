@@ -1,9 +1,9 @@
 {
  "schema": "streamlink-city/1",
- "id": "toulouse",
+ "id": "TO",
+ "slug": "toulouse",
  "name": "Toulouse",
  "country": null,
- "oahCityId": "TO",
  "centre": {
   "lat": 43.6047,
   "lon": 1.4442
@@ -32,14 +32,15 @@
    "lon": 1.34767,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 2029.6,
+    "distWastewaterM": 2029.6,
     "distFarmlandM": 1075.7,
+    "urbanFraction2km": 76.69,
     "urbanFrac2km": 0.7669,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
    "lab": null,
    "baselineScore": 0.3994,
-   "cityPercentile": 0.875
+   "percentile": 87.5
   },
   {
    "code": "T24",
@@ -48,14 +49,15 @@
    "lon": 1.36671,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 3146.1,
+    "distWastewaterM": 3146.1,
     "distFarmlandM": 1423.6,
+    "urbanFraction2km": 72.34,
     "urbanFrac2km": 0.7234,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
    "lab": null,
    "baselineScore": 0.3806,
-   "cityPercentile": 0.625
+   "percentile": 62.5
   },
   {
    "code": "T1",
@@ -64,8 +66,9 @@
    "lon": 1.49147,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1576.7,
+    "distWastewaterM": 1576.7,
     "distFarmlandM": 8.5,
+    "urbanFraction2km": 50.72,
     "urbanFrac2km": 0.5072,
     "nearestWwtpName": "Station d'épuration"
    },
@@ -76,7 +79,7 @@
     "scaledArgRisk": 0.2785
    },
    "baselineScore": 0.2982,
-   "cityPercentile": 0.2917
+   "percentile": 29.2
   },
   {
    "code": "T3",
@@ -85,8 +88,9 @@
    "lon": 1.47439,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1857.6,
+    "distWastewaterM": 1857.6,
     "distFarmlandM": 0.0,
+    "urbanFraction2km": 45.41,
     "urbanFrac2km": 0.4541,
     "nearestWwtpName": "Station d'épuration"
    },
@@ -97,7 +101,7 @@
     "scaledArgRisk": 0.4614
    },
    "baselineScore": 0.288,
-   "cityPercentile": 0.25
+   "percentile": 25.0
   },
   {
    "code": "T2",
@@ -106,8 +110,9 @@
    "lon": 1.46332,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1303.8,
+    "distWastewaterM": 1303.8,
     "distFarmlandM": 47.5,
+    "urbanFraction2km": 47.24,
     "urbanFrac2km": 0.4724,
     "nearestWwtpName": null
    },
@@ -118,7 +123,7 @@
     "scaledArgRisk": 0.414
    },
    "baselineScore": 0.3088,
-   "cityPercentile": 0.3333
+   "percentile": 33.3
   },
   {
    "code": "T5",
@@ -127,8 +132,9 @@
    "lon": 1.50937,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3517.7,
+    "distWastewaterM": 3517.7,
     "distFarmlandM": 83.5,
+    "urbanFraction2km": 49.36,
     "urbanFrac2km": 0.4936,
     "nearestWwtpName": "Station d'épuration"
    },
@@ -139,7 +145,7 @@
     "scaledArgRisk": 0.2778
    },
    "baselineScore": 0.2698,
-   "cityPercentile": 0.125
+   "percentile": 12.5
   },
   {
    "code": "T6",
@@ -148,8 +154,9 @@
    "lon": 1.51974,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3879.1,
+    "distWastewaterM": 3879.1,
     "distFarmlandM": 130.6,
+    "urbanFraction2km": 48.14,
     "urbanFrac2km": 0.4814,
     "nearestWwtpName": "Station d'épuration"
    },
@@ -160,7 +167,7 @@
     "scaledArgRisk": 0.4162
    },
    "baselineScore": 0.2787,
-   "cityPercentile": 0.1667
+   "percentile": 16.7
   },
   {
    "code": "T7",
@@ -169,8 +176,9 @@
    "lon": 1.53609,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3032.4,
+    "distWastewaterM": 3032.4,
     "distFarmlandM": 17.9,
+    "urbanFraction2km": 27.23,
     "urbanFrac2km": 0.2723,
     "nearestWwtpName": "Station d'épuration de Flourens"
    },
@@ -181,7 +189,7 @@
     "scaledArgRisk": 0.2231
    },
    "baselineScore": 0.2584,
-   "cityPercentile": 0.0833
+   "percentile": 8.3
   },
   {
    "code": "T8",
@@ -190,8 +198,9 @@
    "lon": 1.52861,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3100.7,
+    "distWastewaterM": 3100.7,
     "distFarmlandM": 299.4,
+    "urbanFraction2km": 28.49,
     "urbanFrac2km": 0.2849,
     "nearestWwtpName": "Station d'épuration de Flourens"
    },
@@ -202,7 +211,7 @@
     "scaledArgRisk": 0.2415
    },
    "baselineScore": 0.3168,
-   "cityPercentile": 0.4167
+   "percentile": 41.7
   },
   {
    "code": "T9",
@@ -211,8 +220,9 @@
    "lon": 1.34273,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 2263.3,
+    "distWastewaterM": 2263.3,
     "distFarmlandM": 972.7,
+    "urbanFraction2km": 69.51,
     "urbanFrac2km": 0.6951,
     "nearestWwtpName": "Station d'épuration de Cugnaux"
    },
@@ -223,7 +233,7 @@
     "scaledArgRisk": 0.2561
    },
    "baselineScore": 0.3871,
-   "cityPercentile": 0.7917
+   "percentile": 79.2
   },
   {
    "code": "T15",
@@ -232,14 +242,15 @@
    "lon": 1.38535,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 3505.2,
+    "distWastewaterM": 3505.2,
     "distFarmlandM": 1837.8,
+    "urbanFraction2km": 76.33,
     "urbanFrac2km": 0.7633,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
    "lab": null,
    "baselineScore": 0.384,
-   "cityPercentile": 0.7083
+   "percentile": 70.8
   },
   {
    "code": "T10",
@@ -248,8 +259,9 @@
    "lon": 1.32265,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3503.3,
+    "distWastewaterM": 3503.3,
     "distFarmlandM": 11.0,
+    "urbanFraction2km": 54.82,
     "urbanFrac2km": 0.5482,
     "nearestWwtpName": "Station d'épuration de Cugnaux"
    },
@@ -260,7 +272,7 @@
     "scaledArgRisk": 0.6355
    },
    "baselineScore": 0.2547,
-   "cityPercentile": 0.0417
+   "percentile": 4.2
   },
   {
    "code": "T12",
@@ -269,8 +281,9 @@
    "lon": 1.34077,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 2189.5,
+    "distWastewaterM": 2189.5,
     "distFarmlandM": 785.2,
+    "urbanFraction2km": 65.09,
     "urbanFrac2km": 0.6509,
     "nearestWwtpName": "Station d'épuration de Cugnaux"
    },
@@ -281,7 +294,7 @@
     "scaledArgRisk": 0.6525
    },
    "baselineScore": 0.3802,
-   "cityPercentile": 0.5833
+   "percentile": 58.3
   },
   {
    "code": "T13",
@@ -290,8 +303,9 @@
    "lon": 1.37785,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 584.3,
+    "distWastewaterM": 584.3,
     "distFarmlandM": 294.9,
+    "urbanFraction2km": 44.4,
     "urbanFrac2km": 0.444,
     "nearestWwtpName": "Station d'épuration de Cugnaux"
    },
@@ -302,7 +316,7 @@
     "scaledArgRisk": 0.6042
    },
    "baselineScore": 0.4263,
-   "cityPercentile": 0.9583
+   "percentile": 95.8
   },
   {
    "code": "T14",
@@ -311,8 +325,9 @@
    "lon": 1.42074,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 820.7,
+    "distWastewaterM": 820.7,
     "distFarmlandM": 5.8,
+    "urbanFraction2km": 48.95,
     "urbanFrac2km": 0.4895,
     "nearestWwtpName": "Usine Municipale des Eaux de Clairfont"
    },
@@ -323,7 +338,7 @@
     "scaledArgRisk": 0.525
    },
    "baselineScore": 0.3371,
-   "cityPercentile": 0.4583
+   "percentile": 45.8
   },
   {
    "code": "T17",
@@ -332,8 +347,9 @@
    "lon": 1.35861,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1456.4,
+    "distWastewaterM": 1456.4,
     "distFarmlandM": 128.8,
+    "urbanFraction2km": 63.34,
     "urbanFrac2km": 0.6334,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -344,7 +360,7 @@
     "scaledArgRisk": 0.3341
    },
    "baselineScore": 0.3383,
-   "cityPercentile": 0.5
+   "percentile": 50.0
   },
   {
    "code": "T18",
@@ -353,8 +369,9 @@
    "lon": 1.35262,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1042.8,
+    "distWastewaterM": 1042.8,
     "distFarmlandM": 449.6,
+    "urbanFraction2km": 63.98,
     "urbanFrac2km": 0.6398,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -365,7 +382,7 @@
     "scaledArgRisk": 0.3494
    },
    "baselineScore": 0.4075,
-   "cityPercentile": 0.9167
+   "percentile": 91.7
   },
   {
    "code": "T19",
@@ -374,8 +391,9 @@
    "lon": 1.35047,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1162.7,
+    "distWastewaterM": 1162.7,
     "distFarmlandM": 309.0,
+    "urbanFraction2km": 67.01,
     "urbanFrac2km": 0.6701,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -386,7 +404,7 @@
     "scaledArgRisk": 0.3021
    },
    "baselineScore": 0.3862,
-   "cityPercentile": 0.75
+   "percentile": 75.0
   },
   {
    "code": "T20",
@@ -395,8 +413,9 @@
    "lon": 1.3493,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1118.1,
+    "distWastewaterM": 1118.1,
     "distFarmlandM": 382.6,
+    "urbanFraction2km": 67.67,
     "urbanFrac2km": 0.6767,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -407,7 +426,7 @@
     "scaledArgRisk": 0.5091
    },
    "baselineScore": 0.3972,
-   "cityPercentile": 0.8333
+   "percentile": 83.3
   },
   {
    "code": "T4",
@@ -416,8 +435,9 @@
    "lon": 1.49464,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 2941.0,
+    "distWastewaterM": 2941.0,
     "distFarmlandM": 959.2,
+    "urbanFraction2km": 49.36,
     "urbanFrac2km": 0.4936,
     "nearestWwtpName": "Station d'épuration"
    },
@@ -428,7 +448,7 @@
     "scaledArgRisk": 0.1303
    },
    "baselineScore": 0.366,
-   "cityPercentile": 0.5417
+   "percentile": 54.2
   },
   {
    "code": "T11",
@@ -437,8 +457,9 @@
    "lon": 1.32597,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3251.3,
+    "distWastewaterM": 3251.3,
     "distFarmlandM": 92.1,
+    "urbanFraction2km": 64.13,
     "urbanFrac2km": 0.6413,
     "nearestWwtpName": "Station d'épuration de Cugnaux"
    },
@@ -449,7 +470,7 @@
     "scaledArgRisk": 0.334
    },
    "baselineScore": 0.2795,
-   "cityPercentile": 0.2083
+   "percentile": 20.8
   },
   {
    "code": "T25",
@@ -458,8 +479,9 @@
    "lon": 1.51501,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 387.2,
+    "distWastewaterM": 387.2,
     "distFarmlandM": 225.4,
+    "urbanFraction2km": 50.67,
     "urbanFrac2km": 0.5067,
     "nearestWwtpName": "Station d'Épuration de Saint-Jean"
    },
@@ -470,7 +492,7 @@
     "scaledArgRisk": 0.5096
    },
    "baselineScore": 0.4447,
-   "cityPercentile": 1.0
+   "percentile": 100.0
   },
   {
    "code": "T16",
@@ -479,8 +501,9 @@
    "lon": 1.35929,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1522.1,
+    "distWastewaterM": 1522.1,
     "distFarmlandM": 63.5,
+    "urbanFraction2km": 63.7,
     "urbanFrac2km": 0.637,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -491,7 +514,7 @@
     "scaledArgRisk": 0.2866
    },
    "baselineScore": 0.3105,
-   "cityPercentile": 0.375
+   "percentile": 37.5
   },
   {
    "code": "T22",
@@ -500,8 +523,9 @@
    "lon": 1.36657,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3141.6,
+    "distWastewaterM": 3141.6,
     "distFarmlandM": 1423.5,
+    "urbanFraction2km": 72.34,
     "urbanFrac2km": 0.7234,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -512,7 +536,7 @@
     "scaledArgRisk": 0.5428
    },
    "baselineScore": 0.3807,
-   "cityPercentile": 0.6667
+   "percentile": 66.7
   }
  ],
  "provenance": {

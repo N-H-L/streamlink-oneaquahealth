@@ -1,9 +1,9 @@
 {
  "schema": "streamlink-city/1",
- "id": "benevento",
+ "id": "BE",
+ "slug": "benevento",
  "name": "Benevento",
  "country": null,
- "oahCityId": "BE",
  "centre": {
   "lat": 41.1291,
   "lon": 14.7868
@@ -32,8 +32,9 @@
    "lon": 14.80039,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 2693.5,
+    "distWastewaterM": 2693.5,
     "distFarmlandM": 1523.0,
+    "urbanFraction2km": 24.0,
     "urbanFrac2km": 0.24,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -44,7 +45,7 @@
     "scaledArgRisk": 0.4792
    },
    "baselineScore": 0.385,
-   "cityPercentile": 0.85
+   "percentile": 85.0
   },
   {
    "code": "BN2",
@@ -53,8 +54,9 @@
    "lon": 14.80333,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 2858.7,
+    "distWastewaterM": 2858.7,
     "distFarmlandM": 1580.0,
+    "urbanFraction2km": 20.63,
     "urbanFrac2km": 0.2063,
     "nearestWwtpName": "Impianto di depurazione Sanav"
    },
@@ -65,7 +67,7 @@
     "scaledArgRisk": 1.0
    },
    "baselineScore": 0.382,
-   "cityPercentile": 0.8
+   "percentile": 80.0
   },
   {
    "code": "BN3",
@@ -74,8 +76,9 @@
    "lon": 14.78614,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3714.6,
+    "distWastewaterM": 3714.6,
     "distFarmlandM": 538.8,
+    "urbanFraction2km": 38.42,
     "urbanFrac2km": 0.3842,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -86,7 +89,7 @@
     "scaledArgRisk": 0.0
    },
    "baselineScore": 0.3283,
-   "cityPercentile": 0.4
+   "percentile": 40.0
   },
   {
    "code": "BN4",
@@ -95,8 +98,9 @@
    "lon": 14.74864,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 5040.1,
+    "distWastewaterM": 5040.1,
     "distFarmlandM": 1136.8,
+    "urbanFraction2km": 7.97,
     "urbanFrac2km": 0.0797,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -107,7 +111,7 @@
     "scaledArgRisk": 0.3717
    },
    "baselineScore": 0.3316,
-   "cityPercentile": 0.5
+   "percentile": 50.0
   },
   {
    "code": "BN5",
@@ -116,8 +120,9 @@
    "lon": 14.74295,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 6245.7,
+    "distWastewaterM": 6245.7,
     "distFarmlandM": 2460.1,
+    "urbanFraction2km": 2.19,
     "urbanFrac2km": 0.0219,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -128,7 +133,7 @@
     "scaledArgRisk": 0.3856
    },
    "baselineScore": 0.3454,
-   "cityPercentile": 0.6
+   "percentile": 60.0
   },
   {
    "code": "BN6",
@@ -137,8 +142,9 @@
    "lon": 14.78437,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3642.4,
+    "distWastewaterM": 3642.4,
     "distFarmlandM": 619.7,
+    "urbanFraction2km": 13.83,
     "urbanFrac2km": 0.1383,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -149,7 +155,7 @@
     "scaledArgRisk": 0.3583
    },
    "baselineScore": 0.3306,
-   "cityPercentile": 0.45
+   "percentile": 45.0
   },
   {
    "code": "BN7",
@@ -158,8 +164,9 @@
    "lon": 14.81407,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1216.3,
+    "distWastewaterM": 1216.3,
     "distFarmlandM": 690.6,
+    "urbanFraction2km": 9.36,
     "urbanFrac2km": 0.0936,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -170,7 +177,7 @@
     "scaledArgRisk": 0.3509
    },
    "baselineScore": 0.4044,
-   "cityPercentile": 0.9
+   "percentile": 90.0
   },
   {
    "code": "BN8",
@@ -179,8 +186,9 @@
    "lon": 14.8345,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 1026.3,
+    "distWastewaterM": 1026.3,
     "distFarmlandM": 2089.9,
+    "urbanFraction2km": 10.6,
     "urbanFrac2km": 0.106,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -191,7 +199,7 @@
     "scaledArgRisk": 0.4015
    },
    "baselineScore": 0.4603,
-   "cityPercentile": 0.95
+   "percentile": 95.0
   },
   {
    "code": "BN9",
@@ -200,8 +208,9 @@
    "lon": 14.8325,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3464.9,
+    "distWastewaterM": 3464.9,
     "distFarmlandM": 2297.5,
+    "urbanFraction2km": 2.98,
     "urbanFrac2km": 0.0298,
     "nearestWwtpName": "Impianto di depurazione Sanav"
    },
@@ -212,7 +221,7 @@
     "scaledArgRisk": 0.384
    },
    "baselineScore": 0.3807,
-   "cityPercentile": 0.75
+   "percentile": 75.0
   },
   {
    "code": "BN10",
@@ -221,8 +230,9 @@
    "lon": 14.76353,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 5379.3,
+    "distWastewaterM": 5379.3,
     "distFarmlandM": 269.4,
+    "urbanFraction2km": 11.83,
     "urbanFrac2km": 0.1183,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -233,7 +243,7 @@
     "scaledArgRisk": 0.2686
    },
    "baselineScore": 0.2788,
-   "cityPercentile": 0.2
+   "percentile": 20.0
   },
   {
    "code": "BN11",
@@ -242,8 +252,9 @@
    "lon": 14.75972,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 5206.9,
+    "distWastewaterM": 5206.9,
     "distFarmlandM": 850.1,
+    "urbanFraction2km": 2.64,
     "urbanFrac2km": 0.0264,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -254,7 +265,7 @@
     "scaledArgRisk": 0.0329
    },
    "baselineScore": 0.3184,
-   "cityPercentile": 0.3
+   "percentile": 30.0
   },
   {
    "code": "BN12",
@@ -263,8 +274,9 @@
    "lon": 14.73193,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3137.4,
+    "distWastewaterM": 3137.4,
     "distFarmlandM": 1189.7,
+    "urbanFraction2km": 1.55,
     "urbanFrac2km": 0.0155,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -275,7 +287,7 @@
     "scaledArgRisk": 0.0491
    },
    "baselineScore": 0.3619,
-   "cityPercentile": 0.7
+   "percentile": 70.0
   },
   {
    "code": "BN13",
@@ -284,8 +296,9 @@
    "lon": 14.73683,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 4803.1,
+    "distWastewaterM": 4803.1,
     "distFarmlandM": 1403.4,
+    "urbanFraction2km": 2.03,
     "urbanFrac2km": 0.0203,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -296,7 +309,7 @@
     "scaledArgRisk": 0.2723
    },
    "baselineScore": 0.3412,
-   "cityPercentile": 0.55
+   "percentile": 55.0
   },
   {
    "code": "BN14",
@@ -305,8 +318,9 @@
    "lon": 14.70843,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 9675.9,
+    "distWastewaterM": 9675.9,
     "distFarmlandM": 13.1,
+    "urbanFraction2km": 4.93,
     "urbanFrac2km": 0.0493,
     "nearestWwtpName": "Depuratore comunale"
    },
@@ -317,7 +331,7 @@
     "scaledArgRisk": 0.181
    },
    "baselineScore": 0.1991,
-   "cityPercentile": 0.05
+   "percentile": 5.0
   },
   {
    "code": "BN15",
@@ -326,8 +340,9 @@
    "lon": 14.70959,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 8773.8,
+    "distWastewaterM": 8773.8,
     "distFarmlandM": 569.1,
+    "urbanFraction2km": 3.49,
     "urbanFrac2km": 0.0349,
     "nearestWwtpName": "Depuratore comunale"
    },
@@ -338,7 +353,7 @@
     "scaledArgRisk": 0.3881
    },
    "baselineScore": 0.2748,
-   "cityPercentile": 0.1
+   "percentile": 10.0
   },
   {
    "code": "BN16",
@@ -347,8 +362,9 @@
    "lon": 14.70876,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 8745.5,
+    "distWastewaterM": 8745.5,
     "distFarmlandM": 583.7,
+    "urbanFraction2km": 3.5,
     "urbanFrac2km": 0.035,
     "nearestWwtpName": "Depuratore comunale"
    },
@@ -359,7 +375,7 @@
     "scaledArgRisk": 0.1122
    },
    "baselineScore": 0.2758,
-   "cityPercentile": 0.15
+   "percentile": 15.0
   },
   {
    "code": "BN17",
@@ -368,8 +384,9 @@
    "lon": 14.7127,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 2268.7,
+    "distWastewaterM": 2268.7,
     "distFarmlandM": 467.8,
+    "urbanFraction2km": 2.97,
     "urbanFrac2km": 0.0297,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -380,7 +397,7 @@
     "scaledArgRisk": 0.0307
    },
    "baselineScore": 0.348,
-   "cityPercentile": 0.65
+   "percentile": 65.0
   },
   {
    "code": "BN18",
@@ -389,8 +406,9 @@
    "lon": 14.70936,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 848.0,
+    "distWastewaterM": 848.0,
     "distFarmlandM": 25.6,
+    "urbanFraction2km": 3.99,
     "urbanFrac2km": 0.0399,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -401,7 +419,7 @@
     "scaledArgRisk": 0.4485
    },
    "baselineScore": 0.3278,
-   "cityPercentile": 0.35
+   "percentile": 35.0
   },
   {
    "code": "BN19",
@@ -410,8 +428,9 @@
    "lon": 14.719005,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 3915.1,
+    "distWastewaterM": 3915.1,
     "distFarmlandM": 373.0,
+    "urbanFraction2km": 5.35,
     "urbanFrac2km": 0.0535,
     "nearestWwtpName": "Depuratore Acque Reflue"
    },
@@ -422,7 +441,7 @@
     "scaledArgRisk": 0.1262
    },
    "baselineScore": 0.307,
-   "cityPercentile": 0.25
+   "percentile": 25.0
   },
   {
    "code": "BN20",
@@ -431,8 +450,9 @@
    "lon": 14.68999,
    "hasLabData": true,
    "features": {
-    "distWwtpM": 37.7,
+    "distWastewaterM": 37.7,
     "distFarmlandM": 303.7,
+    "urbanFraction2km": 4.46,
     "urbanFrac2km": 0.0446,
     "nearestWwtpName": "Depuratore Acque Reflue"
    },
@@ -443,7 +463,7 @@
     "scaledArgRisk": 0.3661
    },
    "baselineScore": 0.589,
-   "cityPercentile": 1.0
+   "percentile": 100.0
   }
  ],
  "provenance": {

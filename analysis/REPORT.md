@@ -128,6 +128,6 @@ it.
 
 ## 6. What the product should do with this
 
-Use `cityPercentile` to order the sites of one city as a starting point for "where should the lab go
+Use `percentile` (0-100, within the city) to order the sites of one city as a starting point for "where should the lab go
 first", and let citizen event reports and lab results outweigh it. Show the caveat text from
 `model-v1.json` (`headline`, `caveats`) wherever the score is displayed.

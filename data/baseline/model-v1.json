@@ -18,16 +18,18 @@
    "osm": "nwr[\"man_made\"=\"wastewater_plant\"]",
    "compute": "Planar distance from the site point to the nearest WWTP node/way/relation geometry (0 if inside). Searched within city bbox + 25 km; capped at 25 000 m.",
    "transform": "log10(clip(value, 50, 25000))",
-   "expectedDirection": "closer = higher risk"
+   "expectedDirection": "closer = higher risk",
+   "jsonField": "osm.distWastewaterM"
   },
   {
    "id": "osm_dist_farmland_m",
    "label": "Distance to nearest farmland/orchard/vineyard",
    "unit": "m",
    "osm": "nwr[\"landuse\"~\"^(farmland|orchard|vineyard)$\"]",
-   "compute": "Planar distance to the nearest farmland polygon (0 if inside). Searched within bbox + 8 km; capped at 8 000 m.",
-   "transform": "log10(clip(value, 50, 8000))",
-   "expectedDirection": "closer = higher risk"
+   "compute": "Planar distance to the nearest farmland polygon (0 if inside). Searched within bbox + 5 km; capped at 5 000 m.",
+   "transform": "log10(clip(value, 50, 5000))",
+   "expectedDirection": "closer = higher risk",
+   "jsonField": "osm.distFarmlandM"
   },
   {
    "id": "osm_urban_frac_2km",
@@ -35,8 +37,9 @@
    "unit": "fraction 0-1",
    "osm": "nwr[\"landuse\"~\"^(residential|commercial|industrial|retail)$\"]",
    "compute": "Area of the union of built-up landuse polygons inside a 2 km-radius disc, divided by the disc area.",
-   "transform": "identity",
-   "expectedDirection": "more built-up = higher ARG risk (exploratory)"
+   "transform": "identity (0-1 fraction; the JSON also carries urbanFraction2km as a 0-100 percentage for display)",
+   "expectedDirection": "more built-up = higher ARG risk (exploratory)",
+   "jsonField": "osm.urbanFrac2km"
   }
  ],
  "standardize": {
@@ -60,10 +63,10 @@
   ],
   "l2": 1.0
  },
- "scoring": "x_i = transform_i(raw_i); z_i = (x_i - mean_i)/sd_i; score = 1/(1+exp(-(intercept + sum_i weights_i*z_i))). cityPercentile = fraction of the city's sites with score <= this site's score.",
+ "scoring": "x_i = transform_i(raw_i); z_i = (x_i - mean_i)/sd_i; score = 1/(1+exp(-(intercept + sum_i weights_i*z_i))). percentile = percentage of the city's sites with score <= this site's score (0-100).",
  "validated": false,
  "headline": "Not validated. Leave-one-city-out on 96 OAH lab sites: the OSM model did NOT beat chance on a held-out city (pooled AUROC 0.33), and a post-hoc within-city analysis was also not significant (mean within-city Spearman 0.19, permutation p=0.0659). The single feature 'distance to the nearest wastewater plant' does reproduce OAH's own reported association at the correlation level. Treat the score as a transparent prior for where to look first, never as evidence of contamination.",
- "recommendedUse": "Order sites within one city (cityPercentile) as a starting prior; citizen event reports and lab results must outweigh it in any referral ranking.",
+ "recommendedUse": "Order sites within one city (percentile) as a starting prior; citizen event reports and lab results must outweigh it in any referral ranking.",
  "evaluation": {
   "design": "leave-one-city-out (Coimbra, Ghent, Toulouse, Benevento, Oslo); transforms, threshold and weights refit inside each fold; permutation null = target shuffled across sites, whole pipeline refit, 1000 times",
   "n": 96,

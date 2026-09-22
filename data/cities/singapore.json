@@ -13,6 +13,7 @@
   "north": 1.48,
   "east": 104.05
  },
+ "note": "No OneAquaHealth lab campaign here: every score is the map-context baseline only, from a model trained on 5 European cities and not validated on a held-out city. Out of distribution for this city.",
  "labData": {
   "available": false,
   "note": "No OneAquaHealth lab campaign in this city. Scores are the map-context baseline only; lab confirmation is required."
@@ -46,13 +47,14 @@
    "snapDistanceM": 211.8,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 2230.2,
+    "distWastewaterM": 2230.2,
     "distFarmlandM": 901.3,
+    "urbanFraction2km": 44.79,
     "urbanFrac2km": 0.4479,
     "nearestWwtpName": "Ulu Pandan Water Reclamation Plant"
    },
    "baselineScore": 0.3808,
-   "cityPercentile": 0.6
+   "percentile": 60.0
   },
   {
    "code": "SG2",
@@ -65,13 +67,14 @@
    "snapDistanceM": 17.5,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 5800.5,
+    "distWastewaterM": 5800.5,
     "distFarmlandM": 5000.0,
+    "urbanFraction2km": 49.92,
     "urbanFrac2km": 0.4992,
     "nearestWwtpName": "PUB Bukit Timah Waterworks"
    },
    "baselineScore": 0.3849,
-   "cityPercentile": 0.7
+   "percentile": 70.0
   },
   {
    "code": "SG3",
@@ -84,13 +87,14 @@
    "snapDistanceM": 2825.2,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 1924.7,
+    "distWastewaterM": 1924.7,
     "distFarmlandM": 685.9,
+    "urbanFraction2km": 33.98,
     "urbanFrac2km": 0.3398,
     "nearestWwtpName": "Kranji Water Reclamation Plant"
    },
    "baselineScore": 0.3781,
-   "cityPercentile": 0.5
+   "percentile": 50.0
   },
   {
    "code": "SG4",
@@ -103,13 +107,14 @@
    "snapDistanceM": 764.8,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 9573.8,
+    "distWastewaterM": 9573.8,
     "distFarmlandM": 5000.0,
+    "urbanFraction2km": 34.99,
     "urbanFrac2km": 0.3499,
     "nearestWwtpName": "Changi Water Reclamation Plant"
    },
    "baselineScore": 0.3502,
-   "cityPercentile": 0.1
+   "percentile": 10.0
   },
   {
    "code": "SG5",
@@ -122,13 +127,14 @@
    "snapDistanceM": 233.8,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 7938.3,
+    "distWastewaterM": 7938.3,
     "distFarmlandM": 5000.0,
+    "urbanFraction2km": 47.26,
     "urbanFrac2km": 0.4726,
     "nearestWwtpName": "Changi Water Reclamation Plant"
    },
    "baselineScore": 0.3641,
-   "cityPercentile": 0.3
+   "percentile": 30.0
   },
   {
    "code": "SG6",
@@ -141,13 +147,14 @@
    "snapDistanceM": 1066.2,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 8947.5,
+    "distWastewaterM": 8947.5,
     "distFarmlandM": 5000.0,
+    "urbanFraction2km": 34.98,
     "urbanFrac2km": 0.3498,
     "nearestWwtpName": null
    },
    "baselineScore": 0.3544,
-   "cityPercentile": 0.2
+   "percentile": 20.0
   },
   {
    "code": "SG7",
@@ -160,13 +167,14 @@
    "snapDistanceM": 106.0,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 2065.1,
+    "distWastewaterM": 2065.1,
     "distFarmlandM": 5000.0,
+    "urbanFraction2km": 45.09,
     "urbanFrac2km": 0.4509,
     "nearestWwtpName": "PUB Bukit Timah Waterworks"
    },
    "baselineScore": 0.4536,
-   "cityPercentile": 1.0
+   "percentile": 100.0
   },
   {
    "code": "SG8",
@@ -179,13 +187,14 @@
    "snapDistanceM": 493.3,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 3750.8,
+    "distWastewaterM": 3750.8,
     "distFarmlandM": 3123.0,
+    "urbanFraction2km": 42.85,
     "urbanFrac2km": 0.4285,
     "nearestWwtpName": "Ulu Pandan Water Reclamation Plant"
    },
    "baselineScore": 0.3942,
-   "cityPercentile": 0.8
+   "percentile": 80.0
   },
   {
    "code": "SG9",
@@ -198,13 +207,14 @@
    "snapDistanceM": 503.8,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 7098.3,
+    "distWastewaterM": 7098.3,
     "distFarmlandM": 5000.0,
+    "urbanFraction2km": 54.84,
     "urbanFrac2km": 0.5484,
     "nearestWwtpName": "Changi Water Reclamation Plant"
    },
    "baselineScore": 0.3726,
-   "cityPercentile": 0.4
+   "percentile": 40.0
   },
   {
    "code": "SG10",
@@ -217,13 +227,14 @@
    "snapDistanceM": 440.0,
    "hasLabData": false,
    "features": {
-    "distWwtpM": 4719.4,
+    "distWastewaterM": 4719.4,
     "distFarmlandM": 5000.0,
+    "urbanFraction2km": 53.52,
     "urbanFrac2km": 0.5352,
     "nearestWwtpName": "PUB Bukit Timah Waterworks"
    },
    "baselineScore": 0.3992,
-   "cityPercentile": 0.9
+   "percentile": 90.0
   }
  ],
  "provenance": {

@@ -1,16 +1,17 @@
 {
  "model": "streamlink-baseline-v1",
- "note": "baselineScore is in-sample for lab sites (final model fitted on all 96); see model-v1.json evaluation for held-out performance.",
- "sites": [
-  {
+ "note": "baselineScore is in-sample for lab sites (the final model is fitted on all 96); see model-v1.json evaluation for held-out performance. percentile is within the site's own city, 0-100.",
+ "sites": {
+  "C1": {
    "code": "C1",
    "city": "Coimbra",
    "lat": 40.19787,
    "lon": -8.42865,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3265.3,
+    "distWastewaterM": 3265.3,
     "distFarmlandM": 374.2,
+    "urbanFraction2km": 22.93,
     "urbanFrac2km": 0.2293,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
@@ -26,17 +27,18 @@
     "scaledArgRisk": 0.3374
    },
    "baselineScore": 0.3207,
-   "cityPercentile": 0.45
+   "percentile": 45.0
   },
-  {
+  "C2": {
    "code": "C2",
    "city": "Coimbra",
    "lat": 40.22483,
    "lon": -8.44135,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 581.5,
+    "distWastewaterM": 581.5,
     "distFarmlandM": 339.2,
+    "urbanFraction2km": 14.65,
     "urbanFrac2km": 0.1465,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
@@ -52,17 +54,18 @@
     "scaledArgRisk": 0.2522
    },
    "baselineScore": 0.4269,
-   "cityPercentile": 1.0
+   "percentile": 100.0
   },
-  {
+  "C3": {
    "code": "C3",
    "city": "Coimbra",
    "lat": 40.19307,
    "lon": -8.41945,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 2508.2,
+    "distWastewaterM": 2508.2,
     "distFarmlandM": 189.5,
+    "urbanFraction2km": 15.76,
     "urbanFrac2km": 0.1576,
     "nearestWwtpName": "ETAR de Torres do Mondego"
    },
@@ -78,17 +81,18 @@
     "scaledArgRisk": 0.2283
    },
    "baselineScore": 0.3115,
-   "cityPercentile": 0.3
+   "percentile": 30.0
   },
-  {
+  "C4": {
    "code": "C4",
    "city": "Coimbra",
    "lat": 40.25289,
    "lon": -8.43659,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3197.5,
+    "distWastewaterM": 3197.5,
     "distFarmlandM": 1423.5,
+    "urbanFraction2km": 15.09,
     "urbanFrac2km": 0.1509,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
@@ -104,17 +108,18 @@
     "scaledArgRisk": 0.0339
    },
    "baselineScore": 0.3698,
-   "cityPercentile": 0.7
+   "percentile": 70.0
   },
-  {
+  "C5": {
    "code": "C5",
    "city": "Coimbra",
    "lat": 40.2186,
    "lon": -8.42733,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1830.9,
+    "distWastewaterM": 1830.9,
     "distFarmlandM": 293.1,
+    "urbanFraction2km": 22.93,
     "urbanFrac2km": 0.2293,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
@@ -130,17 +135,18 @@
     "scaledArgRisk": 0.3465
    },
    "baselineScore": 0.3475,
-   "cityPercentile": 0.55
+   "percentile": 55.0
   },
-  {
+  "C6": {
    "code": "C6",
    "city": "Coimbra",
    "lat": 40.21942,
    "lon": -8.43772,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 974.0,
+    "distWastewaterM": 974.0,
     "distFarmlandM": 630.8,
+    "urbanFraction2km": 16.3,
     "urbanFrac2km": 0.163,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
@@ -156,17 +162,18 @@
     "scaledArgRisk": 0.3841
    },
    "baselineScore": 0.4169,
-   "cityPercentile": 0.9
+   "percentile": 90.0
   },
-  {
+  "C7": {
    "code": "C7",
    "city": "Coimbra",
    "lat": 40.22243,
    "lon": -8.40165,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3452.6,
+    "distWastewaterM": 3452.6,
     "distFarmlandM": 251.3,
+    "urbanFraction2km": 20.69,
     "urbanFrac2km": 0.2069,
     "nearestWwtpName": "ETAR de Torres do Mondego"
    },
@@ -182,17 +189,18 @@
     "scaledArgRisk": 0.0027
    },
    "baselineScore": 0.3032,
-   "cityPercentile": 0.25
+   "percentile": 25.0
   },
-  {
+  "C8": {
    "code": "C8",
    "city": "Coimbra",
    "lat": 40.19133,
    "lon": -8.46002,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3170.9,
+    "distWastewaterM": 3170.9,
     "distFarmlandM": 1172.9,
+    "urbanFraction2km": 16.96,
     "urbanFrac2km": 0.1696,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais de Ribeira de Frades"
    },
@@ -208,17 +216,18 @@
     "scaledArgRisk": 0.432
    },
    "baselineScore": 0.3633,
-   "cityPercentile": 0.6
+   "percentile": 60.0
   },
-  {
+  "C9": {
    "code": "C9",
    "city": "Coimbra",
    "lat": 40.27702,
    "lon": -8.4272,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 5752.6,
+    "distWastewaterM": 5752.6,
     "distFarmlandM": 433.7,
+    "urbanFraction2km": 10.45,
     "urbanFrac2km": 0.1045,
     "nearestWwtpName": null
    },
@@ -234,17 +243,18 @@
     "scaledArgRisk": 0.3186
    },
    "baselineScore": 0.2906,
-   "cityPercentile": 0.2
+   "percentile": 20.0
   },
-  {
+  "C10": {
    "code": "C10",
    "city": "Coimbra",
    "lat": 40.19776,
    "lon": -8.41773,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 2432.9,
+    "distWastewaterM": 2432.9,
     "distFarmlandM": 65.9,
+    "urbanFraction2km": 24.44,
     "urbanFrac2km": 0.2444,
     "nearestWwtpName": "ETAR de Torres do Mondego"
    },
@@ -260,17 +270,18 @@
     "scaledArgRisk": 0.0906
    },
    "baselineScore": 0.2788,
-   "cityPercentile": 0.15
+   "percentile": 15.0
   },
-  {
+  "C11": {
    "code": "C11",
    "city": "Coimbra",
    "lat": 40.22752,
    "lon": -8.43757,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 986.9,
+    "distWastewaterM": 986.9,
     "distFarmlandM": 357.7,
+    "urbanFraction2km": 14.79,
     "urbanFrac2km": 0.1479,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
@@ -286,17 +297,18 @@
     "scaledArgRisk": 0.1456
    },
    "baselineScore": 0.3936,
-   "cityPercentile": 0.85
+   "percentile": 85.0
   },
-  {
+  "C12": {
    "code": "C12",
    "city": "Coimbra",
    "lat": 40.20386,
    "lon": -8.45302,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 2165.0,
+    "distWastewaterM": 2165.0,
     "distFarmlandM": 6.9,
+    "urbanFraction2km": 12.97,
     "urbanFrac2km": 0.1297,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
@@ -312,17 +324,18 @@
     "scaledArgRisk": 0.3704
    },
    "baselineScore": 0.2747,
-   "cityPercentile": 0.1
+   "percentile": 10.0
   },
-  {
+  "C13": {
    "code": "C13",
    "city": "Coimbra",
    "lat": 40.11106,
    "lon": -8.49052,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1230.9,
+    "distWastewaterM": 1230.9,
     "distFarmlandM": 258.3,
+    "urbanFraction2km": 3.62,
     "urbanFrac2km": 0.0362,
     "nearestWwtpName": null
    },
@@ -338,17 +351,18 @@
     "scaledArgRisk": 0.2708
    },
    "baselineScore": 0.3648,
-   "cityPercentile": 0.65
+   "percentile": 65.0
   },
-  {
+  "C14": {
    "code": "C14",
    "city": "Coimbra",
    "lat": 40.16719,
    "lon": -8.47817,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 4529.8,
+    "distWastewaterM": 4529.8,
     "distFarmlandM": 3123.5,
+    "urbanFraction2km": 12.66,
     "urbanFrac2km": 0.1266,
     "nearestWwtpName": null
    },
@@ -364,17 +378,18 @@
     "scaledArgRisk": 0.3343
    },
    "baselineScore": 0.3767,
-   "cityPercentile": 0.75
+   "percentile": 75.0
   },
-  {
+  "C15": {
    "code": "C15",
    "city": "Coimbra",
    "lat": 40.17943,
    "lon": -8.42117,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3013.7,
+    "distWastewaterM": 3013.7,
     "distFarmlandM": 30.0,
+    "urbanFraction2km": 8.14,
     "urbanFrac2km": 0.0814,
     "nearestWwtpName": "ETAR de Torres do Mondego"
    },
@@ -390,17 +405,18 @@
     "scaledArgRisk": 0.2706
    },
    "baselineScore": 0.2561,
-   "cityPercentile": 0.05
+   "percentile": 5.0
   },
-  {
+  "C16": {
    "code": "C16",
    "city": "Coimbra",
    "lat": 40.22461,
    "lon": -8.44304,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 436.9,
+    "distWastewaterM": 436.9,
     "distFarmlandM": 200.7,
+    "urbanFraction2km": 14.0,
     "urbanFrac2km": 0.14,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
@@ -416,17 +432,18 @@
     "scaledArgRisk": 0.3008
    },
    "baselineScore": 0.4253,
-   "cityPercentile": 0.95
+   "percentile": 95.0
   },
-  {
+  "C17": {
    "code": "C17",
    "city": "Coimbra",
    "lat": 40.17422,
    "lon": -8.39363,
    "hasLabData": false,
    "osm": {
-    "distWwtpM": 1982.9,
+    "distWastewaterM": 1982.9,
     "distFarmlandM": 142.8,
+    "urbanFraction2km": 8.99,
     "urbanFrac2km": 0.0899,
     "nearestWwtpName": null
    },
@@ -437,17 +454,18 @@
    },
    "lab": null,
    "baselineScore": 0.3145,
-   "cityPercentile": 0.35
+   "percentile": 35.0
   },
-  {
+  "C18": {
    "code": "C18",
    "city": "Coimbra",
    "lat": 40.25621,
    "lon": -8.45312,
    "hasLabData": false,
    "osm": {
-    "distWwtpM": 3256.0,
+    "distWastewaterM": 3256.0,
     "distFarmlandM": 742.2,
+    "urbanFraction2km": 8.96,
     "urbanFrac2km": 0.0896,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
@@ -458,17 +476,18 @@
    },
    "lab": null,
    "baselineScore": 0.3433,
-   "cityPercentile": 0.5
+   "percentile": 50.0
   },
-  {
+  "C19": {
    "code": "C19",
    "city": "Coimbra",
    "lat": 40.24812,
    "lon": -8.41159,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 4050.5,
+    "distWastewaterM": 4050.5,
     "distFarmlandM": 2880.0,
+    "urbanFraction2km": 13.47,
     "urbanFrac2km": 0.1347,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
@@ -484,17 +503,18 @@
     "scaledArgRisk": 0.5433
    },
    "baselineScore": 0.381,
-   "cityPercentile": 0.8
+   "percentile": 80.0
   },
-  {
+  "C20": {
    "code": "C20",
    "city": "Coimbra",
    "lat": 40.21085,
    "lon": -8.47667,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1026.1,
+    "distWastewaterM": 1026.1,
     "distFarmlandM": 16.5,
+    "urbanFraction2km": 4.5,
     "urbanFrac2km": 0.045,
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais de Ribeira de Frades"
    },
@@ -510,17 +530,18 @@
     "scaledArgRisk": 0.5623
    },
    "baselineScore": 0.3164,
-   "cityPercentile": 0.4
+   "percentile": 40.0
   },
-  {
+  "G2": {
    "code": "G2",
    "city": "Ghent",
    "lat": 50.85943,
    "lon": 3.79794,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3294.9,
+    "distWastewaterM": 3294.9,
     "distFarmlandM": 118.4,
+    "urbanFraction2km": 24.71,
     "urbanFrac2km": 0.2471,
     "nearestWwtpName": null
    },
@@ -536,17 +557,18 @@
     "scaledArgRisk": 0.4669
    },
    "baselineScore": 0.2812,
-   "cityPercentile": 0.3636
+   "percentile": 36.4
   },
-  {
+  "G6": {
    "code": "G6",
    "city": "Ghent",
    "lat": 50.87579,
    "lon": 3.75151,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 90.8,
+    "distWastewaterM": 90.8,
     "distFarmlandM": 58.9,
+    "urbanFraction2km": 12.97,
     "urbanFrac2km": 0.1297,
     "nearestWwtpName": null
    },
@@ -562,17 +584,18 @@
     "scaledArgRisk": 0.175
    },
    "baselineScore": 0.4835,
-   "cityPercentile": 0.9091
+   "percentile": 90.9
   },
-  {
+  "G8": {
    "code": "G8",
    "city": "Ghent",
    "lat": 50.87971,
    "lon": 3.73771,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 945.3,
+    "distWastewaterM": 945.3,
     "distFarmlandM": 198.6,
+    "urbanFraction2km": 12.25,
     "urbanFrac2km": 0.1225,
     "nearestWwtpName": null
    },
@@ -588,17 +611,18 @@
     "scaledArgRisk": 0.3183
    },
    "baselineScore": 0.3733,
-   "cityPercentile": 0.6364
+   "percentile": 63.6
   },
-  {
+  "G9": {
    "code": "G9",
    "city": "Ghent",
    "lat": 50.87366,
    "lon": 3.73125,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1238.6,
+    "distWastewaterM": 1238.6,
     "distFarmlandM": 26.0,
+    "urbanFraction2km": 11.21,
     "urbanFrac2km": 0.1121,
     "nearestWwtpName": null
    },
@@ -614,17 +638,18 @@
     "scaledArgRisk": 0.5202
    },
    "baselineScore": 0.3063,
-   "cityPercentile": 0.4545
+   "percentile": 45.5
   },
-  {
+  "G10": {
    "code": "G10",
    "city": "Ghent",
    "lat": 50.88344,
    "lon": 3.71431,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 2600.7,
+    "distWastewaterM": 2600.7,
     "distFarmlandM": 10.2,
+    "urbanFraction2km": 12.79,
     "urbanFrac2km": 0.1279,
     "nearestWwtpName": null
    },
@@ -640,17 +665,18 @@
     "scaledArgRisk": 0.3591
    },
    "baselineScore": 0.2646,
-   "cityPercentile": 0.2273
+   "percentile": 22.7
   },
-  {
+  "G22": {
    "code": "G22",
    "city": "Ghent",
    "lat": 50.88527,
    "lon": 3.692821,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 4092.3,
+    "distWastewaterM": 4092.3,
     "distFarmlandM": 22.0,
+    "urbanFraction2km": 9.34,
     "urbanFrac2km": 0.0934,
     "nearestWwtpName": null
    },
@@ -666,17 +692,18 @@
     "scaledArgRisk": 0.1152
    },
    "baselineScore": 0.2405,
-   "cityPercentile": 0.0909
+   "percentile": 9.1
   },
-  {
+  "G11": {
    "code": "G11",
    "city": "Ghent",
    "lat": 50.88437,
    "lon": 3.68791,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 4398.6,
+    "distWastewaterM": 4398.6,
     "distFarmlandM": 49.3,
+    "urbanFraction2km": 8.77,
     "urbanFrac2km": 0.0877,
     "nearestWwtpName": null
    },
@@ -692,17 +719,18 @@
     "scaledArgRisk": 0.2956
    },
    "baselineScore": 0.2368,
-   "cityPercentile": 0.0455
+   "percentile": 4.5
   },
-  {
+  "G12": {
    "code": "G12",
    "city": "Ghent",
    "lat": 50.88541,
    "lon": 3.68606,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 4552.8,
+    "distWastewaterM": 4552.8,
     "distFarmlandM": 83.3,
+    "urbanFraction2km": 8.55,
     "urbanFrac2km": 0.0855,
     "nearestWwtpName": null
    },
@@ -718,17 +746,18 @@
     "scaledArgRisk": 0.3624
    },
    "baselineScore": 0.2502,
-   "cityPercentile": 0.1364
+   "percentile": 13.6
   },
-  {
+  "G13": {
    "code": "G13",
    "city": "Ghent",
    "lat": 50.97958,
    "lon": 3.72241,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1602.0,
+    "distWastewaterM": 1602.0,
     "distFarmlandM": 284.2,
+    "urbanFraction2km": 28.06,
     "urbanFrac2km": 0.2806,
     "nearestWwtpName": null
    },
@@ -744,17 +773,18 @@
     "scaledArgRisk": 0.345
    },
    "baselineScore": 0.3557,
-   "cityPercentile": 0.5455
+   "percentile": 54.5
   },
-  {
+  "G14": {
    "code": "G14",
    "city": "Ghent",
    "lat": 50.99821,
    "lon": 3.73925,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 898.3,
+    "distWastewaterM": 898.3,
     "distFarmlandM": 224.0,
+    "urbanFraction2km": 43.46,
     "urbanFrac2km": 0.4346,
     "nearestWwtpName": "RWZI Merelbeke"
    },
@@ -770,17 +800,18 @@
     "scaledArgRisk": 0.3366
    },
    "baselineScore": 0.3867,
-   "cityPercentile": 0.7273
+   "percentile": 72.7
   },
-  {
+  "G15": {
    "code": "G15",
    "city": "Ghent",
    "lat": 50.98975,
    "lon": 3.80615,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 619.0,
+    "distWastewaterM": 619.0,
     "distFarmlandM": 94.7,
+    "urbanFraction2km": 21.44,
     "urbanFrac2km": 0.2144,
     "nearestWwtpName": "RWZI Melle"
    },
@@ -796,17 +827,18 @@
     "scaledArgRisk": 0.4544
    },
    "baselineScore": 0.3742,
-   "cityPercentile": 0.6818
+   "percentile": 68.2
   },
-  {
+  "G16": {
    "code": "G16",
    "city": "Ghent",
    "lat": 50.99491,
    "lon": 3.80568,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 484.4,
+    "distWastewaterM": 484.4,
     "distFarmlandM": 462.7,
+    "urbanFraction2km": 25.34,
     "urbanFrac2km": 0.2534,
     "nearestWwtpName": "RWZI Melle"
    },
@@ -822,17 +854,18 @@
     "scaledArgRisk": 0.3971
    },
    "baselineScore": 0.4537,
-   "cityPercentile": 0.8182
+   "percentile": 81.8
   },
-  {
+  "G17": {
    "code": "G17",
    "city": "Ghent",
    "lat": 51.02678,
    "lon": 3.77389,
    "hasLabData": false,
    "osm": {
-    "distWwtpM": 2623.4,
+    "distWastewaterM": 2623.4,
     "distFarmlandM": 790.7,
+    "urbanFraction2km": 45.13,
     "urbanFrac2km": 0.4513,
     "nearestWwtpName": "RWZI Destelbergen"
    },
@@ -843,17 +876,18 @@
    },
    "lab": null,
    "baselineScore": 0.3654,
-   "cityPercentile": 0.5909
+   "percentile": 59.1
   },
-  {
+  "G18": {
    "code": "G18",
    "city": "Ghent",
    "lat": 51.05458,
    "lon": 3.68126,
    "hasLabData": false,
    "osm": {
-    "distWwtpM": 10.2,
+    "distWastewaterM": 10.2,
     "distFarmlandM": 672.3,
+    "urbanFraction2km": 31.77,
     "urbanFrac2km": 0.3177,
     "nearestWwtpName": "RWZI Gent"
    },
@@ -864,17 +898,18 @@
    },
    "lab": null,
    "baselineScore": 0.6246,
-   "cityPercentile": 1.0
+   "percentile": 100.0
   },
-  {
+  "G1": {
    "code": "G1",
    "city": "Ghent",
    "lat": 50.94744,
    "lon": 3.8168,
    "hasLabData": false,
    "osm": {
-    "distWwtpM": 2920.5,
+    "distWastewaterM": 2920.5,
     "distFarmlandM": 86.5,
+    "urbanFraction2km": 14.83,
     "urbanFrac2km": 0.1483,
     "nearestWwtpName": "RWZI Oosterzele"
    },
@@ -885,17 +920,18 @@
    },
    "lab": null,
    "baselineScore": 0.2762,
-   "cityPercentile": 0.2727
+   "percentile": 27.3
   },
-  {
+  "G4": {
    "code": "G4",
    "city": "Ghent",
    "lat": 50.87507,
    "lon": 3.80222,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3572.2,
+    "distWastewaterM": 3572.2,
     "distFarmlandM": 116.9,
+    "urbanFraction2km": 32.32,
     "urbanFrac2km": 0.3232,
     "nearestWwtpName": null
    },
@@ -911,17 +947,18 @@
     "scaledArgRisk": 0.4763
    },
    "baselineScore": 0.2773,
-   "cityPercentile": 0.3182
+   "percentile": 31.8
   },
-  {
+  "G21": {
    "code": "G21",
    "city": "Ghent",
    "lat": 50.89162,
    "lon": 3.81558,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3447.8,
+    "distWastewaterM": 3447.8,
     "distFarmlandM": 28.8,
+    "urbanFraction2km": 24.02,
     "urbanFrac2km": 0.2402,
     "nearestWwtpName": null
    },
@@ -937,17 +974,18 @@
     "scaledArgRisk": 0.4933
    },
    "baselineScore": 0.2513,
-   "cityPercentile": 0.1818
+   "percentile": 18.2
   },
-  {
+  "G5": {
    "code": "G5",
    "city": "Ghent",
    "lat": 50.87539,
    "lon": 3.74917,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 32.2,
+    "distWastewaterM": 32.2,
     "distFarmlandM": 217.5,
+    "urbanFraction2km": 12.74,
     "urbanFrac2km": 0.1274,
     "nearestWwtpName": null
    },
@@ -963,17 +1001,18 @@
     "scaledArgRisk": 0.313
    },
    "baselineScore": 0.5773,
-   "cityPercentile": 0.9545
+   "percentile": 95.5
   },
-  {
+  "G19": {
    "code": "G19",
    "city": "Ghent",
    "lat": 51.02843,
    "lon": 3.786,
    "hasLabData": false,
    "osm": {
-    "distWwtpM": 2534.3,
+    "distWastewaterM": 2534.3,
     "distFarmlandM": 350.0,
+    "urbanFraction2km": 39.14,
     "urbanFrac2km": 0.3914,
     "nearestWwtpName": "RWZI Destelbergen"
    },
@@ -984,17 +1023,18 @@
    },
    "lab": null,
    "baselineScore": 0.3364,
-   "cityPercentile": 0.5
+   "percentile": 50.0
   },
-  {
+  "G20": {
    "code": "G20",
    "city": "Ghent",
    "lat": 51.0939,
    "lon": 3.71687,
    "hasLabData": false,
    "osm": {
-    "distWwtpM": 1292.7,
+    "distWastewaterM": 1292.7,
     "distFarmlandM": 419.0,
+    "urbanFraction2km": 65.66,
     "urbanFrac2km": 0.6566,
     "nearestWwtpName": "RWZI Evergem"
    },
@@ -1005,17 +1045,18 @@
    },
    "lab": null,
    "baselineScore": 0.3907,
-   "cityPercentile": 0.7727
+   "percentile": 77.3
   },
-  {
+  "G3": {
    "code": "G3",
    "city": "Ghent",
    "lat": 50.87604,
    "lon": 3.75174,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 122.6,
+    "distWastewaterM": 122.6,
     "distFarmlandM": 44.6,
+    "urbanFraction2km": 13.13,
     "urbanFrac2km": 0.1313,
     "nearestWwtpName": null
    },
@@ -1031,17 +1072,18 @@
     "scaledArgRisk": 0.1812
    },
    "baselineScore": 0.4562,
-   "cityPercentile": 0.8636
+   "percentile": 86.4
   },
-  {
+  "G7": {
    "code": "G7",
    "city": "Ghent",
    "lat": 50.86216,
    "lon": 3.76577,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1739.8,
+    "distWastewaterM": 1739.8,
     "distFarmlandM": 90.0,
+    "urbanFraction2km": 8.99,
     "urbanFrac2km": 0.0899,
     "nearestWwtpName": null
    },
@@ -1057,17 +1099,18 @@
     "scaledArgRisk": 0.261
    },
    "baselineScore": 0.3062,
-   "cityPercentile": 0.4091
+   "percentile": 40.9
   },
-  {
+  "T21": {
    "code": "T21",
    "city": "Toulouse",
    "lat": 43.59278,
    "lon": 1.34767,
    "hasLabData": false,
    "osm": {
-    "distWwtpM": 2029.6,
+    "distWastewaterM": 2029.6,
     "distFarmlandM": 1075.7,
+    "urbanFraction2km": 76.69,
     "urbanFrac2km": 0.7669,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -1078,17 +1121,18 @@
    },
    "lab": null,
    "baselineScore": 0.3994,
-   "cityPercentile": 0.875
+   "percentile": 87.5
   },
-  {
+  "T24": {
    "code": "T24",
    "city": "Toulouse",
    "lat": 43.59604,
    "lon": 1.36671,
    "hasLabData": false,
    "osm": {
-    "distWwtpM": 3146.1,
+    "distWastewaterM": 3146.1,
     "distFarmlandM": 1423.6,
+    "urbanFraction2km": 72.34,
     "urbanFrac2km": 0.7234,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -1099,17 +1143,18 @@
    },
    "lab": null,
    "baselineScore": 0.3806,
-   "cityPercentile": 0.625
+   "percentile": 62.5
   },
-  {
+  "T1": {
    "code": "T1",
    "city": "Toulouse",
    "lat": 43.55267,
    "lon": 1.49147,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1576.7,
+    "distWastewaterM": 1576.7,
     "distFarmlandM": 8.5,
+    "urbanFraction2km": 50.72,
     "urbanFrac2km": 0.5072,
     "nearestWwtpName": "Station d'épuration"
    },
@@ -1125,17 +1170,18 @@
     "scaledArgRisk": 0.2785
    },
    "baselineScore": 0.2982,
-   "cityPercentile": 0.2917
+   "percentile": 29.2
   },
-  {
+  "T3": {
    "code": "T3",
    "city": "Toulouse",
    "lat": 43.52756,
    "lon": 1.47439,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1857.6,
+    "distWastewaterM": 1857.6,
     "distFarmlandM": 0.0,
+    "urbanFraction2km": 45.41,
     "urbanFrac2km": 0.4541,
     "nearestWwtpName": "Station d'épuration"
    },
@@ -1151,17 +1197,18 @@
     "scaledArgRisk": 0.4614
    },
    "baselineScore": 0.288,
-   "cityPercentile": 0.25
+   "percentile": 25.0
   },
-  {
+  "T2": {
    "code": "T2",
    "city": "Toulouse",
    "lat": 43.53219,
    "lon": 1.46332,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1303.8,
+    "distWastewaterM": 1303.8,
     "distFarmlandM": 47.5,
+    "urbanFraction2km": 47.24,
     "urbanFrac2km": 0.4724,
     "nearestWwtpName": null
    },
@@ -1177,17 +1224,18 @@
     "scaledArgRisk": 0.414
    },
    "baselineScore": 0.3088,
-   "cityPercentile": 0.3333
+   "percentile": 33.3
   },
-  {
+  "T5": {
    "code": "T5",
    "city": "Toulouse",
    "lat": 43.5678,
    "lon": 1.50937,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3517.7,
+    "distWastewaterM": 3517.7,
     "distFarmlandM": 83.5,
+    "urbanFraction2km": 49.36,
     "urbanFrac2km": 0.4936,
     "nearestWwtpName": "Station d'épuration"
    },
@@ -1203,17 +1251,18 @@
     "scaledArgRisk": 0.2778
    },
    "baselineScore": 0.2698,
-   "cityPercentile": 0.125
+   "percentile": 12.5
   },
-  {
+  "T6": {
    "code": "T6",
    "city": "Toulouse",
    "lat": 43.56755,
    "lon": 1.51974,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3879.1,
+    "distWastewaterM": 3879.1,
     "distFarmlandM": 130.6,
+    "urbanFraction2km": 48.14,
     "urbanFrac2km": 0.4814,
     "nearestWwtpName": "Station d'épuration"
    },
@@ -1229,17 +1278,18 @@
     "scaledArgRisk": 0.4162
    },
    "baselineScore": 0.2787,
-   "cityPercentile": 0.1667
+   "percentile": 16.7
   },
-  {
+  "T7": {
    "code": "T7",
    "city": "Toulouse",
    "lat": 43.57873,
    "lon": 1.53609,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3032.4,
+    "distWastewaterM": 3032.4,
     "distFarmlandM": 17.9,
+    "urbanFraction2km": 27.23,
     "urbanFrac2km": 0.2723,
     "nearestWwtpName": "Station d'épuration de Flourens"
    },
@@ -1255,17 +1305,18 @@
     "scaledArgRisk": 0.2231
    },
    "baselineScore": 0.2584,
-   "cityPercentile": 0.0833
+   "percentile": 8.3
   },
-  {
+  "T8": {
    "code": "T8",
    "city": "Toulouse",
    "lat": 43.58553,
    "lon": 1.52861,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3100.7,
+    "distWastewaterM": 3100.7,
     "distFarmlandM": 299.4,
+    "urbanFraction2km": 28.49,
     "urbanFrac2km": 0.2849,
     "nearestWwtpName": "Station d'épuration de Flourens"
    },
@@ -1281,17 +1332,18 @@
     "scaledArgRisk": 0.2415
    },
    "baselineScore": 0.3168,
-   "cityPercentile": 0.4167
+   "percentile": 41.7
   },
-  {
+  "T9": {
    "code": "T9",
    "city": "Toulouse",
    "lat": 43.52152,
    "lon": 1.34273,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 2263.3,
+    "distWastewaterM": 2263.3,
     "distFarmlandM": 972.7,
+    "urbanFraction2km": 69.51,
     "urbanFrac2km": 0.6951,
     "nearestWwtpName": "Station d'épuration de Cugnaux"
    },
@@ -1307,17 +1359,18 @@
     "scaledArgRisk": 0.2561
    },
    "baselineScore": 0.3871,
-   "cityPercentile": 0.7917
+   "percentile": 79.2
   },
-  {
+  "T15": {
    "code": "T15",
    "city": "Toulouse",
    "lat": 43.5713,
    "lon": 1.38535,
    "hasLabData": false,
    "osm": {
-    "distWwtpM": 3505.2,
+    "distWastewaterM": 3505.2,
     "distFarmlandM": 1837.8,
+    "urbanFraction2km": 76.33,
     "urbanFrac2km": 0.7633,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -1328,17 +1381,18 @@
    },
    "lab": null,
    "baselineScore": 0.384,
-   "cityPercentile": 0.7083
+   "percentile": 70.8
   },
-  {
+  "T10": {
    "code": "T10",
    "city": "Toulouse",
    "lat": 43.5322,
    "lon": 1.32265,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3503.3,
+    "distWastewaterM": 3503.3,
     "distFarmlandM": 11.0,
+    "urbanFraction2km": 54.82,
     "urbanFrac2km": 0.5482,
     "nearestWwtpName": "Station d'épuration de Cugnaux"
    },
@@ -1354,17 +1408,18 @@
     "scaledArgRisk": 0.6355
    },
    "baselineScore": 0.2547,
-   "cityPercentile": 0.0417
+   "percentile": 4.2
   },
-  {
+  "T12": {
    "code": "T12",
    "city": "Toulouse",
    "lat": 43.54003,
    "lon": 1.34077,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 2189.5,
+    "distWastewaterM": 2189.5,
     "distFarmlandM": 785.2,
+    "urbanFraction2km": 65.09,
     "urbanFrac2km": 0.6509,
     "nearestWwtpName": "Station d'épuration de Cugnaux"
    },
@@ -1380,17 +1435,18 @@
     "scaledArgRisk": 0.6525
    },
    "baselineScore": 0.3802,
-   "cityPercentile": 0.5833
+   "percentile": 58.3
   },
-  {
+  "T13": {
    "code": "T13",
    "city": "Toulouse",
    "lat": 43.5353,
    "lon": 1.37785,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 584.3,
+    "distWastewaterM": 584.3,
     "distFarmlandM": 294.9,
+    "urbanFraction2km": 44.4,
     "urbanFrac2km": 0.444,
     "nearestWwtpName": "Station d'épuration de Cugnaux"
    },
@@ -1406,17 +1462,18 @@
     "scaledArgRisk": 0.6042
    },
    "baselineScore": 0.4263,
-   "cityPercentile": 0.9583
+   "percentile": 95.8
   },
-  {
+  "T14": {
    "code": "T14",
    "city": "Toulouse",
    "lat": 43.53855,
    "lon": 1.42074,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 820.7,
+    "distWastewaterM": 820.7,
     "distFarmlandM": 5.8,
+    "urbanFraction2km": 48.95,
     "urbanFrac2km": 0.4895,
     "nearestWwtpName": "Usine Municipale des Eaux de Clairfont"
    },
@@ -1432,17 +1489,18 @@
     "scaledArgRisk": 0.525
    },
    "baselineScore": 0.3371,
-   "cityPercentile": 0.4583
+   "percentile": 45.8
   },
-  {
+  "T17": {
    "code": "T17",
    "city": "Toulouse",
    "lat": 43.5786,
    "lon": 1.35861,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1456.4,
+    "distWastewaterM": 1456.4,
     "distFarmlandM": 128.8,
+    "urbanFraction2km": 63.34,
     "urbanFrac2km": 0.6334,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -1458,17 +1516,18 @@
     "scaledArgRisk": 0.3341
    },
    "baselineScore": 0.3383,
-   "cityPercentile": 0.5
+   "percentile": 50.0
   },
-  {
+  "T18": {
    "code": "T18",
    "city": "Toulouse",
    "lat": 43.57882,
    "lon": 1.35262,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1042.8,
+    "distWastewaterM": 1042.8,
     "distFarmlandM": 449.6,
+    "urbanFraction2km": 63.98,
     "urbanFrac2km": 0.6398,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -1484,17 +1543,18 @@
     "scaledArgRisk": 0.3494
    },
    "baselineScore": 0.4075,
-   "cityPercentile": 0.9167
+   "percentile": 91.7
   },
-  {
+  "T19": {
    "code": "T19",
    "city": "Toulouse",
    "lat": 43.58253,
    "lon": 1.35047,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1162.7,
+    "distWastewaterM": 1162.7,
     "distFarmlandM": 309.0,
+    "urbanFraction2km": 67.01,
     "urbanFrac2km": 0.6701,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -1510,17 +1570,18 @@
     "scaledArgRisk": 0.3021
    },
    "baselineScore": 0.3862,
-   "cityPercentile": 0.75
+   "percentile": 75.0
   },
-  {
+  "T20": {
    "code": "T20",
    "city": "Toulouse",
    "lat": 43.5828,
    "lon": 1.3493,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1118.1,
+    "distWastewaterM": 1118.1,
     "distFarmlandM": 382.6,
+    "urbanFraction2km": 67.67,
     "urbanFrac2km": 0.6767,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -1536,17 +1597,18 @@
     "scaledArgRisk": 0.5091
    },
    "baselineScore": 0.3972,
-   "cityPercentile": 0.8333
+   "percentile": 83.3
   },
-  {
+  "T4": {
    "code": "T4",
    "city": "Toulouse",
    "lat": 43.56499,
    "lon": 1.49464,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 2941.0,
+    "distWastewaterM": 2941.0,
     "distFarmlandM": 959.2,
+    "urbanFraction2km": 49.36,
     "urbanFrac2km": 0.4936,
     "nearestWwtpName": "Station d'épuration"
    },
@@ -1562,17 +1624,18 @@
     "scaledArgRisk": 0.1303
    },
    "baselineScore": 0.366,
-   "cityPercentile": 0.5417
+   "percentile": 54.2
   },
-  {
+  "T11": {
    "code": "T11",
    "city": "Toulouse",
    "lat": 43.52992,
    "lon": 1.32597,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3251.3,
+    "distWastewaterM": 3251.3,
     "distFarmlandM": 92.1,
+    "urbanFraction2km": 64.13,
     "urbanFrac2km": 0.6413,
     "nearestWwtpName": "Station d'épuration de Cugnaux"
    },
@@ -1588,17 +1651,18 @@
     "scaledArgRisk": 0.334
    },
    "baselineScore": 0.2795,
-   "cityPercentile": 0.2083
+   "percentile": 20.8
   },
-  {
+  "T25": {
    "code": "T25",
    "city": "Toulouse",
    "lat": 43.64862,
    "lon": 1.51501,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 387.2,
+    "distWastewaterM": 387.2,
     "distFarmlandM": 225.4,
+    "urbanFraction2km": 50.67,
     "urbanFrac2km": 0.5067,
     "nearestWwtpName": "Station d'Épuration de Saint-Jean"
    },
@@ -1614,17 +1678,18 @@
     "scaledArgRisk": 0.5096
    },
    "baselineScore": 0.4447,
-   "cityPercentile": 1.0
+   "percentile": 100.0
   },
-  {
+  "T16": {
    "code": "T16",
    "city": "Toulouse",
    "lat": 43.57895,
    "lon": 1.35929,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1522.1,
+    "distWastewaterM": 1522.1,
     "distFarmlandM": 63.5,
+    "urbanFraction2km": 63.7,
     "urbanFrac2km": 0.637,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -1640,17 +1705,18 @@
     "scaledArgRisk": 0.2866
    },
    "baselineScore": 0.3105,
-   "cityPercentile": 0.375
+   "percentile": 37.5
   },
-  {
+  "T22": {
    "code": "T22",
    "city": "Toulouse",
    "lat": 43.59608,
    "lon": 1.36657,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3141.6,
+    "distWastewaterM": 3141.6,
     "distFarmlandM": 1423.5,
+    "urbanFraction2km": 72.34,
     "urbanFrac2km": 0.7234,
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
@@ -1666,17 +1732,18 @@
     "scaledArgRisk": 0.5428
    },
    "baselineScore": 0.3807,
-   "cityPercentile": 0.6667
+   "percentile": 66.7
   },
-  {
+  "BN1": {
    "code": "BN1",
    "city": "Benevento",
    "lat": 41.13231,
    "lon": 14.80039,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 2693.5,
+    "distWastewaterM": 2693.5,
     "distFarmlandM": 1523.0,
+    "urbanFraction2km": 24.0,
     "urbanFrac2km": 0.24,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -1692,17 +1759,18 @@
     "scaledArgRisk": 0.4792
    },
    "baselineScore": 0.385,
-   "cityPercentile": 0.85
+   "percentile": 85.0
   },
-  {
+  "BN2": {
    "code": "BN2",
    "city": "Benevento",
    "lat": 41.12679,
    "lon": 14.80333,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 2858.7,
+    "distWastewaterM": 2858.7,
     "distFarmlandM": 1580.0,
+    "urbanFraction2km": 20.63,
     "urbanFrac2km": 0.2063,
     "nearestWwtpName": "Impianto di depurazione Sanav"
    },
@@ -1718,17 +1786,18 @@
     "scaledArgRisk": 1.0
    },
    "baselineScore": 0.382,
-   "cityPercentile": 0.8
+   "percentile": 80.0
   },
-  {
+  "BN3": {
    "code": "BN3",
    "city": "Benevento",
    "lat": 41.13348,
    "lon": 14.78614,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3714.6,
+    "distWastewaterM": 3714.6,
     "distFarmlandM": 538.8,
+    "urbanFraction2km": 38.42,
     "urbanFrac2km": 0.3842,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -1744,17 +1813,18 @@
     "scaledArgRisk": 0.0
    },
    "baselineScore": 0.3283,
-   "cityPercentile": 0.4
+   "percentile": 40.0
   },
-  {
+  "BN4": {
    "code": "BN4",
    "city": "Benevento",
    "lat": 41.12414,
    "lon": 14.74864,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 5040.1,
+    "distWastewaterM": 5040.1,
     "distFarmlandM": 1136.8,
+    "urbanFraction2km": 7.97,
     "urbanFrac2km": 0.0797,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -1770,17 +1840,18 @@
     "scaledArgRisk": 0.3717
    },
    "baselineScore": 0.3316,
-   "cityPercentile": 0.5
+   "percentile": 50.0
   },
-  {
+  "BN5": {
    "code": "BN5",
    "city": "Benevento",
    "lat": 41.10429,
    "lon": 14.74295,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 6245.7,
+    "distWastewaterM": 6245.7,
     "distFarmlandM": 2460.1,
+    "urbanFraction2km": 2.19,
     "urbanFrac2km": 0.0219,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -1796,17 +1867,18 @@
     "scaledArgRisk": 0.3856
    },
    "baselineScore": 0.3454,
-   "cityPercentile": 0.6
+   "percentile": 60.0
   },
-  {
+  "BN6": {
    "code": "BN6",
    "city": "Benevento",
    "lat": 41.14775,
    "lon": 14.78437,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3642.4,
+    "distWastewaterM": 3642.4,
     "distFarmlandM": 619.7,
+    "urbanFraction2km": 13.83,
     "urbanFrac2km": 0.1383,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -1822,17 +1894,18 @@
     "scaledArgRisk": 0.3583
    },
    "baselineScore": 0.3306,
-   "cityPercentile": 0.45
+   "percentile": 45.0
   },
-  {
+  "BN7": {
    "code": "BN7",
    "city": "Benevento",
    "lat": 41.14905,
    "lon": 14.81407,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1216.3,
+    "distWastewaterM": 1216.3,
     "distFarmlandM": 690.6,
+    "urbanFraction2km": 9.36,
     "urbanFrac2km": 0.0936,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -1848,17 +1921,18 @@
     "scaledArgRisk": 0.3509
    },
    "baselineScore": 0.4044,
-   "cityPercentile": 0.9
+   "percentile": 90.0
   },
-  {
+  "BN8": {
    "code": "BN8",
    "city": "Benevento",
    "lat": 41.15405,
    "lon": 14.8345,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 1026.3,
+    "distWastewaterM": 1026.3,
     "distFarmlandM": 2089.9,
+    "urbanFraction2km": 10.6,
     "urbanFrac2km": 0.106,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -1874,17 +1948,18 @@
     "scaledArgRisk": 0.4015
    },
    "baselineScore": 0.4603,
-   "cityPercentile": 0.95
+   "percentile": 95.0
   },
-  {
+  "BN9": {
    "code": "BN9",
    "city": "Benevento",
    "lat": 41.11089,
    "lon": 14.8325,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3464.9,
+    "distWastewaterM": 3464.9,
     "distFarmlandM": 2297.5,
+    "urbanFraction2km": 2.98,
     "urbanFrac2km": 0.0298,
     "nearestWwtpName": "Impianto di depurazione Sanav"
    },
@@ -1900,17 +1975,18 @@
     "scaledArgRisk": 0.384
    },
    "baselineScore": 0.3807,
-   "cityPercentile": 0.75
+   "percentile": 75.0
   },
-  {
+  "BN10": {
    "code": "BN10",
    "city": "Benevento",
    "lat": 41.14607,
    "lon": 14.76353,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 5379.3,
+    "distWastewaterM": 5379.3,
     "distFarmlandM": 269.4,
+    "urbanFraction2km": 11.83,
     "urbanFrac2km": 0.1183,
     "nearestWwtpName": "Depuratore consortile Zona Industriale Ponte Valentino"
    },
@@ -1926,17 +2002,18 @@
     "scaledArgRisk": 0.2686
    },
    "baselineScore": 0.2788,
-   "cityPercentile": 0.2
+   "percentile": 20.0
   },
-  {
+  "BN11": {
    "code": "BN11",
    "city": "Benevento",
    "lat": 41.16124,
    "lon": 14.75972,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 5206.9,
+    "distWastewaterM": 5206.9,
     "distFarmlandM": 850.1,
+    "urbanFraction2km": 2.64,
     "urbanFrac2km": 0.0264,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -1952,17 +2029,18 @@
     "scaledArgRisk": 0.0329
    },
    "baselineScore": 0.3184,
-   "cityPercentile": 0.3
+   "percentile": 30.0
   },
-  {
+  "BN12": {
    "code": "BN12",
    "city": "Benevento",
    "lat": 41.13628,
    "lon": 14.73193,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3137.4,
+    "distWastewaterM": 3137.4,
     "distFarmlandM": 1189.7,
+    "urbanFraction2km": 1.55,
     "urbanFrac2km": 0.0155,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -1978,17 +2056,18 @@
     "scaledArgRisk": 0.0491
    },
    "baselineScore": 0.3619,
-   "cityPercentile": 0.7
+   "percentile": 70.0
   },
-  {
+  "BN13": {
    "code": "BN13",
    "city": "Benevento",
    "lat": 41.11727,
    "lon": 14.73683,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 4803.1,
+    "distWastewaterM": 4803.1,
     "distFarmlandM": 1403.4,
+    "urbanFraction2km": 2.03,
     "urbanFrac2km": 0.0203,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -2004,17 +2083,18 @@
     "scaledArgRisk": 0.2723
    },
    "baselineScore": 0.3412,
-   "cityPercentile": 0.55
+   "percentile": 55.0
   },
-  {
+  "BN14": {
    "code": "BN14",
    "city": "Benevento",
    "lat": 41.06014,
    "lon": 14.70843,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 9675.9,
+    "distWastewaterM": 9675.9,
     "distFarmlandM": 13.1,
+    "urbanFraction2km": 4.93,
     "urbanFrac2km": 0.0493,
     "nearestWwtpName": "Depuratore comunale"
    },
@@ -2030,17 +2110,18 @@
     "scaledArgRisk": 0.181
    },
    "baselineScore": 0.1991,
-   "cityPercentile": 0.05
+   "percentile": 5.0
   },
-  {
+  "BN15": {
    "code": "BN15",
    "city": "Benevento",
    "lat": 41.06921,
    "lon": 14.70959,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 8773.8,
+    "distWastewaterM": 8773.8,
     "distFarmlandM": 569.1,
+    "urbanFraction2km": 3.49,
     "urbanFrac2km": 0.0349,
     "nearestWwtpName": "Depuratore comunale"
    },
@@ -2056,17 +2137,18 @@
     "scaledArgRisk": 0.3881
    },
    "baselineScore": 0.2748,
-   "cityPercentile": 0.1
+   "percentile": 10.0
   },
-  {
+  "BN16": {
    "code": "BN16",
    "city": "Benevento",
    "lat": 41.06923,
    "lon": 14.70876,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 8745.5,
+    "distWastewaterM": 8745.5,
     "distFarmlandM": 583.7,
+    "urbanFraction2km": 3.5,
     "urbanFrac2km": 0.035,
     "nearestWwtpName": "Depuratore comunale"
    },
@@ -2082,17 +2164,18 @@
     "scaledArgRisk": 0.1122
    },
    "baselineScore": 0.2758,
-   "cityPercentile": 0.15
+   "percentile": 15.0
   },
-  {
+  "BN17": {
    "code": "BN17",
    "city": "Benevento",
    "lat": 41.13221,
    "lon": 14.7127,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 2268.7,
+    "distWastewaterM": 2268.7,
     "distFarmlandM": 467.8,
+    "urbanFraction2km": 2.97,
     "urbanFrac2km": 0.0297,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -2108,17 +2191,18 @@
     "scaledArgRisk": 0.0307
    },
    "baselineScore": 0.348,
-   "cityPercentile": 0.65
+   "percentile": 65.0
   },
-  {
+  "BN18": {
    "code": "BN18",
    "city": "Benevento",
    "lat": 41.15126,
    "lon": 14.70936,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 848.0,
+    "distWastewaterM": 848.0,
     "distFarmlandM": 25.6,
+    "urbanFraction2km": 3.99,
     "urbanFrac2km": 0.0399,
     "nearestWwtpName": "Impianto di depurazione del comune di Castelpoto"
    },
@@ -2134,17 +2218,18 @@
     "scaledArgRisk": 0.4485
    },
    "baselineScore": 0.3278,
-   "cityPercentile": 0.35
+   "percentile": 35.0
   },
-  {
+  "BN19": {
    "code": "BN19",
    "city": "Benevento",
    "lat": 41.185791,
    "lon": 14.719005,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 3915.1,
+    "distWastewaterM": 3915.1,
     "distFarmlandM": 373.0,
+    "urbanFraction2km": 5.35,
     "urbanFrac2km": 0.0535,
     "nearestWwtpName": "Depuratore Acque Reflue"
    },
@@ -2160,17 +2245,18 @@
     "scaledArgRisk": 0.1262
    },
    "baselineScore": 0.307,
-   "cityPercentile": 0.25
+   "percentile": 25.0
   },
-  {
+  "BN20": {
    "code": "BN20",
    "city": "Benevento",
    "lat": 41.213825,
    "lon": 14.68999,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 37.7,
+    "distWastewaterM": 37.7,
     "distFarmlandM": 303.7,
+    "urbanFraction2km": 4.46,
     "urbanFrac2km": 0.0446,
     "nearestWwtpName": "Depuratore Acque Reflue"
    },
@@ -2186,17 +2272,18 @@
     "scaledArgRisk": 0.3661
    },
    "baselineScore": 0.589,
-   "cityPercentile": 1.0
+   "percentile": 100.0
   },
-  {
+  "O17": {
    "code": "O17",
    "city": "Oslo",
    "lat": 59.9078,
    "lon": 10.8128,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 14563.1,
+    "distWastewaterM": 14563.1,
     "distFarmlandM": 1653.5,
+    "urbanFraction2km": 49.22,
     "urbanFrac2km": 0.4922,
     "nearestWwtpName": null
    },
@@ -2212,17 +2299,18 @@
     "scaledArgRisk": 0.497
    },
    "baselineScore": 0.2882,
-   "cityPercentile": 0.35
+   "percentile": 35.0
   },
-  {
+  "O1": {
    "code": "O1",
    "city": "Oslo",
    "lat": 59.9561,
    "lon": 10.7153,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 13811.5,
+    "distWastewaterM": 13811.5,
     "distFarmlandM": 77.4,
+    "urbanFraction2km": 50.47,
     "urbanFrac2km": 0.5047,
     "nearestWwtpName": null
    },
@@ -2238,17 +2326,18 @@
     "scaledArgRisk": 0.3826
    },
    "baselineScore": 0.2,
-   "cityPercentile": 0.05
+   "percentile": 5.0
   },
-  {
+  "O2": {
    "code": "O2",
    "city": "Oslo",
    "lat": 59.9514,
    "lon": 10.6806,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 11840.6,
+    "distWastewaterM": 11840.6,
     "distFarmlandM": 1862.2,
+    "urbanFraction2km": 66.26,
     "urbanFrac2km": 0.6626,
     "nearestWwtpName": null
    },
@@ -2264,17 +2353,18 @@
     "scaledArgRisk": 0.3814
    },
    "baselineScore": 0.3068,
-   "cityPercentile": 0.8
+   "percentile": 80.0
   },
-  {
+  "O3": {
    "code": "O3",
    "city": "Oslo",
    "lat": 59.9475,
    "lon": 10.7111,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 13220.3,
+    "distWastewaterM": 13220.3,
     "distFarmlandM": 1002.5,
+    "urbanFraction2km": 61.3,
     "urbanFrac2km": 0.613,
     "nearestWwtpName": null
    },
@@ -2290,17 +2380,18 @@
     "scaledArgRisk": 0.3035
    },
    "baselineScore": 0.2789,
-   "cityPercentile": 0.2
+   "percentile": 20.0
   },
-  {
+  "O5": {
    "code": "O5",
    "city": "Oslo",
    "lat": 59.9308,
    "lon": 10.6769,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 10812.8,
+    "distWastewaterM": 10812.8,
     "distFarmlandM": 1555.1,
+    "urbanFraction2km": 58.25,
     "urbanFrac2km": 0.5825,
     "nearestWwtpName": null
    },
@@ -2316,17 +2407,18 @@
     "scaledArgRisk": 0.2865
    },
    "baselineScore": 0.3047,
-   "cityPercentile": 0.7
+   "percentile": 70.0
   },
-  {
+  "O4": {
    "code": "O4",
    "city": "Oslo",
    "lat": 59.9308,
    "lon": 10.6778,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 10861.0,
+    "distWastewaterM": 10861.0,
     "distFarmlandM": 1551.5,
+    "urbanFraction2km": 58.55,
     "urbanFrac2km": 0.5855,
     "nearestWwtpName": null
    },
@@ -2342,17 +2434,18 @@
     "scaledArgRisk": 0.5403
    },
    "baselineScore": 0.3044,
-   "cityPercentile": 0.65
+   "percentile": 65.0
   },
-  {
+  "O6": {
    "code": "O6",
    "city": "Oslo",
    "lat": 59.8628,
    "lon": 10.8458,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 13512.0,
+    "distWastewaterM": 13512.0,
     "distFarmlandM": 1966.2,
+    "urbanFraction2km": 23.76,
     "urbanFrac2km": 0.2376,
     "nearestWwtpName": null
    },
@@ -2368,17 +2461,18 @@
     "scaledArgRisk": 0.3025
    },
    "baselineScore": 0.2945,
-   "cityPercentile": 0.5
+   "percentile": 50.0
   },
-  {
+  "O7": {
    "code": "O7",
    "city": "Oslo",
    "lat": 59.8511,
    "lon": 10.8164,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 11534.5,
+    "distWastewaterM": 11534.5,
     "distFarmlandM": 1056.3,
+    "urbanFraction2km": 48.59,
     "urbanFrac2km": 0.4859,
     "nearestWwtpName": null
    },
@@ -2394,17 +2488,18 @@
     "scaledArgRisk": 0.462
    },
    "baselineScore": 0.2864,
-   "cityPercentile": 0.3
+   "percentile": 30.0
   },
-  {
+  "O8": {
    "code": "O8",
    "city": "Oslo",
    "lat": 59.8433,
    "lon": 10.7847,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 9590.1,
+    "distWastewaterM": 9590.1,
     "distFarmlandM": 1578.8,
+    "urbanFraction2km": 33.93,
     "urbanFrac2km": 0.3393,
     "nearestWwtpName": null
    },
@@ -2420,17 +2515,18 @@
     "scaledArgRisk": 0.4616
    },
    "baselineScore": 0.3085,
-   "cityPercentile": 0.85
+   "percentile": 85.0
   },
-  {
+  "O9": {
    "code": "O9",
    "city": "Oslo",
    "lat": 59.9425,
    "lon": 10.7181,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 13396.2,
+    "distWastewaterM": 13396.2,
     "distFarmlandM": 1582.8,
+    "urbanFraction2km": 60.8,
     "urbanFrac2km": 0.608,
     "nearestWwtpName": null
    },
@@ -2446,17 +2542,18 @@
     "scaledArgRisk": 0.3972
    },
    "baselineScore": 0.2933,
-   "cityPercentile": 0.45
+   "percentile": 45.0
   },
-  {
+  "O10": {
    "code": "O10",
    "city": "Oslo",
    "lat": 59.9414,
    "lon": 10.7097,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 12913.1,
+    "distWastewaterM": 12913.1,
     "distFarmlandM": 1681.3,
+    "urbanFraction2km": 63.35,
     "urbanFrac2km": 0.6335,
     "nearestWwtpName": null
    },
@@ -2472,17 +2569,18 @@
     "scaledArgRisk": 0.2706
    },
    "baselineScore": 0.2978,
-   "cityPercentile": 0.55
+   "percentile": 55.0
   },
-  {
+  "O11": {
    "code": "O11",
    "city": "Oslo",
    "lat": 59.9297,
    "lon": 10.6594,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 9841.9,
+    "distWastewaterM": 9841.9,
     "distFarmlandM": 1790.7,
+    "urbanFraction2km": 58.74,
     "urbanFrac2km": 0.5874,
     "nearestWwtpName": null
    },
@@ -2498,17 +2596,18 @@
     "scaledArgRisk": 0.6038
    },
    "baselineScore": 0.3153,
-   "cityPercentile": 0.9
+   "percentile": 90.0
   },
-  {
+  "O12": {
    "code": "O12",
    "city": "Oslo",
    "lat": 59.9356,
    "lon": 10.6736,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 10798.8,
+    "distWastewaterM": 10798.8,
     "distFarmlandM": 2104.5,
+    "urbanFraction2km": 65.84,
     "urbanFrac2km": 0.6584,
     "nearestWwtpName": null
    },
@@ -2524,17 +2623,18 @@
     "scaledArgRisk": 0.6845
    },
    "baselineScore": 0.3165,
-   "cityPercentile": 0.95
+   "percentile": 95.0
   },
-  {
+  "O13": {
    "code": "O13",
    "city": "Oslo",
    "lat": 59.945,
    "lon": 10.6503,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 10011.9,
+    "distWastewaterM": 10011.9,
     "distFarmlandM": 1328.2,
+    "urbanFraction2km": 65.63,
     "urbanFrac2km": 0.6563,
     "nearestWwtpName": null
    },
@@ -2550,17 +2650,18 @@
     "scaledArgRisk": 0.5408
    },
    "baselineScore": 0.305,
-   "cityPercentile": 0.75
+   "percentile": 75.0
   },
-  {
+  "O14": {
    "code": "O14",
    "city": "Oslo",
    "lat": 59.9392,
    "lon": 10.8214,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 17397.9,
+    "distWastewaterM": 17397.9,
     "distFarmlandM": 1734.6,
+    "urbanFraction2km": 42.66,
     "urbanFrac2km": 0.4266,
     "nearestWwtpName": null
    },
@@ -2576,17 +2677,18 @@
     "scaledArgRisk": 0.6038
    },
    "baselineScore": 0.2788,
-   "cityPercentile": 0.15
+   "percentile": 15.0
   },
-  {
+  "O15": {
    "code": "O15",
    "city": "Oslo",
    "lat": 59.9206,
    "lon": 10.8006,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 15085.2,
+    "distWastewaterM": 15085.2,
     "distFarmlandM": 1384.8,
+    "urbanFraction2km": 50.31,
     "urbanFrac2km": 0.5031,
     "nearestWwtpName": null
    },
@@ -2602,17 +2704,18 @@
     "scaledArgRisk": 0.4447
    },
    "baselineScore": 0.2805,
-   "cityPercentile": 0.25
+   "percentile": 25.0
   },
-  {
+  "O16": {
    "code": "O16",
    "city": "Oslo",
    "lat": 59.9044,
    "lon": 10.7944,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 13556.0,
+    "distWastewaterM": 13556.0,
     "distFarmlandM": 2070.8,
+    "urbanFraction2km": 44.03,
     "urbanFrac2km": 0.4403,
     "nearestWwtpName": null
    },
@@ -2628,17 +2731,18 @@
     "scaledArgRisk": 0.4964
    },
    "baselineScore": 0.2991,
-   "cityPercentile": 0.6
+   "percentile": 60.0
   },
-  {
+  "O18": {
    "code": "O18",
    "city": "Oslo",
    "lat": 59.9219,
    "lon": 10.8369,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 16609.1,
+    "distWastewaterM": 16609.1,
     "distFarmlandM": 607.2,
+    "urbanFraction2km": 47.92,
     "urbanFrac2km": 0.4792,
     "nearestWwtpName": null
    },
@@ -2654,17 +2758,18 @@
     "scaledArgRisk": 0.4311
    },
    "baselineScore": 0.249,
-   "cityPercentile": 0.1
+   "percentile": 10.0
   },
-  {
+  "O19": {
    "code": "O19",
    "city": "Oslo",
    "lat": 59.9525,
    "lon": 10.9017,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 19209.5,
+    "distWastewaterM": 19209.5,
     "distFarmlandM": 3027.1,
+    "urbanFraction2km": 41.7,
     "urbanFrac2km": 0.417,
     "nearestWwtpName": "Flateby Renseanlegg"
    },
@@ -2680,17 +2785,18 @@
     "scaledArgRisk": 0.289
    },
    "baselineScore": 0.2915,
-   "cityPercentile": 0.4
+   "percentile": 40.0
   },
-  {
+  "O20": {
    "code": "O20",
    "city": "Oslo",
    "lat": 59.9432,
    "lon": 10.6736,
    "hasLabData": true,
    "osm": {
-    "distWwtpM": 11103.6,
+    "distWastewaterM": 11103.6,
     "distFarmlandM": 2543.9,
+    "urbanFraction2km": 73.92,
     "urbanFrac2km": 0.7392,
     "nearestWwtpName": null
    },
@@ -2706,7 +2812,7 @@
     "scaledArgRisk": 0.4327
    },
    "baselineScore": 0.3228,
-   "cityPercentile": 1.0
+   "percentile": 100.0
   }
- ]
+ }
 }
