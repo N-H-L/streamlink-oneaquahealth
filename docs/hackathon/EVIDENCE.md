@@ -80,7 +80,7 @@
   - The 3-feature logistic of v1.0: pooled held-out AUROC **0.33, worse than chance** — kept in the model card as a documented negative result, not shipped.
   - A "best single feature chosen in-fold" variant initially looked strong (AUROC 0.72) but that was **an artifact** of pooling incomparable raw feature values across folds; scored correctly it is 0.32. Caught and corrected by the analysis specialist before shipping.
 - Consequence in the product: the map-context factor uses the site's **percentile within its own city**, never the raw score, and the UI never compares baselines between cities.
-- Headline shown in the app: "This score ranks the streams of one city by how close they are to a wastewater treatment plant, the one map signal that still held up when it was tested on cities the model had never seen (within-city"
+- Headline shown in the app: see `headline` in data/baseline/model-v1.json (v1.1).
 - Lead caveat: "What is supported: ordering sites WITHIN one city. What is not: comparing scores between cities, or reading a score as a risk level."
 
 ## 2026-09-23 ~03:00 SGT — the full lifecycle on the OFFICIAL OneAquaHealth FHIR sandbox (user authorised)
@@ -88,11 +88,11 @@
 - Written and read back on their server, every resource tagged `demo` (and lab results `simulated`): **28 resources**, e.g. Location/491, Practitioner/492, QuestionnaireResponse/467, Observation/468.
 - Confirmed on the server:
   - the check: QuestionnaireResponse with 26 items, 21 citizen Observations, Provenance carrying the trust score;
-  - verification: the observations came back **status final with BOTH profiles** ( + );
-  - referral: ServiceRequest with reasonReference to the citizen observations, later status ;
+  - verification: the observations came back **status final with BOTH profiles** (`observation-indicators-oah` + `sl-citizen-observation`);
+  - referral: ServiceRequest with reasonReference to the citizen observations, later status `completed`;
   - result: Observation basedOn the request, tagged demo+simulated; Communication to the volunteer.
 - The app itself, pointed at the sandbox, rebuilds the whole timeline from their server (screenshot out/e2e/50-sandbox-record.png).
 - Cleanup: `npm run sandbox:cleanup` deletes exactly these ids (recorded in out/sandbox-demo.json).
 - **Two findings worth reporting to the organizers (handed over at submission, per the user):**
-  1. The sandbox answers CORS preflights with **two conflicting  headers** ( and ), so **no browser app can call it from another origin**. Server-side clients are unaffected. We proxy it in dev and say so in the UI.
-  2. It caches search results, so a search issued right after a write can return the pre-write result. Fixed on our side by sending  (now covered by a unit test).
+  1. The sandbox answers CORS preflights with **two conflicting `Access-Control-Allow-Origin` headers** (`http://localhost:5173` and `*`), so **no browser app can call it from another origin**. Server-side clients are unaffected. We proxy it in dev and say so in the UI.
+  2. It caches search results, so a search issued right after a write can return the pre-write result. Fixed on our side by sending `Cache-Control: no-cache` (now covered by a unit test).
