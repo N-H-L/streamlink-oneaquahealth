@@ -69,7 +69,6 @@ export function Settings() {
 }
 
 export function About() {
-  const ev = model?.evaluation;
   return (
     <div className="page narrow prose">
       <h1>About StreamLink</h1>
@@ -103,9 +102,21 @@ export function About() {
       <h2>The map-context baseline</h2>
       {model ? (
         <>
-          <p>{model.description ?? model.summary ?? "Map features computed from OpenStreetMap, calibrated on OneAquaHealth lab results."}</p>
-          {ev && <pre className="json small">{JSON.stringify(ev.pooled ?? ev, null, 2)}</pre>}
-          {model.caveats && <p className="muted small">{Array.isArray(model.caveats) ? model.caveats.join(" ") : model.caveats}</p>}
+          <p>{model.headline}</p>
+          <div className={`proof ${model.validated?.withinCityRanking ? "pass" : "fail"}`}>
+            <b>What the evaluation supports</b>
+            <ul>
+              <li><b>Yes:</b> ranking the streams of one city. {model.validated?.statement}</li>
+              <li><b>No:</b> comparing scores between cities, or reading a score as a risk level.</li>
+              <li>A richer three-feature model was tried first and did <b>worse than chance</b> on a held-out city, so it is not used. It is kept in the model card as a negative result.</li>
+            </ul>
+          </div>
+          <p className="muted small">How it is used here: the map factor in the ranking is this site's percentile <i>within its own city</i>, and fresh volunteer reports and lab results outweigh it.</p>
+          <details>
+            <summary>All caveats ({model.caveats?.length ?? 0}) and the model card</summary>
+            <ul className="small">{(model.caveats ?? []).map((c: string) => <li key={c}>{c}</li>)}</ul>
+            <p className="muted small">Full model card: <span className="code">data/baseline/model-v1.json</span> (version {model.version}); method and per-city results: <span className="code">analysis/REPORT.md</span>.</p>
+          </details>
         </>
       ) : (
         <p className="notice">The map-context baseline is still being computed for this build, so the ranking treats "map context" as unknown (0.5) and says so on every stream. Method, features and evaluation plan: <span className="code">analysis/</span> in the repository.</p>
