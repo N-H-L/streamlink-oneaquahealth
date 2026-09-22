@@ -41,9 +41,13 @@ Stage: **Build (Prompt 2).** PLAN.md Rev 4 approved on 2026-09-23. Product contr
 4. Usability test (3–5 people) + Singapore field check.
 5. Demo video script and recording; Devpost submission text.
 
-## Needs the user (ask at the checkpoint)
-- Registered on Devpost? (Still unconfirmed; late registration is allowed.)
-- OK to write labelled demo records to the public OAH sandbox?
-- GitHub account/repo name for the public repo, and an OK to publish (GitHub Pages deploy).
-- An OK to email the organizers (Resilience Map API permission; optional mentor).
-- Day 6: 3–5 usability testers + a Singapore field check.
+## User decisions (2026-09-23)
+- **Journey approved**: check-in → flagged → verified → lab request → result → volunteer told.
+- **Do NOT email the organizers.** The Resilience Map API permission question and the Ghent data-quality finding are handed to them **in the submission itself**. Keep both in SUBMISSION.md; no outside contact before then.
+- Sandbox write / accounts: awaiting clarification (see below).
+
+## Still needs the user
+- Which login they meant (GitHub for the public repo, or the OneAquaHealth Citizen Science App account).
+- Explicit OK to write labelled demo records to the public OAH sandbox.
+- Devpost registration confirmation (late registration is allowed).
+- Later: 3–5 usability testers + a Singapore field check.
