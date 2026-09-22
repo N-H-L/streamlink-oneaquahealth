@@ -2,7 +2,11 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import { LocalStore, RemoteStore, localStoragePersistence, type FhirStore } from "../core/store";
 import { DEFAULT_WEIGHTS, type Weights } from "../core/triage";
 
-export const OAH_SANDBOX = "https://sandbox.hl7europe.eu/oneaquahealth/fhir";
+export const OAH_SANDBOX_URL = "https://sandbox.hl7europe.eu/oneaquahealth/fhir";
+/** In dev, go through the Vite proxy: the sandbox's CORS headers are duplicated, which browsers
+ * reject. See vite.config.ts and the README. */
+export const OAH_SANDBOX = import.meta.env.DEV ? "/oah-fhir" : OAH_SANDBOX_URL;
+export const SANDBOX_REACHABLE_FROM_BROWSER = import.meta.env.DEV;
 const SETTINGS_KEY = "streamlink.settings.v1";
 const STORE_KEY = "streamlink.store.v1";
 

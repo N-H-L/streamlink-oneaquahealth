@@ -78,11 +78,13 @@ export class RemoteStore implements FhirStore {
   }
 
   async search(type: string, params: SearchParams = {}): Promise<Resource[]> {
-    const qs = new URLSearchParams({ _count: "200", ...params }).toString();
+    const qs = new URLSearchParams({ _count: "100", ...params }).toString();
     let url: string | undefined = `${this.baseUrl}/${type}?${qs}`;
     const out: Resource[] = [];
     for (let page = 0; url && page < 10; page++) {
-      const b: any = await this.req(url);
+      // Servers may cache search results (HAPI does, for about a minute). Without this, a search
+      // made just after writing can return the pre-write result. See EVIDENCE.md 2026-09-23.
+      const b: any = await this.req(url, { headers: { "Cache-Control": "no-cache" } });
       for (const e of b?.entry ?? []) if (e.resource?.resourceType === type) out.push(e.resource);
       url = b?.link?.find((l: any) => l.relation === "next")?.url;
     }

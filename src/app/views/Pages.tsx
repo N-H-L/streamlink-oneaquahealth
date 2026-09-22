@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Resource } from "../../core/fhir";
 import { volunteerInbox } from "../../core/workflow";
 import { catalogue, model, validation } from "../data";
-import { OAH_SANDBOX, go, useApp, type Mode } from "../state";
+import { OAH_SANDBOX_URL, SANDBOX_REACHABLE_FROM_BROWSER, go, useApp, type Mode } from "../state";
 
 export function Inbox() {
   const app = useApp();
@@ -44,7 +44,12 @@ export function Settings() {
         </label>
         <label className="radio">
           <input type="radio" name="mode" checked={app.mode === "oah"} onChange={() => setMode("oah")} />
-          <span><b>Official OneAquaHealth FHIR sandbox</b> (HL7 Europe, public test server). Records are written live to <span className="code">{OAH_SANDBOX}</span>, where anyone can read them. Only demo data, tagged <span className="code">demo</span>.</span>
+          <span>
+            <b>Official OneAquaHealth FHIR sandbox</b> (HL7 Europe, public test server). Records are written live to <span className="code">{OAH_SANDBOX_URL}</span>, where anyone can read them. Only demo data, tagged <span className="code">demo</span>.
+            {!SANDBOX_REACHABLE_FROM_BROWSER && (
+              <><br /><b>Not available in this hosted build:</b> that server answers browser preflight requests with two conflicting <span className="code">Access-Control-Allow-Origin</span> headers, so browsers refuse the connection from any other site. It works from a server-side client: StreamLink's own records were written to it and read back with <span className="code">npm run sandbox</span> (see the repository's EVIDENCE.md), and running the app locally with <span className="code">npm run dev</span> proxies it.</>
+            )}
+          </span>
         </label>
       </section>
       <section className="card">

@@ -94,10 +94,12 @@ describe("RemoteStore", () => {
     expect(s.base).toBe("https://example.org/fhir");
   });
 
-  it("follows paging and returns only the requested type", async () => {
+  it("follows paging, returns only the requested type, and bypasses server-side search caching", async () => {
     let calls = 0;
-    const fetchImpl = (async (url: string) => {
+    const seenHeaders: any[] = [];
+    const fetchImpl = (async (url: string, init: any) => {
       calls++;
+      seenHeaders.push(init?.headers);
       if (calls === 1) {
         const b: any = bundle([{ resourceType: "Location", id: "1" }, { resourceType: "OperationOutcome" }]);
         b.link = [{ relation: "next", url: "https://example.org/fhir/Location?page=2" }];
@@ -109,6 +111,7 @@ describe("RemoteStore", () => {
     const s = new RemoteStore("https://example.org/fhir", "test", fetchImpl);
     const found = await s.search("Location");
     expect(found.map((r) => r.id)).toEqual(["1", "2"]);
+    expect(seenHeaders.every((h) => h["Cache-Control"] === "no-cache")).toBe(true);
   });
 
   it("turns server errors into a readable message and 404 reads into null", async () => {
