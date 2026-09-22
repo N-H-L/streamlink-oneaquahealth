@@ -46,8 +46,15 @@ Stage: **Build (Prompt 2).** PLAN.md Rev 4 approved on 2026-09-23. Product contr
 - **Do NOT email the organizers.** The Resilience Map API permission question and the Ghent data-quality finding are handed to them **in the submission itself**. Keep both in SUBMISSION.md; no outside contact before then.
 - Sandbox write / accounts: awaiting clarification (see below).
 
+## Published (2026-09-23)
+- Repo (public): https://github.com/N-H-L/streamlink-oneaquahealth
+- Live demo: https://n-h-l.github.io/streamlink-oneaquahealth/ (GitHub Pages, built by Actions; CI green)
+- Canonical FHIR identifiers now `https://n-h-l.github.io/streamlink-oneaquahealth/fhir`; re-validated PASS.
+- Sandbox: one clean lifecycle (33 resources tagged demo) on the official OAH sandbox; remove with `npm run sandbox:cleanup`.
+- **Devpost entry: done (user confirmed 2026-09-23).**
+
 ## Still needs the user
 - Which login they meant (GitHub for the public repo, or the OneAquaHealth Citizen Science App account).
 - Explicit OK to write labelled demo records to the public OAH sandbox.
-- Devpost registration confirmation (late registration is allowed).
+
 - Later: 3–5 usability testers + a Singapore field check.
