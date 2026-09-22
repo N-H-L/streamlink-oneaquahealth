@@ -1,0 +1,38 @@
+# Evidence Log (only things actually run/observed)
+
+## 2026-09-22 (SGT) — feasibility checks
+- OAH FHIR sandbox `https://sandbox.hl7europe.eu/oneaquahealth/fhir`
+  - `/metadata` returns FHIR 4.0.1 on HAPI FHIR Server 8.2.0.
+  - `_summary=count` totals: Observation 390, Location 22, Group 27, Library 18, Patient 0, Questionnaire 0, QuestionnaireResponse 2.
+- Resilience Map backend
+  - `GET https://api.enora-oah.eu/api/sites/all` → 200 with 106 sites (the first is C1 "Exploratório", Coimbra). Requests were sent with an Origin header for apps.oneaquahealth.eu.
+  - `GET /api/resilience-map/health-risks` → 200 with per-site scaled pathogen/fecal/ARG risk and healthRiskScore (e.g. BN2 0.7266, sampled 2023-06-28).
+  - The API is undocumented. Get organizer OK before relying on it in the product.
+- OAH IG `github.com/hl7-eu/oah`
+  - Commit b907cf0 (2026-06-11), compiled with `npx fsh-sushi@3`.
+  - Result: **0 errors, 0 warnings**; 7 profiles, 2 extensions, 7 logicals, 11 ValueSets, 1 CodeSystem, 475 instances.
+- Toolchain on this machine: Node 24.15, npm 11.12, Python 3.14.4, git 2.55. **No Java.** A portable JRE and the HL7 validator jar are downloading to the scratchpad; that test is pending.
+
+## 2026-09-23 00:0x SGT — lab sampling frequency (Resilience Map health-risks endpoint)
+- `GET https://api.enora-oah.eu/api/resilience-map/health-risks` → 96 records covering 96 sites, **exactly 1 sample per site**.
+- Dates: 95 are from 2023; range 2023-05-05 → 2024-08-05.
+- 6 sites have healthRiskScore ≥ 0.5.
+- Supports the pitch claim: the lab health picture of the pilot streams is 2+ years old.
+
+## 2026-09-23 SGT — exploratory analysis: what tracks OAH lab health risk? (n=96 sites)
+- Data:
+  - `GET https://api.enora-oah.eu/api/resilience-map/urban-parameters` (104 sites, map-derived context: distances, % impervious/urban/vegetation at 50 m–2 km).
+  - Joined with `/resilience-map/health-risks` (96 sites, one lab campaign each).
+- Method: Spearman rank correlation; permutation p-values (1,000 shuffles). **212 tests in total, so this is exploratory; multiple-comparison risk applies.**
+- Strongest associations (rho, perm p):
+  - pathogen risk vs distance to sewage stations −0.35 (≈0.001): closer to a sewage plant, more risk
+  - pathogen risk vs distance to farmland −0.31 (≈0.002)
+  - fecal risk vs distance to farmland −0.29 (≈0.006)
+  - antibiotic-resistance (ARG) risk vs urban % within 2 km +0.31 (≈0.002)
+  - overall healthRiskScore vs distance to sewage stations −0.22 (≈0.026)
+- **Citizen-visible bank conditions** (impervious / vegetation / urban % within 50–100 m) vs fecal and overall risk: |rho| ≤ 0.12, all p > 0.25, so **no association**.
+- Interpretation (inference):
+  - Map context (sewage plants, farmland, city intensity) carries the baseline lab-risk signal.
+  - What citizens see at the bank does not predict lab risk in this data.
+  - So citizens are most valuable for what maps and rare lab campaigns miss: **events** (sewage/drain discharge, foam, discolouration, construction).
+  - Limits: one campaign, 5 cities, rho ≈ 0.3 means moderate at best, and an event-signal hypothesis like this can't be tested with this data.
