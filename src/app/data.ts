@@ -9,6 +9,8 @@ const modelFiles = import.meta.glob("../../data/baseline/model-v1.json", { eager
 const cityFiles = import.meta.glob("../../data/cities/*.json", { eager: true, import: "default" }) as Record<string, any>;
 
 export const model: any | null = Object.values(modelFiles)[0] ?? null;
+const validationFiles = import.meta.glob("../../data/validation-summary.json", { eager: true, import: "default" }) as Record<string, any>;
+export const validation: any | null = Object.values(validationFiles)[0] ?? null;
 
 function num(v: any): number | null {
   return typeof v === "number" && Number.isFinite(v) ? v : null;

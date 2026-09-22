@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "generated": "2026-09-22T16:53:03.764Z",
+  "validator": "FHIR Validation tool Version 6.10.4",
+  "terminology": "-tx n/a",
+  "igResources": {
+    "files": 79,
+    "errors": 0
+  },
+  "engineOutputs": {
+    "files": 12,
+    "errors": 0
+  },
+  "negativeTests": {
+    "files": 5,
+    "failedAsExpected": 5
+  }
+}

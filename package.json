@@ -12,7 +12,8 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "bundles": "tsx scripts/gen-bundles.ts",
-    "validate": "bash scripts/validate.sh"
+    "validate": "tsx scripts/gen-bundles.ts && bash scripts/validate.sh && node scripts/publish-validation.mjs",
+    "e2e": "node scripts/e2e.mjs"
   },
   "dependencies": {
     "leaflet": "1.9",

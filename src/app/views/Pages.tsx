@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Resource } from "../../core/fhir";
 import { volunteerInbox } from "../../core/workflow";
-import { catalogue, model } from "../data";
+import { catalogue, model, validation } from "../data";
 import { OAH_SANDBOX, go, useApp, type Mode } from "../state";
 
 export function Inbox() {
@@ -88,7 +88,17 @@ export function About() {
       </ol>
 
       <h2>Standards</h2>
-      <p>Records follow HL7 FHIR R4 and the OneAquaHealth FHIR Implementation Guide (hl7-eu/oah). StreamLink adds a proposed extension for citizen checks (Questionnaire, profiles, code system, concept map) and checks every record type with the official HL7 validator in its build. See the repository's <span className="code">fhir/</span> folder and validation report.</p>
+      <p>Records follow HL7 FHIR R4 and the OneAquaHealth FHIR Implementation Guide (hl7-eu/oah). StreamLink adds a proposed extension for citizen checks: a Questionnaire mirroring the OAH app, 9 profiles, 2 extensions, code systems, value sets and a concept map to OAH indicator codes. Every record type the app writes is checked with the official HL7 validator.</p>
+      {validation && (
+        <div className={`proof ${validation.result === "PASS" ? "pass" : "fail"}`}>
+          <b>{validation.result === "PASS" ? "✓ Validation passed" : "Validation failed"}</b>: {validation.validator}, against the OAH IG + StreamLink IG
+          <ul>
+            <li>{validation.igResources.files + validation.engineOutputs.files} files, <b>{validation.igResources.errors + validation.engineOutputs.errors} errors</b>: IG definitions and examples, 12 transactions produced by this app's own code (check-in, verification, referral, lab result), and every resource stored after a full lifecycle</li>
+            <li>Negative tests: {validation.negativeTests.failedAsExpected}/{validation.negativeTests.files} deliberately broken records rejected, as expected</li>
+            <li className="muted small">Run {String(validation.generated).slice(0, 16).replace("T", " ")} UTC · terminology {validation.terminology} · reproduce with <span className="code">npm run validate</span></li>
+          </ul>
+        </div>
+      )}
 
       <h2>The map-context baseline</h2>
       {model ? (
