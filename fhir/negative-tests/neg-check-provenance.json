@@ -1,9 +1,9 @@
 {
   "resourceType": "Provenance",
   "id": "neg-check-provenance",
-  "meta": { "profile": ["https://example.org/fhir/streamlink/StructureDefinition/sl-check-provenance"] },
+  "meta": { "profile": ["https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-check-provenance"] },
   "extension": [{
-    "url": "https://example.org/fhir/streamlink/StructureDefinition/sl-trust-assessment",
+    "url": "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-trust-assessment",
     "extension": [
       { "url": "score", "valueDecimal": 1.5 },
       { "url": "flag", "extension": [

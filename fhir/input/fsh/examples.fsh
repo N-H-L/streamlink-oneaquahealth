@@ -71,7 +71,7 @@ InstanceOf: Library
 Usage: #definition
 Title: "StreamLink baseline v1 model card"
 Description: "Model card for the map-context baseline risk."
-* url = "https://example.org/fhir/streamlink/Library/sl-baseline-v1-model-card"
+* url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/Library/sl-baseline-v1-model-card"
 * version = "1.0.0"
 * name = "StreamLinkBaselineV1"
 * title = "StreamLink baseline v1 model card"
@@ -111,7 +111,7 @@ InstanceOf: SlStreamCheckResponse
 Title: "Stream check at C1"
 Description: "A citizen's answers, including 'not sure'."
 * insert Demo
-* questionnaire = "https://example.org/fhir/streamlink/Questionnaire/oah-citizen-stream-check"
+* questionnaire = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/Questionnaire/oah-citizen-stream-check"
 * status = #completed
 * subject = Reference(site-c1-coimbra) "Coimbra C1"
 * authored = "2026-09-20T09:30:00+01:00"
@@ -264,7 +264,7 @@ Instance: obs-c1-sewage-verified
 InstanceOf: SlCitizenObservation
 Title: "Citizen observation: sewage discharge (verified)"
 Description: "The same record after expert verification: status final, and it also conforms to the OAH indicator profile. (A separate id only because examples cannot share one; in the running system it is the same resource, updated.)"
-* meta.profile[0] = "https://example.org/fhir/streamlink/StructureDefinition/sl-citizen-observation"
+* meta.profile[0] = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-citizen-observation"
 * meta.profile[1] = $oah-obs
 * insert CitizenObs
 * status = #final

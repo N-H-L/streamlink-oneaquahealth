@@ -1,7 +1,7 @@
 # StreamLink: a proposed extension of the OneAquaHealth (OAH) IG for citizen stream checks.
 # Contract: docs/SPEC-fhir.md. Build: npx -y fsh-sushi@3 fhir  |  Validate: bash scripts/validate.sh
 id: streamlink.fhir.oah-citizen
-canonical: https://example.org/fhir/streamlink
+canonical: https://n-h-l.github.io/streamlink-oneaquahealth/fhir
 name: StreamLinkOahCitizen
 title: "StreamLink: citizen stream checks for the OneAquaHealth record"
 description: >-

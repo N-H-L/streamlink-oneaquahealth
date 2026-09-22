@@ -1,6 +1,6 @@
 // Identifiers shared with the FSH project in fhir/. Keep in sync with docs/SPEC-fhir.md.
 
-export const SL = "https://example.org/fhir/streamlink";
+export const SL = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir";
 export const OAH = "http://hl7.eu/fhir/ig/oah";
 
 export const CS = {

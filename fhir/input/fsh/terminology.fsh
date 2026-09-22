@@ -7,7 +7,7 @@ CodeSystem: StreamLinkCS
 Id: streamlink
 Title: "StreamLink codes"
 Description: "Codes used by StreamLink: stream-check questions and answers, proposed additions to the OAH temporary code system, wellbeing and baseline components, workflow and trust-rule codes."
-* ^url = "https://example.org/fhir/streamlink/CodeSystem/streamlink"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/CodeSystem/streamlink"
 * ^status = #draft
 * ^experimental = true
 * ^caseSensitive = true
@@ -110,7 +110,7 @@ CodeSystem: StreamLinkTagsCS
 Id: streamlink-tags
 Title: "StreamLink tags"
 Description: "meta.tag codes used on StreamLink records."
-* ^url = "https://example.org/fhir/streamlink/CodeSystem/streamlink-tags"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/CodeSystem/streamlink-tags"
 * ^status = #draft
 * ^experimental = true
 * ^caseSensitive = true
@@ -125,7 +125,7 @@ ValueSet: SlCitizenIndicatorsVS
 Id: sl-citizen-indicators-vs
 Title: "StreamLink citizen indicators"
 Description: "Observation codes for citizen stream checks: the OAH indicators a citizen can report, plus StreamLink event codes proposed for addition to the OAH temporary code system."
-* ^url = "https://example.org/fhir/streamlink/ValueSet/sl-citizen-indicators-vs"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/ValueSet/sl-citizen-indicators-vs"
 * ^status = #draft
 * $oah#morophology "Morphology of the streams"
 * $oah#hydrology "Hydrology of the stream"
@@ -142,7 +142,7 @@ ValueSet: SlQuestionCodesVS
 Id: sl-question-codes-vs
 Title: "StreamLink stream-check question codes"
 Description: "Codes naming the stream-check question an Observation came from (sent as an additional coding in Observation.code)."
-* ^url = "https://example.org/fhir/streamlink/ValueSet/sl-question-codes-vs"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/ValueSet/sl-question-codes-vs"
 * ^status = #draft
 * codes from system $sl where concept is-a #question
 * $sl#sewage-discharge "Sewage discharge observed"
@@ -151,7 +151,7 @@ ValueSet: SlCitizenStatusVS
 Id: sl-citizen-observation-status-vs
 Title: "StreamLink citizen Observation status"
 Description: "Allowed statuses for citizen Observations: preliminary until verified, then final (or amended / entered-in-error)."
-* ^url = "https://example.org/fhir/streamlink/ValueSet/sl-citizen-observation-status-vs"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/ValueSet/sl-citizen-observation-status-vs"
 * ^status = #draft
 * $obsstatus#preliminary
 * $obsstatus#final
@@ -162,7 +162,7 @@ ValueSet: SlReferralStatusVS
 Id: sl-referral-status-vs
 Title: "StreamLink referral status"
 Description: "Allowed statuses for lab-sampling referrals: active until the result arrives, then completed."
-* ^url = "https://example.org/fhir/streamlink/ValueSet/sl-referral-status-vs"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/ValueSet/sl-referral-status-vs"
 * ^status = #draft
 * $srstatus#active
 * $srstatus#completed
@@ -171,7 +171,7 @@ ValueSet: SlTrustRulesVS
 Id: sl-trust-rules-vs
 Title: "StreamLink trust rules"
 Description: "Trust-check rules applied to a citizen stream check."
-* ^url = "https://example.org/fhir/streamlink/ValueSet/sl-trust-rules-vs"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/ValueSet/sl-trust-rules-vs"
 * ^status = #draft
 * codes from system $sl where concept descendent-of #trust-rule
 
@@ -179,7 +179,7 @@ ValueSet: SlFlagResolutionVS
 Id: sl-flag-resolution-vs
 Title: "StreamLink trust-flag resolution"
 Description: "How a trust flag was resolved."
-* ^url = "https://example.org/fhir/streamlink/ValueSet/sl-flag-resolution-vs"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/ValueSet/sl-flag-resolution-vs"
 * ^status = #draft
 * codes from system $sl where concept descendent-of #flag-resolution
 
@@ -187,7 +187,7 @@ ValueSet: SlWellbeingComponentsVS
 Id: sl-wellbeing-components-vs
 Title: "StreamLink wellbeing components"
 Description: "Emotion components of the perceived-wellbeing Observation."
-* ^url = "https://example.org/fhir/streamlink/ValueSet/sl-wellbeing-components-vs"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/ValueSet/sl-wellbeing-components-vs"
 * ^status = #draft
 * $sl#joy
 * $sl#serenity
@@ -207,7 +207,7 @@ Title: "OAH site codes"
 * date = "2026-09-23"
 * description = "Site codes used by the OneAquaHealth Resilience Map (e.g. C1 = Coimbra site 1)."
 * uniqueId.type = #uri
-* uniqueId.value = "https://example.org/fhir/streamlink/NamingSystem/oah-site-code"
+* uniqueId.value = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/NamingSystem/oah-site-code"
 * uniqueId.preferred = true
 
 Instance: volunteer
@@ -220,7 +220,7 @@ Title: "StreamLink volunteer pseudonyms"
 * date = "2026-09-23"
 * description = "Random pseudonyms for citizen scientists. They carry no personal data."
 * uniqueId.type = #uri
-* uniqueId.value = "https://example.org/fhir/streamlink/NamingSystem/volunteer"
+* uniqueId.value = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/NamingSystem/volunteer"
 * uniqueId.preferred = true
 
 Instance: staff
@@ -233,5 +233,5 @@ Title: "StreamLink staff identifiers"
 * date = "2026-09-23"
 * description = "Identifiers for demo staff (reviewers, coordinators) and lab organizations."
 * uniqueId.type = #uri
-* uniqueId.value = "https://example.org/fhir/streamlink/NamingSystem/staff"
+* uniqueId.value = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/NamingSystem/staff"
 * uniqueId.preferred = true

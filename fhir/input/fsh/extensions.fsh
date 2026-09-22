@@ -3,7 +3,7 @@ Id: sl-trust-assessment
 Title: "StreamLink trust assessment"
 Description: "Automated plausibility assessment of a citizen stream check: a score (0-1) and the rule flags raised, each with its resolution. Score = 1 - sum(weight of open flags), floored at 0 (weights in src/core/trust.ts)."
 Context: Provenance
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-trust-assessment"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-trust-assessment"
 * extension contains
     score 1..1 and
     flag 0..*
@@ -35,6 +35,6 @@ Id: sl-priority-explanation
 Title: "StreamLink priority explanation"
 Description: "Human-readable reasons why a lab-sampling referral was ranked and prioritised as it was (evidence behind each weight)."
 Context: ServiceRequest
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-priority-explanation"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-priority-explanation"
 * value[x] only string
 * value[x] 1..1

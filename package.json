@@ -17,7 +17,7 @@
     "a11y": "node scripts/a11y.mjs",
     "offline": "node scripts/offline-check.mjs",
     "sandbox": "tsx scripts/sandbox-demo.mjs --write && tsx scripts/sandbox-lifecycle.mjs",
-    "sandbox:cleanup": "tsx scripts/sandbox-demo.mjs --cleanup"
+    "sandbox:cleanup": "node scripts/sandbox-cleanup.mjs --delete"
   },
   "dependencies": {
     "leaflet": "1.9",

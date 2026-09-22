@@ -1,15 +1,15 @@
 {
   "resourceType": "QuestionnaireResponse",
   "id": "neg-stream-check-response",
-  "meta": { "profile": ["https://example.org/fhir/streamlink/StructureDefinition/sl-stream-check-response"] },
-  "questionnaire": "https://example.org/fhir/streamlink/Questionnaire/oah-citizen-stream-check",
+  "meta": { "profile": ["https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-stream-check-response"] },
+  "questionnaire": "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/Questionnaire/oah-citizen-stream-check",
   "status": "completed",
   "subject": { "reference": "Location/site-c1-coimbra" },
   "authored": "2026-09-20T09:30:00+01:00",
   "author": { "reference": "Practitioner/volunteer-7f3a9c" },
   "item": [
     { "linkId": "site", "answer": [{ "valueReference": { "reference": "Location/site-c1-coimbra" } }] },
-    { "linkId": "water-aspect", "answer": [{ "valueCoding": { "system": "https://example.org/fhir/streamlink/CodeSystem/streamlink", "code": "purple" } }] },
+    { "linkId": "water-aspect", "answer": [{ "valueCoding": { "system": "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/CodeSystem/streamlink", "code": "purple" } }] },
     { "linkId": "emotions", "item": [{ "linkId": "emotion-joy", "answer": [{ "valueInteger": 14 }] }] },
     { "linkId": "favourite-fish", "answer": [{ "valueString": "trout" }] }
   ]

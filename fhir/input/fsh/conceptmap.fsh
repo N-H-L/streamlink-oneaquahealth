@@ -14,16 +14,16 @@ InstanceOf: ConceptMap
 Usage: #definition
 Title: "StreamLink questions to OAH indicators"
 Description: "Maps each stream-check question (linkId, as a StreamLink code) to the OAH indicator its answer is recorded under. Unmatched items are proposed additions to the OAH temporary code system."
-* url = "https://example.org/fhir/streamlink/ConceptMap/sl-citizen-to-oah"
+* url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/ConceptMap/sl-citizen-to-oah"
 * version = "0.1.0"
 * name = "SlCitizenToOah"
 * title = "StreamLink questions to OAH indicators"
 * status = #draft
 * experimental = true
 * date = "2026-09-23"
-* sourceCanonical = "https://example.org/fhir/streamlink/ValueSet/sl-question-codes-vs"
+* sourceCanonical = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/ValueSet/sl-question-codes-vs"
 * targetUri = "http://hl7.eu/fhir/ig/oah/ValueSet/temporarySystem-oah-eu"
-* group[0].source = "https://example.org/fhir/streamlink/CodeSystem/streamlink"
+* group[0].source = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/CodeSystem/streamlink"
 * group[0].target = "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu"
 * insert MapTo(channel-form, morophology, Morphology of the streams)
 * insert MapTo(bottom-type, morophology, Morphology of the streams)
@@ -43,7 +43,7 @@ Description: "Maps each stream-check question (linkId, as a StreamLink code) to 
 * insert MapTo(dominant-veg-right, riparianVegetation, Riparian vegetation)
 * insert MapTo(recent-cuts, riparianVegetation, Riparian vegetation)
 * insert MapTo(invasive-plants, invasiveOrganisms, Invasive invertebrate\, plants and fish)
-* group[1].source = "https://example.org/fhir/streamlink/CodeSystem/streamlink"
+* group[1].source = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/CodeSystem/streamlink"
 * group[1].target = "http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu"
 * insert Unmatched(sewage-discharge, No OAH code. Recorded as StreamLink sewage-discharge; proposed addition to the OAH temporary code system.)
 * insert Unmatched(drain-pipes, No OAH code. Recorded as StreamLink drain-outflow; proposed addition to the OAH temporary code system.)

@@ -33,7 +33,7 @@ InstanceOf: Questionnaire
 Usage: #definition
 Title: "StreamLink stream check"
 Description: "A 3-minute citizen check of an urban stream site, mirroring the OneAquaHealth Citizen Science App fields. Every choice question allows 'not sure'."
-* url = "https://example.org/fhir/streamlink/Questionnaire/oah-citizen-stream-check"
+* url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/Questionnaire/oah-citizen-stream-check"
 * version = "0.1.0"
 * name = "OahCitizenStreamCheck"
 * title = "StreamLink stream check"

@@ -17,10 +17,10 @@ Parent: Practitioner
 Id: sl-citizen-scientist
 Title: "StreamLink citizen scientist (pseudonymous)"
 Description: "A volunteer who submits stream checks. Pseudonymous by design: a random identifier only, no name, telecom or address."
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-citizen-scientist"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-citizen-scientist"
 * identifier 1..1
 * identifier.system 1..1
-* identifier.system = "https://example.org/fhir/streamlink/NamingSystem/volunteer"
+* identifier.system = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/NamingSystem/volunteer"
 * identifier.value 1..1
 * identifier.value ^short = "Random pseudonym (no personal data)"
 * name 0..0
@@ -33,9 +33,9 @@ Parent: QuestionnaireResponse
 Id: sl-stream-check-response
 Title: "StreamLink stream-check response"
 Description: "A citizen's answers to the StreamLink stream check (Questionnaire oah-citizen-stream-check), kept complete and unmodified, including 'not sure' answers."
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-stream-check-response"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-stream-check-response"
 * questionnaire 1..1
-* questionnaire = "https://example.org/fhir/streamlink/Questionnaire/oah-citizen-stream-check"
+* questionnaire = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/Questionnaire/oah-citizen-stream-check"
 * insert SiteSubject
 * author 1..1
 * author only Reference(Practitioner)
@@ -48,7 +48,7 @@ Id: sl-citizen-observation
 Title: "StreamLink citizen observation"
 Description: """One answer of a citizen stream check, recorded under an OAH indicator code (or a StreamLink event code proposed for OAH).
 Starts as `preliminary`; after expert verification it becomes `final` and then also claims (and must conform to) the OAH profile observation-indicators-oah."""
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-citizen-observation"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-citizen-observation"
 * status from SlCitizenStatusVS (required)
 * insert SurveyCategory
 * code from SlCitizenIndicatorsVS (required)
@@ -76,7 +76,7 @@ Parent: Observation
 Id: sl-perceived-wellbeing
 Title: "StreamLink perceived wellbeing"
 Description: "Self-reported emotions (joy, serenity, anger, fear; 0-10) felt by a visitor at a stream site. Self-reported, not clinical."
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-perceived-wellbeing"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-perceived-wellbeing"
 * insert SurveyCategory
 * code = $sl#perceived-wellbeing
 * insert SiteSubject
@@ -104,7 +104,7 @@ Parent: Observation
 Id: sl-context-baseline
 Title: "StreamLink map-context baseline"
 Description: "Baseline context risk (0-1) of a stream site computed from map features (StreamLink baseline v1). The model card is Library/sl-baseline-v1-model-card."
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-context-baseline"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-context-baseline"
 * obeys sl-baseline-range
 * code = $sl#map-context-risk
 * insert SiteSubject
@@ -135,7 +135,7 @@ Parent: Provenance
 Id: sl-check-provenance
 Title: "StreamLink check provenance"
 Description: "Who created a citizen stream check, from which QuestionnaireResponse, and the automated trust assessment."
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-check-provenance"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-check-provenance"
 * extension contains SlTrustAssessment named trustAssessment 1..1
 * target 1..*
 * recorded 1..1
@@ -161,7 +161,7 @@ Parent: Provenance
 Id: sl-verification-provenance
 Title: "StreamLink verification provenance"
 Description: "An expert verified citizen Observations (preliminary -> final)."
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-verification-provenance"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-verification-provenance"
 * target 1..*
 * target only Reference(Observation)
 * activity 1..1
@@ -181,7 +181,7 @@ Parent: ServiceRequest
 Id: sl-lab-sampling-referral
 Title: "StreamLink lab-sampling referral"
 Description: "A request for a lab team to sample a stream site, with the citizen and baseline evidence that motivated it. Closed (completed) when the lab result, which references it via basedOn, arrives."
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-lab-sampling-referral"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-lab-sampling-referral"
 * extension contains SlPriorityExplanation named priorityExplanation 0..*
 * status from SlReferralStatusVS (required)
 * intent = #order
@@ -201,7 +201,7 @@ Parent: Communication
 Id: sl-citizen-feedback
 Title: "StreamLink citizen feedback"
 Description: "Tells a citizen what happened because of their report (e.g. 'Your report led to a lab visit')."
-* ^url = "https://example.org/fhir/streamlink/StructureDefinition/sl-citizen-feedback"
+* ^url = "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-citizen-feedback"
 * status = #completed
 * recipient 1..*
 * recipient only Reference(SlCitizenScientist)

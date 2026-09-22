@@ -3,13 +3,13 @@
   "id": "neg-verified-still-preliminary",
   "meta": {
     "profile": [
-      "https://example.org/fhir/streamlink/StructureDefinition/sl-citizen-observation",
+      "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/StructureDefinition/sl-citizen-observation",
       "http://hl7.eu/fhir/ig/oah/StructureDefinition/observation-indicators-oah"
     ],
     "tag": [
       {
         "code": "demo",
-        "system": "https://example.org/fhir/streamlink/CodeSystem/streamlink-tags",
+        "system": "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/CodeSystem/streamlink-tags",
         "display": "StreamLink demo record"
       }
     ]
@@ -40,7 +40,7 @@
     "coding": [
       {
         "code": "sewage-discharge",
-        "system": "https://example.org/fhir/streamlink/CodeSystem/streamlink",
+        "system": "https://n-h-l.github.io/streamlink-oneaquahealth/fhir/CodeSystem/streamlink",
         "display": "Sewage discharge observed"
       }
     ],

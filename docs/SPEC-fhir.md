@@ -3,7 +3,7 @@
 Any change to this file must be made in both places. FHIR R4 4.0.1.
 
 ## Identity
-- Canonical base: `https://example.org/fhir/streamlink`. This is a placeholder; we'll switch to the public repo URL once it is known. Constant name: `SL`.
+- Canonical base: `https://n-h-l.github.io/streamlink-oneaquahealth/fhir`. This is a placeholder; we'll switch to the public repo URL once it is known. Constant name: `SL`.
 - Package: `streamlink.fhir.oah-citizen` 0.1.0. Depends on `hl7.eu.fhir.oah` 0.1.0-ci-build, built locally from github.com/hl7-eu/oah commit b907cf0.
 - OAH code system: `http://hl7.eu/fhir/ig/oah/CodeSystem/temporarySystem-oah-eu` (alias `$oah`).
 - StreamLink code system: `SL/CodeSystem/streamlink` (alias `$sl`). It holds answer codes and proposed indicator codes.

@@ -96,3 +96,9 @@
 - **Two findings worth reporting to the organizers (handed over at submission, per the user):**
   1. The sandbox answers CORS preflights with **two conflicting `Access-Control-Allow-Origin` headers** (`http://localhost:5173` and `*`), so **no browser app can call it from another origin**. Server-side clients are unaffected. We proxy it in dev and say so in the UI.
   2. It caches search results, so a search issued right after a write can return the pre-write result. Fixed on our side by sending `Cache-Control: no-cache` (now covered by a unit test).
+
+## 2026-09-23 ~03:15 SGT — published, and the sandbox demo re-run with the final identifiers
+- Repository published (public): https://github.com/N-H-L/streamlink-oneaquahealth ; Pages enabled (build from GitHub Actions) → https://n-h-l.github.io/streamlink-oneaquahealth/
+- Canonical identifiers changed from the `example.org` placeholder to `https://n-h-l.github.io/streamlink-oneaquahealth/fhir` across `src/core/constants.ts`, `fhir/` and the SPEC. Re-validated: **PASS**, 0 errors (79 IG resources + 12 engine transactions), 5/5 negative tests still rejected.
+- Sandbox tidied and re-run: 63 earlier resources (including the placeholder-canonical ones) deleted with `node scripts/sandbox-cleanup.mjs --delete` (dependency order + cascade fallback; a plain delete returns 409 while something still references the resource). The sandbox now holds exactly one clean lifecycle: 33 resources (1 Location, 3 Practitioner, 1 Organization, 1 QuestionnaireResponse, 23 Observation, 2 Provenance, 1 ServiceRequest, 1 Communication).
+- Verified observations on their server carry both profiles: `observation-indicators-oah` + `sl-citizen-observation`.
