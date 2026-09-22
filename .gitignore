@@ -1,0 +1,15 @@
+node_modules/
+dist/
+tools/
+.env
+.env.*
+*.log
+fhir/fsh-generated/
+fhir/output/
+fhir/temp/
+fhir/input-cache/
+out/
+.DS_Store
+__pycache__/
+.venv/
+analysis/.cache/
