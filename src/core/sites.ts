@@ -66,7 +66,8 @@ export function oahCatalogue(sitesRaw: any[], risksRaw: any[]): { sites: Site[];
     const r = risk.get(s.code);
     return {
       code: s.code,
-      name: fixMojibake(s.name ?? s.code),
+      // Two Toulouse sites (T21, T24) have an empty name in the source data.
+      name: fixMojibake((s.name ?? "").trim()) || `Site ${s.code}`,
       city: c.id,
       cityName: fixMojibake(c.name),
       lat: s.latitude,
