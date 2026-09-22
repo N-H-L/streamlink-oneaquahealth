@@ -72,7 +72,7 @@ export function About() {
   return (
     <div className="page narrow prose">
       <h1>About StreamLink</h1>
-      <p className="lead">A shared One Health record for every urban stream. Maps give each stream a history, volunteers report what maps and rare lab visits miss, and the lab confirms.</p>
+      <p className="lead">A shared One Health record for every urban stream. Maps say where to look first, volunteers report what maps and rare lab visits miss, and the lab confirms.</p>
 
       <h2>Why</h2>
       <p>Each of the 96 OneAquaHealth lab sites in Coimbra, Ghent, Toulouse, Benevento and Oslo has one lab health-risk campaign on record; 95 of them are from 2023. Lab campaigns are expensive, so the health picture of these streams ages fast. Volunteer reports exist, but they sit outside health-data systems, their reliability is unknown, and nothing follows from them.</p>
@@ -134,7 +134,7 @@ export function About() {
       <ul>
         <li>OneAquaHealth Resilience Map (sites, lab health-risk), © OneAquaHealth, EU Horizon Europe.</li>
         <li>OneAquaHealth FHIR IG and sandbox, HL7 Europe.</li>
-        <li>OpenStreetMap contributors (map features, base map via CARTO).</li>
+        <li>OpenStreetMap contributors (map features and base map).</li>
       </ul>
       <p className="muted small">{catalogue.sites.length} sites in {catalogue.cities.length} cities in this build.</p>
     </div>
