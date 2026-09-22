@@ -1,4 +1,4 @@
-# Map-context baseline v1 — method, results, limitations
+# Map-context baseline v1.1 — what we ship, method, results, limitations
 
 StreamLink, OneAquaHealth IEEE Global Hackathon 2026. Analysis run 2026-09-23 (SGT).
 Reproduce with `pip install -r analysis/requirements.txt` then
@@ -10,9 +10,37 @@ python analysis/add_city.py analysis/city_specs/singapore.json   # a new city in
 python analysis/add_city.py --oah    # the 5 pilot cities in the same shape
 ```
 
-**Headline: the baseline is NOT a validated predictor.** One feature (distance to the nearest
-wastewater plant) reproduces the association OAH's own data shows, but the combined model does not
-generalise to a city it has not seen. Everything below states that plainly, because the pitch has to.
+## 0. What we ship, and why (v1.1)
+
+**We ship a one-feature rule: how close the site is to the nearest wastewater treatment plant.**
+Score = a monotone map of that distance to 0-1 (closer = higher), used to order the sites *within
+one city*.
+
+Why this and not the three-feature model:
+
+| | within-city rho | p | within-city AUROC | p | across-city AUROC |
+|---|---|---|---|---|---|
+| **shipped: distance to wastewater plant** | **+0.22** | **0.025** | **0.63** | **0.030** | 0.55 (not supported) |
+| 3-feature logistic (v1.0) | +0.19 | 0.07 | 0.57 | 0.17 | 0.33 (worse than chance) |
+
+The one-feature rule is the only thing here that beats its permutation null, it is positive in 4 of
+5 cities (Coimbra +0.28, Benevento +0.51, Oslo +0.23, Toulouse +0.08, Ghent -0.01), and it is
+readable by anyone: *streams near a wastewater plant get looked at first*. Ranking **between**
+cities is not supported by anything we measured, so the product only ever ranks within a city.
+
+**Correction to v1.0.** v1.0 reported a "best single feature" baseline at AUROC 0.72 and this report
+repeated it. That number was an artifact of the evaluation code, not a result: each fold emitted the
+raw transformed feature it had selected, so log10-metre values (-4.3 to -1.7) and 0-1 fractions were
+pooled into one ranking which mostly encoded *which feature the fold happened to pick* - and that
+tracked the cities' risk rates. Scored as comparable probabilities, the same selection procedure
+gives pooled AUROC **0.32**, no better than the logistic, and the feature it selects is unstable
+(urban fraction in Coimbra and Benevento, wastewater distance in Ghent and Oslo, farmland distance
+in Toulouse). The shipped rule instead uses **one fixed feature in every fold**, which is what the
+table above evaluates.
+
+**Still true, and the pitch must say it:** this is a weak prior from 96 sites in 5 cities with one
+lab campaign each. It says where to look first. It is not a measurement, and it cannot call a stream
+safe or unsafe. The full negative result for the combined model is kept below deliberately.
 
 ## 1. Why these features
 
@@ -51,7 +79,7 @@ built-up fraction agrees strongly everywhere.
 farmland distances there are 0.9-14.9 km although OSM shows farmland 10-460 m away in Flanders.
 Ghent's OAH context values look unusable, which matters below.
 
-## 3. The model (fixed before looking at held-out results)
+## 3. The pre-registered v1.0 model (fixed before looking at held-out results)
 
 - **Target**: the site is in the **top third of OAH `healthRiskScore`** — OAH's own headline
   composite, and the thing the product ranks. Chosen in advance and not changed; pathogen risk is
@@ -70,11 +98,18 @@ Pooled over the 5 held-out folds; `data/baseline/model-v1.json` carries the per-
 
 | Features | Model | AUROC (top tercile) | perm p | Held-out Spearman | perm p |
 |---|---|---|---|---|---|
-| OSM | **baseline v1 (3 features)** | **0.33** | 0.97 | -0.14 | 0.83 |
-| OSM | best single feature (in-fold) | 0.72 | 0.002 | +0.21 | 0.10 |
+| OSM | **baseline v1.0 (3-feature logistic)** | **0.33** | 0.97 | -0.14 | 0.83 |
+| OSM | in-fold feature selection, raw scales | ~~0.72~~ | ~~0.002~~ | +0.21 | 0.10 |
+| OSM | in-fold feature selection, comparable scores | 0.32 | — | -0.19 | — |
+| OSM | **shipped v1.1: wastewater-plant distance only** | 0.55 | 0.27 | +0.09 | 0.23 |
 | OSM | random ranking | 0.50 | — | 0.00 | — |
-| OAH | baseline v1 (same pipeline) | 0.70 | 0.01 | +0.28 | 0.005 |
-| OAH | best single feature (in-fold) | 0.69 | 0.02 | +0.21 | 0.09 |
+| OAH | baseline v1.0 (same pipeline) | 0.70 | 0.01 | +0.28 | 0.005 |
+| OAH | best single feature (in-fold, raw scales) | 0.69 | 0.02 | +0.21 | 0.09 |
+
+The struck-through 0.72 is the artifact described in §0. Note that **no** rule, including the one we
+ship, is supported on the *across-city* metric — which is why the product never compares cities.
+The shipped rule's support is the within-city evaluation in §0 (rho +0.22, within-city permutation
+p = 0.025).
 
 Post-hoc (added after seeing the above, and labelled as such): the same model fitted on
 **city-centred** features and scored within each held-out city — the way the product actually uses
@@ -87,7 +122,8 @@ it.
 
 **Reading these honestly:**
 
-1. The OSM model **fails** on the pre-registered metric: 0.33 AUROC is worse than chance.
+1. The pre-registered 3-feature model **fails**: 0.33 AUROC is worse than chance. It is kept in
+   `model-v1.json` under `alternatives.multiFeatureLogistic` as a documented negative result.
 2. The reason is between-city, not within-city. Ghent has the **closest** wastewater plants and
    farmland of the five cities but the **lowest** lab risk (1 of 17 sites in the top tercile), while
    Benevento has the farthest plants and the highest risk. Ranking sites across cities on these
@@ -96,8 +132,9 @@ it.
 3. The OAH-feature model looks good (0.70) partly **because** Ghent's broken values happen to push
    Ghent's scores down to match its low risk. That is an artifact, not extra validity, so "OAH's own
    features do better" should not be claimed as a finding.
-4. Within a city — the only way the product uses the score — both feature sets are weak and neither
-   reaches significance (OSM +0.19, p = 0.07).
+4. Within a city — the only way the product uses the score — the 3-feature model is weak and does
+   not reach significance (OSM +0.19, p = 0.07; OAH +0.09, p = 0.21). The single fixed feature we
+   ship does (+0.22, p = 0.025); see §0.
 5. At the level of single correlations the OSM features do reproduce OAH's reported signal:
    pathogen risk vs distance to a wastewater plant, OSM rho = -0.22 pooled and -0.38 excluding Ghent
    (OAH's own feature: -0.35 / -0.39); ARG risk vs built-up fraction within 2 km, OSM +0.35
@@ -128,6 +165,7 @@ it.
 
 ## 6. What the product should do with this
 
-Use `percentile` (0-100, within the city) to order the sites of one city as a starting point for "where should the lab go
-first", and let citizen event reports and lab results outweigh it. Show the caveat text from
-`model-v1.json` (`headline`, `caveats`) wherever the score is displayed.
+Use `percentile` (0-100, within the city) to order the sites of one city as a starting point for
+"where should the lab go first", and let citizen event reports and lab results outweigh it. Show the
+caveat text from `model-v1.json` (`headline`, `caveats`) wherever the score is displayed. Never sort
+or compare sites from different cities by `baselineScore`.

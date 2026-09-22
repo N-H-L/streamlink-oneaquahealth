@@ -21,7 +21,7 @@
  },
  "baseline": {
   "model": "streamlink-baseline-v1",
-  "modelVersion": "1.0.0",
+  "modelVersion": "1.1.0",
   "outOfDistribution": false
  },
  "sites": [
@@ -39,8 +39,8 @@
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
    "lab": null,
-   "baselineScore": 0.3994,
-   "percentile": 87.5
+   "baselineScore": 0.3452,
+   "percentile": 54.2
   },
   {
    "code": "T24",
@@ -56,8 +56,8 @@
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
    "lab": null,
-   "baselineScore": 0.3806,
-   "percentile": 62.5
+   "baselineScore": 0.3259,
+   "percentile": 25.0
   },
   {
    "code": "T1",
@@ -78,8 +78,8 @@
     "scaledFecalRisk": 0.532,
     "scaledArgRisk": 0.2785
    },
-   "baselineScore": 0.2982,
-   "percentile": 29.2
+   "baselineScore": 0.3565,
+   "percentile": 62.5
   },
   {
    "code": "T3",
@@ -100,8 +100,8 @@
     "scaledFecalRisk": 0.3904,
     "scaledArgRisk": 0.4614
    },
-   "baselineScore": 0.288,
-   "percentile": 25.0
+   "baselineScore": 0.3491,
+   "percentile": 58.3
   },
   {
    "code": "T2",
@@ -122,8 +122,8 @@
     "scaledFecalRisk": 0.126,
     "scaledArgRisk": 0.414
    },
-   "baselineScore": 0.3088,
-   "percentile": 33.3
+   "baselineScore": 0.3651,
+   "percentile": 75.0
   },
   {
    "code": "T5",
@@ -144,8 +144,8 @@
     "scaledFecalRisk": 0.8464,
     "scaledArgRisk": 0.2778
    },
-   "baselineScore": 0.2698,
-   "percentile": 12.5
+   "baselineScore": 0.3211,
+   "percentile": 8.3
   },
   {
    "code": "T6",
@@ -166,8 +166,8 @@
     "scaledFecalRisk": 0.5056,
     "scaledArgRisk": 0.4162
    },
-   "baselineScore": 0.2787,
-   "percentile": 16.7
+   "baselineScore": 0.317,
+   "percentile": 4.2
   },
   {
    "code": "T7",
@@ -188,8 +188,8 @@
     "scaledFecalRisk": 0.2074,
     "scaledArgRisk": 0.2231
    },
-   "baselineScore": 0.2584,
-   "percentile": 8.3
+   "baselineScore": 0.3275,
+   "percentile": 37.5
   },
   {
    "code": "T8",
@@ -210,8 +210,8 @@
     "scaledFecalRisk": 0.1995,
     "scaledArgRisk": 0.2415
    },
-   "baselineScore": 0.3168,
-   "percentile": 41.7
+   "baselineScore": 0.3266,
+   "percentile": 33.3
   },
   {
    "code": "T9",
@@ -232,8 +232,8 @@
     "scaledFecalRisk": 0.1039,
     "scaledArgRisk": 0.2561
    },
-   "baselineScore": 0.3871,
-   "percentile": 79.2
+   "baselineScore": 0.3403,
+   "percentile": 45.8
   },
   {
    "code": "T15",
@@ -249,8 +249,8 @@
     "nearestWwtpName": "Eau de Toulouse - Site de Tournefeuille"
    },
    "lab": null,
-   "baselineScore": 0.384,
-   "percentile": 70.8
+   "baselineScore": 0.3213,
+   "percentile": 12.5
   },
   {
    "code": "T10",
@@ -271,8 +271,8 @@
     "scaledFecalRisk": 0.0193,
     "scaledArgRisk": 0.6355
    },
-   "baselineScore": 0.2547,
-   "percentile": 4.2
+   "baselineScore": 0.3213,
+   "percentile": 16.7
   },
   {
    "code": "T12",
@@ -293,8 +293,8 @@
     "scaledFecalRisk": 0.0918,
     "scaledArgRisk": 0.6525
    },
-   "baselineScore": 0.3802,
-   "percentile": 58.3
+   "baselineScore": 0.3418,
+   "percentile": 50.0
   },
   {
    "code": "T13",
@@ -315,7 +315,7 @@
     "scaledFecalRisk": 0.3044,
     "scaledArgRisk": 0.6042
    },
-   "baselineScore": 0.4263,
+   "baselineScore": 0.4024,
    "percentile": 95.8
   },
   {
@@ -337,8 +337,8 @@
     "scaledFecalRisk": 0.5787,
     "scaledArgRisk": 0.525
    },
-   "baselineScore": 0.3371,
-   "percentile": 45.8
+   "baselineScore": 0.3864,
+   "percentile": 91.7
   },
   {
    "code": "T17",
@@ -359,8 +359,8 @@
     "scaledFecalRisk": 0.9979,
     "scaledArgRisk": 0.3341
    },
-   "baselineScore": 0.3383,
-   "percentile": 50.0
+   "baselineScore": 0.3601,
+   "percentile": 70.8
   },
   {
    "code": "T18",
@@ -381,8 +381,8 @@
     "scaledFecalRisk": 0.3628,
     "scaledArgRisk": 0.3494
    },
-   "baselineScore": 0.4075,
-   "percentile": 91.7
+   "baselineScore": 0.3753,
+   "percentile": 87.5
   },
   {
    "code": "T19",
@@ -403,8 +403,8 @@
     "scaledFecalRisk": 0.1091,
     "scaledArgRisk": 0.3021
    },
-   "baselineScore": 0.3862,
-   "percentile": 75.0
+   "baselineScore": 0.3703,
+   "percentile": 79.2
   },
   {
    "code": "T20",
@@ -425,7 +425,7 @@
     "scaledFecalRisk": 0.431,
     "scaledArgRisk": 0.5091
    },
-   "baselineScore": 0.3972,
+   "baselineScore": 0.3721,
    "percentile": 83.3
   },
   {
@@ -447,8 +447,8 @@
     "scaledFecalRisk": 0.5135,
     "scaledArgRisk": 0.1303
    },
-   "baselineScore": 0.366,
-   "percentile": 54.2
+   "baselineScore": 0.3289,
+   "percentile": 41.7
   },
   {
    "code": "T11",
@@ -469,7 +469,7 @@
     "scaledFecalRisk": 0.5475,
     "scaledArgRisk": 0.334
    },
-   "baselineScore": 0.2795,
+   "baselineScore": 0.3245,
    "percentile": 20.8
   },
   {
@@ -491,7 +491,7 @@
     "scaledFecalRisk": 0.4027,
     "scaledArgRisk": 0.5096
    },
-   "baselineScore": 0.4447,
+   "baselineScore": 0.422,
    "percentile": 100.0
   },
   {
@@ -513,8 +513,8 @@
     "scaledFecalRisk": 0.3325,
     "scaledArgRisk": 0.2866
    },
-   "baselineScore": 0.3105,
-   "percentile": 37.5
+   "baselineScore": 0.3581,
+   "percentile": 66.7
   },
   {
    "code": "T22",
@@ -535,8 +535,8 @@
     "scaledFecalRisk": 0.3252,
     "scaledArgRisk": 0.5428
    },
-   "baselineScore": 0.3807,
-   "percentile": 66.7
+   "baselineScore": 0.326,
+   "percentile": 29.2
   }
  ],
  "provenance": {

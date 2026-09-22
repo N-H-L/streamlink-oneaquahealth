@@ -21,7 +21,7 @@
  },
  "baseline": {
   "model": "streamlink-baseline-v1",
-  "modelVersion": "1.0.0",
+  "modelVersion": "1.1.0",
   "outOfDistribution": false
  },
  "sites": [
@@ -44,8 +44,8 @@
     "scaledFecalRisk": 0.2477,
     "scaledArgRisk": 0.3374
    },
-   "baselineScore": 0.3207,
-   "percentile": 45.0
+   "baselineScore": 0.3243,
+   "percentile": 25.0
   },
   {
    "code": "C2",
@@ -66,8 +66,8 @@
     "scaledFecalRisk": 0.5072,
     "scaledArgRisk": 0.2522
    },
-   "baselineScore": 0.4269,
-   "percentile": 100.0
+   "baselineScore": 0.4026,
+   "percentile": 95.0
   },
   {
    "code": "C3",
@@ -88,8 +88,8 @@
     "scaledFecalRisk": 0.2051,
     "scaledArgRisk": 0.2283
    },
-   "baselineScore": 0.3115,
-   "percentile": 30.0
+   "baselineScore": 0.3358,
+   "percentile": 50.0
   },
   {
    "code": "C4",
@@ -110,8 +110,8 @@
     "scaledFecalRisk": 0.1409,
     "scaledArgRisk": 0.0339
    },
-   "baselineScore": 0.3698,
-   "percentile": 70.0
+   "baselineScore": 0.3252,
+   "percentile": 35.0
   },
   {
    "code": "C5",
@@ -132,8 +132,8 @@
     "scaledFecalRisk": 1.0,
     "scaledArgRisk": 0.3465
    },
-   "baselineScore": 0.3475,
-   "percentile": 55.0
+   "baselineScore": 0.3498,
+   "percentile": 70.0
   },
   {
    "code": "C6",
@@ -154,7 +154,7 @@
     "scaledFecalRisk": 0.6664,
     "scaledArgRisk": 0.3841
    },
-   "baselineScore": 0.4169,
+   "baselineScore": 0.3785,
    "percentile": 90.0
   },
   {
@@ -176,8 +176,8 @@
     "scaledFecalRisk": 0.5702,
     "scaledArgRisk": 0.0027
    },
-   "baselineScore": 0.3032,
-   "percentile": 25.0
+   "baselineScore": 0.3219,
+   "percentile": 20.0
   },
   {
    "code": "C8",
@@ -198,8 +198,8 @@
     "scaledFecalRisk": 0.4457,
     "scaledArgRisk": 0.432
    },
-   "baselineScore": 0.3633,
-   "percentile": 60.0
+   "baselineScore": 0.3256,
+   "percentile": 40.0
   },
   {
    "code": "C9",
@@ -220,8 +220,8 @@
     "scaledFecalRisk": 0.1443,
     "scaledArgRisk": 0.3186
    },
-   "baselineScore": 0.2906,
-   "percentile": 20.0
+   "baselineScore": 0.3004,
+   "percentile": 5.0
   },
   {
    "code": "C10",
@@ -242,8 +242,8 @@
     "scaledFecalRisk": 0.4146,
     "scaledArgRisk": 0.0906
    },
-   "baselineScore": 0.2788,
-   "percentile": 15.0
+   "baselineScore": 0.3371,
+   "percentile": 55.0
   },
   {
    "code": "C11",
@@ -264,7 +264,7 @@
     "scaledFecalRisk": 0.187,
     "scaledArgRisk": 0.1456
    },
-   "baselineScore": 0.3936,
+   "baselineScore": 0.3779,
    "percentile": 85.0
   },
   {
@@ -286,8 +286,8 @@
     "scaledFecalRisk": 0.8051,
     "scaledArgRisk": 0.3704
    },
-   "baselineScore": 0.2747,
-   "percentile": 10.0
+   "baselineScore": 0.3423,
+   "percentile": 60.0
   },
   {
    "code": "C13",
@@ -308,8 +308,8 @@
     "scaledFecalRisk": 0.2287,
     "scaledArgRisk": 0.2708
    },
-   "baselineScore": 0.3648,
-   "percentile": 65.0
+   "baselineScore": 0.3677,
+   "percentile": 75.0
   },
   {
    "code": "C14",
@@ -330,8 +330,8 @@
     "scaledFecalRisk": 0.1143,
     "scaledArgRisk": 0.3343
    },
-   "baselineScore": 0.3767,
-   "percentile": 75.0
+   "baselineScore": 0.3104,
+   "percentile": 10.0
   },
   {
    "code": "C15",
@@ -352,8 +352,8 @@
     "scaledFecalRisk": 0.3851,
     "scaledArgRisk": 0.2706
    },
-   "baselineScore": 0.2561,
-   "percentile": 5.0
+   "baselineScore": 0.3278,
+   "percentile": 45.0
   },
   {
    "code": "C16",
@@ -374,8 +374,8 @@
     "scaledFecalRisk": 0.2531,
     "scaledArgRisk": 0.3008
    },
-   "baselineScore": 0.4253,
-   "percentile": 95.0
+   "baselineScore": 0.4162,
+   "percentile": 100.0
   },
   {
    "code": "C17",
@@ -391,8 +391,8 @@
     "nearestWwtpName": null
    },
    "lab": null,
-   "baselineScore": 0.3145,
-   "percentile": 35.0
+   "baselineScore": 0.3462,
+   "percentile": 65.0
   },
   {
    "code": "C18",
@@ -408,8 +408,8 @@
     "nearestWwtpName": "Estação de Tratamento de Águas Residuais do Choupal"
    },
    "lab": null,
-   "baselineScore": 0.3433,
-   "percentile": 50.0
+   "baselineScore": 0.3245,
+   "percentile": 30.0
   },
   {
    "code": "C19",
@@ -430,8 +430,8 @@
     "scaledFecalRisk": 0.4625,
     "scaledArgRisk": 0.5433
    },
-   "baselineScore": 0.381,
-   "percentile": 80.0
+   "baselineScore": 0.3151,
+   "percentile": 15.0
   },
   {
    "code": "C20",
@@ -452,8 +452,8 @@
     "scaledFecalRisk": 0.2044,
     "scaledArgRisk": 0.5623
    },
-   "baselineScore": 0.3164,
-   "percentile": 40.0
+   "baselineScore": 0.3761,
+   "percentile": 80.0
   }
  ],
  "provenance": {

@@ -21,7 +21,7 @@
  },
  "baseline": {
   "model": "streamlink-baseline-v1",
-  "modelVersion": "1.0.0",
+  "modelVersion": "1.1.0",
   "outOfDistribution": false
  },
  "sites": [
@@ -44,8 +44,8 @@
     "scaledFecalRisk": 0.2672,
     "scaledArgRisk": 0.4669
    },
-   "baselineScore": 0.2812,
-   "percentile": 36.4
+   "baselineScore": 0.3239,
+   "percentile": 27.3
   },
   {
    "code": "G6",
@@ -66,7 +66,7 @@
     "scaledFecalRisk": 0.3113,
     "scaledArgRisk": 0.175
    },
-   "baselineScore": 0.4835,
+   "baselineScore": 0.4927,
    "percentile": 90.9
   },
   {
@@ -88,8 +88,8 @@
     "scaledFecalRisk": 0.2305,
     "scaledArgRisk": 0.3183
    },
-   "baselineScore": 0.3733,
-   "percentile": 63.6
+   "baselineScore": 0.3799,
+   "percentile": 68.2
   },
   {
    "code": "G9",
@@ -110,8 +110,8 @@
     "scaledFecalRisk": 0.3966,
     "scaledArgRisk": 0.5202
    },
-   "baselineScore": 0.3063,
-   "percentile": 45.5
+   "baselineScore": 0.3674,
+   "percentile": 63.6
   },
   {
    "code": "G10",
@@ -132,8 +132,8 @@
     "scaledFecalRisk": 0.1193,
     "scaledArgRisk": 0.3591
    },
-   "baselineScore": 0.2646,
-   "percentile": 22.7
+   "baselineScore": 0.3342,
+   "percentile": 40.9
   },
   {
    "code": "G22",
@@ -154,8 +154,8 @@
     "scaledFecalRisk": 0.2921,
     "scaledArgRisk": 0.1152
    },
-   "baselineScore": 0.2405,
-   "percentile": 9.1
+   "baselineScore": 0.3147,
+   "percentile": 13.6
   },
   {
    "code": "G11",
@@ -176,8 +176,8 @@
     "scaledFecalRisk": 0.2544,
     "scaledArgRisk": 0.2956
    },
-   "baselineScore": 0.2368,
-   "percentile": 4.5
+   "baselineScore": 0.3116,
+   "percentile": 9.1
   },
   {
    "code": "G12",
@@ -198,8 +198,8 @@
     "scaledFecalRisk": 0.2129,
     "scaledArgRisk": 0.3624
    },
-   "baselineScore": 0.2502,
-   "percentile": 13.6
+   "baselineScore": 0.3102,
+   "percentile": 4.5
   },
   {
    "code": "G13",
@@ -220,7 +220,7 @@
     "scaledFecalRisk": 0.2104,
     "scaledArgRisk": 0.345
    },
-   "baselineScore": 0.3557,
+   "baselineScore": 0.3558,
    "percentile": 54.5
   },
   {
@@ -242,7 +242,7 @@
     "scaledFecalRisk": 0.1323,
     "scaledArgRisk": 0.3366
    },
-   "baselineScore": 0.3867,
+   "baselineScore": 0.3822,
    "percentile": 72.7
   },
   {
@@ -264,8 +264,8 @@
     "scaledFecalRisk": 0.1673,
     "scaledArgRisk": 0.4544
    },
-   "baselineScore": 0.3742,
-   "percentile": 68.2
+   "baselineScore": 0.3997,
+   "percentile": 77.3
   },
   {
    "code": "G16",
@@ -286,7 +286,7 @@
     "scaledFecalRisk": 0.2897,
     "scaledArgRisk": 0.3971
    },
-   "baselineScore": 0.4537,
+   "baselineScore": 0.4113,
    "percentile": 81.8
   },
   {
@@ -303,8 +303,8 @@
     "nearestWwtpName": "RWZI Destelbergen"
    },
    "lab": null,
-   "baselineScore": 0.3654,
-   "percentile": 59.1
+   "baselineScore": 0.3338,
+   "percentile": 36.4
   },
   {
    "code": "G18",
@@ -320,7 +320,7 @@
     "nearestWwtpName": "RWZI Gent"
    },
    "lab": null,
-   "baselineScore": 0.6246,
+   "baselineScore": 0.522,
    "percentile": 100.0
   },
   {
@@ -337,8 +337,8 @@
     "nearestWwtpName": "RWZI Oosterzele"
    },
    "lab": null,
-   "baselineScore": 0.2762,
-   "percentile": 27.3
+   "baselineScore": 0.3292,
+   "percentile": 31.8
   },
   {
    "code": "G4",
@@ -359,8 +359,8 @@
     "scaledFecalRisk": 0.1824,
     "scaledArgRisk": 0.4763
    },
-   "baselineScore": 0.2773,
-   "percentile": 31.8
+   "baselineScore": 0.3205,
+   "percentile": 18.2
   },
   {
    "code": "G21",
@@ -381,8 +381,8 @@
     "scaledFecalRisk": 0.3255,
     "scaledArgRisk": 0.4933
    },
-   "baselineScore": 0.2513,
-   "percentile": 18.2
+   "baselineScore": 0.322,
+   "percentile": 22.7
   },
   {
    "code": "G5",
@@ -403,8 +403,8 @@
     "scaledFecalRisk": 0.3549,
     "scaledArgRisk": 0.313
    },
-   "baselineScore": 0.5773,
-   "percentile": 95.5
+   "baselineScore": 0.522,
+   "percentile": 100.0
   },
   {
    "code": "G19",
@@ -420,8 +420,8 @@
     "nearestWwtpName": "RWZI Destelbergen"
    },
    "lab": null,
-   "baselineScore": 0.3364,
-   "percentile": 50.0
+   "baselineScore": 0.3354,
+   "percentile": 45.5
   },
   {
    "code": "G20",
@@ -437,8 +437,8 @@
     "nearestWwtpName": "RWZI Evergem"
    },
    "lab": null,
-   "baselineScore": 0.3907,
-   "percentile": 77.3
+   "baselineScore": 0.3655,
+   "percentile": 59.1
   },
   {
    "code": "G3",
@@ -459,7 +459,7 @@
     "scaledFecalRisk": 0.3096,
     "scaledArgRisk": 0.1812
    },
-   "baselineScore": 0.4562,
+   "baselineScore": 0.4779,
    "percentile": 86.4
   },
   {
@@ -481,8 +481,8 @@
     "scaledFecalRisk": 0.2452,
     "scaledArgRisk": 0.261
    },
-   "baselineScore": 0.3062,
-   "percentile": 40.9
+   "baselineScore": 0.352,
+   "percentile": 50.0
   }
  ],
  "provenance": {

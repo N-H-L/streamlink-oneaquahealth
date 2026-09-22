@@ -21,7 +21,7 @@
  },
  "baseline": {
   "model": "streamlink-baseline-v1",
-  "modelVersion": "1.0.0",
+  "modelVersion": "1.1.0",
   "outOfDistribution": false
  },
  "sites": [
@@ -44,8 +44,8 @@
     "scaledFecalRisk": 0.4261,
     "scaledArgRisk": 0.497
    },
-   "baselineScore": 0.2882,
-   "percentile": 35.0
+   "baselineScore": 0.2635,
+   "percentile": 25.0
   },
   {
    "code": "O1",
@@ -66,8 +66,8 @@
     "scaledFecalRisk": 0.2919,
     "scaledArgRisk": 0.3826
    },
-   "baselineScore": 0.2,
-   "percentile": 5.0
+   "baselineScore": 0.2655,
+   "percentile": 30.0
   },
   {
    "code": "O2",
@@ -88,8 +88,8 @@
     "scaledFecalRisk": 0.2932,
     "scaledArgRisk": 0.3814
    },
-   "baselineScore": 0.3068,
-   "percentile": 80.0
+   "baselineScore": 0.2714,
+   "percentile": 60.0
   },
   {
    "code": "O3",
@@ -110,8 +110,8 @@
     "scaledFecalRisk": 0.3136,
     "scaledArgRisk": 0.3035
    },
-   "baselineScore": 0.2789,
-   "percentile": 20.0
+   "baselineScore": 0.2672,
+   "percentile": 50.0
   },
   {
    "code": "O5",
@@ -132,8 +132,8 @@
     "scaledFecalRisk": 0.385,
     "scaledArgRisk": 0.2865
    },
-   "baselineScore": 0.3047,
-   "percentile": 70.0
+   "baselineScore": 0.275,
+   "percentile": 80.0
   },
   {
    "code": "O4",
@@ -154,8 +154,8 @@
     "scaledFecalRisk": 0.2344,
     "scaledArgRisk": 0.5403
    },
-   "baselineScore": 0.3044,
-   "percentile": 65.0
+   "baselineScore": 0.2748,
+   "percentile": 75.0
   },
   {
    "code": "O6",
@@ -176,8 +176,8 @@
     "scaledFecalRisk": 0.1625,
     "scaledArgRisk": 0.3025
    },
-   "baselineScore": 0.2945,
-   "percentile": 50.0
+   "baselineScore": 0.2663,
+   "percentile": 40.0
   },
   {
    "code": "O7",
@@ -198,8 +198,8 @@
     "scaledFecalRisk": 0.2728,
     "scaledArgRisk": 0.462
    },
-   "baselineScore": 0.2864,
-   "percentile": 30.0
+   "baselineScore": 0.2725,
+   "percentile": 65.0
   },
   {
    "code": "O8",
@@ -220,8 +220,8 @@
     "scaledFecalRisk": 0.3018,
     "scaledArgRisk": 0.4616
    },
-   "baselineScore": 0.3085,
-   "percentile": 85.0
+   "baselineScore": 0.2797,
+   "percentile": 100.0
   },
   {
    "code": "O9",
@@ -242,7 +242,7 @@
     "scaledFecalRisk": 0.0,
     "scaledArgRisk": 0.3972
    },
-   "baselineScore": 0.2933,
+   "baselineScore": 0.2667,
    "percentile": 45.0
   },
   {
@@ -264,7 +264,7 @@
     "scaledFecalRisk": 0.3387,
     "scaledArgRisk": 0.2706
    },
-   "baselineScore": 0.2978,
+   "baselineScore": 0.2681,
    "percentile": 55.0
   },
   {
@@ -286,8 +286,8 @@
     "scaledFecalRisk": 0.3317,
     "scaledArgRisk": 0.6038
    },
-   "baselineScore": 0.3153,
-   "percentile": 90.0
+   "baselineScore": 0.2787,
+   "percentile": 95.0
   },
   {
    "code": "O12",
@@ -308,8 +308,8 @@
     "scaledFecalRisk": 0.3184,
     "scaledArgRisk": 0.6845
    },
-   "baselineScore": 0.3165,
-   "percentile": 95.0
+   "baselineScore": 0.275,
+   "percentile": 85.0
   },
   {
    "code": "O13",
@@ -330,8 +330,8 @@
     "scaledFecalRisk": 0.295,
     "scaledArgRisk": 0.5408
    },
-   "baselineScore": 0.305,
-   "percentile": 75.0
+   "baselineScore": 0.278,
+   "percentile": 90.0
   },
   {
    "code": "O14",
@@ -352,8 +352,8 @@
     "scaledFecalRisk": 0.112,
     "scaledArgRisk": 0.6038
    },
-   "baselineScore": 0.2788,
-   "percentile": 15.0
+   "baselineScore": 0.2567,
+   "percentile": 10.0
   },
   {
    "code": "O15",
@@ -374,8 +374,8 @@
     "scaledFecalRisk": 0.1143,
     "scaledArgRisk": 0.4447
    },
-   "baselineScore": 0.2805,
-   "percentile": 25.0
+   "baselineScore": 0.2621,
+   "percentile": 20.0
   },
   {
    "code": "O16",
@@ -396,8 +396,8 @@
     "scaledFecalRisk": 0.4781,
     "scaledArgRisk": 0.4964
    },
-   "baselineScore": 0.2991,
-   "percentile": 60.0
+   "baselineScore": 0.2662,
+   "percentile": 35.0
   },
   {
    "code": "O18",
@@ -418,8 +418,8 @@
     "scaledFecalRisk": 0.4071,
     "scaledArgRisk": 0.4311
    },
-   "baselineScore": 0.249,
-   "percentile": 10.0
+   "baselineScore": 0.2585,
+   "percentile": 15.0
   },
   {
    "code": "O19",
@@ -440,8 +440,8 @@
     "scaledFecalRisk": 0.3078,
     "scaledArgRisk": 0.289
    },
-   "baselineScore": 0.2915,
-   "percentile": 40.0
+   "baselineScore": 0.253,
+   "percentile": 5.0
   },
   {
    "code": "O20",
@@ -462,8 +462,8 @@
     "scaledFecalRisk": 0.3354,
     "scaledArgRisk": 0.4327
    },
-   "baselineScore": 0.3228,
-   "percentile": 100.0
+   "baselineScore": 0.2739,
+   "percentile": 70.0
   }
  ],
  "provenance": {

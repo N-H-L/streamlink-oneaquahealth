@@ -20,7 +20,7 @@
  },
  "baseline": {
   "model": "streamlink-baseline-v1",
-  "modelVersion": "1.0.0",
+  "modelVersion": "1.1.0",
   "outOfDistribution": true,
   "note": "Model trained on 96 sites in 5 temperate European cities. Singapore (tropical rainforest (Af)) differs in climate, hydrology and drainage/sewerage design, so scores are an out-of-distribution prior for ranking sites within the city, not a risk estimate.",
   "featureCounts": {
@@ -53,8 +53,8 @@
     "urbanFrac2km": 0.4479,
     "nearestWwtpName": "Ulu Pandan Water Reclamation Plant"
    },
-   "baselineScore": 0.3808,
-   "percentile": 60.0
+   "baselineScore": 0.341,
+   "percentile": 80.0
   },
   {
    "code": "SG2",
@@ -73,8 +73,8 @@
     "urbanFrac2km": 0.4992,
     "nearestWwtpName": "PUB Bukit Timah Waterworks"
    },
-   "baselineScore": 0.3849,
-   "percentile": 70.0
+   "baselineScore": 0.3001,
+   "percentile": 50.0
   },
   {
    "code": "SG3",
@@ -93,8 +93,8 @@
     "urbanFrac2km": 0.3398,
     "nearestWwtpName": "Kranji Water Reclamation Plant"
    },
-   "baselineScore": 0.3781,
-   "percentile": 50.0
+   "baselineScore": 0.3475,
+   "percentile": 100.0
   },
   {
    "code": "SG4",
@@ -113,7 +113,7 @@
     "urbanFrac2km": 0.3499,
     "nearestWwtpName": "Changi Water Reclamation Plant"
    },
-   "baselineScore": 0.3502,
+   "baselineScore": 0.2798,
    "percentile": 10.0
   },
   {
@@ -133,7 +133,7 @@
     "urbanFrac2km": 0.4726,
     "nearestWwtpName": "Changi Water Reclamation Plant"
    },
-   "baselineScore": 0.3641,
+   "baselineScore": 0.2873,
    "percentile": 30.0
   },
   {
@@ -153,7 +153,7 @@
     "urbanFrac2km": 0.3498,
     "nearestWwtpName": null
    },
-   "baselineScore": 0.3544,
+   "baselineScore": 0.2825,
    "percentile": 20.0
   },
   {
@@ -173,8 +173,8 @@
     "urbanFrac2km": 0.4509,
     "nearestWwtpName": "PUB Bukit Timah Waterworks"
    },
-   "baselineScore": 0.4536,
-   "percentile": 100.0
+   "baselineScore": 0.3444,
+   "percentile": 90.0
   },
   {
    "code": "SG8",
@@ -193,8 +193,8 @@
     "urbanFrac2km": 0.4285,
     "nearestWwtpName": "Ulu Pandan Water Reclamation Plant"
    },
-   "baselineScore": 0.3942,
-   "percentile": 80.0
+   "baselineScore": 0.3184,
+   "percentile": 70.0
   },
   {
    "code": "SG9",
@@ -213,7 +213,7 @@
     "urbanFrac2km": 0.5484,
     "nearestWwtpName": "Changi Water Reclamation Plant"
    },
-   "baselineScore": 0.3726,
+   "baselineScore": 0.2918,
    "percentile": 40.0
   },
   {
@@ -233,8 +233,8 @@
     "urbanFrac2km": 0.5352,
     "nearestWwtpName": "PUB Bukit Timah Waterworks"
    },
-   "baselineScore": 0.3992,
-   "percentile": 90.0
+   "baselineScore": 0.3087,
+   "percentile": 60.0
   }
  ],
  "provenance": {
