@@ -41,7 +41,7 @@ for f in fhir/fsh-generated/resources/*.json; do
   case "$f" in */ImplementationGuide-*) continue;; esac  # SUSHI IG-Publisher input, not a data artifact
   POS+=("$f")
 done
-for f in out/bundles/*.json; do [ -f "$f" ] && BUN+=("$f"); done
+for f in out/bundles/*.json out/resources/*.json; do [ -f "$f" ] && BUN+=("$f"); done
 for f in fhir/negative-tests/*.json; do [ -f "$f" ] && NEG+=("$f"); done
 echo "== Validating ${#POS[@]} IG resources, ${#BUN[@]} bundles, ${#NEG[@]} negative tests (tx: $TX)"
 

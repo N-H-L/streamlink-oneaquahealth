@@ -59,10 +59,10 @@ export async function verifyCheck(store: FhirStore, record: SiteRecord, qrId: st
   const toVerify = [...check.observations, ...(check.wellbeing ? [check.wellbeing] : [])].filter((o) => o.status === "preliminary");
   // Wellbeing is self-reported: it is confirmed as final but never claims the OAH indicator profile.
   const indicatorObs = toVerify.filter((o) => o !== check.wellbeing);
-  const bundle = buildVerificationBundle(indicatorObs, { resourceType: "Practitioner", id: reviewerId }, when, note);
+  const bundle = buildVerificationBundle(indicatorObs, { resourceType: "Practitioner", id: reviewerId }, when, note, store.base);
   if (check.wellbeing && check.wellbeing.status === "preliminary") {
     bundle.entry.unshift({
-      fullUrl: `Observation/${check.wellbeing.id}`,
+      fullUrl: `${store.base}/Observation/${check.wellbeing.id}`,
       resource: { ...check.wellbeing, status: "final" },
       request: { method: "PUT", url: `Observation/${check.wellbeing.id}` },
     });
@@ -115,7 +115,7 @@ export async function recordSimulatedLabResult(store: FhirStore, record: SiteRec
   const volunteerIds = [...new Set(record.checks.filter((c) => c.events.length).map((c) => c.volunteerRef?.split("/")[1]).filter(Boolean) as string[])];
   const bundle = buildLabResultBundle({
     referral: referral as Resource & { id: string }, locationId: record.locationId!, siteName: record.site.name, labOrgId: labId,
-    volunteerIds, coliformsCfuPer100ml: coliforms, when,
+    volunteerIds, coliformsCfuPer100ml: coliforms, when, base: store.base,
   });
   await store.transaction(bundle);
 }

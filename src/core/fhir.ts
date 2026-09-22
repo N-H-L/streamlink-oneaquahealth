@@ -216,13 +216,13 @@ export function trustExtension(flags: TrustFlag[]) {
 
 /** Expert verification: preliminary → final. Verified records also claim the official OAH
  * indicator profile, which requires status=final. Returns a transaction Bundle of updates. */
-export function buildVerificationBundle(observations: Resource[], reviewer: Resource & { id: string }, when: string, note?: string): Bundle {
+export function buildVerificationBundle(observations: Resource[], reviewer: Resource & { id: string }, when: string, note: string | undefined, base: string): Bundle {
   const updated = observations.map((o) => ({
     ...o,
     status: "final",
     meta: { ...o.meta, profile: [PROFILE.citizenObservation, PROFILE.oahIndicator] },
   }));
-  const entries: BundleEntry[] = updated.map((o) => ({ fullUrl: `Observation/${o.id}`, resource: o, request: { method: "PUT", url: `Observation/${o.id}` } }));
+  const entries: BundleEntry[] = updated.map((o) => ({ fullUrl: `${base}/Observation/${o.id}`, resource: o, request: { method: "PUT", url: `Observation/${o.id}` } }));
   entries.push(create({
     resourceType: "Provenance",
     meta: meta(PROFILE.verificationProvenance),
@@ -272,6 +272,7 @@ export interface LabResultInput {
   volunteerIds: string[];
   coliformsCfuPer100ml: number;
   when: string;
+  base: string;
 }
 
 /** Simulated lab result closing a referral + feedback to the citizens whose reports triggered it. */
@@ -286,13 +287,13 @@ export function buildLabResultBundle(r: LabResultInput): Bundle {
     subject: { reference: `Location/${r.locationId}`, display: r.siteName },
     effectiveDateTime: r.when,
     performer: [{ reference: `Organization/${r.labOrgId}` }],
-    valueQuantity: { value: r.coliformsCfuPer100ml, unit: "CFU/100 mL", system: CS.ucum, code: "{CFU}/100mL" },
+    valueQuantity: { value: r.coliformsCfuPer100ml, unit: "CFU/100 mL", system: CS.ucum, code: "{CFU}/dL" }, // 100 mL = 1 dL
     note: [{ text: "SIMULATED result for demonstration. No real sample was taken." }],
   };
   const closed = { ...r.referral, status: "completed" };
   const entries: BundleEntry[] = [
     create(result, resultUrl),
-    { fullUrl: `ServiceRequest/${r.referral.id}`, resource: closed, request: { method: "PUT", url: `ServiceRequest/${r.referral.id}` } },
+    { fullUrl: `${r.base}/ServiceRequest/${r.referral.id}`, resource: closed, request: { method: "PUT", url: `ServiceRequest/${r.referral.id}` } },
   ];
   for (const v of r.volunteerIds) {
     entries.push(create({

@@ -15,6 +15,8 @@ export interface TransactionResult {
 export interface FhirStore {
   readonly kind: "local" | "remote";
   readonly label: string;
+  /** Absolute base used for fullUrl of update entries (FHIR requires absolute fullUrls). */
+  readonly base: string;
   transaction(bundle: Bundle): Promise<TransactionResult>;
   read(type: string, id: string): Promise<Resource | null>;
   search(type: string, params?: SearchParams): Promise<Resource[]>;
@@ -30,6 +32,9 @@ export class FhirError extends Error {
 
 export class RemoteStore implements FhirStore {
   readonly kind = "remote" as const;
+  get base() {
+    return this.baseUrl.replace(/\/$/, "");
+  }
   constructor(readonly baseUrl: string, readonly label = baseUrl, private readonly fetchImpl: typeof fetch = fetch.bind(globalThis)) {}
 
   private async req(url: string, init?: RequestInit): Promise<any> {
@@ -173,6 +178,7 @@ export const localStoragePersistence = (key: string): Persistence => ({
 export class LocalStore implements FhirStore {
   readonly kind = "local" as const;
   readonly label = "Demo store in this browser";
+  readonly base = "https://demo-store.streamlink.invalid/fhir";
   private table: Table;
   private seq = 0;
   constructor(private readonly persistence: Persistence = memoryPersistence()) {

@@ -39,8 +39,19 @@ write("out/bundles/baseline.json", {
   entry: [{ fullUrl: "urn:uuid:7b1f2c1e-0000-4000-8000-000000000001", resource: { ...buildBaselineObservation({ locationRef: "Location/example", siteName: site.name, score: 0.62, features: site.baseline.features, when: NOW.toISOString() }) }, request: { method: "POST", url: "Observation" } }],
 });
 
-// 2. Full lifecycle in the local store, then every resource standalone.
-const store = new LocalStore();
+// 2. Full lifecycle in the local store: every transaction the workflow sends is saved too
+//    (verification, referral, lab result), then every stored resource standalone.
+const inner = new LocalStore();
+let n = 0;
+const store = {
+  kind: inner.kind, label: inner.label, base: inner.base,
+  read: inner.read.bind(inner), search: inner.search.bind(inner),
+  transaction: async (b: any) => {
+    const first = b.entry[0]?.resource?.resourceType ?? "empty";
+    write(`out/bundles/lifecycle-${String(++n).padStart(2, "0")}-${first}.json`, b);
+    return inner.transaction(b);
+  },
+};
 const input = sewageCheck("C1", NOW.toISOString(), "vol-fixture");
 const sub = await submitCheck(store, site, input, checkTrust(input, site, NOW));
 let rec = await loadSiteRecord(store, site, NOW);
@@ -50,7 +61,7 @@ const srId = await createReferral(store, rec, DEFAULT_WEIGHTS, NOW);
 rec = await loadSiteRecord(store, site, NOW);
 await recordSimulatedLabResult(store, rec, srId, 2400, NOW.toISOString());
 
-const all = store.dump();
+const all = inner.dump();
 for (const r of all) {
   // Local-store bookkeeping (versionId/lastUpdated) is fine for FHIR; ids are valid FHIR ids.
   write(`out/resources/${r.resourceType}-${r.id}.json`, r);
