@@ -1,0 +1,29 @@
+# StreamLink: a proposed extension of the OneAquaHealth (OAH) IG for citizen stream checks.
+# Contract: docs/SPEC-fhir.md. Build: npx -y fsh-sushi@3 fhir  |  Validate: bash scripts/validate.sh
+id: streamlink.fhir.oah-citizen
+canonical: https://example.org/fhir/streamlink
+name: StreamLinkOahCitizen
+title: "StreamLink: citizen stream checks for the OneAquaHealth record"
+description: >-
+  Profiles, terminology, a Questionnaire and a ConceptMap that let citizen stream checks,
+  expert verification, map-based baselines and lab-sampling referrals live in the same
+  FHIR record as OneAquaHealth indicators. Hackathon prototype; all examples are demo data.
+status: draft
+version: 0.1.0
+fhirVersion: 4.0.1
+copyrightYear: 2026+
+releaseLabel: ci-build
+license: CC0-1.0
+jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
+publisher:
+  name: StreamLink (OneAquaHealth IEEE Global Hackathon 2026 entry)
+dependencies:
+  # Not on any registry: built locally from github.com/hl7-eu/oah @ b907cf0
+  # by scripts/fhir-install-oah.sh into ~/.fhir/packages.
+  hl7.eu.fhir.oah: 0.1.0-ci-build
+pages:
+  index.md:
+    title: Home
+menu:
+  Home: index.html
+  Artifacts: artifacts.html

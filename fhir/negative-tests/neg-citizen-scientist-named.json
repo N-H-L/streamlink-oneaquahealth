@@ -1,0 +1,8 @@
+{
+  "resourceType": "Practitioner",
+  "id": "neg-citizen-scientist-named",
+  "meta": { "profile": ["https://example.org/fhir/streamlink/StructureDefinition/sl-citizen-scientist"] },
+  "identifier": [{ "system": "https://example.org/somewhere-else", "value": "jane" }],
+  "name": [{ "text": "Jane Citizen" }],
+  "telecom": [{ "system": "email", "value": "jane@example.com" }]
+}

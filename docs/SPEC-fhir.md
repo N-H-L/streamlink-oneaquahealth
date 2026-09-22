@@ -75,3 +75,32 @@ Score = 1 − Σ(weight of open flags), floored at 0. Weights are in code, docum
 
 ## ConceptMap `sl-citizen-to-oah`
 source = the Questionnaire's item linkIds (as codes in `$sl`); target = the OAH codes above. `$sl` event codes (`sewage-discharge`, `drain-outflow`, `construction-works`, `citizen-overall-rating`) are marked **unmatched → proposed additions to the OAH temporary code system**.
+
+## Deviations (FHIR specialist, 2026-09-23)
+Implemented in `fhir/` (SUSHI 0 errors) and checked by `scripts/validate.sh` (HL7 validator, OAH IG loaded).
+1. **`sl-context-baseline` has no `derivedFrom → Library`.** R4 `Observation.derivedFrom` only allows DocumentReference, ImagingStudy, Media, QuestionnaireResponse, Observation and MolecularSequence. Instead, `method.text` (1..1) names the model ("StreamLink baseline v1 …"). The model card is `Library/sl-baseline-v1-model-card` (url `SL/Library/sl-baseline-v1-model-card`). The value is Quantity UCUM `1`, constrained to 0–1 by invariant `sl-baseline-range`. Components are closed slices: dist-wastewater-plant (`m`), dist-farmland (`m`), urban-fraction-2km (`%`). Performer and category are not required.
+2. **Questionnaire items follow the emitter.**
+   - `photos` is an `integer` count, not a repeating attachment, because photos never leave the device in the demo.
+   - `emotions` is a group with children `emotion-joy|serenity|anger|fear`, each an integer 0–10 (min/maxValue extensions).
+   - `invasive-which` is a string item.
+   - Items are flat and in emitter order: site, the questions in order, invasive-which, emotions, photos, gps.
+   - The validator checks QR answers against answerOption, item order and item `text`. **`QuestionnaireResponse.item.text` must equal the Questionnaire text exactly, or be omitted.**
+3. **Citizen `Observation.code` may carry two codings:** the OAH indicator plus `$sl#<linkId>` naming the question. The required binding to `sl-citizen-indicators-vs` is met by the OAH coding. The validator accepts the extra coding (verified). New ValueSet `sl-question-codes-vs` lists the question codes.
+4. **Extra `$sl` codes and structure.**
+   - Codes are grouped under `#question`, `#answer`, `#proposed-indicator`, `#trust-rule` and `#flag-resolution` (hierarchy only; the TS codes are unchanged).
+   - Added the linkIds `drain-pipes`, `construction` and `overall-health` as codes, so they can be ConceptMap sources.
+   - Added the resolution codes open, corrected, confirmed-by-citizen and dismissed-by-expert.
+   - New required-binding ValueSets: `sl-trust-rules-vs`, `sl-flag-resolution-vs`, `sl-citizen-observation-status-vs`, `sl-referral-status-vs` and `sl-wellbeing-components-vs`.
+5. **Cardinalities the SPEC left implicit.**
+   - `sl-perceived-wellbeing`: `note` 1..*; `component` 1..* as closed slices joy/serenity/anger/fear, each 0..1; `value[x]` 0..0.
+   - `sl-citizen-observation`: `component` 0..0; `value[x]` 1..1.
+   - `sl-check-provenance`: `agent[author]` 1..1 with type `provenance-participant-type#author` → `sl-citizen-scientist`; `entity[source]` 1..1 (role=source → QuestionnaireResponse); extension `sl-trust-assessment` 1..1.
+   - `sl-verification-provenance`: `agent[verifier]` 1..1 with type `#verifier`.
+   - `sl-lab-sampling-referral`: `status` ∈ {active, completed}; `requester` 1..1; `sl-priority-explanation` 0..*.
+   - `sl-citizen-feedback`: `recipient` → `sl-citizen-scientist` 1..*; `about` 1..*; `payload.contentString` 1..*.
+6. **Lab-result UCUM code:** use `{CFU}/dL` (unit text "CFU/100 mL"; 1 dL = 100 mL). tx.fhir.org rejects `{CFU}/100mL` as an unknown UCUM code. The offline run cannot detect this.
+7. **OAH package build:** the OAH IG is built with `sushi --snapshot`, because its StructureDefinitions have no snapshots and SUSHI needs snapshots to create instances of OAH profiles. `scripts/fhir-install-oah.sh` installs the result into `~/.fhir/packages/hl7.eu.fhir.oah#0.1.0-ci-build`.
+8. **Known warnings, not errors:**
+   - The verification activity `$sl#expert-verification` falls outside the extensible provenance-activity-type ValueSet.
+   - Provenance.reason is text-only (extensible PurposeOfUse).
+   - dom-6 (no narrative).
