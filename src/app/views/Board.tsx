@@ -9,7 +9,12 @@ import { go, useApp } from "../state";
 
 export function Board({ cityId }: { cityId: string }) {
   const app = useApp();
-  const city = cityById(cityId) ?? catalogue.cities[0];
+  const known = cityById(cityId);
+  const city = known ?? catalogue.cities[0];
+  useEffect(() => {
+    // An unknown city in the URL must not silently show a different city's streams.
+    if (!known) go(`/board/${catalogue.cities[0].id}`);
+  }, [known]);
   const sites = useMemo(() => sitesOf(city.id), [city.id]);
   const [records, setRecords] = useState<Map<string, SiteRecord> | null>(null);
   const [error, setError] = useState<string | null>(null);
