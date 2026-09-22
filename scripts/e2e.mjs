@@ -25,8 +25,10 @@ await run("desktop", { width: 1366, height: 900 }, async (page) => {
   await page.evaluate(() => localStorage.clear());
   await page.goto(BASE + "#/board/CO");
   await page.getByRole("heading", { name: "Needs a lab visit" }).waitFor();
+  await page.getByRole("complementary", { name: "Guided tour" }).waitFor();
   await page.waitForTimeout(800);
   await shot(page, "01-board-empty");
+  await page.getByRole("button", { name: "Close tour" }).click();
   step("board renders (empty store)");
 
   await page.getByRole("button", { name: "Load demo scenario" }).click();

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Logo } from "./components/Icons";
+import { Tour } from "./components/Tour";
 import { flushOutbox, readOutbox } from "./outbox";
 import { go, useApp, useRoute } from "./state";
 import { Board } from "./views/Board";
@@ -68,6 +69,7 @@ export function App() {
         <span>StreamLink: a prototype for the OneAquaHealth IEEE Global Hackathon 2026. Records use HL7 FHIR R4 and the OneAquaHealth IG.</span>
         <span>Demo checks and lab results are synthetic and labelled as such.</span>
       </footer>
+      <Tour />
       <div className="toasts" aria-live="polite">
         {app.toasts.map((t) => <div key={t.id} className={`toast toast-${t.tone}`}>{t.text}</div>)}
       </div>
