@@ -20,12 +20,13 @@ export function priorityColor(score: number | null): string {
   return "#2e8b57";
 }
 
-export function SiteMap({ points, center, zoom = 12, onSelect, height = 380, you }: {
+export function SiteMap({ points, center, zoom = 12, onSelect, onHover, height = 380, you }: {
   points: MapPoint[];
   center: [number, number];
   zoom?: number;
   onSelect?: (code: string) => void;
-  height?: number;
+  onHover?: (code: string | null) => void;
+  height?: number | string;
   you?: { lat: number; lon: number } | null;
 }) {
   const el = useRef<HTMLDivElement>(null);
@@ -65,10 +66,14 @@ export function SiteMap({ points, center, zoom = 12, onSelect, height = 380, you
       });
       m.bindTooltip(`${p.name}${p.label ? ` · ${p.label}` : ""}`, { direction: "top", offset: [0, -6] });
       if (onSelect) m.on("click", () => onSelect(p.code));
+      if (onHover) {
+        m.on("mouseover", () => onHover(p.code));
+        m.on("mouseout", () => onHover(null));
+      }
       m.addTo(g);
     }
     if (you) L.circleMarker([you.lat, you.lon], { radius: 6, color: "#1f6feb", fillColor: "#1f6feb", fillOpacity: 1 }).bindTooltip("You").addTo(g);
-  }, [points, you, onSelect]);
+  }, [points, you, onSelect, onHover]);
 
   return <div ref={el} className="map" style={{ height }} role="region" aria-label="Map of stream sites" />;
 }

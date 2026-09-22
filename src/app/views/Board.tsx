@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { latestLabResult, loadRecords, type SiteRecord } from "../../core/record";
 import { daysBetween } from "../../core/sites";
 import { DEFAULT_WEIGHTS, prioritise, type Priority, type Weights } from "../../core/triage";
@@ -15,6 +15,13 @@ export function Board({ cityId }: { cityId: string }) {
   const [error, setError] = useState<string | null>(null);
   const [showWeights, setShowWeights] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [hover, setHover] = useState<string | null>(null);
+  const rows = useRef<Record<string, HTMLLIElement | null>>({});
+
+  function focusRow(code: string) {
+    setHover(code);
+    rows.current[code]?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 
   useEffect(() => {
     let live = true;
@@ -103,12 +110,13 @@ export function Board({ cityId }: { cityId: string }) {
             zoom={city.zoom ?? 12}
             points={sites.map((s) => {
               const p = ranked.find((x) => x.site.code === s.code);
-              return { code: s.code, name: s.name, lat: s.lat, lon: s.lon, score: p ? p.score : null, label: p ? `priority ${Math.round(p.score * 100)}` : undefined };
+              return { code: s.code, name: s.name, lat: s.lat, lon: s.lon, score: p ? p.score : null, highlight: hover === s.code, label: p ? `priority ${Math.round(p.score * 100)}` : undefined };
             })}
-            onSelect={(code) => go(`/site/${code}`)}
-            height={460}
+            onSelect={focusRow}
+            onHover={setHover}
+            height="min(70vh, 620px)"
           />
-          <p className="legend">
+          <p className="legend"><span className="legend-hint">Click a dot to find it in the list</span>
             <span><i style={{ background: priorityColor(0.7) }} /> visit soon</span>
             <span><i style={{ background: priorityColor(0.5) }} /> elevated</span>
             <span><i style={{ background: priorityColor(0.35) }} /> watch</span>
@@ -130,8 +138,15 @@ export function Board({ cityId }: { cityId: string }) {
               const r = records!.get(p.site.code)!;
               const latest = r.checks[0];
               return (
-                <li key={p.site.code}>
-                  <button className="rank-row" onClick={() => go(`/site/${p.site.code}`)}>
+                <li key={p.site.code} ref={(el) => { rows.current[p.site.code] = el; }}>
+                  <button
+                    className={hover === p.site.code ? "rank-row hot" : "rank-row"}
+                    onClick={() => go(`/site/${p.site.code}`)}
+                    onMouseEnter={() => setHover(p.site.code)}
+                    onMouseLeave={() => setHover(null)}
+                    onFocus={() => setHover(p.site.code)}
+                    onBlur={() => setHover(null)}
+                  >
                     <span className="rank-n">{i + 1}</span>
                     <span className="rank-main">
                       <span className="rank-name">{p.site.name} <span className="code">{p.site.code}</span></span>

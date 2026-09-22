@@ -16,7 +16,7 @@ await page.reload();
 await page.getByRole("heading", { name: "Needs a lab visit" }).waitFor({ timeout: 15000 });
 console.log("• board still renders with the network off");
 
-await page.getByRole("button", { name: "Close tour" }).click().catch(() => {});
+await page.getByRole("button", { name: "Hide tour" }).click().catch(() => {});
 await page.goto(BASE + "#/check/C5");
 await page.getByRole("button", { name: "Fill with an example" }).click();
 for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "Next", exact: true }).click();

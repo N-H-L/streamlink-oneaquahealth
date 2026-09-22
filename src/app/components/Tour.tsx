@@ -9,13 +9,10 @@ const STEPS = [
   { title: "Check the proof", text: "Open any “FHIR R4” panel to see the exact records. About explains the standards, the map model's evaluation and what is simulated.", path: "/about", role: "coordinator" as const },
 ];
 
-export function Tour() {
+export function Tour({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => void }) {
   const app = useApp();
-  const [open, setOpen] = useState(!app.tourDone);
   const [i, setI] = useState(0);
-  if (!open) {
-    return <button className="tour-fab" onClick={() => setOpen(true)} aria-label="Open the 2-minute tour">2-minute tour</button>;
-  }
+  if (!open) return null;
   const s = STEPS[i];
   return (
     <aside className="tour" aria-label="Guided tour">

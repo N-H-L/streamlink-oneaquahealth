@@ -12,6 +12,7 @@ export function App() {
   const app = useApp();
   const [view, arg] = useRoute();
   const [queued, setQueued] = useState(readOutbox().length);
+  const [tourOpen, setTourOpen] = useState(!app.tourDone);
 
   useEffect(() => {
     const sync = async () => {
@@ -58,6 +59,7 @@ export function App() {
             <button aria-pressed={app.role === "volunteer"} onClick={() => app.update({ role: "volunteer" })}>Volunteer</button>
             <button aria-pressed={app.role === "coordinator"} onClick={() => app.update({ role: "coordinator" })}>Coordinator</button>
           </div>
+          <button className="tour-btn" onClick={() => setTourOpen(!tourOpen)} aria-expanded={tourOpen}>{tourOpen ? "Hide tour" : "2-minute tour"}</button>
           <button className={`store-pill ${app.mode}`} onClick={() => go("/settings")} title="Where records are stored">
             {app.mode === "oah" ? "OAH FHIR sandbox · live" : "Demo store"}
           </button>
@@ -69,7 +71,7 @@ export function App() {
         <span>StreamLink: a prototype for the OneAquaHealth IEEE Global Hackathon 2026. Records use HL7 FHIR R4 and the OneAquaHealth IG.</span>
         <span>Demo checks and lab results are synthetic and labelled as such.</span>
       </footer>
-      <Tour />
+      <Tour open={tourOpen} setOpen={setTourOpen} />
       <div className="toasts" aria-live="polite">
         {app.toasts.map((t) => <div key={t.id} className={`toast toast-${t.tone}`}>{t.text}</div>)}
       </div>
