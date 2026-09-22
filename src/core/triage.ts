@@ -67,17 +67,31 @@ export function eventFactor(checks: CheckSummary[], now: Date): { value: number;
   return best;
 }
 
-export function prioritise(site: Site, checks: CheckSummary[], openReferral: boolean, weights: Weights, now = new Date(), lastLabDate?: string): Priority {
-  const ev = eventFactor(checks, now);
-  const labDate = lastLabDate ?? site.lab?.date;
+export interface NewLabResult {
+  when: string;
+  coliformsCfu: number;
+}
+
+/** Coliform result → 0–1 risk, using common recreational-water bands (≤200 low, ≤1000 moderate). */
+export function coliformRisk(cfu: number): number {
+  return cfu <= 200 ? 0.15 : cfu <= 1000 ? 0.5 : 0.9;
+}
+
+export function prioritise(site: Site, checks: CheckSummary[], openReferral: boolean, weights: Weights, now = new Date(), newLab?: NewLabResult): Priority {
+  // A lab visit settles the reports made before it: only later reports count as "fresh".
+  const ev = eventFactor(newLab ? checks.filter((c) => c.authored > newLab.when) : checks, now);
+  const labDate = newLab?.when ?? site.lab?.date;
   const labAgeDays = labDate ? daysBetween(labDate, now) : null;
+  const lastLab: Factor = newLab
+    ? { key: "lastLab", label: "Last lab result", value: coliformRisk(newLab.coliformsCfu), reason: `Coliforms ${newLab.coliformsCfu} CFU/100 mL on ${newLab.when.slice(0, 10)}` }
+    : {
+        key: "lastLab", label: "Last lab result",
+        value: site.lab ? site.lab.score : 0.5,
+        reason: site.lab ? `Health-risk ${site.lab.score.toFixed(2)} at the ${site.lab.date.slice(0, 4)} lab campaign` : "Never sampled: treated as unknown (0.5)",
+      };
   const factors: Factor[] = [
-    { key: "events", label: "Fresh volunteer reports", value: ev.value, reason: ev.reason },
-    {
-      key: "lastLab", label: "Last lab result",
-      value: site.lab ? site.lab.score : 0.5,
-      reason: site.lab ? `Health-risk ${site.lab.score.toFixed(2)} at the ${site.lab.date.slice(0, 4)} lab campaign` : "Never sampled: treated as unknown (0.5)",
-    },
+    { key: "events", label: "Fresh volunteer reports", value: ev.value, reason: newLab && ev.value === 0 ? "Earlier reports were followed up by a lab visit" : ev.reason },
+    lastLab,
     {
       key: "baseline", label: "Map context",
       value: site.baseline?.score ?? 0.5,

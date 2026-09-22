@@ -255,3 +255,47 @@ export function buildPillars(site: Site, checks: CheckSummary[], labResults: Res
 export function freshnessLabel(iso: string | undefined, now = new Date()): string {
   return iso ? `updated ${ago(iso, now)}` : "no data yet";
 }
+
+/** Loads the records of many sites with a handful of batched searches (works on any FhirStore). */
+export async function loadRecords(store: FhirStore, sites: Site[], now = new Date()): Promise<Map<string, SiteRecord>> {
+  const out = new Map<string, SiteRecord>();
+  const chunks = <T,>(xs: T[], n: number) => Array.from({ length: Math.ceil(xs.length / n) }, (_, i) => xs.slice(i * n, i * n + n));
+  const locs: Resource[] = [];
+  for (const part of chunks(sites, 40)) {
+    locs.push(...(await store.search("Location", { identifier: part.map((s) => `${NS.site}|${s.code}`).join(",") })));
+  }
+  const idByCode = new Map<string, string>();
+  for (const l of locs) {
+    const code = l.identifier?.find((i: any) => i.system === NS.site)?.value;
+    if (code && l.id && !idByCode.has(code)) idByCode.set(code, l.id);
+  }
+  const subjects = [...idByCode.values()].map((id) => `Location/${id}`);
+  let obs: Resource[] = [], qrs: Resource[] = [], srs: Resource[] = [], provs: Resource[] = [];
+  for (const part of chunks(subjects, 40)) {
+    const subject = part.join(",");
+    const [o, q, s] = await Promise.all([
+      store.search("Observation", { subject }),
+      store.search("QuestionnaireResponse", { subject }),
+      store.search("ServiceRequest", { subject }),
+    ]);
+    obs.push(...o); qrs.push(...q); srs.push(...s);
+  }
+  for (const part of chunks(qrs.map((q) => `QuestionnaireResponse/${q.id}`), 40)) {
+    provs.push(...(await store.search("Provenance", { target: part.join(",") })));
+  }
+  const bySubject = <T extends Resource>(xs: T[], ref: string) => xs.filter((x) => x.subject?.reference === ref);
+  for (const site of sites) {
+    const id = idByCode.get(site.code) ?? null;
+    const ref = id ? `Location/${id}` : "";
+    const q = id ? bySubject(qrs, ref) : [];
+    const qRefs = new Set(q.map((x) => `QuestionnaireResponse/${x.id}`));
+    out.set(site.code, assembleRecord(site, id, id ? bySubject(obs, ref) : [], q, id ? bySubject(srs, ref) : [], provs.filter((p) => (p.target ?? []).some((t: any) => qRefs.has(t.reference))), now));
+  }
+  return out;
+}
+
+/** The newest lab result recorded through a referral, in the shape triage expects. */
+export function latestLabResult(rec: SiteRecord): { when: string; coliformsCfu: number } | undefined {
+  const l = [...rec.labResults].sort((a, b) => String(b.effectiveDateTime).localeCompare(String(a.effectiveDateTime)))[0];
+  return l ? { when: l.effectiveDateTime, coliformsCfu: l.valueQuantity?.value ?? 0 } : undefined;
+}

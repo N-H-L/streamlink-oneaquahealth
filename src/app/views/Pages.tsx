@@ -1,0 +1,120 @@
+import { useEffect, useState } from "react";
+import type { Resource } from "../../core/fhir";
+import { volunteerInbox } from "../../core/workflow";
+import { catalogue, model } from "../data";
+import { OAH_SANDBOX, go, useApp, type Mode } from "../state";
+
+export function Inbox() {
+  const app = useApp();
+  const [msgs, setMsgs] = useState<Resource[] | null>(null);
+  useEffect(() => {
+    volunteerInbox(app.store, app.volunteerId).then(setMsgs).catch(() => setMsgs([]));
+  }, [app.store, app.version, app.volunteerId]);
+  return (
+    <div className="page narrow">
+      <h1>My messages</h1>
+      <p className="muted">You are volunteer <span className="code">{app.volunteerId}</span>, a random pseudonym stored only on this device.</p>
+      {msgs === null && <p className="muted">Loading…</p>}
+      {msgs?.length === 0 && <p className="notice">No messages yet. When a lab visit follows one of your reports, you'll be told here.</p>}
+      <ul className="inbox">
+        {msgs?.map((m) => (
+          <li key={m.id} className="card">
+            <span className="muted small">{String(m.sent).slice(0, 10)}</span>
+            <p>{m.payload?.[0]?.contentString}</p>
+          </li>
+        ))}
+      </ul>
+      <button className="btn" onClick={() => go("/check")}>Check a stream</button>
+    </div>
+  );
+}
+
+export function Settings() {
+  const app = useApp();
+  const [confirming, setConfirming] = useState(false);
+  const setMode = (mode: Mode) => app.update({ mode });
+  return (
+    <div className="page narrow">
+      <h1>Settings</h1>
+      <section className="card">
+        <h2>Where records are stored</h2>
+        <label className="radio">
+          <input type="radio" name="mode" checked={app.mode === "local"} onChange={() => setMode("local")} />
+          <span><b>Demo store in this browser</b> (default). Works offline; nothing leaves your device. It is not a FHIR server, but a small stand-in that behaves like one for StreamLink's requests.</span>
+        </label>
+        <label className="radio">
+          <input type="radio" name="mode" checked={app.mode === "oah"} onChange={() => setMode("oah")} />
+          <span><b>Official OneAquaHealth FHIR sandbox</b> (HL7 Europe, public test server). Records are written live to <span className="code">{OAH_SANDBOX}</span>, where anyone can read them. Only demo data, tagged <span className="code">demo</span>.</span>
+        </label>
+      </section>
+      <section className="card">
+        <h2>Demo data</h2>
+        <p className="muted small">Clear everything StreamLink stored in this browser's demo store. The sandbox is not affected.</p>
+        {!confirming ? (
+          <button className="btn ghost" onClick={() => setConfirming(true)}>Reset demo store</button>
+        ) : (
+          <span className="row">
+            <button className="btn danger" onClick={() => { app.localStore.reset(); app.refresh(); setConfirming(false); app.toast("Demo store cleared."); }}>Yes, clear it</button>
+            <button className="btn ghost" onClick={() => setConfirming(false)}>Cancel</button>
+          </span>
+        )}
+      </section>
+      <section className="card">
+        <h2>Your pseudonym</h2>
+        <p className="muted small">Volunteers are identified only by a random code: <span className="code">{app.volunteerId}</span></p>
+        <button className="btn ghost" onClick={() => app.update({ volunteerId: `vol-${Math.random().toString(36).slice(2, 8)}` })}>Generate a new one</button>
+      </section>
+    </div>
+  );
+}
+
+export function About() {
+  const ev = model?.evaluation;
+  return (
+    <div className="page narrow prose">
+      <h1>About StreamLink</h1>
+      <p className="lead">A shared One Health record for every urban stream. Maps give each stream a history, volunteers report what maps and rare lab visits miss, and the lab confirms.</p>
+
+      <h2>Why</h2>
+      <p>Each of the 96 OneAquaHealth lab sites in Coimbra, Ghent, Toulouse, Benevento and Oslo has one lab health-risk campaign on record; 95 of them are from 2023. Lab campaigns are expensive, so the health picture of these streams ages fast. Volunteer reports exist, but they sit outside health-data systems, their reliability is unknown, and nothing follows from them.</p>
+
+      <h2>How a record works</h2>
+      <ol>
+        <li><b>Check-in.</b> The same questions as the OneAquaHealth Citizen Science App, as pictures. Stored as FHIR with status <i>preliminary</i>.</li>
+        <li><b>Trust.</b> Plain-language consistency checks; volunteers fix or confirm; the result is stored in a FHIR Provenance resource.</li>
+        <li><b>Verification.</b> An expert confirms: observations become <i>final</i> and then also conform to the official OneAquaHealth indicator profile.</li>
+        <li><b>Referral.</b> The city ranks streams by fresh reports, last lab result, map context and data age, and requests a lab visit (FHIR ServiceRequest) with its reasons.</li>
+        <li><b>Result and feedback.</b> The lab result closes the request; volunteers receive a FHIR Communication: "your report led to a lab visit".</li>
+      </ol>
+
+      <h2>Standards</h2>
+      <p>Records follow HL7 FHIR R4 and the OneAquaHealth FHIR Implementation Guide (hl7-eu/oah). StreamLink adds a proposed extension for citizen checks (Questionnaire, profiles, code system, concept map) and checks every record type with the official HL7 validator in its build. See the repository's <span className="code">fhir/</span> folder and validation report.</p>
+
+      <h2>The map-context baseline</h2>
+      {model ? (
+        <>
+          <p>{model.description ?? model.summary ?? "Map features computed from OpenStreetMap, calibrated on OneAquaHealth lab results."}</p>
+          {ev && <pre className="json small">{JSON.stringify(ev.pooled ?? ev, null, 2)}</pre>}
+          {model.caveats && <p className="muted small">{Array.isArray(model.caveats) ? model.caveats.join(" ") : model.caveats}</p>}
+        </>
+      ) : (
+        <p className="muted">Model card not available in this build.</p>
+      )}
+
+      <h2>What is real and what is simulated</h2>
+      <ul>
+        <li>Real: OneAquaHealth site list and lab health-risk scores (Resilience Map snapshot), map features, FHIR resources and their validation, the workflow.</li>
+        <li>Synthetic: the demo scenario's volunteer checks, and every lab <i>result</i> recorded in the app (tagged <span className="code">simulated</span>).</li>
+        <li>Not claimed: that trust rules or the baseline predict contamination on new data beyond the evaluation shown.</li>
+      </ul>
+
+      <h2>Data sources</h2>
+      <ul>
+        <li>OneAquaHealth Resilience Map (sites, lab health-risk), © OneAquaHealth, EU Horizon Europe.</li>
+        <li>OneAquaHealth FHIR IG and sandbox, HL7 Europe.</li>
+        <li>OpenStreetMap contributors (map features, base map via CARTO).</li>
+      </ul>
+      <p className="muted small">{catalogue.sites.length} sites in {catalogue.cities.length} cities in this build.</p>
+    </div>
+  );
+}
