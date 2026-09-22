@@ -65,3 +65,8 @@
 - First run: 3 violations (board had no level-1 heading; two serious colour-contrast failures on small grey text).
 - After fixes (darker muted colour, a board heading): **0 violations on all six screens** (board, check-in, record, messages, about, settings).
 - Not covered by an automated audit: screen-reader flow, keyboard traps in the map, and real assistive-technology testing.
+
+## 2026-09-23 ~01:55 SGT — test suite
+- `npm test`: **20 passing** in 2 files.
+  - core.test.ts (10): catalogue, 8 trust rules, FHIR extraction shape, the full lifecycle on the demo store, triage ordering and decay.
+  - store.test.ts (10): urn:uuid resolution, ifNoneExist, PUT versioning, search by identifier/tag/status/reference incl. comma-OR, persistence and reset; RemoteStore transaction-response mapping, paging, error messages and unreachable-server handling (mocked fetch).
