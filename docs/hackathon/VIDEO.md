@@ -39,6 +39,18 @@ If you prefer, record each scene separately and join them in **Clipchamp** (buil
 
 ---
 
+## A reference recording exists
+
+`npm run record` drives the app through this exact script in a real browser and saves a **silent** walkthrough with the subtitles burned in and a yellow box labelling every control it clicks:
+
+- video: `out/video/demo-<timestamp>.webm` (about 4:45; open it in Edge or Clipchamp)
+- one still per line: `out/video/frames/`
+- the line-by-line timing: `out/video/transcript.json`
+
+Watch it once before recording your own. It has no voice, no mouse pointer, and the yellow boxes and scene labels are guides only — your version should have your voice and none of those overlays.
+
+---
+
 ## Part 2 — How to use the script
 
 - **Left column = what you click.** Do it, then say the line.
@@ -76,6 +88,7 @@ If you prefer, record each scene separately and join them in **Clipchamp** (buil
 | Click **Fill with an example**, then scroll through step one. | "Shape of the channel, the bed, the banks. Anything you are unsure about, you just say so." |
 | Click **Next**. Point at the sewage question. | "And this is what maps and yearly lab visits miss: a pipe discharging today." |
 | Click **Next**, then **Next** again to reach "How it feels". | "It even asks how the place makes you feel, because the project links the health of a stream to how people feel about where they live." |
+| On the same step, tap **Good** under "Overall, this stream looks…". This is deliberate: the example already reported sewage, so "Good" creates the contradiction you fix in the next scene. | "Say the volunteer sums it up as good overall — that is the mistake we want to catch." |
 | Click **Review**. | "It works with no signal, too. The check waits on your phone and sends itself later." |
 
 ### Scene 4 — Trust (1:45–2:15)
@@ -84,7 +97,9 @@ If you prefer, record each scene separately and join them in **Clipchamp** (buil
 | Do this | Say this |
 |---|---|
 | Point at the orange flag. | "Before anything is sent, the app checks the answers against each other. Here the volunteer rated the stream as good, but also reported sewage." |
-| Click **Fix**, choose **Poor**, then **Review** again. | "The volunteer fixes it, and the trust score goes up. Every flag, and how it was resolved, is stored with the record, so an expert can see why it deserves trust." |
+| Click **Fix**, choose **Poor**, then **Review** again. | "The volunteer fixes it, and the trust score goes up." |
+| A second flag remains ("No photos"). Click **It's correct**. | "The second flag is only a reminder that a photo helps; the volunteer confirms there isn't one." |
+| Point at the trust bar. | "Every flag, and how it was resolved, is stored with the record, so an expert can see why it deserves trust." |
 | Click **Send check**. | "Now it is saved — as preliminary data." |
 
 ### Scene 5 — What the city does (2:15–3:05)

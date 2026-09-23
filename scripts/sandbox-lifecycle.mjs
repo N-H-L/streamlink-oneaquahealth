@@ -27,6 +27,17 @@ const site = oahCatalogue(
   JSON.parse(readFileSync("data/oah/sites.snapshot.json", "utf8")),
   JSON.parse(readFileSync("data/oah/health-risks.snapshot.json", "utf8")),
 ).sites.find((s) => s.code === "C5");
+// Attach the map baseline the app uses, so the referral's stated reasons match what a judge sees.
+const feats = JSON.parse(readFileSync("data/baseline/site-features.json", "utf8"));
+const f = feats.sites?.[site.code];
+if (f?.baselineScore != null) {
+  site.baseline = {
+    score: f.baselineScore,
+    percentile: f.percentile,
+    features: { distWastewaterM: f.osm?.distWastewaterM, distFarmlandM: f.osm?.distFarmlandM, urbanFraction2km: f.osm?.urbanFraction2km },
+    model: `StreamLink baseline ${feats.model?.version ?? "v1"}`,
+  };
+}
 
 let rec = await loadSiteRecord(store, site);
 console.log(`record on the sandbox: ${rec.checks.length} check(s), ${rec.checks[0]?.observations.length} observations, trust ${rec.checks[0]?.trust}`);
