@@ -193,11 +193,12 @@ export function buildPillars(site: Site, checks: CheckSummary[], labResults: Res
     const bank = valueCode(find("bank-type")[0] ?? {});
     if (bed || bank) {
       const natural = [bed, bank].filter((x) => x === "natural").length;
-      env.items.push({ label: "Channel", value: natural === 2 ? "Natural bed and banks" : natural === 1 ? "Partly artificial" : "Artificial (concrete)", tone: natural === 2 ? "ok" : natural === 1 ? "warn" : "bad", source: srcCitizen(latest), when: latest.authored });
+      // Describing the channel is not a finding to act on, so it stays neutral.
+      env.items.push({ label: "Channel", value: natural === 2 ? "Natural bed and banks" : natural === 1 ? "Partly artificial" : "Artificial (concrete)", tone: "info", source: srcCitizen(latest), when: latest.authored });
     }
     const vegYes = obs.filter((o) => codeOf(o, CS.sl)?.startsWith("vegetated-") && valueCode(o) === "present").length;
     const vegAny = obs.filter((o) => codeOf(o, CS.sl)?.startsWith("vegetated-")).length;
-    if (vegAny) env.items.push({ label: "Bank vegetation", value: `${vegYes} of ${vegAny} banks covered`, tone: vegYes === vegAny ? "ok" : vegYes ? "warn" : "bad", source: srcCitizen(latest), when: latest.authored });
+    if (vegAny) env.items.push({ label: "Bank vegetation", value: `${vegYes} of ${vegAny} banks covered`, tone: "info", source: srcCitizen(latest), when: latest.authored });
 
     // Animals & vectors: still/slow water with plants is breeding habitat for mosquitoes and
     // other Diptera that OneAquaHealth tracks (DipteraCAST), plus invasive species.
@@ -210,7 +211,7 @@ export function buildPillars(site: Site, checks: CheckSummary[], labResults: Res
     const inv = find("invasive-plants")[0];
     if (inv) animals.items.push({ label: "Invasive plants", value: valueCode(inv) === "present" ? "Reported" : "None seen", tone: valueCode(inv) === "present" ? "warn" : "ok", source: srcCitizen(latest), when: latest.authored });
     const habitats = find("habitats").length;
-    animals.items.push({ label: "Habitat variety", value: `${habitats} habitat type${habitats === 1 ? "" : "s"} seen`, tone: habitats >= 3 ? "ok" : habitats >= 1 ? "warn" : "bad", source: srcCitizen(latest), when: latest.authored });
+    animals.items.push({ label: "Habitat variety", value: `${habitats} habitat type${habitats === 1 ? "" : "s"} seen`, tone: "info", source: srcCitizen(latest), when: latest.authored });
   }
 
   const lastLab = labResults.sort((a, b) => String(b.effectiveDateTime).localeCompare(String(a.effectiveDateTime)))[0];
@@ -241,10 +242,10 @@ export function buildPillars(site: Site, checks: CheckSummary[], labResults: Res
     const pct = site.baseline.percentile;
     const d = site.baseline.features.distWastewaterM;
     people.items.push({
-      label: "Map context (where to look first)",
+      label: "Where to look first (from maps)",
       value: pct != null ? `Ranks above ${Math.round(pct)}% of this city's streams${d != null ? `, ${d >= 1000 ? `${(d / 1000).toFixed(1)} km` : `${Math.round(d)} m`} from a wastewater plant` : ""}` : `Score ${site.baseline.score.toFixed(2)}`,
-      tone: (pct ?? 50) >= 75 ? "warn" : "info",
-      source: `${site.baseline.model} · ranking within this city only, not a measurement`,
+      tone: "info",
+      source: `${site.baseline.model} · a ranking within this city, not a measurement`,
     });
   }
 

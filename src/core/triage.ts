@@ -121,7 +121,8 @@ function baselineReason(site: Site): string {
   const b = site.baseline!;
   const f = b.features;
   const where = f.distWastewaterM != null ? `${fmtDist(f.distWastewaterM)} from the nearest wastewater plant` : "map context";
-  const rank = b.percentile != null ? `, closer than ${Math.round(b.percentile)}% of this city's sites` : "";
+  const pct = b.percentile;
+  const rank = pct == null ? "" : pct >= 95 ? " — among the closest in this city" : pct >= 60 ? ` — closer than most streams here` : " — further away than most streams here";
   return `${where}${rank}`;
 }
 
@@ -129,9 +130,11 @@ export function fmtDist(m: number): string {
   return m >= 1000 ? `${(m / 1000).toFixed(1)} km` : `${Math.round(m)} m`;
 }
 
+/** Human-readable reasons, one per line, strongest first. Stored with the lab request. */
 export function explain(p: Priority, weights: Weights): string {
   const total = Object.values(weights).reduce((a, b) => a + b, 0) || 1;
-  return `Priority ${Math.round(p.score * 100)}/100. ` + p.factors
-    .map((f) => `${f.label} (${Math.round((weights[f.key] / total) * 100)}% weight): ${f.reason}`)
-    .join("; ") + ".";
+  const lines = [...p.factors]
+    .sort((a, b) => b.value * weights[b.key] - a.value * weights[a.key])
+    .map((f) => `• ${f.label} (${Math.round((weights[f.key] / total) * 100)}% of the score): ${f.reason}`);
+  return [`Priority ${Math.round(p.score * 100)} out of 100.`, ...lines].join("\n");
 }

@@ -108,8 +108,8 @@ export function About() {
       {model ? (
         <>
           <p>{model.headline}</p>
-          <div className={`proof ${model.validated?.withinCityRanking ? "pass" : "fail"}`}>
-            <b>What the evaluation supports</b>
+          <div className="proof scope">
+            <b>What the evaluation supports — and what it does not</b>
             <ul>
               <li><b>Yes:</b> ranking the streams of one city. {model.validated?.statement}</li>
               <li><b>No:</b> comparing scores between cities, or reading a score as a risk level.</li>

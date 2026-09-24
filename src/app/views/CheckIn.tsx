@@ -87,11 +87,14 @@ export function CheckIn({ siteCode }: { siteCode?: string }) {
         </div>
       )}
       {stepIndex >= 0 && stepIndex < 5 && (
+        <>
+        <p className="step-count">Step {stepIndex + 1} of 5</p>
         <ol className="progress" aria-label="Progress">
           {[...STEPS.map((s) => s.title), "Review"].map((t, i) => (
             <li key={t} className={i < stepIndex ? "step-done" : i === stepIndex ? "step-current" : ""} aria-current={i === stepIndex ? "step" : undefined}>{t}</li>
           ))}
         </ol>
+        </>
       )}
 
       {phase === "site" && <SitePicker onPick={(s, g) => { setSite(s); if (g) setGps(g); setPhase(0); }} gps={gps} setGps={setGps} />}
@@ -255,23 +258,29 @@ function Review({ flags, setFlags, answered, onFix, onBack, onSubmit, saving, ta
   return (
     <section aria-labelledby="review-title">
       <h2 id="review-title">Before you send</h2>
-      <div className="trust">
-        <div className="trust-meter" aria-label={`Trust score ${Math.round(score * 100)} percent`}>
-          <span style={{ width: `${score * 100}%` }} />
+      {answered === 0 ? (
+        <p className="notice notice-error">You haven't answered anything yet. Go back and answer what you can see — "Not sure" is a fine answer.</p>
+      ) : (
+        <div className="trust">
+          <div className="trust-meter" aria-label={`Trust score ${Math.round(score * 100)} percent`}>
+            <span style={{ width: `${score * 100}%` }} />
+          </div>
+          <p><b>Trust score {Math.round(score * 100)}%.</b> {flags.length === 0 ? "Nothing looks inconsistent." : "A few answers don't quite fit together. Fixing them makes your report count for more."}</p>
         </div>
-        <p><b>Trust score {Math.round(score * 100)}%.</b> {flags.length === 0 ? "No inconsistencies found." : "A few answers don't quite fit together. Fixing them makes your report count more."}</p>
-      </div>
+      )}
       {flags.length > 0 && (
         <ul className="flags">
           {flags.map((f, i) => (
             <li key={f.rule} className={f.resolution === "open" ? "flag" : "flag resolved"}>
               <span>{f.message}</span>
               <span className="row">
-                {f.fix.length > 0 && <button className="btn small" onClick={() => onFix(f.fix[0])}>Fix</button>}
+                {f.fix.length > 0 && <button className="btn small" onClick={() => onFix(f.fix[0])}>{f.rule === "no-photos" ? "Add a photo" : "Fix"}</button>}
                 {f.resolution === "open" ? (
-                  <button className="btn ghost small" onClick={() => setFlags(flags.map((x, j) => (j === i ? { ...x, resolution: "confirmed-by-citizen" } : x)))}>It's correct</button>
+                  <button className="btn ghost small" onClick={() => setFlags(flags.map((x, j) => (j === i ? { ...x, resolution: "confirmed-by-citizen" } : x)))}>
+                    {f.rule === "no-photos" ? "Skip" : "It's correct"}
+                  </button>
                 ) : (
-                  <span className="badge b-muted">You confirmed this</span>
+                  <span className="badge b-muted">{f.rule === "no-photos" ? "Skipped" : "You confirmed this"}</span>
                 )}
               </span>
             </li>

@@ -87,18 +87,32 @@ export function Board({ cityId }: { cityId: string }) {
 
       <h1 className="board-title">{city.name}: which streams need a lab visit?</h1>
 
+      {records && ranked[0] && (
+        <section className="decision" aria-label="Next action">
+          <div className="decision-main">
+            <span className="eyebrow">Act on this next</span>
+            <h2>{ranked[0].site.name} <span className="code">{ranked[0].site.code}</span></h2>
+            <p className="decision-why">{ranked[0].topReason}</p>
+          </div>
+          <div className="decision-side">
+            <span className="decision-score" style={{ background: priorityColor(ranked[0].score) }}>{Math.round(ranked[0].score * 100)}</span>
+            <button className="btn" onClick={() => go(`/site/${ranked[0].site.code}`)}>Open the record</button>
+          </div>
+        </section>
+      )}
+
       <section className="stats" aria-label="Summary">
         <div className="stat">
           <div className="stat-value">{medianAge !== null ? `${medianAge} days` : "No lab data"}</div>
           <div className="stat-label">{medianAge !== null ? "since the lab last visited a typical stream here" : "this city has never been lab-sampled: map baseline only"}</div>
         </div>
         <div className="stat">
-          <div className="stat-value">{records ? recentChecks : "…"}</div>
-          <div className="stat-label">volunteer checks in the last 30 days</div>
+          <div className="stat-value">{records ? (recentChecks || "None") : "…"}</div>
+          <div className="stat-label">{recentChecks ? "volunteer checks in the last 30 days" : "volunteer checks in the last 30 days — the picture here is only as fresh as the last lab visit"}</div>
         </div>
         <div className="stat">
-          <div className="stat-value">{records ? openRefs : "…"}</div>
-          <div className="stat-label">open lab visit requests</div>
+          <div className="stat-value">{records ? (openRefs || "None") : "…"}</div>
+          <div className="stat-label">{openRefs ? "open lab visit requests" : "lab visits requested right now"}</div>
         </div>
       </section>
 
@@ -135,6 +149,15 @@ export function Board({ cityId }: { cityId: string }) {
             <span><i style={{ background: priorityColor(0.35) }} /> watch</span>
             <span><i style={{ background: priorityColor(0.1) }} /> low</span>
           </p>
+          <div className="under-map">
+            <h3>How this city's picture is holding up</h3>
+            <ul>
+              <li><b>{sites.filter((s) => s.lab).length || "No"}</b> streams with a lab result{medianAge !== null ? `, the typical one ${medianAge} days old` : ""}</li>
+              <li><b>{records ? [...records.values()].filter((r) => r.checks.length).length : "…"}</b> streams with at least one volunteer check</li>
+              <li><b>{records ? [...records.values()].filter((r) => r.checks.some((c) => c.status !== "final")).length : "…"}</b> waiting for an expert to verify</li>
+            </ul>
+            <button className="link" onClick={() => setShowWeights((v) => !v)}>How the ranking works</button>
+          </div>
         </div>
 
         <section className="board-list" aria-labelledby="needs-lab">
