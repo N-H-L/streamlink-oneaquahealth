@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  html,body{margin:0;height:100%;overflow:hidden;background:#f5f8f9;font-family:ui-sans-serif,system-ui,"Segoe UI",sans-serif}
+  .stage{position:absolute;inset:0;overflow:hidden}
+  img{position:absolute;top:0;left:50%;width:1920px;transform:translateX(-50%) translateY(0);
+      animation:pan var(--dur) cubic-bezier(.4,0,.5,1) forwards}
+  @keyframes pan{ from{transform:translateX(-50%) translateY(var(--from))}
+                  to  {transform:translateX(-50%) translateY(var(--to))} }
+  .note{position:fixed;left:0;right:0;bottom:0;background:rgba(8,22,28,.9);color:#dff1f4;
+        font-size:22px;padding:12px 20px;text-align:center}
+</style></head>
+<body>
+  <div class="stage"><img id="shot" src="sandbox-record.png"></div>
+  <div class="note" id="note">Recorded on the OneAquaHealth FHIR sandbox · their server went offline afterwards</div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const img = document.getElementById("shot");
+    img.style.setProperty("--from", (q.get("from") || "0") + "px");
+    img.style.setProperty("--to", (q.get("to") || "-600") + "px");
+    img.style.setProperty("--dur", (q.get("dur") || "15") + "s");
+    if (q.get("note") === "off") document.getElementById("note").remove();
+  </script>
+</body></html>
