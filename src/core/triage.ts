@@ -90,17 +90,17 @@ export function prioritise(site: Site, checks: CheckSummary[], openReferral: boo
         reason: site.lab ? `Health-risk ${site.lab.score.toFixed(2)} at the ${site.lab.date.slice(0, 4)} lab campaign` : "Never sampled: treated as unknown (0.5)",
       };
   const factors: Factor[] = [
-    { key: "events", label: "Fresh volunteer reports", value: ev.value, reason: newLab && ev.value === 0 ? "Earlier reports were followed up by a lab visit" : ev.reason },
+    { key: "events", label: "New reports since the last lab visit", value: ev.value, reason: newLab && ev.value === 0 ? "Earlier reports were followed up by a lab visit" : ev.reason },
     lastLab,
     {
-      key: "baseline", label: "Map context",
+      key: "baseline", label: "Where to look first (from maps)",
       // Supported use is ranking WITHIN one city, so the factor is the site's city percentile,
       // never the raw score (which must not be compared between cities). See data/baseline/model-v1.json.
       value: baselineFactor(site),
       reason: site.baseline ? baselineReason(site) : "No map features for this site: treated as unknown (0.5)",
     },
     {
-      key: "labAge", label: "Age of lab picture",
+      key: "labAge", label: "How old the lab data is",
       value: labAgeDays === null ? 1 : Math.min(1, labAgeDays / LAB_AGE_FULL_DAYS),
       reason: labAgeDays === null ? "No lab visit on record" : `Last lab visit ${labAgeDays} days ago`,
     },

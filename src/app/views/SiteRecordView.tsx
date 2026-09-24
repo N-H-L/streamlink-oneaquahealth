@@ -26,7 +26,15 @@ export function SiteRecordView({ code }: { code: string }) {
     };
   }, [app.store, app.version, code]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (!site) return <div className="page"><p>Unknown site {code}.</p></div>;
+  if (!site) {
+    return (
+      <div className="page narrow">
+        <h1>No stream with the code “{code}”</h1>
+        <p className="muted">It may have been renamed, or the link may be wrong.</p>
+        <button className="btn" onClick={() => go("/board/CO")}>Back to the board</button>
+      </div>
+    );
+  }
 
   async function act(label: string, fn: () => Promise<unknown>, done: string) {
     setBusy(label);
@@ -173,8 +181,8 @@ export function SiteRecordView({ code }: { code: string }) {
             </li>
           ))}
         </ol>
-        {rec && rec.checks.length + rec.referrals.length + rec.labResults.length > 0 && (
-          <FhirJson title="This record as stored (FHIR resources)" data={[...rec.checks.flatMap((c) => [c.qr, ...c.observations, ...(c.wellbeing ? [c.wellbeing] : []), ...(c.provenance ? [c.provenance] : [])]), ...rec.referrals, ...rec.labResults]} />
+        {rec && rec.checks.length + rec.referrals.length + rec.labResults.length + rec.communications.length > 0 && (
+          <FhirJson title="This record as stored (FHIR resources)" data={[...rec.checks.flatMap((c) => [c.qr, ...c.observations, ...(c.wellbeing ? [c.wellbeing] : []), ...(c.provenance ? [c.provenance] : [])]), ...rec.referrals, ...rec.labResults, ...rec.communications]} />
         )}
       </section>
     </div>

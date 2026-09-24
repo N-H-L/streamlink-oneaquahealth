@@ -67,7 +67,8 @@ export function Settings() {
       <section className="card">
         <h2>Your pseudonym</h2>
         <p className="muted small">Volunteers are identified only by a random code: <span className="code">{app.volunteerId}</span></p>
-        <button className="btn ghost" onClick={() => app.update({ volunteerId: `vol-${Math.random().toString(36).slice(2, 8)}` })}>Generate a new one</button>
+        <p className="muted small">Your messages are tied to this code, so a new one starts an empty inbox. Reports already sent stay under the old code.</p>
+        <button className="btn ghost" onClick={() => { app.update({ volunteerId: `vol-${Math.random().toString(36).slice(2, 8)}` }); app.toast("New pseudonym. Messages for the previous code are no longer shown here.", "info"); }}>Generate a new one</button>
       </section>
     </div>
   );

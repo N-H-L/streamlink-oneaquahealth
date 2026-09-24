@@ -14,21 +14,42 @@ import { go, useApp } from "../state";
 
 type Phase = "site" | 0 | 1 | 2 | 3 | "review" | "done";
 
+const DRAFT_KEY = "streamlink.draft.v1";
+
+/** A half-finished check survives a reload, but never moves to another stream. */
+function loadDraft(code?: string): { answers: Answers; emotions: Partial<Record<EmotionCode, number>>; invasiveWhich: string } | null {
+  try {
+    const d = JSON.parse(localStorage.getItem(DRAFT_KEY) ?? "null");
+    return d && d.siteCode === code ? d : null;
+  } catch {
+    return null;
+  }
+}
+
 export function CheckIn({ siteCode }: { siteCode?: string }) {
   const app = useApp();
   const [site, setSite] = useState<Site | undefined>(siteCode ? siteByCode(siteCode) : undefined);
+  const draft = loadDraft(siteCode);
   const [phase, setPhase] = useState<Phase>(site ? 0 : "site");
-  const [answers, setAnswers] = useState<Answers>({});
-  const [emotions, setEmotions] = useState<Partial<Record<EmotionCode, number>>>({});
+  const [answers, setAnswers] = useState<Answers>(draft?.answers ?? {});
+  const [emotions, setEmotions] = useState<Partial<Record<EmotionCode, number>>>(draft?.emotions ?? {});
   const [photos, setPhotos] = useState<string[]>([]);
   const [gps, setGps] = useState<{ lat: number; lon: number } | null>(null);
-  const [invasiveWhich, setInvasiveWhich] = useState("");
+  const [invasiveWhich, setInvasiveWhich] = useState(draft?.invasiveWhich ?? "");
   const [flags, setFlags] = useState<TrustFlag[]>([]);
   const [saving, setSaving] = useState(false);
   const [result, setResult] = useState<{ queued: boolean; bundle: any } | null>(null);
   const top = useRef<HTMLDivElement>(null);
 
   useEffect(() => top.current?.focus(), [phase]);
+  useEffect(() => {
+    if (!site) return;
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify({ siteCode: site.code, answers, emotions, invasiveWhich }));
+    } catch {
+      /* private mode: the draft simply will not survive a reload */
+    }
+  }, [site, answers, emotions, invasiveWhich]);
   useEffect(() => () => photos.forEach((p) => URL.revokeObjectURL(p)), []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const input = (): CheckInput => ({
@@ -56,6 +77,11 @@ export function CheckIn({ siteCode }: { siteCode?: string }) {
     const inp = input();
     try {
       await submitCheck(app.store, site!, inp, flags);
+      try {
+        localStorage.removeItem(DRAFT_KEY);
+      } catch {
+        /* ignore */
+      }
       setResult({ queued: false, bundle: buildCheckBundle(inp, site!, flags).bundle });
       app.refresh();
       setPhase("done");
@@ -97,7 +123,25 @@ export function CheckIn({ siteCode }: { siteCode?: string }) {
         </>
       )}
 
-      {phase === "site" && <SitePicker onPick={(s, g) => { setSite(s); if (g) setGps(g); setPhase(0); }} gps={gps} setGps={setGps} />}
+      {phase === "site" && (
+        <SitePicker
+          onPick={(s, g) => {
+            // Answers describe one stream, so switching streams starts fresh.
+            if (site && s.code !== site.code) {
+              setAnswers({});
+              setEmotions({});
+              setInvasiveWhich("");
+              setPhotos([]);
+              setFlags([]);
+            }
+            setSite(s);
+            if (g) setGps(g);
+            setPhase(0);
+          }}
+          gps={gps}
+          setGps={setGps}
+        />
+      )}
 
       {typeof phase === "number" && site && (
         <section aria-labelledby="step-title">
@@ -145,6 +189,7 @@ export function CheckIn({ siteCode }: { siteCode?: string }) {
           flags={flags}
           setFlags={setFlags}
           answered={Object.keys(answers).length}
+          definite={Object.values(answers).filter((v) => v !== undefined && v !== "" && v !== NOT_SURE && !(Array.isArray(v) && v.length === 0)).length}
           onFix={(linkId) => {
             const q = QUESTIONS.find((x) => x.linkId === linkId);
             if (linkId === "photos") setPhase(3);
@@ -249,8 +294,8 @@ function PhotoField({ photos, setPhotos }: { photos: string[]; setPhotos: (p: st
   );
 }
 
-function Review({ flags, setFlags, answered, onFix, onBack, onSubmit, saving, target }: {
-  flags: TrustFlag[]; setFlags: (f: TrustFlag[]) => void; answered: number;
+function Review({ flags, setFlags, answered, definite, onFix, onBack, onSubmit, saving, target }: {
+  flags: TrustFlag[]; setFlags: (f: TrustFlag[]) => void; answered: number; definite: number;
   onFix: (linkId: string) => void; onBack: () => void; onSubmit: () => void; saving: boolean; target: string;
 }) {
   const score = trustScore(flags);
@@ -258,14 +303,18 @@ function Review({ flags, setFlags, answered, onFix, onBack, onSubmit, saving, ta
   return (
     <section aria-labelledby="review-title">
       <h2 id="review-title">Before you send</h2>
-      {answered === 0 ? (
-        <p className="notice notice-error">You haven't answered anything yet. Go back and answer what you can see — "Not sure" is a fine answer.</p>
+      {definite === 0 ? (
+        <p className="notice notice-error">
+          {answered === 0
+            ? "You haven't answered anything yet. Go back and answer what you can see."
+            : "Everything is still “Not sure”. That is honest, but there is nothing here for an expert to look at — answer at least one thing you can see."}
+        </p>
       ) : (
         <div className="trust">
           <div className="trust-meter" aria-label={`Trust score ${Math.round(score * 100)} percent`}>
             <span style={{ width: `${score * 100}%` }} />
           </div>
-          <p><b>Trust score {Math.round(score * 100)}%.</b> {flags.length === 0 ? "Nothing looks inconsistent." : "A few answers don't quite fit together. Fixing them makes your report count for more."}</p>
+          <p><b>Trust score {Math.round(score * 100)}%.</b> {flags.filter((f) => f.resolution === "open").length === 0 ? "Nothing left to check." : "A few answers don't quite fit together. Fixing them makes your report count for more."}</p>
         </div>
       )}
       {flags.length > 0 && (
@@ -290,8 +339,11 @@ function Review({ flags, setFlags, answered, onFix, onBack, onSubmit, saving, ta
       <p className="muted small">{answered} answers. Your report is stored under a pseudonym: no name or contact details, and your location is rounded to about 100 m in the stored record. Destination: {target}.</p>
       <div className="nav">
         <button className="btn ghost" onClick={onBack}>Back</button>
-        <button className="btn" onClick={onSubmit} disabled={saving}>{saving ? "Sending…" : open.length ? "Send anyway" : "Send check"}</button>
+        <button className="btn" onClick={onSubmit} disabled={saving || definite === 0}>{saving ? "Sending…" : "Send my check"}</button>
       </div>
+      {open.length > 0 && definite > 0 && (
+        <p className="muted small right">{open.length} flag{open.length === 1 ? "" : "s"} still open — you can send anyway, but fixing them makes the report count for more.</p>
+      )}
     </section>
   );
 }

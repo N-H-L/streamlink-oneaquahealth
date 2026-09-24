@@ -22,11 +22,19 @@ export function Board({ cityId }: { cityId: string }) {
   const [showWeights, setShowWeights] = useState(false);
   const [busy, setBusy] = useState(false);
   const [hover, setHover] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(null);
   const rows = useRef<Record<string, HTMLLIElement | null>>({});
 
   function focusRow(code: string) {
+    const row = rows.current[code];
+    // Only the top 12 are listed, so a dot outside that opens the record instead of doing nothing.
+    if (!row) {
+      go(`/site/${code}`);
+      return;
+    }
+    setSelected(code);
     setHover(code);
-    rows.current[code]?.scrollIntoView({ behavior: "smooth", block: "center" });
+    row.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   useEffect(() => {
@@ -136,14 +144,14 @@ export function Board({ cityId }: { cityId: string }) {
             zoom={city.zoom ?? 12}
             points={sites.map((s) => {
               const p = ranked.find((x) => x.site.code === s.code);
-              return { code: s.code, name: s.name, lat: s.lat, lon: s.lon, score: p ? p.score : null, highlight: hover === s.code, label: p ? `priority ${Math.round(p.score * 100)}` : undefined };
+              return { code: s.code, name: s.name, lat: s.lat, lon: s.lon, score: p ? p.score : null, highlight: hover === s.code || selected === s.code, label: p ? `priority ${Math.round(p.score * 100)}` : undefined };
             })}
             onSelect={focusRow}
             onHover={setHover}
             height="min(70vh, 620px)"
           />
           </Suspense>
-          <p className="legend"><span className="legend-hint">Click a dot to find it in the list</span>
+          <p className="legend"><span className="legend-hint">Click a dot to jump to that stream</span>
             <span><i style={{ background: priorityColor(0.7) }} /> visit soon</span>
             <span><i style={{ background: priorityColor(0.5) }} /> elevated</span>
             <span><i style={{ background: priorityColor(0.35) }} /> watch</span>
@@ -180,7 +188,7 @@ export function Board({ cityId }: { cityId: string }) {
               return (
                 <li key={p.site.code} ref={(el) => { rows.current[p.site.code] = el; }}>
                   <button
-                    className={hover === p.site.code ? "rank-row hot" : "rank-row"}
+                    className={`rank-row${hover === p.site.code ? " hot" : ""}${selected === p.site.code ? " picked" : ""}`}
                     onClick={() => go(`/site/${p.site.code}`)}
                     onMouseEnter={() => setHover(p.site.code)}
                     onMouseLeave={() => setHover(null)}
@@ -213,10 +221,10 @@ export function Board({ cityId }: { cityId: string }) {
 }
 
 const LABELS: Record<keyof Weights, { title: string; help: string }> = {
-  events: { title: "Fresh volunteer reports", help: "Sewage, polluted pipes, foam, colour. Halves every 14 days; unverified reports count 70%, scaled by trust." },
+  events: { title: "New reports since the last lab visit", help: "Sewage, polluted pipes, foam, colour. Halves every 14 days; unverified reports count 70%, scaled by trust." },
   lastLab: { title: "Last lab result", help: "OneAquaHealth lab health-risk score (pathogens, fecal indicators, antibiotic resistance)." },
-  baseline: { title: "Map context", help: "How close the stream is to a wastewater plant, as a rank within this city. It is the one map signal that held up when tested on cities the model had never seen; it never compares one city with another. See About." },
-  labAge: { title: "Age of lab picture", help: "Two years or more without a lab visit counts fully." },
+  baseline: { title: "Where to look first (from maps)", help: "How close the stream is to a wastewater plant, as a rank within this city. It is the one map signal that held up when tested on cities the model had never seen; it never compares one city with another. See About." },
+  labAge: { title: "How old the lab data is", help: "Two years or more without a lab visit counts fully." },
 };
 
 function WeightsPanel() {
@@ -225,6 +233,9 @@ function WeightsPanel() {
   const total = Object.values(w).reduce((a, b) => a + b, 0) || 1;
   return (
     <div className="weights">
+      {Object.values(w).every((x) => x === 0) && (
+        <p className="notice notice-error">Every factor is at zero, so nothing can be ranked. Raise at least one.</p>
+      )}
       <p className="muted small">The ranking is a weighted mean of four factors. Defaults are a starting point; adjust them to your city's priorities. Only the map-context factor is fitted to data.</p>
       {(Object.keys(LABELS) as (keyof Weights)[]).map((k) => (
         <label key={k} className="weight">

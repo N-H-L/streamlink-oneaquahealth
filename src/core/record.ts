@@ -26,6 +26,8 @@ export interface SiteRecord {
   checks: CheckSummary[];
   referrals: Resource[];
   labResults: Resource[];
+  /** Messages sent to volunteers about this stream (the closing step of the loop). */
+  communications: Resource[];
   baselineObs?: Resource;
   timeline: TimelineItem[];
   pillars: Pillar[];
@@ -111,11 +113,13 @@ export async function loadSiteRecord(store: FhirStore, site: Site, now = new Dat
     ]);
     if (qrs.length) provenances = await store.search("Provenance", { target: qrs.map((q) => `QuestionnaireResponse/${q.id}`).join(",") });
   }
-  return assembleRecord(site, locationId, observations, qrs, referrals, provenances, now);
+  let comms: Resource[] = [];
+  if (referrals.length) comms = await store.search("Communication", { about: referrals.map((r) => `ServiceRequest/${r.id}`).join(",") });
+  return assembleRecord(site, locationId, observations, qrs, referrals, provenances, now, comms);
 }
 
 export function assembleRecord(
-  site: Site, locationId: string | null, observations: Resource[], qrs: Resource[], referrals: Resource[], provenances: Resource[], now = new Date(),
+  site: Site, locationId: string | null, observations: Resource[], qrs: Resource[], referrals: Resource[], provenances: Resource[], now = new Date(), communications: Resource[] = [],
 ): SiteRecord {
   const checks: CheckSummary[] = qrs.map((qr) => {
     const ref = `QuestionnaireResponse/${qr.id}`;
@@ -164,7 +168,12 @@ export function assembleRecord(
   }
   timeline.sort((a, b) => b.when.localeCompare(a.when));
 
-  return { site, locationId, checks, referrals, labResults, baselineObs, timeline, pillars: buildPillars(site, checks, labResults, now) };
+  for (const c of communications) {
+    timeline.push({ when: c.sent, kind: "referral-done", title: "Volunteer told what happened", detail: c.payload?.[0]?.contentString, status: "completed", ref: `Communication/${c.id}` });
+  }
+  timeline.sort((a, b) => b.when.localeCompare(a.when));
+
+  return { site, locationId, checks, referrals, labResults, communications, baselineObs, timeline, pillars: buildPillars(site, checks, labResults, now) };
 }
 
 function ago(iso: string, now: Date) {
@@ -188,7 +197,10 @@ export function buildPillars(site: Site, checks: CheckSummary[], labResults: Res
       env.items.push({ label: "Water", value: label[aspect] ?? aspect, tone: aspect === "clear" ? "ok" : aspect === "turbid" ? "warn" : "bad", source: srcCitizen(latest), when: latest.authored });
     }
     const signs = latest.events.filter((e) => e === "sewage" || e === "drain" || e === "construction");
-    env.items.push({ label: "Pollution sources", value: signs.length ? signs.map((e) => EVENT_LABEL[e]).join(", ") : "None seen", tone: signs.length ? "bad" : "ok", source: srcCitizen(latest), when: latest.authored });
+    const askedPollution = obs.some((o) => ["sewage-discharge", "drain-outflow", "construction-works"].includes(codeOf(o, CS.sl) ?? ""));
+    if (askedPollution || signs.length) {
+      env.items.push({ label: "Pollution sources", value: signs.length ? signs.map((e) => EVENT_LABEL[e]).join(", ") : "None seen", tone: signs.length ? "bad" : "ok", source: srcCitizen(latest), when: latest.authored });
+    }
     const bed = valueCode(find("bottom-type")[0] ?? {});
     const bank = valueCode(find("bank-type")[0] ?? {});
     if (bed || bank) {
@@ -211,7 +223,7 @@ export function buildPillars(site: Site, checks: CheckSummary[], labResults: Res
     const inv = find("invasive-plants")[0];
     if (inv) animals.items.push({ label: "Invasive plants", value: valueCode(inv) === "present" ? "Reported" : "None seen", tone: valueCode(inv) === "present" ? "warn" : "ok", source: srcCitizen(latest), when: latest.authored });
     const habitats = find("habitats").length;
-    animals.items.push({ label: "Habitat variety", value: `${habitats} habitat type${habitats === 1 ? "" : "s"} seen`, tone: "info", source: srcCitizen(latest), when: latest.authored });
+    if (habitats) animals.items.push({ label: "Habitat variety", value: `${habitats} habitat type${habitats === 1 ? "" : "s"} seen`, tone: "info", source: srcCitizen(latest), when: latest.authored });
   }
 
   const lastLab = labResults.sort((a, b) => String(b.effectiveDateTime).localeCompare(String(a.effectiveDateTime)))[0];
