@@ -43,11 +43,13 @@ export function Board({ cityId }: { cityId: string }) {
   const now = new Date();
   const ranked: Priority[] = useMemo(() => {
     if (!records) return [];
+    // On a city switch, `sites` updates before the new records arrive, so skip anything missing.
     return sites
-      .map((s) => {
-        const r = records.get(s.code)!;
+      .flatMap((s) => {
+        const r = records.get(s.code);
+        if (!r) return [];
         const open = r.referrals.some((x) => x.status === "active");
-        return prioritise(s, r.checks, open, app.weights, now, latestLabResult(r));
+        return [prioritise(s, r.checks, open, app.weights, now, latestLabResult(r))];
       })
       .sort((a, b) => b.score - a.score);
   }, [records, sites, app.weights]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -140,8 +142,8 @@ export function Board({ cityId }: { cityId: string }) {
           {!records && !error && <p className="muted">Loading records from {app.store.label}…</p>}
           <ol className="rank">
             {ranked.slice(0, 12).map((p, i) => {
-              const r = records!.get(p.site.code)!;
-              const latest = r.checks[0];
+              const r = records?.get(p.site.code);
+              const latest = r?.checks[0];
               return (
                 <li key={p.site.code} ref={(el) => { rows.current[p.site.code] = el; }}>
                   <button
@@ -159,7 +161,7 @@ export function Board({ cityId }: { cityId: string }) {
                       <span className="badges">
                         {latest && daysBetween(latest.authored, now) <= 14 && <span className={`badge ${latest.status === "final" ? "b-ok" : "b-warn"}`}>{latest.status === "final" ? "verified report" : "new report"}</span>}
                         {p.openReferral && <span className="badge b-info">lab visit requested</span>}
-                        {r.labResults.length > 0 && <span className="badge b-muted">lab result in</span>}
+                        {(r?.labResults.length ?? 0) > 0 && <span className="badge b-muted">lab result in</span>}
                       </span>
                     </span>
                     <span className="rank-score" aria-label={`priority ${Math.round(p.score * 100)} out of 100`}>

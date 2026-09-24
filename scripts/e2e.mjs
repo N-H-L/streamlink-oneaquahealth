@@ -85,6 +85,17 @@ await run("desktop", { width: 1366, height: 900 }, async (page) => {
   await shot(page, "11-board-after");
   await page.goto(BASE + "#/about");
   await shot(page, "12-about");
+
+  // Every city tab must render: switching city once crashed the board (stale records).
+  for (const city of ["TO", "GH", "BE", "OS", "singapore", "CO"]) {
+    await page.goto(BASE + `#/board/${city}`);
+    await page.getByRole("heading", { name: "Needs a lab visit" }).waitFor({ timeout: 15000 });
+    await page.waitForTimeout(700);
+    const rows = await page.locator(".rank-row").count();
+    if (rows === 0) errors.push(`[desktop] no ranked rows for city ${city}`);
+  }
+  await shot(page, "13-city-oslo");
+  step("all city tabs render");
 });
 
 await run("mobile", { width: 390, height: 844 }, async (page) => {
