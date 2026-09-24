@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  html,body{margin:0;height:100%;background:#0e2a33;overflow:hidden;font-family:ui-sans-serif,system-ui,"Segoe UI",sans-serif}
+  .wrap{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;overflow:hidden}
+  img{display:block;transform-origin:top center;transition:transform .9s ease}
+  .note{position:fixed;left:0;right:0;bottom:0;background:rgba(8,22,28,.92);color:#cfe9ee;
+    font-size:15px;padding:9px 16px;text-align:center;letter-spacing:.01em}
+</style></head>
+<body>
+  <div class="wrap"><img id="shot" src="sandbox-record.png"></div>
+  <div class="note" id="note">Captured from the OneAquaHealth FHIR sandbox earlier today — their server went offline while this was being filmed.</div>
+  <script>
+    const p = new URLSearchParams(location.search);
+    const img = document.getElementById("shot");
+    const zoom = parseFloat(p.get("zoom") || "0.58");
+    const shift = parseFloat(p.get("top") || "0");
+    img.style.transform = `scale(${zoom}) translateY(${-shift}px)`;
+    if (p.get("note") === "off") document.getElementById("note").remove();
+  </script>
+</body></html>

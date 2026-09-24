@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>StreamLink on a phone</title><style>
+  html,body{margin:0;height:100%;overflow:hidden;box-sizing:border-box;background:linear-gradient(135deg,#0f5c6e,#0b3f4c 55%,#08303a);
+    font-family:ui-sans-serif,system-ui,"Segoe UI",sans-serif;display:flex;align-items:center;justify-content:center;gap:56px}
+  .blurb{color:#dff1f4;max-width:430px}
+  .blurb h1{font-size:34px;line-height:1.15;margin:0 0 14px;letter-spacing:-.02em}
+  .blurb p{font-size:19px;line-height:1.5;color:#a8ccd4;margin:0 0 10px}
+  .phone{width:390px;height:716px;border-radius:38px;background:#0b2229;padding:12px;
+    box-shadow:0 30px 70px rgba(0,0,0,.45), inset 0 0 0 2px rgba(255,255,255,.08)}
+  iframe{width:366px;height:692px;border:0;border-radius:28px;background:#f5f8f9;display:block}
+</style></head>
+<body>
+  <div class="blurb">
+    <h1>A stream check takes three minutes</h1>
+    <p>The same questions as the OneAquaHealth Citizen Science App, as pictures.</p>
+    <p>Works with no signal: the check waits on the phone and sends itself later.</p>
+  </div>
+  <div class="phone"><iframe id="app" title="StreamLink"></iframe></div>
+  <script>
+    const src = new URLSearchParams(location.search).get("src");
+    if (src) document.getElementById("app").src = decodeURIComponent(src);
+  </script>
+</body></html>

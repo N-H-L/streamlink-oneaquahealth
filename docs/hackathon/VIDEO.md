@@ -39,6 +39,19 @@ If you prefer, record each scene separately and join them in **Clipchamp** (buil
 
 ---
 
+## The finished video was assembled this way
+
+The voice-over was recorded first, then the screen was driven in time with it:
+
+```
+node scripts/align-audio.mjs "<audio file>"        # finds the pauses, times each line
+node scripts/record-demo.mjs --clean --timings out/video/timings.json
+node scripts/make-video.mjs                        # MP4 (H.264 + AAC) + .srt into Downloads
+node scripts/verify-video.mjs                      # one frame per line, for checking
+```
+
+The phone scenes are shot in a phone mock-up (`scripts/stills/phone.html`) so the recording is never letterboxed. If the OneAquaHealth sandbox is unreachable, scene 6 falls back to the capture taken while it was up, with a caption saying so.
+
 ## A reference recording exists
 
 `npm run record` drives the app through this exact script in a real browser and saves a **silent** walkthrough with the subtitles burned in and a yellow box labelling every control it clicks:
