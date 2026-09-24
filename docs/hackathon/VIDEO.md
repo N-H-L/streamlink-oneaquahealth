@@ -64,6 +64,10 @@ Watch it once before recording your own. It has no voice, no mouse pointer, and 
 
 ---
 
+## Prefer a step-by-step version?
+
+`docs/hackathon/VIDEO-GUIDE.md` has the same thing as a single numbered list: say this line, then do this click, all the way through, with the time each line falls at in the recorded voice-over. Regenerate it with `node scripts/make-guide.mjs`.
+
 ## Part 2 — How to use the script
 
 - **Left column = what you click.** Do it, then say the line.
