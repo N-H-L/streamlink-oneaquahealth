@@ -87,7 +87,7 @@ export function App() {
       </footer>
       <Tour open={tourOpen} setOpen={setTourOpen} />
       <div className="toasts" aria-live="polite">
-        {app.toasts.map((t) => <div key={t.id} className={`toast toast-${t.tone}`}>{t.text}</div>)}
+        {app.toasts.map((t) => <div key={t.id} className={`toast toast-${t.tone}${t.leaving ? " leaving" : ""}`}>{t.text}</div>)}
       </div>
     </>
   );

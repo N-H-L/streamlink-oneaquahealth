@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { freshnessLabel, latestLabResult, loadSiteRecord, type SiteRecord } from "../../core/record";
 import { explain, prioritise } from "../../core/triage";
 import { createReferral, recordSimulatedLabResult, verifyCheck } from "../../core/workflow";
 import { FhirJson } from "../components/FhirJson";
-import { SiteMap, priorityColor } from "../components/SiteMap";
+import { priorityColor } from "../components/mapColor";
+const SiteMap = lazy(() => import("../components/SiteMap").then((m) => ({ default: m.SiteMap })));
 import { siteByCode } from "../data";
 import { go, useApp } from "../state";
 
@@ -65,6 +66,7 @@ export function SiteRecordView({ code }: { code: string }) {
 
       <div className="record-grid">
         <div className="pillars">
+          {!rec && !err && Array.from({ length: 3 }, (_, i) => <div key={i} className="skeleton skeleton-card" />)}
           {(rec?.pillars ?? []).map((pl) => (
             <section key={pl.id} className={`pillar pillar-${pl.id}`} aria-labelledby={`pl-${pl.id}`}>
               <header>
@@ -85,7 +87,9 @@ export function SiteRecordView({ code }: { code: string }) {
         </div>
 
         <aside className="side">
-          <SiteMap center={[site.lat, site.lon]} zoom={15} points={[{ code: site.code, name: site.name, lat: site.lat, lon: site.lon, score: p?.score ?? null, highlight: true }]} height={200} />
+          <Suspense fallback={<div className="map skeleton" style={{ height: 200 }} />}>
+            <SiteMap center={[site.lat, site.lon]} zoom={15} points={[{ code: site.code, name: site.name, lat: site.lat, lon: site.lon, score: p?.score ?? null, highlight: true }]} height={200} />
+          </Suspense>
           {p && (
             <section className="card" aria-labelledby="prio">
               <h2 id="prio">Lab visit priority <span className="prio" style={{ background: priorityColor(p.score) }}>{Math.round(p.score * 100)}</span></h2>

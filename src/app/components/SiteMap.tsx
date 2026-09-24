@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { priorityColor } from "./mapColor";
 
 export interface MapPoint {
   code: string;
@@ -12,13 +13,7 @@ export interface MapPoint {
   label?: string;
 }
 
-export function priorityColor(score: number | null): string {
-  if (score === null) return "#8a99a6";
-  if (score >= 0.6) return "#c0392b";
-  if (score >= 0.45) return "#e08a1e";
-  if (score >= 0.3) return "#d4b106";
-  return "#2e8b57";
-}
+export { priorityColor } from "./mapColor";
 
 export function SiteMap({ points, center, zoom = 12, onSelect, onHover, height = 380, you }: {
   points: MapPoint[];

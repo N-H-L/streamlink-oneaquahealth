@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, lazy, useEffect, useMemo, useRef, useState } from "react";
 import { latestLabResult, loadRecords, type SiteRecord } from "../../core/record";
 import { daysBetween } from "../../core/sites";
 import { DEFAULT_WEIGHTS, prioritise, type Priority, type Weights } from "../../core/triage";
-import { SiteMap, priorityColor } from "../components/SiteMap";
+import { priorityColor } from "../components/mapColor";
+const SiteMap = lazy(() => import("../components/SiteMap").then((m) => ({ default: m.SiteMap })));
 import { catalogue, cityById, sitesOf } from "../data";
 import { loadDemoScenario } from "../demo";
 import { go, useApp } from "../state";
@@ -115,6 +116,7 @@ export function Board({ cityId }: { cityId: string }) {
 
       <div className="board">
         <div className="board-map">
+          <Suspense fallback={<div className="map skeleton" style={{ height: "min(70vh, 620px)" }} />}>
           <SiteMap
             center={[city.lat, city.lon]}
             zoom={city.zoom ?? 12}
@@ -126,6 +128,7 @@ export function Board({ cityId }: { cityId: string }) {
             onHover={setHover}
             height="min(70vh, 620px)"
           />
+          </Suspense>
           <p className="legend"><span className="legend-hint">Click a dot to find it in the list</span>
             <span><i style={{ background: priorityColor(0.7) }} /> visit soon</span>
             <span><i style={{ background: priorityColor(0.5) }} /> elevated</span>
@@ -142,7 +145,11 @@ export function Board({ cityId }: { cityId: string }) {
             </button>
           </div>
           {showWeights && <WeightsPanel />}
-          {!records && !error && <p className="muted">Loading records from {app.store.label}…</p>}
+          {!records && !error && (
+            <div aria-busy="true" aria-label={`Loading records from ${app.store.label}`}>
+              {Array.from({ length: 6 }, (_, i) => <div key={i} className="skeleton skeleton-row" />)}
+            </div>
+          )}
           <ol className="rank">
             {ranked.slice(0, 12).map((p, i) => {
               const r = records?.get(p.site.code);

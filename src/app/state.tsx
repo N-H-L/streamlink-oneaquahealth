@@ -46,7 +46,11 @@ interface Toast {
   id: number;
   text: string;
   tone: "ok" | "error" | "info";
+  leaving?: boolean;
 }
+
+const TOAST_VISIBLE_MS = 5200;
+const TOAST_FADE_MS = 650;
 
 interface AppState extends Settings {
   store: FhirStore;
@@ -77,7 +81,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const toast = useCallback((text: string, tone: Toast["tone"] = "ok") => {
     const id = Date.now() + Math.random();
     setToasts((t) => [...t.slice(-2), { id, text, tone }]);
-    setTimeout(() => setToasts((t) => t.filter((x) => x.id !== id)), 5000);
+    // Mark it leaving first so it can fade out, then drop it once the animation is done.
+    setTimeout(() => setToasts((t) => t.map((x) => (x.id === id ? { ...x, leaving: true } : x))), TOAST_VISIBLE_MS);
+    setTimeout(() => setToasts((t) => t.filter((x) => x.id !== id)), TOAST_VISIBLE_MS + TOAST_FADE_MS);
   }, []);
 
   const value = useMemo<AppState>(() => ({
