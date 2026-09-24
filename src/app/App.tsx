@@ -56,8 +56,22 @@ export function App() {
         </nav>
         <div className="top-right">
           <div className="role" role="group" aria-label="View as">
-            <button aria-pressed={app.role === "volunteer"} onClick={() => app.update({ role: "volunteer" })}>Volunteer</button>
-            <button aria-pressed={app.role === "coordinator"} onClick={() => app.update({ role: "coordinator" })}>Coordinator</button>
+            <button
+              aria-pressed={app.role === "volunteer"}
+              title="Check streams and see what your reports led to"
+              onClick={() => {
+                app.update({ role: "volunteer" });
+                app.toast("Volunteer view: you can check a stream and see what your reports led to. Verifying and requesting lab visits is hidden.", "info");
+              }}
+            >Volunteer</button>
+            <button
+              aria-pressed={app.role === "coordinator"}
+              title="Verify reports and request lab visits"
+              onClick={() => {
+                app.update({ role: "coordinator" });
+                app.toast("Coordinator view: you can verify a volunteer's report, request a lab visit and record its result.", "info");
+              }}
+            >Coordinator</button>
           </div>
           <button className="tour-btn" onClick={() => setTourOpen(!tourOpen)} aria-expanded={tourOpen}>{tourOpen ? "Hide tour" : "2-minute tour"}</button>
           <button className={`store-pill ${app.mode}`} onClick={() => go("/settings")} title="Where records are stored">

@@ -101,6 +101,9 @@ export function Board({ cityId }: { cityId: string }) {
         </div>
       </section>
 
+      {app.role === "volunteer" && (
+        <p className="notice">This is the city's view of where a lab team should go next. As a volunteer you mainly use <b>Check a stream</b> and <b>Messages</b>.</p>
+      )}
       {city.note && <p className="notice">{city.note}</p>}
       {records && !anyChecks && app.store.kind === "local" && city.id === "CO" && (
         <div className="notice notice-action">

@@ -189,6 +189,13 @@ input[type="range"] { width: 100%; accent-color: var(--brand); }
 .tl-when { color: var(--muted); font-family: var(--mono); font-size: .82rem; padding-top: 2px; }
 .tl-detail { display: block; }
 
+.steps { list-style: none; counter-reset: step; padding: 0; margin: 0 0 10px; display: flex; flex-direction: column; gap: 8px; }
+.steps li { counter-increment: step; position: relative; padding-left: 34px; font-size: .92rem; color: var(--ink-2); }
+.steps li::before { content: counter(step); position: absolute; left: 0; top: -1px; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--line); color: var(--muted); font-size: .8rem; font-weight: 700; display: grid; place-items: center; }
+.steps li.done { color: var(--ink); }
+.steps li.done::before { content: "✓"; background: var(--ok-soft); border-color: #b9dcc6; color: var(--ok); }
+
 /* fhir viewer */
 .fhir { margin-top: 12px; }
 .fhir-toggle { width: 100%; text-align: left; background: #0e2a33; color: #d9f0f3; border: 0; border-radius: 10px; padding: 10px 14px; font-weight: 600; }

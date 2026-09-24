@@ -140,7 +140,18 @@ export function SiteRecordView({ code }: { code: string }) {
               )}
             </section>
           )}
-          {!coordinator && <p className="muted small">Switch to the coordinator view (top right) to verify checks and request lab visits.</p>}
+          {rec && !coordinator && (
+            <section className="card" aria-labelledby="next">
+              <h2 id="next">What happens to a report</h2>
+              <ol className="steps">
+                <li className={latest ? "done" : ""}>A volunteer checks the stream{latest ? ` · ${new Date(latest.authored).toISOString().slice(0, 10)}` : ""}</li>
+                <li className={latest?.status === "final" ? "done" : ""}>An expert verifies it{latest?.status === "final" ? " · done" : latest ? " · waiting" : ""}</li>
+                <li className={rec.referrals.length ? "done" : ""}>The city decides whether to send a lab team{rec.referrals.length ? " · requested" : ""}</li>
+                <li className={rec.labResults.length ? "done" : ""}>The lab reports back, and you are told{rec.labResults.length ? " · you have a message" : ""}</li>
+              </ol>
+              <p className="muted small">Verifying and requesting lab visits belong to the city team, so those buttons are hidden here. Switch to <b>Coordinator</b> (top right) to see them.</p>
+            </section>
+          )}
         </aside>
       </div>
 
