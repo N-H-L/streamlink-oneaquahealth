@@ -12,3 +12,13 @@ thumbnail, so upload them in this order. Suggested captions:
 
 Recapture with `node out/checks/shots.mjs` (the script is in `out/`, which is not committed; it drives
 the deployed site with playwright-core).
+
+## Thumbnail
+
+Two versions, 2400x1350 (Devpost wants 16:9, at least 1200x675). Pick one and upload it first, so it
+becomes the card image; the four screenshots follow it.
+
+- `thumbnail-b.png` shows the product, which is usually the better card in a gallery of competitors.
+- `thumbnail-a.png` is type only, and stays readable when the card is shown small.
+
+Rebuild either with `node out/thumb/render.mjs a b` (sources in `out/thumb/`, not committed).
