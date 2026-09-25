@@ -15,10 +15,18 @@ the deployed site with playwright-core).
 
 ## Thumbnail
 
-Two versions, 2400x1350 (Devpost wants 16:9, at least 1200x675). Pick one and upload it first, so it
-becomes the card image; the four screenshots follow it.
+Five to choose from, all 2400x1350 (Devpost wants 16:9, at least 1200x675). Upload the one you pick
+first, so it becomes the card image; the four screenshots follow it.
 
-- `thumbnail-b.png` shows the product, which is usually the better card in a gallery of competitors.
-- `thumbnail-a.png` is type only, and stays readable when the card is shown small.
+Logo only, set in Outfit, with "Stream" solid and "Link" light:
 
-Rebuild either with `node out/thumb/render.mjs a b` (sources in `out/thumb/`, not committed).
+- `thumbnail-l3.png` mark-free wordmark on deep teal, with the stream motif along the bottom. Biggest, reads at any size.
+- `thumbnail-l1.png` app icon above the wordmark, tagline under a short rule. The most conventional lockup.
+- `thumbnail-l2.png` the same lockup on a light background, wordmark and icon side by side over a wave.
+
+With the product in shot:
+
+- `thumbnail-b.png` headline left, the board in a browser frame right.
+- `thumbnail-a.png` headline and the three numbers, no screenshot.
+
+Rebuild any with `node out/thumb/render.mjs l1 l2 l3 a b` (sources in `out/thumb/`, not committed).
