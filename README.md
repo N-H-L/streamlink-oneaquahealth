@@ -83,7 +83,7 @@ Volunteers are pseudonymous: a random code, with no name, e-mail or device ident
   2. The FHIR sandbox answers browser preflight requests with two conflicting `Access-Control-Allow-Origin` headers, so no browser app can reach it from another origin. Server-side clients are fine; we proxy it in development and say so in the UI.
   3. The sandbox caches search results, so a search right after a write can return the pre-write state. We send `Cache-Control: no-cache`.
 - **No biological indicator** (macroinvertebrates, diatoms), because the OneAquaHealth citizen form has none: it collects habitat, water appearance, banks and an overall rating (field protocols: doi.org/10.5281/zenodo.20344421). Those indicators come from the professional protocol and the lab, which is exactly what a referral asks for.
-- Built during the hackathon period (first commit 2026-09-23 SGT), with AI assistance (Claude Code); the commit history is intact.
+- Claude Code was used in the making of this project.
 
 ## Credits and licence
 
