@@ -25,28 +25,29 @@ One shared record per urban stream. Maps say where to look first, volunteers rep
 
 ## Box: About the project (the long description)
 
-Devpost splits this into headed sections. Paste the whole thing; the headings are already there.
+Devpost prefills this field with its own headings, which say "we". You are solo, so they are singular
+below. The headings are ordinary editable text, so paste the whole block over what is there.
 
 ```
 ## Inspiration
 
-I went into the OneAquaHealth Resilience Map expecting a stream of recent water data and found the opposite. All 96 monitored sites have exactly one lab health-risk campaign on record, and 95 of those campaigns are from 2023. Lab work is expensive, so that is not anyone's fault, it is just how the budget works out.
+I opened the OneAquaHealth Resilience Map expecting recent water data and found the opposite. All 96 monitored sites have exactly one lab health-risk campaign on record, and 95 of those campaigns are from 2023. That is nobody's failing. Lab work is expensive, so campaigns are rare by necessity.
 
-The trouble is that the things which actually make an urban stream dangerous do not wait for the next campaign. A sewage misconnection, a pipe discharging into the channel, a spill upstream: these happen in between, and they are visible to anyone walking past. OneAquaHealth already has volunteers doing exactly that walk, through its Citizen Science App. But their reports sit in a separate place. No health or environmental system can read them, nobody knows how far to trust any one of them, and in practice nothing follows from making one.
+The trouble is that what actually makes an urban stream dangerous does not wait for the next campaign. A sewage misconnection, a pipe discharging into the channel, a spill upstream. These happen in between, and they are visible to anyone walking past. OneAquaHealth already has volunteers doing exactly that walk, through its Citizen Science App. But their reports sit somewhere separate. No health or environmental system can read them, nobody knows how far to trust any one of them, and in practice nothing follows from filing one.
 
-So the gap I wanted to close was not "collect more citizen data". It was: make a citizen report into something a city can act on, and make it count as a health record while it is at it.
+So the gap I wanted to close was not "collect more citizen data". It was to turn a citizen report into something a city can act on, and have it count as a health record while it is at it.
 
 ## What it does
 
 Every stream gets one living record that citizens, experts, the city and the lab all share.
 
-A volunteer does a stream check on their phone. It is the OneAquaHealth citizen app's own question set, asked as pictures, and it takes about three minutes. It works with no signal, which matters when you are standing on a riverbank. The check is stored as FHIR straight away, with status "preliminary".
+A volunteer does a stream check on their phone. It is the OneAquaHealth citizen app's own question set, asked as pictures, and it takes about three minutes. It works with no signal, which matters when you are standing on a riverbank. The check is stored as FHIR immediately, with status "preliminary".
 
-Before it is sent, the app runs eight plain-language consistency checks against the answers. If you rated the water as good and also reported a sewage smell, it says so, in those words, and you either fix it or confirm you meant it. The resulting trust score and every individual flag are stored in a FHIR Provenance resource, so the reasoning travels with the data instead of being a filter somewhere behind the scenes.
+Before it sends, the app runs eight plain-language consistency checks over the answers. If you rated the water as good and also reported a sewage smell, it says so in those words, and you either fix it or confirm you meant it. The trust score and every individual flag are stored in a FHIR Provenance resource, so the reasoning travels with the data instead of sitting in a filter somewhere behind the scenes.
 
-An expert then verifies the check. This is the part I think is the most interesting. OneAquaHealth's own indicator profile fixes status to "final", which means an unverified citizen observation cannot conform to it, by construction. So citizen checks get their own profile at "preliminary", and verification is what promotes them: the observations become final and pick up the official OAH profile alongside ours. Unverified crowd data can never quietly pass itself off as project data.
+An expert then verifies the check, and this is the part I find most interesting. OneAquaHealth's own indicator profile fixes status to "final", which means an unverified citizen observation cannot conform to it, by construction. So citizen checks get their own profile at "preliminary", and verification is what promotes them: the observations become final and pick up the official OAH profile alongside ours. Unverified crowd data can never quietly pass itself off as project data.
 
-The city then sees which streams need a lab visit, ranked by four things: fresh reports weighted by trust, the last lab result, map context, and how old the lab data is. Every weight is on screen and adjustable, and every ranking comes with a sentence saying why that stream is where it is. Requesting a visit creates a FHIR ServiceRequest that carries those reasons with it.
+The city then sees which streams need a lab visit, ranked on four things: fresh reports weighted by trust, the last lab result, map context, and how old the lab data is. Every weight is on screen and adjustable, and every ranking comes with a sentence saying why that stream sits where it does. Requesting a visit creates a FHIR ServiceRequest that carries those reasons with it.
 
 When the lab reports back, the request closes, the result settles the reports that triggered it, and the volunteer gets a message saying their report led to a lab visit. That last step is small and it is the whole point. It is the reason someone files a second report.
 
@@ -62,15 +63,15 @@ For map context I rebuilt OneAquaHealth's features from OpenStreetMap so they wo
 
 ## Challenges I ran into
 
-The indicator profile fixing status to "final" looked like a blocker for about an hour, and then turned out to be the most interesting thing in the whole project. It is the standard correctly refusing to let unreviewed data in. Working out that verification should be the promotion step, rather than trying to bend the profile, is the design decision I would most want a judge to look at.
+The indicator profile fixing status to "final" looked like a blocker for about an hour, then turned out to be the most interesting thing in the project. It is the standard correctly refusing to let unreviewed data in. Working out that verification should be the promotion step, rather than trying to bend the profile, is the design decision I would most want a judge to look at.
 
-The map model was humbling. My first version used three features and scored a pooled held-out AUROC of 0.33, which is worse than guessing. A later variant looked excellent at 0.72 until I found that the number came from pooling raw feature values across folds that were not comparable. Scored properly it was 0.32. What actually survived was a single feature, distance to the nearest wastewater plant, ranking streams within one city at a Spearman of 0.22. That is a weak signal. It is on the About page described as weak, and the failed model is kept in the model card as a documented negative result. Shipping 0.22 instead of the 0.72 that was not real is the decision I am most pleased with.
+The map model was humbling. My first version used three features and scored a pooled held-out AUROC of 0.33, which is worse than guessing. A later variant looked excellent at 0.72 until I found the number came from pooling raw feature values across folds that were not comparable. Scored properly it was 0.32. What survived was a single feature, distance to the nearest wastewater plant, ranking streams within one city at a Spearman of 0.22. That is a weak signal. It is described as weak on the About page, and the failed model is kept in the model card as a documented negative result. Shipping 0.22 instead of a 0.72 that was not real is the decision I am most pleased with.
 
 The HL7 Europe sandbox gave me two genuine defects to report, and then went offline in the middle of production. I had already run the full lifecycle on it, 34 resources written and read back, so the recording of that segment is real footage from when the server was up, captioned to say so. I would rather caption it than re-shoot something that never happened.
 
 ## Accomplishments that I'm proud of
 
-Running the complete lifecycle on the official OneAquaHealth sandbox rather than a mock: check, verification, lab request, result, volunteer message, all of it, written to their server and read back, with the verified observations coming back carrying both profiles.
+Running the complete lifecycle on the official OneAquaHealth sandbox rather than a mock. Check, verification, lab request, result, volunteer message, all of it written to their server and read back, with the verified observations coming back carrying both profiles.
 
 The negative tests. It is easy to say "FHIR validated" and mean nothing by it. Five records that must fail, and do, is the difference.
 
@@ -78,15 +79,15 @@ And the honest numbers. There is no usability study, so the submission says ther
 
 ## What I learned
 
-That most of the work in a standards project is not writing resources, it is reading someone else's profile carefully enough to understand why it says no.
+That most of the work in a standards project is not writing resources. It is reading someone else's profile carefully enough to understand why it says no.
 
 And that an evaluation which flatters you is worth less than one that does not. I caught the 0.72 result because the leave-one-city-out design was decided before I looked at any numbers. If I had tuned first and evaluated after, I would have shipped something broken and never known.
 
-## What's next
+## What's next for StreamLink
 
 Authentication is the honest blocker for real use. The coordinator and volunteer views are a UI role right now, not a security boundary, and a city would need SMART-on-FHIR or equivalent before this touches anything real. After that: photo storage, moderation and duplicate handling once there is volume, and a pilot with one city's coordinator to find out whether the ranking matches what they would have chosen anyway.
 
-The IG extension is written to be given away. If OneAquaHealth wants a citizen-check model in their Implementation Guide, it is sitting in the repository under fhir/, and the two sandbox defects and the Ghent data problem are written up for them.
+The IG extension is written to be given away. If OneAquaHealth wants a citizen-check model in their Implementation Guide it is sitting in the repository under fhir/, and the two sandbox defects and the Ghent data problem are written up for them.
 ```
 
 ---
@@ -149,24 +150,27 @@ Check the preview loads on the page after you paste it. It should show the title
 
 ## Box: Image gallery
 
-Upload from `docs/submission-images/` in this order. The first one becomes the thumbnail.
+Upload from `docs/submission-images/` in this order. Devpost uses the first image as the card,
+so the thumbnail goes first.
 
-1. `01-board.png` 
+1. Your chosen thumbnail (`thumbnail-l3.png`, or whichever of the five you prefer). No caption needed.
+
+2. `01-board.png` 
 ```
 The city board. 1,186 days since the lab last visited a typical Coimbra stream. "Act on this next" names one stream and says why.
 ```
 
-2. `02-record.png`
+3. `02-record.png`
 ```
 One stream's shared record, covering the stream itself, animals and disease vectors, and people, with the four ranking factors and the reason behind each one.
 ```
 
-3. `03-validation.png`
+4. `03-validation.png`
 ```
 Every record type the app writes, checked by the official HL7 validator against the OneAquaHealth IG. Zero errors, and 5 out of 5 deliberately broken records rejected.
 ```
 
-4. `04-check-phone.png`
+5. `04-check-phone.png`
 ```
 The volunteer check on a phone. The OneAquaHealth citizen app's own questions, asked as pictures, and it works offline.
 ```
