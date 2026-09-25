@@ -151,7 +151,7 @@ Check the preview loads on the page after you paste it. It should show the title
 ## Box: Image gallery
 
 Upload from `docs/submission-images/` in this order. Devpost uses the first image as the card,
-so the thumbnail goes first.
+so the thumbnail goes first. Every file is already 3:2 and well under the 5 MB limit.
 
 1. Your chosen thumbnail (`thumbnail-l3.png`, or whichever of the five you prefer). No caption needed.
 
@@ -170,7 +170,7 @@ One stream's shared record, covering the stream itself, animals and disease vect
 Every record type the app writes, checked by the official HL7 validator against the OneAquaHealth IG. Zero errors, and 5 out of 5 deliberately broken records rejected.
 ```
 
-5. `04-check-phone.png`
+5. `04-check-phone-card.png`
 ```
 The volunteer check on a phone. The OneAquaHealth citizen app's own questions, asked as pictures, and it works offline.
 ```

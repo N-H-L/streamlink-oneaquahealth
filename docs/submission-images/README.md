@@ -1,32 +1,38 @@
 # Submission images
 
-Captured from the live demo on 2026-09-25 at 2× (phone at 3×). Devpost shows the first image as the
-thumbnail, so upload them in this order. Suggested captions:
+All 3:2, which is the ratio Devpost asks for, and all well under its 5 MB limit. Captured from the
+live demo on 2026-09-25. The narrative log is `../hackathon/EVIDENCE.md`; the paste-ready captions
+are in `../hackathon/PASTE.md`.
 
-| File | Caption to paste |
-|---|---|
-| `01-board.png` | The city board: 1,186 days since the lab last visited a typical Coimbra stream. "Act on this next" names one stream and says why. |
-| `02-record.png` | One stream's shared record — stream, animals and people — with the four ranking factors and the reason for each. |
-| `03-validation.png` | Every record type the app writes, checked by the official HL7 validator against the OneAquaHealth IG: 0 errors, and 5/5 deliberately broken records rejected. |
-| `04-check-phone.png` | The volunteer check on a phone: the OneAquaHealth citizen app's own questions, as pictures, offline if needed. |
+## Upload order
 
-Recapture with `node out/checks/shots.mjs` (the script is in `out/`, which is not committed; it drives
-the deployed site with playwright-core).
+Devpost uses the first image as the card, so the thumbnail goes first.
+
+1. A thumbnail (see below)
+2. `01-board.png` 2700x1800
+3. `02-record.png` 2700x1800
+4. `03-validation.png` 2700x1800
+5. `04-check-phone-card.png` 2400x1600
+
+`04-check-phone.png` is the raw portrait screenshot. It is the source for the card above and is not
+meant to be uploaded on its own, since a tall image sits badly in a 3:2 gallery.
 
 ## Thumbnail
 
-Five to choose from, all 2400x1350 (Devpost wants 16:9, at least 1200x675). Upload the one you pick
-first, so it becomes the card image; the four screenshots follow it.
+Five to choose from, all 2400x1600. Logo only, set in Outfit, with "Stream" solid and "Link" light:
 
-Logo only, set in Outfit, with "Stream" solid and "Link" light:
-
-- `thumbnail-l3.png` mark-free wordmark on deep teal, with the stream motif along the bottom. Biggest, reads at any size.
+- `thumbnail-l3.png` wordmark alone on deep teal, stream motif along the bottom. Biggest, reads at any size.
 - `thumbnail-l1.png` app icon above the wordmark, tagline under a short rule. The most conventional lockup.
-- `thumbnail-l2.png` the same lockup on a light background, wordmark and icon side by side over a wave.
+- `thumbnail-l2.png` the same on a light background, icon and wordmark side by side over a wave.
 
 With the product in shot:
 
 - `thumbnail-b.png` headline left, the board in a browser frame right.
 - `thumbnail-a.png` headline and the three numbers, no screenshot.
 
-Rebuild any with `node out/thumb/render.mjs l1 l2 l3 a b` (sources in `out/thumb/`, not committed).
+## Rebuilding
+
+- Screenshots: `node out/checks/shots.mjs` (drives the deployed site at a 1350x900 viewport, 2x).
+- Thumbnails and the phone card: `node out/thumb/render.mjs l1 l2 l3 a b phone` (sources in `out/thumb/`).
+
+Neither script is committed, because `out/` is not.
