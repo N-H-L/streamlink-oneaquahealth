@@ -80,7 +80,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const refresh = useCallback(() => setVersion((v) => v + 1), []);
   const toast = useCallback((text: string, tone: Toast["tone"] = "ok") => {
     const id = Date.now() + Math.random();
-    setToasts((t) => [...t.slice(-2), { id, text, tone }]);
+    // At most two on screen at once: a taller stack covers the panel behind it.
+    setToasts((t) => [...t.slice(-1), { id, text, tone }]);
     // Mark it leaving first so it can fade out, then drop it once the animation is done.
     setTimeout(() => setToasts((t) => t.map((x) => (x.id === id ? { ...x, leaving: true } : x))), TOAST_VISIBLE_MS);
     setTimeout(() => setToasts((t) => t.filter((x) => x.id !== id)), TOAST_VISIBLE_MS + TOAST_FADE_MS);
