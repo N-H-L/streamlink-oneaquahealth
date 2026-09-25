@@ -1,60 +1,67 @@
 # State / Handoff
 
-Updated: 2026-09-23 ~02:00 SGT
-Deadline: Sep 30 21:00 PDT = **Thu Oct 1 12:00 SGT**. Internal target: submit by Wed Sep 30, 20:00 SGT.
-Stage: **Build (Prompt 2).** PLAN.md Rev 4 approved on 2026-09-23. Product contract: CONTRACT.md. FHIR contract: docs/SPEC-fhir.md. The user confirmed eligibility on 2026-09-23.
+Updated: 2026-09-25 ~21:40 SGT
+Deadline: Sep 30 21:00 PDT = **Thu Oct 1 12:00 SGT**. Internal target: submit Wed Sep 30, 20:00 SGT. About **5 days left**.
+Stage: **Finishing and submission (Prompt 3).** Rules re-checked on 2026-09-25 from the official Devpost rules and updates pages: unchanged. The newest organizer post concerns the Discussion board and Slack, not the requirements.
 
-## Working (verified)
-- Core engine in `src/core/`:
-  - FHIR builders, trust rules, LocalStore/RemoteStore, per-site record, triage, lifecycle workflow.
-  - `npm test`: 10/10 pass.
-- App in `src/app/`:
-  - board, check-in wizard (4 steps + trust review), stream record (verify → referral → simulated result → citizen message), messages, about, settings, demo scenario.
-  - `npm run build` OK.
-- E2E: `npm run dev`, then `node scripts/e2e.mjs`, walks the full journey in headless Edge. Passed, 0 console errors; screenshots in out/e2e/.
-- Validation fixtures: `npx tsx scripts/gen-bundles.ts` → out/bundles (4) + out/resources (34).
+## Status: the project is submittable now
 
-## Done since
-- FHIR IG extension (`fhir/`): 9 profiles, 2 extensions, code systems, value sets, Questionnaire, ConceptMap, 19 examples, 5 negative tests. SUSHI 0 errors.
-- **HL7 validator PASS** offline and against tx.fhir.org: 0 errors on IG artefacts, on the 12 transactions the app's own code produces, and on all stored resources after a full lifecycle; 5/5 negative tests rejected. `npm run validate`; summary published to data/validation-summary.json and shown on the About screen.
-- Accessibility: axe-core, 0 violations on 6 screens (`npm run a11y`).
-- Offline/PWA: manifest, service worker with precache; `npm run offline` proves the built app loads and takes a check with the network off.
-- Skeptical judge review done; its fixes applied: coarse GPS (~100 m) in stored records, README overclaims removed, sticky map linked to the ranked list, tour moved into the header.
+Everything the entry needs exists and is published. What is left is the user's own act of submitting, plus optional polish.
 
-## In progress
-- Data specialist (background agent): owns `analysis/`, `data/baseline/`, `data/cities/`. Fetching OpenStreetMap features per city (Overpass was overloaded earlier; it now queries per layer). Outputs due: model-v1.json, site-features.json, analysis/REPORT.md, data/cities/singapore.json.
-- `src/app/data.ts` auto-loads those outputs. **Check the field names against toBaseline() when they land.** Until then the app honestly shows "map context: unknown (0.5)" and the About page says the baseline is still being computed.
+- Repository (public): https://github.com/N-H-L/streamlink-oneaquahealth
+- Live demo: https://n-h-l.github.io/streamlink-oneaquahealth/
+- Demo video (4:15, playable signed-out, verified via oEmbed): https://youtu.be/ij3GwQ4N66o
+- Devpost entry: created (user confirmed 2026-09-23). **Not submitted.**
 
-## Decisions
-- Static SPA, no own backend.
-  - Default store: in-browser demo store.
-  - The live OAH sandbox is opt-in in Settings. **Not yet written to: the user has not explicitly OK'd writes.**
-- Resilience Map data is used **only as committed snapshots** (data/oah/, attributed). Never call the live API from the product; the undocumented endpoint checks Origin.
-- Map tiles: OpenStreetMap standard tiles. CARTO now needs an API key.
-- A lab result settles the reports made before it (triage).
-- Claude API spend: not needed (no paid AI in the product).
+## Verified on the deployed build (2026-09-25)
+
+Not on a dev server — against the GitHub Pages URL a judge will open, from a cleared browser state:
+- `node scripts/e2e.mjs <live url>` — full journey, all six city tabs, 0 console errors.
+- `node scripts/offline-check.mjs <live url>` — service worker takes control, board renders with the network off, a check submitted offline is kept.
+- `node scripts/a11y.mjs <live url>` — 0 axe violations on all six screens.
+- `TX=https://tx.fhir.org/r4 bash scripts/validate.sh` — PASS: 45 IG artefacts + 12 engine transactions + 34 stored resources, 0 errors; 5/5 negative tests rejected.
+- `npm test` — 25 passing.
+
+## Fixed this session (from a fresh skeptical review)
+
+- The validation summary counted the 34 stored lifecycle resources as IG artefacts, so the report never showed what the README claimed. Fixed in `scripts/fhir-summary.mjs`; the run was repeated online.
+- `out/` is gitignored, so the validation report and sandbox record the README linked to **were not in the repo**. Copied to `docs/evidence/` with a reproduction note. This also keeps the sandbox claim checkable now that the sandbox is offline.
+- README said 20 tests; there are 25. Sandbox count corrected to 34 against `out/sandbox-demo.json`, the machine record.
+- SUBMISSION.md still carried its "draft" heading and a `[SUS score]` placeholder. Finalised; there is no usability study, so it now says so.
+- At most two notifications on screen at once — three could cover the panel behind them.
+
+## Documents a judge or the user reads
+
+| File | Purpose |
+|---|---|
+| `SUBMISSION.md` | The text to paste into Devpost. Final. |
+| `CLAIMS.md` | Every claim → the feature that shows it → the evidence → what it does not cover. |
+| `JUDGE-QA.md` | Likely questions with honest answers, including the awkward ones. |
+| `OWNERSHIP.md` | For the user: the five things to know cold, the honest line on how it was built, the live demo order. |
+| `EVIDENCE.md` | Dated log of every real run. Nothing goes in here that wasn't actually observed. |
+| `docs/evidence/` | Committed copies of the result files. |
+
+## Known limits, all disclosed in the product
+
+- The OAH sandbox is offline, and independently returns two conflicting CORS headers, so no browser can reach it cross-origin. The hosted demo uses the in-browser store and Settings explains why. The video's sandbox segment is real footage from the earlier live run, captioned as such.
+- The map factor is weak by design and labelled weak: within-city Spearman 0.22.
+- Lab results in the app are simulated and tagged `simulated` in FHIR.
+- No usability study, no field trial, no authentication, no photo storage.
+
+## Fallback for a live demo
+
+1. The deployed site is first choice; it works offline, so a bad network is not a blocker.
+2. If it fails, play the video: https://youtu.be/ij3GwQ4N66o
+3. Sandbox mode cannot be shown live — the server is down. Point at `docs/evidence/sandbox-demo.json` and the screenshot instead, and say so plainly.
 
 ## Next actions
-1. Land the baseline + Singapore config; re-run e2e and update the About model card.
-2. With the user's OK: one real write to the OAH sandbox (tagged demo), then screenshot it as evidence.
-3. Deploy the static build (needs the user's GitHub/host) and put the URL in the README.
-4. Usability test (3–5 people) + Singapore field check.
-5. Demo video script and recording; Devpost submission text.
 
-## User decisions (2026-09-23)
-- **Journey approved**: check-in → flagged → verified → lab request → result → volunteer told.
-- **Do NOT email the organizers.** The Resilience Map API permission question and the Ghent data-quality finding are handed to them **in the submission itself**. Keep both in SUBMISSION.md; no outside contact before then.
-- Sandbox write / accounts: awaiting clarification (see below).
+1. **The user submits on Devpost** — paste `SUBMISSION.md`, then tick the last checklist box. Nobody else can do this.
+2. Optional, if time allows: usability test with 3–5 people; the Singapore field check in `FIELD-CHECK.md`; re-record the sandbox segment live if the server returns.
 
-## Published (2026-09-23)
-- Repo (public): https://github.com/N-H-L/streamlink-oneaquahealth
-- Live demo: https://n-h-l.github.io/streamlink-oneaquahealth/ (GitHub Pages, built by Actions; CI green)
-- Canonical FHIR identifiers now `https://n-h-l.github.io/streamlink-oneaquahealth/fhir`; re-validated PASS.
-- Sandbox: one clean lifecycle (33 resources tagged demo) on the official OAH sandbox; remove with `npm run sandbox:cleanup`.
-- **Devpost entry: done (user confirmed 2026-09-23).**
+## Standing decisions
 
-## Still needs the user
-- Which login they meant (GitHub for the public repo, or the OneAquaHealth Citizen Science App account).
-- Explicit OK to write labelled demo records to the public OAH sandbox.
-
-- Later: 3–5 usability testers + a Singapore field check.
+- Do not email the organizers. The Resilience Map API permission question and the Ghent data-quality finding go in the submission text itself.
+- Resilience Map data is used only as committed snapshots, attributed; never call their live API from the product.
+- No paid services, no AI in the product.
+- Nothing is submitted, published or sent without the user's explicit OK.
