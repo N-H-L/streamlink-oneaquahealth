@@ -104,6 +104,21 @@ judge reads it. Nothing to do here.
 
 ---
 
+## Box: Describe your contributions
+
+Solo, so there is no work to split. Fill it anyway, briefly: the README discloses AI assistance, and
+it is better for a judge to read that from you than to find it later and wonder why this box was empty.
+
+```
+Solo entry, so there is no work to divide between team members.
+
+Built with AI assistance (Claude Code), which is disclosed in the repository README. All code was written during the hackathon period. I set the direction, reviewed and approved the work as it went, decided what could honestly be claimed and what had to be labelled as simulated or unverified, and recorded the demo video.
+
+There is no AI inside the product itself. The trust rules are eight explicit consistency checks with visible weights, and the map factor is a single feature chosen by a pre-specified leave-one-city-out evaluation. Both were meant to be arguable with, which an opaque model would not be.
+```
+
+---
+
 ## Section: Additional info (for judges and organizers)
 
 Both fields are optional and neither is needed.
