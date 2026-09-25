@@ -3,7 +3,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 const md = readFileSync("out/validation/summary.md", "utf8");
 const grab = (re) => (md.match(re) ?? [])[1]?.trim() ?? null;
-const rows = [...md.matchAll(/^\| (ig|bundle|negative) \| `([^`]+)` \| (\d+) \| (\d+) \| (\d+) \| ([^|]+)\|/gm)].map((m) => ({ kind: m[1], file: m[2], errors: +m[3], warnings: +m[4], expectedOk: !m[6].includes("**") }));
+const rows = [...md.matchAll(/^\| (ig|bundle|stored|negative) \| `([^`]+)` \| (\d+) \| (\d+) \| (\d+) \| ([^|]+)\|/gm)].map((m) => ({ kind: m[1], file: m[2], errors: +m[3], warnings: +m[4], expectedOk: !m[6].includes("**") }));
 const sum = (k) => rows.filter((r) => r.kind === k);
 const out = {
   result: grab(/Result: \*\*(\w+)\*\*/),
@@ -12,6 +12,7 @@ const out = {
   terminology: grab(/Terminology: `([^`]+)`/),
   igResources: { files: sum("ig").length, errors: sum("ig").reduce((a, r) => a + r.errors, 0) },
   engineOutputs: { files: sum("bundle").length, errors: sum("bundle").reduce((a, r) => a + r.errors, 0) },
+  storedResources: { files: sum("stored").length, errors: sum("stored").reduce((a, r) => a + r.errors, 0) },
   negativeTests: { files: sum("negative").length, failedAsExpected: sum("negative").filter((r) => r.errors > 0).length },
 };
 mkdirSync("data", { recursive: true });

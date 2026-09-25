@@ -1,4 +1,6 @@
-# Devpost submission text (draft — fill the bracketed items before submitting)
+# Devpost submission text
+
+Final. Paste these sections into the matching Devpost fields; the links at the bottom are live.
 
 **Track alignment (required field):** Track 7 — Digital Health Standards. StreamLink models OneAquaHealth citizen stream checks in HL7 FHIR, conforming to the project's own Implementation Guide, and uses standard FHIR workflow resources (ServiceRequest → result → Communication) to turn those reports into a lab visit and back into feedback for the volunteer. It also serves Track 1 (a 3-minute picture-based check), Track 2 (the city board) and Track 3 (explainable, human-in-the-loop trust checks), but it is submitted under Track 7.
 
@@ -22,9 +24,9 @@ The record carries all three pillars for each stream and shows how old each one 
 
 ## Technical
 - **Standards.** A proposed extension to the OneAquaHealth IG (`fhir/`): Questionnaire, 9 profiles, 2 extensions, code systems, value sets, a ConceptMap onto OAH indicator codes, 19 examples and 5 negative tests. The OAH indicator profile fixes `status = final`, which is exactly why citizen data needs the preliminary→verified promotion we added.
-- **Proof.** The official HL7 validator runs in the build against the OAH IG plus ours: **0 errors** on the IG artefacts, on the 12 transactions the app's own code produces, and on every resource stored after a full lifecycle; 5/5 deliberately broken records are rejected. Verified offline and against tx.fhir.org.
-- **Architecture.** A static web app with no back end of ours: the FHIR server *is* the database. We ran the complete lifecycle on the **official OneAquaHealth sandbox** — 28 records, all tagged `demo`, written and read back — so a city could point it at their own server. Operating cost is effectively zero.
-- **Evidence.** 25 tests including the whole lifecycle and both stores; an automated browser walkthrough; axe accessibility audit with 0 violations on six screens; an offline test that loads the installed app and takes a check with the network off. [SUS score]
+- **Proof.** The official HL7 validator runs in the build against the OAH IG plus ours: **0 errors** on 45 IG artefacts, on the 12 transactions the app's own code produces, and on the 34 resources as stored after a full lifecycle; 5/5 deliberately broken records are rejected. Run against tx.fhir.org, so UCUM units are checked too. The full per-file report is committed at `docs/evidence/validation-summary.md`.
+- **Architecture.** A static web app with no back end of ours: the FHIR server *is* the database. We ran the complete lifecycle on the **official OneAquaHealth sandbox** — 34 records, all tagged `demo`, written and read back — so a city could point it at their own server. The resource ids are committed at `docs/evidence/sandbox-demo.json`; note that the sandbox has since gone offline, and independently its duplicated CORS headers stop any browser reaching it cross-origin, so the hosted demo uses an in-browser store and says so. Operating cost is effectively zero.
+- **Evidence.** 25 tests including the whole lifecycle and both stores; an automated browser walkthrough; axe accessibility audit with 0 violations on six screens; an offline test that loads the installed app and takes a check with the network off. All four were re-run on 25 September against the deployed GitHub Pages build, not just locally. No usability study with external participants was run, so there is no SUS score to quote.
 - **Calibration, with its limits measured.** We rebuilt OneAquaHealth's map context from OpenStreetMap so it works in any city, and tested it against their lab data with a pre-specified design, leaving one city out at a time. One signal survived: within a city, streams closer to a wastewater plant do rank higher for lab-measured risk (Spearman 0.22, permutation p = 0.03). Comparing cities is not supported, and the three-feature model we started with did worse than chance on a held-out city, so we did not ship it. The score says where to look first; citizens and the lab do the rest. We also found a data-quality problem worth reporting back: 13 of 17 Ghent lab sites have `urbanPct2000m = 0` in the Resilience Map.
 
 ## Honest limits
@@ -43,14 +45,15 @@ The record carries all three pillars for each stream and shows how old each one 
 - Repository: https://github.com/N-H-L/streamlink-oneaquahealth
 - Live demo: https://n-h-l.github.io/streamlink-oneaquahealth/
 - Demo video (3–5 min): https://youtu.be/ij3GwQ4N66o
-- Validation report: `out/validation/summary.md` in the repo, reproduce with `npm run validate`
+- Validation report: `docs/evidence/validation-summary.md`, reproduce with `npm run validate`
+- Claim-by-claim evidence table: `docs/hackathon/CLAIMS.md`
 
 ## Built with
 TypeScript, React, Vite, Leaflet/OpenStreetMap, HL7 FHIR R4, FSH/SUSHI, the official HL7 validator, Python (analysis), Playwright + axe-core (testing). Built with AI assistance (Claude Code) during the hackathon period.
 
 ## Submission checklist
 - [x] Track alignment stated
-- [ ] Description covers problem, solution, users, impact
+- [x] Description covers problem, solution, users, impact
 - [x] Demo video 3–5 min, link works when signed out (checked via oEmbed, 2026-09-25)
 - [x] Public repository with README and licence
 - [x] Working prototype link

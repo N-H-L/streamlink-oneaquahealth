@@ -98,7 +98,7 @@ export function About() {
         <div className={`proof ${validation.result === "PASS" ? "pass" : "fail"}`}>
           <b>{validation.result === "PASS" ? "✓ Validation passed" : "Validation failed"}</b>: {validation.validator}, against the OAH IG + StreamLink IG
           <ul>
-            <li>{validation.igResources.files + validation.engineOutputs.files} files, <b>{validation.igResources.errors + validation.engineOutputs.errors} errors</b>: IG definitions and examples, 12 transactions produced by this app's own code (check-in, verification, referral, lab result), and every resource stored after a full lifecycle</li>
+            <li>{validation.igResources.files} IG definitions and examples, {validation.engineOutputs.files} transactions produced by this app's own code (check-in, verification, referral, lab result) and {validation.storedResources?.files ?? 0} resources as stored after a full lifecycle: <b>{validation.igResources.errors + validation.engineOutputs.errors + (validation.storedResources?.errors ?? 0)} errors</b></li>
             <li>Negative tests: {validation.negativeTests.failedAsExpected}/{validation.negativeTests.files} deliberately broken records rejected, as expected</li>
             <li className="muted small">Run {String(validation.generated).slice(0, 16).replace("T", " ")} UTC · terminology {validation.terminology} · reproduce with <span className="code">npm run validate</span></li>
           </ul>

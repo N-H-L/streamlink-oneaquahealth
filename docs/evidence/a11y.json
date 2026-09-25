@@ -1,0 +1,31 @@
+{
+  "tool": "axe-core 4 (WCAG 2.1 A/AA rules)",
+  "generated": "2026-09-25T13:23:53.580Z",
+  "totalViolations": 0,
+  "results": [
+    {
+      "page": "board",
+      "violations": []
+    },
+    {
+      "page": "check",
+      "violations": []
+    },
+    {
+      "page": "record",
+      "violations": []
+    },
+    {
+      "page": "inbox",
+      "violations": []
+    },
+    {
+      "page": "about",
+      "violations": []
+    },
+    {
+      "page": "settings",
+      "violations": []
+    }
+  ]
+}
