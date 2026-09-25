@@ -2,7 +2,7 @@
 
 Final. Paste these sections into the matching Devpost fields; the links at the bottom are live.
 
-**Track alignment (required field):** Track 7 — Digital Health Standards. StreamLink models OneAquaHealth citizen stream checks in HL7 FHIR, conforming to the project's own Implementation Guide, and uses standard FHIR workflow resources (ServiceRequest → result → Communication) to turn those reports into a lab visit and back into feedback for the volunteer. It also serves Track 1 (a 3-minute picture-based check), Track 2 (the city board) and Track 3 (explainable, human-in-the-loop trust checks), but it is submitted under Track 7.
+**Track alignment** (the form has no track field, so this is the first line of the description): Track 7 — Digital Health Standards. StreamLink models OneAquaHealth citizen stream checks in HL7 FHIR, conforming to the project's own Implementation Guide, and uses standard FHIR workflow resources (ServiceRequest → result → Communication) to turn those reports into a lab visit and back into feedback for the volunteer. It also serves Track 1 (a 3-minute picture-based check), Track 2 (the city board) and Track 3 (explainable, human-in-the-loop trust checks), but it is submitted under Track 7.
 
 ## Elevator pitch (one line)
 A shared One Health record for every urban stream: maps say where to look first, volunteers report what maps and rare lab visits miss, and the lab confirms — all in OneAquaHealth's own FHIR standard.

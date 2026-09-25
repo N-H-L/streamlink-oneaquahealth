@@ -28,7 +28,12 @@ One shared record per urban stream. Maps say where to look first, volunteers rep
 Devpost prefills this field with its own headings, which say "we". You are solo, so they are singular
 below. The headings are ordinary editable text, so paste the whole block over what is there.
 
+The form has no track field, and the rules require the track to be stated, so it is the first line
+here. Do not drop it.
+
 ```
+**Track 7: Digital Health Standards.** StreamLink models OneAquaHealth citizen stream checks in HL7 FHIR, conforming to the project's own Implementation Guide, and uses standard FHIR workflow resources (ServiceRequest, then result, then Communication) to turn a citizen report into a lab visit and back into feedback for the volunteer. It also touches Track 1 with the three-minute picture-based check, Track 2 with the city board and Track 3 with explainable, human-in-the-loop trust checks, but it is submitted under Track 7.
+
 ## Inspiration
 
 I opened the OneAquaHealth Resilience Map expecting recent water data and found the opposite. All 96 monitored sites have exactly one lab health-risk campaign on record, and 95 of those campaigns are from 2023. That is nobody's failing. Lab work is expensive, so campaigns are rare by necessity.
@@ -92,18 +97,23 @@ The IG extension is written to be given away. If OneAquaHealth wants a citizen-c
 
 ---
 
-## Box: Track (or "Which track are you submitting under?")
+## Box: Track
 
-```
-Track 7: Digital Health Standards
-```
+There isn't one. The track is the first line of the About the project box above, which is where a
+judge reads it. Nothing to do here.
 
-If the box lets you explain, add this underneath:
+---
 
-```
-StreamLink models OneAquaHealth citizen stream checks in HL7 FHIR, conforming to the project's own Implementation Guide, and uses standard FHIR workflow resources (ServiceRequest, then result, then Communication) to turn a citizen report into a lab visit and back into feedback for the volunteer. It also touches Track 1 with the three-minute picture-based check, Track 2 with the city board, and Track 3 with explainable, human-in-the-loop trust checks, but it is submitted under Track 7.
-```
+## Section: Additional info (for judges and organizers)
 
+Both fields are optional and neither is needed.
+
+**Upload a File.** Skip it. Everything a judge might want is in the public repository, and the
+evidence files are committed at `docs/evidence/` so they survive the OAH sandbox being offline.
+
+**Sponsor / Special Prizes.** Leave blank. This hackathon has no sponsor or special prize
+categories, only the placings (Winner, Runner Up, Second Runner Up, two Special Mentions, plus IEEE
+certificates). Every valid submission is considered automatically, with nothing to opt into.
 ---
 
 ## Box: Built with (tags)
