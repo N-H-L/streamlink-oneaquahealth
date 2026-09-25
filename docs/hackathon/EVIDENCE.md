@@ -109,3 +109,11 @@ Everything below was run against `https://n-h-l.github.io/streamlink-oneaquaheal
 - `node scripts/offline-check.mjs https://n-h-l.github.io/streamlink-oneaquahealth/` — **OK**: the service worker takes control, the board still renders with the network off, and a check submitted offline is saved ("Thank you, your check is in the stream's record").
 - `node scripts/a11y.mjs https://n-h-l.github.io/streamlink-oneaquahealth/` — **0 axe-core violations** on all six screens (board, check-in, record, messages, about, settings).
 - Sandbox mode on the hosted build: the OAH sandbox is offline at the time of writing (curl returns 000) and, independently, its duplicated CORS headers stop any browser calling it from another origin. Settings says so in plain words and points to the server-side proof.
+
+## 2026-09-25 ~21:45 SGT — after the evidence corrections, re-verified live
+- `TX=https://tx.fhir.org/r4 bash scripts/validate.sh` re-run with the stored lifecycle resources included and correctly grouped: **PASS** — 45 IG artefacts (0 errors), 12 engine transactions (0 errors), 34 resources as stored (0 errors), 5/5 negative tests rejected. Report copied to `docs/evidence/validation-summary.md` so it is in the repository, which it previously was not (`out/` is gitignored).
+- `npm test`: **25 passing** in 3 files (the README had said 20).
+- `npx tsc --noEmit`: clean. `npm run build`: OK.
+- Live About page read back from the deployed site after redeploy: "45 IG definitions and examples, 12 transactions produced by this app's own code and 34 resources as stored after a full lifecycle: 0 errors · terminology -tx https://tx.fhir.org/r4". No page errors.
+- `node scripts/e2e.mjs <live url>` re-run after the notification change: OK, 0 console errors.
+- CI and Deploy workflows green on all three commits.
