@@ -7,7 +7,7 @@ Maps say where to look first. Volunteers report what maps and rare lab visits mi
 > Each of the 96 OneAquaHealth lab sites has **one** lab health-risk campaign on record, and 95 of them are from **2023**. StreamLink keeps that picture current between lab visits, and tells the city where to send the lab next.
 
 - **Live demo:** https://n-h-l.github.io/streamlink-oneaquahealth/
-- **Demo video:** _(added at submission)_
+- **Demo video:** https://youtu.be/ij3GwQ4N66o
 - **What is real and what is simulated:** see [Honesty](#honesty).
 
 ## The record lifecycle

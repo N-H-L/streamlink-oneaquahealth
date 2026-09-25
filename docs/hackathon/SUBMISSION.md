@@ -40,18 +40,18 @@ The record carries all three pillars for each stream and shows how old each one 
 4. **A gap in the IG:** there is no model for citizen checks, and `observation-indicators-oah` fixes `status = final`, so citizen data cannot conform until an expert verifies it. Our proposed extension in `fhir/` handles exactly that, and is offered back to the project.
 
 ## Links
-- Repository: [URL]
-- Live demo: [URL]
-- Demo video (3–5 min): [URL]
+- Repository: https://github.com/N-H-L/streamlink-oneaquahealth
+- Live demo: https://n-h-l.github.io/streamlink-oneaquahealth/
+- Demo video (3–5 min): https://youtu.be/ij3GwQ4N66o
 - Validation report: `out/validation/summary.md` in the repo, reproduce with `npm run validate`
 
 ## Built with
 TypeScript, React, Vite, Leaflet/OpenStreetMap, HL7 FHIR R4, FSH/SUSHI, the official HL7 validator, Python (analysis), Playwright + axe-core (testing). Built with AI assistance (Claude Code) during the hackathon period.
 
 ## Submission checklist
-- [ ] Track alignment stated
+- [x] Track alignment stated
 - [ ] Description covers problem, solution, users, impact
-- [ ] Demo video 3–5 min, link works when signed out
-- [ ] Public repository with README and licence
-- [ ] Working prototype link
+- [x] Demo video 3–5 min, link works when signed out (checked via oEmbed, 2026-09-25)
+- [x] Public repository with README and licence
+- [x] Working prototype link
 - [ ] Submitted before **Sep 30, 21:00 PDT = Oct 1, 12:00 SGT** (target: Sep 30, 20:00 SGT)
